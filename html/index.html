@@ -192,18 +192,16 @@ h1 .y{color:var(--sun);text-shadow:0 0 40px rgba(255,214,0,0.35)}
 .ht-item{display:flex;align-items:center;gap:.4rem}
 .ht-item span{color:var(--g1);font-weight:700;font-size:0.9rem}
 
-/* Hero floating cards */
-.hero-floats{position:absolute;inset:0;pointer-events:none;z-index:2}
-@media(max-width:1100px){.hero-floats{display:none}}
-.fc{position:absolute;background:rgba(255,255,255,0.04);border:1px solid rgba(0,230,118,0.18);border-radius:18px;padding:1.3rem 1.6rem;backdrop-filter:blur(20px);min-width:220px;animation:float 6s ease-in-out infinite;pointer-events:auto}
-.fc:nth-child(1){top:16%;right:4.5rem;animation-delay:0s}
-.fc:nth-child(2){top:43%;right:9rem;animation-delay:-2s}
-.fc:nth-child(3){bottom:10%;right:5.5rem;animation-delay:-4s}
-@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
-.fc-label{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g1);opacity:.8;margin-bottom:.3rem}
-.fc-val{font-size:1.75rem;font-weight:900;letter-spacing:-.03em;color:#fff}
-.fc-sub{font-size:.72rem;color:rgba(255,255,255,.4);margin-top:.2rem}
-.fc-badge{display:inline-flex;align-items:center;gap:.3rem;font-size:.72rem;font-weight:700;color:var(--g1);margin-top:.4rem}
+/* Hero 2-column layout */
+.hero-inner{display:grid;grid-template-columns:1.1fr 0.9fr;gap:5rem;align-items:center;position:relative;z-index:1;width:100%}
+.hero-left{display:flex;flex-direction:column}
+.hero-right{display:flex;flex-direction:column;gap:1.2rem}
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem}
+.hsc{background:rgba(255,255,255,0.05);border:1px solid rgba(0,230,118,0.18);border-radius:14px;padding:1rem 1.1rem;backdrop-filter:blur(20px)}
+.hsc-label{font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g1);opacity:.8;margin-bottom:.3rem}
+.hsc-val{font-size:1.35rem;font-weight:900;letter-spacing:-.03em;color:#fff;line-height:1.1}
+.hsc-sub{font-size:.62rem;color:rgba(255,255,255,.35);margin-top:.2rem}
+@media(max-width:1100px){.hero-inner{grid-template-columns:1fr}.hero-right{max-width:600px}}
 
 /* ── MARQUEE ── */
 .marquee-wrap{background:var(--ink2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:.9rem 0}
@@ -539,6 +537,8 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 @media(max-width:768px){
   /* Hero */
   .hero{padding:6.5rem 1.5rem 3rem}
+  .hero-inner{grid-template-columns:1fr;gap:2.5rem}
+  .hero-stats{grid-template-columns:repeat(3,1fr)}
   .hero-eyebrow{font-size:.65rem;padding:.4rem .85rem}
   .live-ticker{font-size:.72rem;flex-wrap:wrap;gap:.5rem;padding:.4rem .85rem;line-height:1.5}
   .hero-sub{font-size:.95rem}
@@ -680,68 +680,69 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 <!-- HERO -->
 <section class="hero">
   <div class="hero-grid"></div>
-  <div style="position:relative;z-index:1">
-    <div class="hero-eyebrow"><span class="hero-dot"></span>Power Purchase Agreement — Onsite Solar</div>
-    <h1>Ihre Solaranlage.<br><span class="g">Kein Investment.</span><br><span class="y">Deutlich günstiger.</span></h1>
+  <div class="hero-inner">
 
-    <div class="live-ticker">
-      <span class="ticker-dot"></span>
-      Typischer Netzstrompreis Gewerbe 2025: <span class="ticker-val">22–28 ct/kWh</span>
-      &nbsp;·&nbsp; Ihr PPA-Preis: <span class="ticker-ppa">ab 12–22 ct/kWh</span>
-      <span style="color:rgba(255,255,255,0.3);font-size:.68rem;margin-left:.5rem">(Richtwerte, Stand 2025)</span>
-    </div>
-
-    <p class="hero-sub">
-      PPA Onsite: Wir finanzieren, bauen und betreiben Ihre Photovoltaikanlage — <strong>vollständig auf unsere Kosten</strong>. Sie zahlen nur für den Strom, den Sie verbrauchen. Keine Netzentgelte, keine Stromsteuer, kein Investitionsrisiko. <strong>Typisch 25–40 % günstiger als Netzstrom — in optimalen Fällen bis zu 60 %.</strong>
-    </p>
-    <div class="hero-actions">
-      <a href="#rechner" class="btn-main">☀ Ersparnis berechnen</a>
-      <a href="#funktioniert" class="btn-ghost">So funktioniert's →</a>
-    </div>
-    <div class="hero-trust">
-      <div class="ht-item"><span>✓</span> 0 € Investition</div>
-      <div class="ht-sep"></div>
-      <div class="ht-item"><span>✓</span> Keine Netzentgelte</div>
-      <div class="ht-sep"></div>
-      <div class="ht-item"><span>✓</span> Keine Stromsteuer</div>
-      <div class="ht-sep"></div>
-      <div class="ht-item"><span>✓</span> Full-Service Betrieb</div>
-      <div class="ht-sep"></div>
-      <div class="ht-item"><span>✓</span> Bis 20 Jahre fix</div>
-    </div>
-
-    <!-- QUICKCHECK -->
-    <div class="hero-qc">
-      <div class="qc-title">⚡ Schnellcheck — Bin ich qualifiziert?</div>
-      <div class="qc-row">
-        <input class="qc-field" type="text" placeholder="Jahresstromverbrauch (kWh)" id="qc-verb">
-        <input class="qc-field" type="text" placeholder="Dachfläche (m²)" id="qc-dach">
+    <!-- LINKS: Headline & Aktionen -->
+    <div class="hero-left">
+      <div class="hero-eyebrow"><span class="hero-dot"></span>Power Purchase Agreement — Onsite Solar</div>
+      <h1>Ihre Solaranlage.<br><span class="g">Kein Investment.</span><br><span class="y">Deutlich günstiger.</span></h1>
+      <div class="live-ticker">
+        <span class="ticker-dot"></span>
+        Netzstrom 2025: <span class="ticker-val">22–28 ct/kWh</span>
+        &nbsp;·&nbsp; Ihr PPA-Preis: <span class="ticker-ppa">ab 12–22 ct/kWh</span>
       </div>
-      <div class="qc-row">
-        <input class="qc-field" type="email" placeholder="Ihre E-Mail-Adresse" id="qc-mail" style="flex:2">
-        <input class="qc-field" type="text" placeholder="Unternehmen" id="qc-firma">
+      <p class="hero-sub">
+        Wir finanzieren, bauen und betreiben Ihre PV-Anlage — <strong>vollständig auf unsere Kosten</strong>. Keine Netzentgelte, keine Stromsteuer, kein Investitionsrisiko.
+      </p>
+      <div class="hero-actions">
+        <a href="#rechner" class="btn-main">☀ Ersparnis berechnen</a>
+        <a href="#funktioniert" class="btn-ghost">So funktioniert's →</a>
       </div>
-      <button class="qc-btn" onclick="quickCheck()">Sofort prüfen — kostenlos und unverbindlich →</button>
-      <p class="qc-note">Keine Weitergabe Ihrer Daten · Antwort in &lt; 24 Stunden · DSGVO-konform</p>
+      <div class="hero-trust">
+        <div class="ht-item"><span>✓</span> 0 € Investition</div>
+        <div class="ht-sep"></div>
+        <div class="ht-item"><span>✓</span> Keine Netzentgelte</div>
+        <div class="ht-sep"></div>
+        <div class="ht-item"><span>✓</span> Full-Service</div>
+        <div class="ht-sep"></div>
+        <div class="ht-item"><span>✓</span> Bis 20 J. fix</div>
+      </div>
     </div>
-  </div>
-  <div class="hero-floats">
-    <div class="fc">
-      <div class="fc-label">Jährl. Ersparnis Beispiel</div>
-      <div class="fc-val">38.400 €</div>
-      <div class="fc-sub">Industrie, 500.000 kWh/Jahr</div>
-      <div class="fc-badge">▲ inkl. Netzentgelt-Ersparnis</div>
+
+    <!-- RECHTS: Stats + Quickcheck -->
+    <div class="hero-right">
+      <div class="hero-stats">
+        <div class="hsc">
+          <div class="hsc-label">Ersparnis Beispiel</div>
+          <div class="hsc-val">38.400 €</div>
+          <div class="hsc-sub">500.000 kWh/Jahr</div>
+        </div>
+        <div class="hsc">
+          <div class="hsc-label">PPA-Markt DE</div>
+          <div class="hsc-val">6,6 GW</div>
+          <div class="hsc-sub">Volumen 2024 (dena)</div>
+        </div>
+        <div class="hsc">
+          <div class="hsc-label">Time-to-Power</div>
+          <div class="hsc-val">8–12 Wo</div>
+          <div class="hsc-sub">Vertrag bis Strom</div>
+        </div>
+      </div>
+      <div class="hero-qc">
+        <div class="qc-title">⚡ Schnellcheck — Bin ich qualifiziert?</div>
+        <div class="qc-row">
+          <input class="qc-field" type="text" placeholder="Jahresstromverbrauch (kWh)" id="qc-verb">
+          <input class="qc-field" type="text" placeholder="Dachfläche (m²)" id="qc-dach">
+        </div>
+        <div class="qc-row">
+          <input class="qc-field" type="email" placeholder="Ihre E-Mail-Adresse" id="qc-mail" style="flex:2">
+          <input class="qc-field" type="text" placeholder="Unternehmen" id="qc-firma">
+        </div>
+        <button class="qc-btn" onclick="quickCheck()">Sofort prüfen — kostenlos und unverbindlich →</button>
+        <p class="qc-note">Keine Weitergabe Ihrer Daten · Antwort in &lt; 24 Stunden · DSGVO-konform</p>
+      </div>
     </div>
-    <div class="fc">
-      <div class="fc-label">PPA-Markt Deutschland</div>
-      <div class="fc-val">6,6 GW</div>
-      <div class="fc-sub">Gesamtvolumen 2024 (dena)</div>
-    </div>
-    <div class="fc">
-      <div class="fc-label">Time-to-Power</div>
-      <div class="fc-val">8–12 Wo</div>
-      <div class="fc-sub">Von Vertrag bis Strom</div>
-    </div>
+
   </div>
 </section>
 
