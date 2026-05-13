@@ -643,8 +643,8 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 </div>
 
 <!-- WHATSAPP -->
-<a id="wa-btn" href="https://wa.me/4980012345678?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20ein%20PPA%20Onsite%20Angebot." target="_blank" rel="noopener">💬</a>
-<div id="wa-tooltip">WhatsApp — direkte Beratung</div>
+<a id="wa-btn" href="#kontakt" onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'});return false;">💬</a>
+<div id="wa-tooltip">Direkt zur Anfrage</div>
 
 <!-- EXIT INTENT POPUP -->
 <div id="exit-popup">
@@ -1083,7 +1083,6 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
           <!-- Netz-Saving Breakdown -->
           <div id="netz-breakdown" style="margin-bottom:1rem">
             <div class="netz-saving-row"><span class="ns-label">Ersparnis PPA vs. Netzpreis</span><span class="ns-val" id="r-ppa-sav">–</span></div>
-            <div class="netz-saving-row" id="netz-row"><span class="ns-label">+ Netzentgelt-Ersparnis</span><span class="ns-val" id="r-ne-sav">–</span></div>
             <div class="netz-saving-row"><span class="ns-label">+ Stromsteuer-Ersparnis</span><span class="ns-val" id="r-st-sav">–</span></div>
           </div>
           <div class="rchart">
@@ -1132,7 +1131,7 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 </section>
 
 <!-- VERGLEICH -->
-<section style="background:var(--ink2)">
+<section id="vergleich" style="background:var(--ink2)">
   <div class="sey">Vergleich</div>
   <h2>PPA Onsite vs. <span class="tg">alle Alternativen</span></h2>
   <p class="slead">Wie schlägt sich das Onsite-PPA im direkten Vergleich? Ehrlich und vollständig.</p>
@@ -1162,7 +1161,7 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 </section>
 
 <!-- ZIELGRUPPEN -->
-<section class="ziel">
+<section class="ziel" id="zielgruppen">
   <div class="sey">Zielgruppen</div>
   <h2>Ideal für <span class="tg">diese Unternehmen</span></h2>
   <p class="slead">Ein Onsite-PPA funktioniert am besten, wo hoher Tagesverbrauch, geeignete Dachflächen und der Wunsch nach stabilen Energiekosten zusammentreffen.</p>
@@ -1242,32 +1241,30 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 <section class="personal">
   <div class="sey">Ihr direkter Kontakt</div>
   <h2>Sie sprechen mit <span class="tg">echten Experten</span></h2>
-  <p class="slead">Kein Callcenter. Kein Bot. Bei PPA Onsite haben Sie von Anfang an einen persönlichen Ansprechpartner — mit Branchenerfahrung und direktem Draht ins Projektteam.</p>
-  <div class="person-grid">
+  <p class="slead">Kein Callcenter. Kein Bot. Schreiben oder rufen Sie uns direkt an — wir melden uns persönlich, innerhalb von 24 Stunden.</p>
+  <div class="person-grid" style="grid-template-columns:1fr 1fr">
     <div class="person-card">
-      <div class="person-avatar">👨‍💼</div>
+      <div class="person-avatar">☀</div>
       <div class="person-info">
-        <h4>Thomas Kirchner</h4>
-        <div class="person-role">Senior PPA-Berater · Industrie &amp; Gewerbe</div>
-        <div class="person-quote">„Mein Ziel ist ein Angebot, das für Ihr Unternehmen wirklich rechnet — nicht nur auf dem Papier."</div>
+        <h4>PPA Onsite — Beratung & Vertrieb</h4>
+        <div class="person-role">Pilsner Vertrieb GmbH · PPA-Experten</div>
+        <div class="person-quote">„Wir analysieren Ihren Stromverbrauch, Ihre Dachfläche und erstellen Ihnen ein konkretes PPA-Angebot — kostenlos und unverbindlich, in 5 Werktagen."</div>
         <div class="person-links">
-          <a class="pl" href="tel:+498001234567"><span class="pl-i">📞</span>+49 800 123 456 7</a>
-          <a class="pl" href="mailto:t.kirchner@ppa-onsite.de"><span class="pl-i">✉️</span>t.kirchner@ppa-onsite.de</a>
-          <a class="pl" href="#" target="_blank"><span class="pl-i">in</span>LinkedIn-Profil</a>
+          <a class="pl" href="mailto:info@pilsner-vertrieb.de"><span class="pl-i">✉️</span>info@pilsner-vertrieb.de</a>
+          <a class="pl" href="#kontakt" onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'});return false;"><span class="pl-i">📋</span>Anfrage stellen</a>
         </div>
         <div class="person-avail"><span class="avail-dot"></span>Verfügbar Mo–Fr, 8–18 Uhr</div>
       </div>
     </div>
     <div class="person-card">
-      <div class="person-avatar">👩‍🔬</div>
+      <div class="person-avatar">🔋</div>
       <div class="person-info">
-        <h4>Dr. Sarah Bauer</h4>
-        <div class="person-role">Leiterin Technik &amp; ESG-Beratung</div>
-        <div class="person-quote">„Ich erkläre Ihnen gerne, wie Ihr PPA-Strom ins CSRD-Reporting passt und welche Nachweise wir liefern."</div>
+        <h4>Technik & ESG-Beratung</h4>
+        <div class="person-role">Ingenieurteam · Planung & CSRD-Reporting</div>
+        <div class="person-quote">„Unser Ingenieurteam begleitet Sie von der Dachbegehung bis zum ersten Kilowattstunde — und liefert alle Nachweise für Ihr ESG-Reporting."</div>
         <div class="person-links">
-          <a class="pl" href="tel:+498001234568"><span class="pl-i">📞</span>+49 800 123 456 8</a>
-          <a class="pl" href="mailto:s.bauer@ppa-onsite.de"><span class="pl-i">✉️</span>s.bauer@ppa-onsite.de</a>
-          <a class="pl" href="#" target="_blank"><span class="pl-i">in</span>LinkedIn-Profil</a>
+          <a class="pl" href="mailto:info@pilsner-vertrieb.de"><span class="pl-i">✉️</span>info@pilsner-vertrieb.de</a>
+          <a class="pl" href="#kontakt" onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'});return false;"><span class="pl-i">📋</span>Technische Anfrage</a>
         </div>
         <div class="person-avail"><span class="avail-dot"></span>Verfügbar Mo–Fr, 9–17 Uhr</div>
       </div>
@@ -1297,9 +1294,9 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
         <div class="lm-li">Kalkulationsbeispiele aus 5 verschiedenen Branchen</div>
       </div>
       <div class="lm-form">
-        <input class="lm-inp" type="email" placeholder="Ihre E-Mail-Adresse">
-        <input class="lm-inp" type="text" placeholder="Unternehmen">
-        <button class="lm-btn">Jetzt kostenlos downloaden →</button>
+        <input class="lm-inp" type="email" id="lm-email" placeholder="Ihre E-Mail-Adresse">
+        <input class="lm-inp" type="text" id="lm-firma" placeholder="Unternehmen">
+        <button class="lm-btn" onclick="submitLeadMagnet(this)">Jetzt kostenlos downloaden →</button>
       </div>
     </div>
   </div>
@@ -1352,7 +1349,7 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
       <p class="slead">Unser Ingenieurteam analysiert Ihre Situation und erstellt innerhalb von 5 Werktagen ein indikatives Angebot — völlig kostenlos und ohne Verpflichtung.</p>
       <div class="ki-info">
         <div class="ki-row"><div class="ki-icon">📞</div>+49 (0) 800 PPA-ONSITE</div>
-        <div class="ki-row"><div class="ki-icon">✉️</div>info@ppa-onsite.de</div>
+        <div class="ki-row"><div class="ki-icon">✉️</div><a href="mailto:info@pilsner-vertrieb.de" style="color:inherit;text-decoration:none">info@pilsner-vertrieb.de</a></div>
         <div class="ki-row"><div class="ki-icon">📍</div>Deutschland · Österreich · Schweiz</div>
         <div class="ki-row"><div class="ki-icon">⏱</div>Antwortzeit: &lt; 24 Stunden</div>
         <div class="ki-row"><div class="ki-icon">🔒</div>DSGVO-konform · keine Datenweitergabe</div>
@@ -1370,8 +1367,8 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
       </div>
       <input class="cfi" type="text" id="cf-firma" placeholder="Unternehmen *" style="width:100%;margin-bottom:.9rem" required>
       <div class="cf-row">
-        <input class="cfi" type="text" placeholder="Jahresstromverbrauch (kWh)">
-        <input class="cfi" type="text" placeholder="Dachfläche (m²)">
+        <input class="cfi" type="text" id="cf-verb" placeholder="Jahresstromverbrauch (kWh)">
+        <input class="cfi" type="text" id="cf-dach" placeholder="Dachfläche (m²)">
       </div>
       <div class="cf-row" style="margin-bottom:.9rem">
         <select class="cfi isel" style="border-radius:11px;padding:.85rem 1rem">
@@ -1408,15 +1405,14 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
       <div class="f-logo">PPA<span>.onsite</span></div>
       <div class="f-tag">Grünstrom vom eigenen Dach.<br>Kein Investment. Typisch 25–40 % günstiger.<br>Deutschland · Österreich · Schweiz.</div>
       <div class="f-social">
-        <a href="#" class="fsb">in</a><a href="#" class="fsb">X</a>
-        <a href="#" class="fsb">fb</a><a href="#" class="fsb">▶</a>
+        <a href="mailto:info@pilsner-vertrieb.de" class="fsb" title="E-Mail">✉</a>
       </div>
     </div>
     <div class="fc-col">
       <h5>Leistungen</h5>
-      <a href="#">Onsite-PPA</a><a href="#">Agri-PV PPA</a>
-      <a href="#">Batterie-PPA</a><a href="#">Carport-PV PPA</a>
-      <a href="#">PPA-Beratung</a>
+      <a href="#vorteile">Onsite-PPA</a><a href="#zielgruppen">Agri-PV PPA</a>
+      <a href="#rechner">Batterie-PPA</a><a href="#rechner">Carport-PV PPA</a>
+      <a href="#kontakt">PPA-Beratung</a>
     </div>
     <div class="fc-col">
       <h5>Wissen</h5>
@@ -1515,13 +1511,15 @@ function submitForm(e) {
     return;
   }
   err.style.display = 'none';
-  const tel = (document.getElementById('cf-tel') || {}).value || '';
-  const msg = (document.getElementById('cf-nachricht') || {}).value || '';
+  const tel  = (document.getElementById('cf-tel')      || {}).value || '';
+  const verb = (document.getElementById('cf-verb')     || {}).value || '';
+  const dach = (document.getElementById('cf-dach')     || {}).value || '';
+  const msg  = (document.getElementById('cf-nachricht')|| {}).value || '';
   w3fSend({
     subject: `[Kontaktanfrage] ${v} ${n} — ${fi} — PPA-Onsite.de`,
     from_name: `${v} ${n}`,
     email: em,
-    message: `Firma: ${fi}\nTelefon: ${tel}\n\n${msg}`
+    message: `Firma: ${fi}\nTelefon: ${tel}\nJahresstromverbrauch: ${verb} kWh\nDachfläche: ${dach} m²\n\n${msg}`
   }, e.target, '✓ Anfrage gesendet — wir melden uns innerhalb von 24 Stunden!');
 }
 
@@ -1614,21 +1612,17 @@ function rechne(){
   const typF=+document.getElementById('r-typ').value;
   const oriF=+document.getElementById('r-ori').value;
   const spezE=+document.getElementById('r-std').value;
-  const netzCt=+document.getElementById('r-ne').value;
-  const netzCb=document.getElementById('netz-cb').checked;
-  const mitSp=+document.getElementById('r-sp').value;
+  const ppaCt=+document.getElementById('r-ppa-ct').value;
+  const evPct=+document.getElementById('r-ev').value/100;
 
-  // Display values
+  // Display live values
   document.getElementById('v-verb').textContent=fmt(verb)+' kWh';
   document.getElementById('v-preis').textContent=preis.toFixed(1).replace('.',',')+' ct/kWh';
+  document.getElementById('v-ppa-ct').textContent=ppaCt.toFixed(1).replace('.',',')+' ct/kWh';
   document.getElementById('v-dach').textContent=fmt(dach)+' m²';
   document.getElementById('v-lz').textContent=lz+' Jahre';
   document.getElementById('v-stg').textContent=(+document.getElementById('r-stg').value).toFixed(1).replace('.',',')+' %';
-  document.getElementById('v-ne').textContent=netzCt.toFixed(1).replace('.',',')+' ct/kWh';
-
-  // Netz-row visibility
-  const nr=document.getElementById('netz-row');
-  if(nr)nr.style.display=netzCb?'flex':'none';
+  document.getElementById('v-ev').textContent=Math.round(evPct*100)+' %';
 
   // Anlage
   const maxKwpDach=dach/6.5;
@@ -1636,53 +1630,34 @@ function rechne(){
   const kwp=Math.min(maxKwpDach,kwpBedarf*1.12);
   const jahresertrag=kwp*spezE*oriF;
 
-  // Eigenverbrauch
-  const evBase=Math.min(jahresertrag*0.78,verb*0.88);
-  const ev=mitSp?Math.min(evBase*1.2,verb*0.92):evBase;
+  // Eigenverbrauch: nutzer-definierte Quote, aber max. Jahresertrag der Anlage
+  const ev=Math.min(verb*evPct, jahresertrag);
   const evQ=Math.round((ev/verb)*100);
   const rest=verb-ev;
 
-  // Stromsteuer-Ersparnis (2,05 ct/kWh)
-  const stomstF=2.05;
+  // Kostenkalkulation
+  const kostenNetz=verb*preis/100;
+  const kostenPPA=ev*ppaCt/100;
+  const restKosten=rest*preis/100;
+  const einspar1=kostenNetz-kostenPPA-restKosten;
+  const ppaSav=ev*(preis-ppaCt)/100;
+  const stSav=ev*2.05/100; // Stromsteuer-Ersparnis 2,05 ct/kWh
 
-  // PPA Preis
-  const ppaRab=0.315;
-  const ppaCt=preis*(1-ppaRab);
-
-  // Kostenkalkulation — korrekte Methodik:
-  // kostenNetz = was der Kunde heute zahlt (enthält Netzentgelt & Stromsteuer bereits)
-  // kostenPPA = nur PPA-Preis (kein Netzentgelt, keine Stromsteuer für Eigenverbrauch)
-  // Netzentgelt/Stromsteuer-Ersparnis = Differenz zwischen dem was im Netzpreis steckt
-  //   und dem was beim PPA-Strom entfällt
-  const kostenNetz = verb * preis / 100;  // Gesamte heutige Stromrechnung
-  const kostenPPA = ev * ppaCt / 100;     // PPA-Anteil (ohne Netz/Steuer)
-  const restKosten = rest * preis / 100;  // Restbezug vom Netz (weiterhin Netzpreis)
-  // Ersparnis = Heutige Gesamtkosten minus (PPA-Kosten + Restbezug)
-  const einspar1 = kostenNetz - kostenPPA - restKosten;
-
-  // Aufschlüsselung der Einsparungskomponenten (nur informativ, kein doppeltes Zählen)
-  const ppaSav = ev * (preis - ppaCt) / 100;            // Günstigerer kWh-Preis
-  const neSav = netzCb ? ev * netzCt / 100 : 0;         // Anteil Netzentgelt in Ersparnis
-  const stSav = netzCb ? ev * stomstF / 100 : 0;        // Anteil Stromsteuer in Ersparnis
-
-  // Kumulierte Einsparungen über Laufzeit
+  // Kumulierte Einsparungen
   let ges=0,e5=0,e10=0;
   for(let j=1;j<=lz;j++){
-    const nJ = verb * (preis/100) * Math.pow(1+stg, j-1);   // Netz steigt jährlich
-    const pJ = ev * (ppaCt/100) * Math.pow(1.015, j-1);      // PPA steigt langsamer
-    const rJ = rest * (preis/100) * Math.pow(1+stg, j-1);    // Restbezug steigt mit Netz
-    const eJ = nJ - pJ - rJ;
-    ges += eJ;
-    if(j<=5) e5 += eJ;
-    if(j<=10) e10 += eJ;
+    const nJ=verb*(preis/100)*Math.pow(1+stg,j-1);
+    const pJ=ev*(ppaCt/100)*Math.pow(1.015,j-1);
+    const rJ=rest*(preis/100)*Math.pow(1+stg,j-1);
+    const eJ=nJ-pJ-rJ;
+    ges+=eJ; if(j<=5)e5+=eJ; if(j<=10)e10+=eJ;
   }
 
   // CO2
-  const co2F=0.000434;
-  const co2pa=ev*co2F;
+  const co2pa=ev*0.000434;
   const co2ges=co2pa*lz;
 
-  // Investor BE
+  // Investor Break-even
   const anlK=kwp*950;
   const invEinn=ev*ppaCt/100+(jahresertrag-ev)*0.07;
   const be=anlK/invEinn;
@@ -1690,19 +1665,17 @@ function rechne(){
   // ── AUSGABE ──
   document.getElementById('rm-num').textContent=fE(einspar1);
 
-  // Basis
   const sn=el=>document.getElementById(el);
   sn('r-ppa').textContent=fct(ppaCt);
   sn('r-kwp').textContent=fmt(Math.round(kwp*10)/10)+' kWp';
   sn('r-ert').textContent=fmt(Math.round(jahresertrag))+' kWh';
   sn('r-eq').textContent=evQ+' %';
   sn('r-ppa-sav').textContent=fE(ppaSav)+'/Jahr';
-  sn('r-ne-sav').textContent=netzCb?fE(neSav)+'/Jahr':'–';
-  sn('r-st-sav').textContent=netzCb?fE(stSav)+'/Jahr':'–';
+  if(sn('r-st-sav'))sn('r-st-sav').textContent=fE(stSav)+'/Jahr';
 
   // Wirtschaft
   sn('b-netz').textContent=fE(kostenNetz);
-  sn('b-netze').textContent='ca. '+fE(ev*(netzCt+stomstF)/100)+' (inform.)';
+  if(sn('b-netze'))sn('b-netze').textContent='ca. '+fE(stSav)+' Stromsteuer-Ersparnis';
   sn('b-ppa').textContent=fE(kostenPPA);
   sn('b-rest').textContent=fE(restKosten);
   sn('b-j1').textContent=fE(einspar1);
@@ -1745,6 +1718,41 @@ function rechne(){
 }
 
 rechne();
+
+// ── LEAD MAGNET ──
+function submitLeadMagnet(btn) {
+  const em   = document.getElementById('lm-email').value.trim();
+  const firm = document.getElementById('lm-firma').value.trim();
+  if (!em || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) {
+    document.getElementById('lm-email').style.borderColor = 'rgba(255,82,82,0.6)';
+    return;
+  }
+  document.getElementById('lm-email').style.borderColor = '';
+  w3fSend({
+    subject: `[PPA-Leitfaden] Download-Anfrage: ${firm||em} — PPA-Onsite.de`,
+    from_name: firm || 'Leitfaden-Anfrage',
+    email: em,
+    message: `Anfrage PPA-Leitfaden PDF\nE-Mail: ${em}\nUnternehmen: ${firm}`
+  }, btn, '✓ Leitfaden angefordert — wir senden Ihnen den Link!');
+}
+
+// ── SPEICHER-OPTION ──
+function spChange() {
+  const sp = document.getElementById('r-sp').value;
+  const slider = document.getElementById('r-ev');
+  const minEl  = document.getElementById('ev-min');
+  const maxEl  = document.getElementById('ev-max');
+  if (sp === '1') {
+    slider.min = 40; slider.max = 90; slider.value = Math.max(+slider.value, 40);
+    if (minEl) minEl.textContent = '40 %';
+    if (maxEl) maxEl.textContent = '90 %';
+  } else {
+    slider.min = 20; slider.max = 80; slider.value = Math.min(+slider.value, 80);
+    if (minEl) minEl.textContent = '20 %';
+    if (maxEl) maxEl.textContent = '80 %';
+  }
+  rechne();
+}
 
 // ── EXIT INTENT ──
 let exitShown=false;
