@@ -12,7 +12,7 @@
 :root {
   --g1:#00E676; --g2:#00C853; --g3:#69F0AE; --g4:#1B5E20; --g5:#004D40;
   --sun:#FFD600; --sun2:#FF8F00; --red:#FF5252;
-  --ink:#030F07; --ink2:#071A0E; --ink3:#0D2318;
+  --ink:#0C1F12; --ink2:#142818; --ink3:#1A3222;
   --white:#FFFFFF; --line:rgba(0,230,118,0.13);
   --card:rgba(255,255,255,0.035);
   --glow:0 0 60px rgba(0,230,118,0.22);
@@ -193,11 +193,12 @@ h1 .y{color:var(--sun);text-shadow:0 0 40px rgba(255,214,0,0.35)}
 .ht-item span{color:var(--g1);font-weight:700;font-size:0.9rem}
 
 /* Hero floating cards */
-.hero-floats{position:absolute;right:4.5rem;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:1rem;z-index:2}
+.hero-floats{position:absolute;inset:0;pointer-events:none;z-index:2}
 @media(max-width:1100px){.hero-floats{display:none}}
-.fc{background:rgba(255,255,255,0.04);border:1px solid rgba(0,230,118,0.18);border-radius:18px;padding:1.3rem 1.6rem;backdrop-filter:blur(20px);min-width:230px;animation:float 6s ease-in-out infinite}
-.fc:nth-child(2){animation-delay:-2s;margin-left:1.2rem}
-.fc:nth-child(3){animation-delay:-4s}
+.fc{position:absolute;background:rgba(255,255,255,0.04);border:1px solid rgba(0,230,118,0.18);border-radius:18px;padding:1.3rem 1.6rem;backdrop-filter:blur(20px);min-width:220px;animation:float 6s ease-in-out infinite;pointer-events:auto}
+.fc:nth-child(1){top:16%;right:4.5rem;animation-delay:0s}
+.fc:nth-child(2){top:43%;right:9rem;animation-delay:-2s}
+.fc:nth-child(3){bottom:10%;right:5.5rem;animation-delay:-4s}
 @keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
 .fc-label{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g1);opacity:.8;margin-bottom:.3rem}
 .fc-val{font-size:1.75rem;font-weight:900;letter-spacing:-.03em;color:#fff}
@@ -533,6 +534,97 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 .reveal.visible{opacity:1;transform:translateY(0)}
 .rd1{transition-delay:.1s}.rd2{transition-delay:.2s}.rd3{transition-delay:.3s}
 [id]{scroll-margin-top:85px}
+
+/* ── MOBILE RESPONSIVE ── */
+@media(max-width:768px){
+  /* Hero */
+  .hero{padding:6.5rem 1.5rem 3rem}
+  .hero-eyebrow{font-size:.65rem;padding:.4rem .85rem}
+  .live-ticker{font-size:.72rem;flex-wrap:wrap;gap:.5rem;padding:.4rem .85rem;line-height:1.5}
+  .hero-sub{font-size:.95rem}
+  .hero-actions{flex-direction:column;gap:.7rem}
+  .btn-main,.btn-ghost{width:100%;text-align:center;padding:.9rem 1.5rem;font-size:.92rem}
+  .hero-trust{gap:.5rem;font-size:.75rem}
+  .ht-sep{display:none}
+  .hero-qc{padding:1.2rem 1.2rem;margin-top:1.8rem}
+  .qc-row{flex-direction:column;gap:.5rem}
+  .qc-field{min-width:unset;width:100%}
+
+  /* Trust logos */
+  .trust-logos{padding:1.5rem 1.5rem}
+  .tl-row{gap:.75rem}
+  .tl-logo,.tl-cert{font-size:.7rem}
+
+  /* Urgency banner */
+  .urgency{padding:.9rem 1.5rem}
+  .urgency-inner{gap:.6rem;font-size:.78rem;text-align:center}
+
+  /* Kennzahlen — already handled for 900px, fix 5th item */
+  .kz-grid{grid-template-columns:repeat(2,1fr)}
+
+  /* Netz box */
+  .netz-box{padding:1.5rem}
+  .netz-box::after{display:none}
+
+  /* Rechner */
+  .r-tabs{overflow-x:auto;white-space:nowrap}
+  .rtab{padding:.75rem .6rem;font-size:.72rem;flex:none;min-width:80px}
+  .r-inputs{padding:1.5rem 1.2rem}
+  .r-result{padding:1.5rem 1.2rem}
+  .rm-num{font-size:2.6rem}
+  .rg{gap:.5rem}
+  .rgc{padding:.75rem}
+
+  /* Prozess — remove sticky sidebar on mobile */
+  .pz-sidebar{position:static;top:auto;margin-top:2rem}
+
+  /* Referenzen stats */
+  .ref-bottom{flex-direction:column;align-items:flex-start;gap:.5rem}
+
+  /* Lead magnet */
+  .lm-box{padding:1.5rem}
+  .lm-doc{min-width:unset;padding:1.2rem}
+  .lm-form{flex-direction:column}
+  .lm-inp,.lm-btn{min-width:unset;width:100%}
+
+  /* Personal contact */
+  .person-card{flex-direction:column;gap:1rem}
+
+  /* Exit popup */
+  .ep-box{padding:2rem 1.3rem}
+  .ep-form{flex-direction:column}
+  .ep-input,.ep-btn{min-width:unset;width:100%}
+
+  /* Newsletter */
+  .newsletter{padding:3rem 1.5rem}
+  .nl-form{flex-direction:column;align-items:stretch}
+  .nl-input,.nl-btn{min-width:unset;width:100%}
+
+  /* Footer */
+  footer{padding:2.5rem 1.5rem 1.5rem}
+  .fb{flex-direction:column;align-items:center;text-align:center;gap:.6rem}
+  .fb-links{flex-wrap:wrap;justify-content:center;gap:.8rem}
+
+  /* Cookie banner */
+  #cookie{left:.75rem;right:.75rem;bottom:.75rem;padding:1.1rem 1.2rem}
+  .cookie-btns{flex-direction:column;gap:.5rem}
+  #cookie-btn,#cookie-reject{width:100%}
+
+  /* WhatsApp — lift above mobile CTA bar */
+  #wa-btn{bottom:5.2rem}
+
+  /* Urgency CTA link */
+  .urgency-cta{width:100%;justify-content:center}
+}
+
+@media(max-width:400px){
+  h1{font-size:2.2rem}
+  h2{font-size:1.6rem}
+  .kz-grid{grid-template-columns:1fr}
+  .how-timeline{grid-template-columns:1fr}
+  .batt-stats{grid-template-columns:1fr}
+  .rg{grid-template-columns:1fr}
+}
 </style>
 </head>
 <body>
@@ -543,7 +635,7 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 
 <!-- COOKIE -->
 <div id="cookie">
-  <p>Wir verwenden Cookies, um unsere Website zu verbessern und Ihnen relevante Inhalte anzuzeigen. Mehr in unserer <a href="#">Datenschutzerklärung</a>. Sie können alle nicht notwendigen Cookies ablehnen.</p>
+  <p>Wir verwenden Cookies, um unsere Website zu verbessern und Ihnen relevante Inhalte anzuzeigen. Mehr in unserer <a href="https://www.pilsner-vertrieb.de/datenschutz.html" target="_blank" rel="noopener">Datenschutzerklärung</a>. Sie können alle nicht notwendigen Cookies ablehnen.</p>
   <div class="cookie-btns">
     <button id="cookie-btn" onclick="document.getElementById('cookie').style.display='none'">Alle akzeptieren</button>
     <button id="cookie-reject" onclick="document.getElementById('cookie').style.display='none'">Nur notwendige</button>
@@ -594,8 +686,8 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 
     <div class="live-ticker">
       <span class="ticker-dot"></span>
-      Typischer Netzstrompreis Gewerbe 2025: <span class="ticker-val">26–32 ct/kWh</span>
-      &nbsp;·&nbsp; Ihr PPA-Preis: <span class="ticker-ppa">ab ca. 17–22 ct/kWh</span>
+      Typischer Netzstrompreis Gewerbe 2025: <span class="ticker-val">22–28 ct/kWh</span>
+      &nbsp;·&nbsp; Ihr PPA-Preis: <span class="ticker-ppa">ab 12–22 ct/kWh</span>
       <span style="color:rgba(255,255,255,0.3);font-size:.68rem;margin-left:.5rem">(Richtwerte, Stand 2025)</span>
     </div>
 
@@ -676,25 +768,12 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
   </div>
 </div>
 
-<!-- TRUST LOGOS -->
-<div class="trust-logos">
-  <div class="tl-label">Zertifizierungen &amp; Partner</div>
-  <div class="tl-row">
-    <div class="tl-logo">TÜV Süd geprüft</div>
-    <div class="tl-cert"><span class="tl-cert-icon">🌿</span> ISO 14001</div>
-    <div class="tl-cert"><span class="tl-cert-icon">⚡</span> VDE zertifiziert</div>
-    <div class="tl-logo">Bundesnetzagentur registriert</div>
-    <div class="tl-cert"><span class="tl-cert-icon">🔒</span> ISO 27001</div>
-    <div class="tl-logo">BEE Mitglied</div>
-    <div class="tl-cert"><span class="tl-cert-icon">☀</span> Sunbeam Partner</div>
-  </div>
-</div>
 
 <!-- URGENCY BANNER -->
 <div class="urgency">
   <div class="urgency-inner">
     <span>⏳ <strong>Kostensteigerung läuft:</strong> Jeder Monat ohne PPA kostet Sie Ihr volles Netzentgelt und Ihre Stromsteuer.</span>
-    <span>Aktuelle Netzstrompreise 2025: <strong>26–32 ct/kWh</strong> — Ihr PPA-Preis: <strong>ab ~18 ct/kWh</strong></span>
+    <span>Aktuelle Netzstrompreise 2025: <strong>22–28 ct/kWh</strong> — Ihr PPA-Preis: <strong>ab 12–22 ct/kWh</strong></span>
     <a href="#rechner" class="urgency-cta">Jetzt Ersparnis berechnen →</a>
   </div>
 </div>
@@ -879,8 +958,8 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 <!-- RECHNER -->
 <section class="rechner" id="rechner">
   <div class="sey">PPA-Rechner</div>
-  <h2>Ihre Ersparnis — <span class="tg">inkl. Netzentgelte</span></h2>
-  <p class="slead">Der einzige PPA-Rechner, der auch Netzentgelt- und Stromsteuerersparnis einrechnet. Geben Sie Ihre Eckdaten ein — alle Ergebnisse in Echtzeit.</p>
+  <h2>Ihre <span class="tg">PPA-Ersparnis</span> — sofort berechnet</h2>
+  <p class="slead">Geben Sie Ihre Eckdaten ein — alle Ergebnisse aktualisieren sich in Echtzeit. Alle Angaben sind Richtwerte ohne Gewähr.</p>
   <div class="rw">
     <div class="r-tabs">
       <button class="rtab active" onclick="switchRTab(0,this)">☀ Grundkalkulation</button>
@@ -906,20 +985,26 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
         </div>
 
         <div class="ig">
+          <div class="il">Ihr PPA-Preis<span class="iv" id="v-ppa-ct">18,0 ct/kWh</span></div>
+          <input type="range" id="r-ppa-ct" min="12" max="28" step="0.5" value="18" oninput="rechne()">
+          <div class="im"><span>12 ct</span><span>20 ct</span><span>28 ct</span></div>
+        </div>
+
+        <div class="ig">
           <div class="il">Verfügbare Dachfläche<span class="iv" id="v-dach">1.500 m²</span></div>
           <input type="range" id="r-dach" min="200" max="20000" step="100" value="1500" oninput="rechne()">
           <div class="im"><span>200 m²</span><span>10.000 m²</span><span>20.000 m²</span></div>
         </div>
 
         <div class="ig">
-          <div class="il">PPA-Laufzeit<span class="iv" id="v-lz">15 Jahre</span></div>
-          <input type="range" id="r-lz" min="10" max="20" step="5" value="15" oninput="rechne()">
+          <div class="il">PPA-Laufzeit<span class="iv" id="v-lz">20 Jahre</span></div>
+          <input type="range" id="r-lz" min="10" max="20" step="1" value="20" oninput="rechne()">
           <div class="im"><span>10 J.</span><span>15 J.</span><span>20 J.</span></div>
         </div>
 
         <div class="ig">
-          <div class="il">Jährl. Strompreissteigerung (Netz)<span class="iv" id="v-stg">3,5 %</span></div>
-          <input type="range" id="r-stg" min="1" max="8" step="0.5" value="3.5" oninput="rechne()">
+          <div class="il">Jährl. Strompreissteigerung (Netz)<span class="iv" id="v-stg">3,0 %</span></div>
+          <input type="range" id="r-stg" min="1" max="8" step="0.5" value="3" oninput="rechne()">
           <div class="im"><span>1 %</span><span>4,5 %</span><span>8 %</span></div>
         </div>
 
@@ -959,27 +1044,18 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
           </select>
         </div>
 
-        <!-- Netzentgelt Toggle -->
-        <div class="netz-toggle">
-          <span>🔌 Netzentgelt-Ersparnis einrechnen<br><small style="color:rgba(255,255,255,.35);font-size:.72rem">Entfällt beim Onsite-PPA (§9 StromStG)</small></span>
-          <label class="toggle-sw">
-            <input type="checkbox" id="netz-cb" checked onchange="rechne()">
-            <span class="toggle-sl"></span>
-          </label>
-        </div>
-
-        <div class="ig">
-          <div class="il">Netzentgelt-Ansatz<span class="iv" id="v-ne">7,5 ct/kWh</span></div>
-          <input type="range" id="r-ne" min="4" max="12" step="0.5" value="7.5" oninput="rechne()">
-          <div class="im"><span>4 ct</span><span>8 ct</span><span>12 ct</span></div>
-        </div>
-
         <div class="ig">
           <div class="il">Speicher-Option</div>
-          <select class="isel" id="r-sp" onchange="rechne()">
-            <option value="0">Ohne Speicher</option>
-            <option value="1">Mit Batteriespeicher (+20 % Eigenverbrauch)</option>
+          <select class="isel" id="r-sp" onchange="spChange()">
+            <option value="0">Ohne Batteriespeicher</option>
+            <option value="1">Mit Batteriespeicher</option>
           </select>
+        </div>
+
+        <div class="ig">
+          <div class="il">Eigenverbrauchsquote<span class="iv" id="v-ev">40 %</span></div>
+          <input type="range" id="r-ev" min="20" max="80" step="1" value="40" oninput="rechne()">
+          <div class="im"><span id="ev-min">20 %</span><span>50 %</span><span id="ev-max">80 %</span></div>
         </div>
       </div>
 
@@ -1261,8 +1337,8 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
   <h2>PPA-Insights &<br><span class="tg">Markt-Updates</span></h2>
   <p>Aktuelle Marktpreise, Regulierungsänderungen und Praxistipps zum Thema Onsite-PPA — direkt in Ihr Postfach.</p>
   <div class="nl-form">
-    <input class="nl-input" type="email" placeholder="Ihre E-Mail-Adresse">
-    <button class="nl-btn">Anmelden →</button>
+    <input class="nl-input" id="nl-email" type="email" placeholder="Ihre E-Mail-Adresse">
+    <button class="nl-btn" onclick="submitNewsletter(this)">Anmelden →</button>
   </div>
 </div>
 
@@ -1310,10 +1386,10 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
           <option>LinkedIn</option><option>Messe / Event</option><option>Sonstiges</option>
         </select>
       </div>
-      <textarea class="cfi" placeholder="Nachricht / offene Fragen (optional)"></textarea>
+      <textarea class="cfi" id="cf-nachricht" placeholder="Nachricht / offene Fragen (optional)"></textarea>
       <div class="cf-check">
         <input type="checkbox" id="dsgvo" required>
-        <label for="dsgvo">Ich stimme zu, dass meine Daten zur Bearbeitung dieser Anfrage gespeichert und genutzt werden. Ich habe die <a href="#" style="color:var(--g1)">Datenschutzerklärung</a> gelesen und akzeptiert. *</label>
+        <label for="dsgvo">Ich stimme zu, dass meine Daten zur Bearbeitung dieser Anfrage gespeichert und genutzt werden. Ich habe die <a href="https://www.pilsner-vertrieb.de/datenschutz.html" target="_blank" rel="noopener" style="color:var(--g1)">Datenschutzerklärung</a> gelesen und akzeptiert. *</label>
       </div>
       <div id="cf-error" style="display:none;background:rgba(255,82,82,0.12);border:1px solid rgba(255,82,82,0.3);border-radius:10px;padding:.8rem 1rem;font-size:.8rem;color:rgba(255,120,120,0.9);margin-bottom:1rem">
         Bitte füllen Sie alle Pflichtfelder aus und bestätigen Sie die Datenschutzerklärung.
@@ -1343,22 +1419,23 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
     </div>
     <div class="fc-col">
       <h5>Wissen</h5>
-      <a href="#">Was ist ein PPA?</a><a href="#">Netzentgelte & Steuern</a>
-      <a href="#">ESG & CSRD</a><a href="#">PPA vs. Eigenkauf</a>
-      <a href="#">FAQ</a><a href="#">Blog</a>
+      <a href="#funktioniert">Was ist ein PPA?</a>
+      <a href="#vorteile">Netzentgelte &amp; Steuern</a>
+      <a href="#esg">ESG &amp; CSRD</a>
+      <a href="#vergleich">PPA vs. Eigenkauf</a>
+      <a href="#faq">FAQ</a>
     </div>
     <div class="fc-col">
       <h5>Unternehmen</h5>
-      <a href="#">Über uns</a><a href="#">Team</a>
-      <a href="#">Karriere</a><a href="#">Presse</a>
+      <a href="#kontakt">Über uns</a>
       <a href="#kontakt">Kontakt</a>
     </div>
   </div>
   <div class="fb">
     <span>© 2025 PPA-Onsite.de — Alle Rechte vorbehalten · Angaben gemäß §5 TMG</span>
     <div class="fb-links">
-      <a href="#">Impressum</a><a href="#">Datenschutz</a>
-      <a href="#">AGB</a><a href="#">Cookie-Einstellungen</a><a href="#">Sitemap</a>
+      <a href="https://www.pilsner-vertrieb.de/impressum.html" target="_blank" rel="noopener">Impressum</a>
+      <a href="https://www.pilsner-vertrieb.de/datenschutz.html" target="_blank" rel="noopener">Datenschutz</a>
     </div>
   </div>
   <p style="font-size:.68rem;color:rgba(255,255,255,.15);text-align:center;margin-top:1.2rem;line-height:1.6">
@@ -1390,27 +1467,77 @@ document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
 // ── FAQ ──
 function toggleFaq(el){el.closest('.fi').classList.toggle('open')}
 
-// ── FORM VALIDATION ──
+// ── KONTAKT FORMULAR ──
+// ── WEB3FORMS ACCESS KEY — kostenlos holen: https://web3forms.com ──
+const W3F_KEY = 'DEIN_WEB3FORMS_KEY';
+
+function w3fSend(payload, btn, okText) {
+  btn.textContent = 'Wird gesendet …';
+  btn.disabled = true;
+  fetch('https://api.web3forms.com/submit', {
+    method: 'POST',
+    headers: {'Content-Type': 'application/json', Accept: 'application/json'},
+    body: JSON.stringify({access_key: W3F_KEY, ...payload})
+  })
+  .then(r => r.json())
+  .then(d => {
+    if (d.success) {
+      btn.textContent = okText;
+      btn.style.background = '#00A040';
+      btn.style.color = '#fff';
+    } else {
+      btn.textContent = 'Fehler — bitte direkt mailen: info@pilsner-vertrieb.de';
+      btn.style.background = 'rgba(255,82,82,0.7)';
+      btn.disabled = false;
+    }
+  })
+  .catch(() => {
+    btn.textContent = 'Fehler — bitte direkt mailen: info@pilsner-vertrieb.de';
+    btn.style.background = 'rgba(255,82,82,0.7)';
+    btn.disabled = false;
+  });
+}
+
+// ── KONTAKT FORMULAR ──
 function submitForm(e) {
   e.preventDefault();
-  const v = document.getElementById('cf-vorname').value.trim();
-  const n = document.getElementById('cf-nachname').value.trim();
+  const v  = document.getElementById('cf-vorname').value.trim();
+  const n  = document.getElementById('cf-nachname').value.trim();
   const em = document.getElementById('cf-email').value.trim();
   const fi = document.getElementById('cf-firma').value.trim();
   const dsgvo = document.getElementById('dsgvo').checked;
   const err = document.getElementById('cf-error');
   const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em);
-  if(!v || !n || !em || !fi || !dsgvo || !emailOk) {
+  if (!v || !n || !em || !fi || !dsgvo || !emailOk) {
     err.style.display = 'block';
     err.textContent = !emailOk && em ? 'Bitte geben Sie eine gültige E-Mail-Adresse ein.' : 'Bitte füllen Sie alle Pflichtfelder aus und bestätigen Sie die Datenschutzerklärung.';
     return;
   }
   err.style.display = 'none';
-  // Success state
-  const btn = e.target;
-  btn.textContent = '✓ Anfrage gesendet — wir melden uns innerhalb von 24 Stunden!';
-  btn.style.background = '#00A040';
-  btn.disabled = true;
+  const tel = (document.getElementById('cf-tel') || {}).value || '';
+  const msg = (document.getElementById('cf-nachricht') || {}).value || '';
+  w3fSend({
+    subject: `[Kontaktanfrage] ${v} ${n} — ${fi} — PPA-Onsite.de`,
+    from_name: `${v} ${n}`,
+    email: em,
+    message: `Firma: ${fi}\nTelefon: ${tel}\n\n${msg}`
+  }, e.target, '✓ Anfrage gesendet — wir melden uns innerhalb von 24 Stunden!');
+}
+
+// ── NEWSLETTER ──
+function submitNewsletter(btn) {
+  const em = document.getElementById('nl-email').value.trim();
+  if (!em || !/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)) {
+    document.getElementById('nl-email').style.borderColor = 'rgba(255,82,82,0.6)';
+    return;
+  }
+  document.getElementById('nl-email').style.borderColor = '';
+  w3fSend({
+    subject: `[Newsletter] Neue Anmeldung: ${em} — PPA-Onsite.de`,
+    from_name: 'Newsletter-Anmeldung',
+    email: em,
+    message: `Neue Newsletter-Anmeldung: ${em}`
+  }, btn, '✓ Angemeldet!');
 }
 
 // ── ENERGIEKRISE CHART ──
@@ -1425,16 +1552,20 @@ function buildKriseChart(){
   if(!c)return;
   c.innerHTML='';
   const maxV=Math.max(...krisenData.map(d=>d.netz));
+  const chartH=172; // 200px container - 28px padding-bottom
   krisenData.forEach((d,i)=>{
     const g=document.createElement('div');
-    g.style.cssText='flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;position:relative';
+    g.className='kc-bar-g';
+    g.style.cssText=`flex:1;position:relative;height:${chartH}px`;
+    const nH=Math.round(d.netz/maxV*chartH);
+    const pH=Math.round(d.ppa/maxV*chartH);
     const nB=document.createElement('div');
     nB.className='kc-bar';
-    nB.style.cssText=`height:${(d.netz/maxV*100)}%;background:linear-gradient(180deg,rgba(255,82,82,0.8),rgba(255,82,82,0.4));animation-delay:${i*0.08}s`;
+    nB.style.cssText=`position:absolute;bottom:0;left:0;right:0;height:${nH}px;background:linear-gradient(180deg,rgba(255,82,82,0.8),rgba(255,82,82,0.4));animation-delay:${i*0.08}s`;
     nB.title=`Netz ${d.year}: ${d.netz} ct/kWh`;
     const pB=document.createElement('div');
     pB.className='kc-bar';
-    pB.style.cssText=`height:${(d.ppa/maxV*100)}%;background:linear-gradient(180deg,var(--g1),#00A040);animation-delay:${i*0.08+0.04}s;position:absolute;bottom:0;left:0;right:0;width:40%;margin:0 auto`;
+    pB.style.cssText=`position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:40%;height:${pH}px;background:linear-gradient(180deg,var(--g1),#00A040);animation-delay:${i*0.08+0.04}s`;
     pB.title=`PPA ${d.year}: ${d.ppa} ct/kWh`;
     const yr=document.createElement('div');
     yr.className='kc-year';yr.textContent=d.year;
@@ -1622,16 +1753,38 @@ document.getElementById('exit-popup').addEventListener('click',e=>{if(e.target==
 setTimeout(()=>{if(!exitShown&&window.innerWidth<768){exitShown=true;document.getElementById('exit-popup').classList.add('show');}},45000);
 // ── QUICKCHECK ──
 function quickCheck(){
-  const verb=document.getElementById('qc-verb').value.trim();
-  const mail=document.getElementById('qc-mail').value.trim();
+  const verb  = document.getElementById('qc-verb').value.trim();
+  const dach  = document.getElementById('qc-dach').value.trim();
+  const mail  = document.getElementById('qc-mail').value.trim();
+  const firma = document.getElementById('qc-firma').value.trim();
   if(!mail||!verb){alert('Bitte Jahresstromverbrauch und E-Mail angeben.');return;}
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)){alert('Bitte eine gültige E-Mail-Adresse eingeben.');return;}
   const vn=parseFloat(verb.replace(/[.,\s]/g,''));
-  let msg,col;
-  if(vn>=100000){msg='✅ Sehr gut! Mit '+verb+' kWh/Jahr sind Sie ideal geeignet. Wir melden uns in <24h.';col='#00A040';}
-  else if(vn>=50000){msg='✅ Grundsätzlich geeignet. Wir prüfen das kostenlos für Sie.';col='#00A040';}
-  else{msg='ℹ️ Grenzwertig — wir beraten Sie zu passenden Lösungen.';col='rgba(255,200,0,.85)';}
+  let okMsg,col;
+  if(vn>=100000){okMsg='✅ Sehr gut! Mit '+verb+' kWh/Jahr sind Sie ideal geeignet. Wir melden uns in <24h.';col='#00A040';}
+  else if(vn>=50000){okMsg='✅ Grundsätzlich geeignet. Wir prüfen das kostenlos für Sie.';col='#00A040';}
+  else{okMsg='ℹ️ Grenzwertig — wir beraten Sie zu passenden Lösungen. Wir melden uns.';col='rgba(200,160,0,.9)';}
   const btn=document.querySelector('.qc-btn');
-  btn.textContent=msg;btn.style.cssText='background:'+col+';color:#fff;font-size:.76rem;border-radius:10px;text-align:left;padding:.8rem 1rem;width:100%;border:none;font-family:Outfit,sans-serif;font-weight:600;cursor:default';
+  btn.textContent='Wird gesendet …';btn.disabled=true;
+  fetch('https://api.web3forms.com/submit',{
+    method:'POST',
+    headers:{'Content-Type':'application/json',Accept:'application/json'},
+    body:JSON.stringify({
+      access_key:W3F_KEY,
+      subject:`[Schnellcheck] ${firma||mail} — ${verb} kWh — PPA-Onsite.de`,
+      from_name:firma||'Schnellcheck',
+      email:mail,
+      message:`Jahresstromverbrauch: ${verb} kWh\nDachfläche: ${dach} m²\nFirma: ${firma}`
+    })
+  })
+  .then(()=>{
+    btn.textContent=okMsg;
+    btn.style.cssText=`background:${col};color:#fff;font-size:.76rem;border-radius:10px;text-align:left;padding:.8rem 1rem;width:100%;border:none;font-family:Outfit,sans-serif;font-weight:600;cursor:default`;
+  })
+  .catch(()=>{
+    btn.textContent=okMsg;
+    btn.style.cssText=`background:${col};color:#fff;font-size:.76rem;border-radius:10px;text-align:left;padding:.8rem 1rem;width:100%;border:none;font-family:Outfit,sans-serif;font-weight:600;cursor:default`;
+  });
 }
 
 </script>
