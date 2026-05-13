@@ -193,15 +193,21 @@ h1 .y{color:var(--sun);text-shadow:0 0 40px rgba(255,214,0,0.35)}
 .ht-item span{color:var(--g1);font-weight:700;font-size:0.9rem}
 
 /* Hero 2-column layout */
-.hero-inner{display:grid;grid-template-columns:1.1fr 0.9fr;gap:5rem;align-items:center;position:relative;z-index:1;width:100%}
+.hero-inner{display:grid;grid-template-columns:1.1fr 0.9fr;gap:4rem;align-items:center;position:relative;z-index:1;width:100%}
 .hero-left{display:flex;flex-direction:column}
-.hero-right{display:flex;flex-direction:column;gap:1.2rem}
-.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.75rem}
-.hsc{background:rgba(255,255,255,0.05);border:1px solid rgba(0,230,118,0.18);border-radius:14px;padding:1rem 1.1rem;backdrop-filter:blur(20px)}
-.hsc-label{font-size:.58rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g1);opacity:.8;margin-bottom:.3rem}
-.hsc-val{font-size:1.35rem;font-weight:900;letter-spacing:-.03em;color:#fff;line-height:1.1}
-.hsc-sub{font-size:.62rem;color:rgba(255,255,255,.35);margin-top:.2rem}
-@media(max-width:1100px){.hero-inner{grid-template-columns:1fr}.hero-right{max-width:600px}}
+.hero-right{display:flex;flex-direction:column}
+
+/* Unified right CTA card */
+.hero-cta-card{background:rgba(255,255,255,0.04);border:1px solid rgba(0,230,118,0.22);border-radius:22px;padding:2rem 2rem 1.6rem;backdrop-filter:blur(20px);box-shadow:0 24px 64px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.06)}
+.hcc-label{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g1);margin-bottom:1.1rem;display:flex;align-items:center;gap:.5rem}
+.hcc-divider{height:1px;background:rgba(0,230,118,0.12);margin:1.3rem 0 1.1rem}
+
+.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
+.hsc{background:rgba(0,0,0,.25);border-radius:10px;padding:.8rem .85rem;text-align:center}
+.hsc-label{font-size:.52rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g1);opacity:.8;margin-bottom:.25rem}
+.hsc-val{font-size:1.15rem;font-weight:900;letter-spacing:-.03em;color:#fff;line-height:1.1}
+.hsc-sub{font-size:.58rem;color:rgba(255,255,255,.3);margin-top:.15rem}
+@media(max-width:1100px){.hero-inner{grid-template-columns:1fr}.hero-cta-card{max-width:560px}}
 
 /* ── MARQUEE ── */
 .marquee-wrap{background:var(--ink2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:.9rem 0}
@@ -537,7 +543,8 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 @media(max-width:768px){
   /* Hero */
   .hero{padding:6.5rem 1.5rem 3rem}
-  .hero-inner{grid-template-columns:1fr;gap:2.5rem}
+  .hero-inner{grid-template-columns:1fr;gap:2rem}
+  .hero-cta-card{padding:1.5rem 1.2rem 1.2rem}
   .hero-stats{grid-template-columns:repeat(3,1fr)}
   .hero-eyebrow{font-size:.65rem;padding:.4rem .85rem}
   .live-ticker{font-size:.72rem;flex-wrap:wrap;gap:.5rem;padding:.4rem .85rem;line-height:1.5}
@@ -709,27 +716,10 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
       </div>
     </div>
 
-    <!-- RECHTS: Stats + Quickcheck -->
+    <!-- RECHTS: Unified CTA-Card -->
     <div class="hero-right">
-      <div class="hero-stats">
-        <div class="hsc">
-          <div class="hsc-label">Ersparnis Beispiel</div>
-          <div class="hsc-val">38.400 €</div>
-          <div class="hsc-sub">500.000 kWh/Jahr</div>
-        </div>
-        <div class="hsc">
-          <div class="hsc-label">PPA-Markt DE</div>
-          <div class="hsc-val">6,6 GW</div>
-          <div class="hsc-sub">Volumen 2024 (dena)</div>
-        </div>
-        <div class="hsc">
-          <div class="hsc-label">Time-to-Power</div>
-          <div class="hsc-val">8–12 Wo</div>
-          <div class="hsc-sub">Vertrag bis Strom</div>
-        </div>
-      </div>
-      <div class="hero-qc">
-        <div class="qc-title">⚡ Schnellcheck — Bin ich qualifiziert?</div>
+      <div class="hero-cta-card">
+        <div class="hcc-label">⚡ Schnellcheck — Bin ich qualifiziert?</div>
         <div class="qc-row">
           <input class="qc-field" type="text" placeholder="Jahresstromverbrauch (kWh)" id="qc-verb">
           <input class="qc-field" type="text" placeholder="Dachfläche (m²)" id="qc-dach">
@@ -740,6 +730,24 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
         </div>
         <button class="qc-btn" onclick="quickCheck()">Sofort prüfen — kostenlos und unverbindlich →</button>
         <p class="qc-note">Keine Weitergabe Ihrer Daten · Antwort in &lt; 24 Stunden · DSGVO-konform</p>
+        <div class="hcc-divider"></div>
+        <div class="hero-stats">
+          <div class="hsc">
+            <div class="hsc-label">Ersparnis Beispiel</div>
+            <div class="hsc-val">38.400 €</div>
+            <div class="hsc-sub">500 tkWh/Jahr</div>
+          </div>
+          <div class="hsc">
+            <div class="hsc-label">PPA-Markt DE</div>
+            <div class="hsc-val">6,6 GW</div>
+            <div class="hsc-sub">Volumen 2024</div>
+          </div>
+          <div class="hsc">
+            <div class="hsc-label">Time-to-Power</div>
+            <div class="hsc-val">8–12 Wo</div>
+            <div class="hsc-sub">Vertrag bis Strom</div>
+          </div>
+        </div>
       </div>
     </div>
 
