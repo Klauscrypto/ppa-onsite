@@ -1,11 +1,1639 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>PPA-Onsite – Pilsner Vertriebs GmbH</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>PPA Onsite – Grünstrom vom eigenen Dach. 0 € Investment.</title>
+<meta name="description" content="Onsite-PPA: Keine Netzentgelte, keine Stromsteuer, keine Investition. Bis zu 60% günstigerer Strom direkt vom Dach. Jetzt kostenlos berechnen.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<style>
+:root {
+  --g1:#00E676; --g2:#00C853; --g3:#69F0AE; --g4:#1B5E20; --g5:#004D40;
+  --sun:#FFD600; --sun2:#FF8F00; --red:#FF5252;
+  --ink:#030F07; --ink2:#071A0E; --ink3:#0D2318;
+  --white:#FFFFFF; --line:rgba(0,230,118,0.13);
+  --card:rgba(255,255,255,0.035);
+  --glow:0 0 60px rgba(0,230,118,0.22);
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth;font-size:16px}
+body{font-family:'Outfit',sans-serif;background:var(--ink);color:var(--white);overflow-x:hidden;line-height:1.6;cursor:none}
+
+/* ── CURSOR ── */
+#cur{position:fixed;width:10px;height:10px;background:var(--g1);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference;transition:width .25s,height .25s}
+#cur-r{position:fixed;width:34px;height:34px;border:1.5px solid rgba(0,230,118,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s}
+@media(max-width:768px){#cur,#cur-r{display:none}body{cursor:auto}}
+
+/* ── WHATSAPP BUTTON ── */
+#wa-btn{position:fixed;bottom:5.5rem;right:1.5rem;z-index:450;width:54px;height:54px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 4px 20px rgba(37,211,102,0.45);cursor:pointer;text-decoration:none;transition:transform .25s,box-shadow .25s;animation:wa-pulse 3s ease-in-out infinite}
+@keyframes wa-pulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.45)}50%{box-shadow:0 4px 35px rgba(37,211,102,0.7),0 0 0 8px rgba(37,211,102,0.1)}}
+#wa-btn:hover{transform:scale(1.1)}
+#wa-tooltip{position:fixed;bottom:6.5rem;right:5rem;z-index:449;background:var(--ink3);border:1px solid rgba(37,211,102,0.25);border-radius:10px;padding:.5rem 1rem;font-size:.75rem;color:rgba(255,255,255,.75);white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .3s;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+#wa-btn:hover~#wa-tooltip{opacity:1}
+
+/* ── EXIT INTENT POPUP ── */
+#exit-popup{display:none;position:fixed;inset:0;z-index:900;background:rgba(0,0,0,0.78);backdrop-filter:blur(8px);align-items:center;justify-content:center}
+#exit-popup.show{display:flex}
+.ep-box{background:var(--ink3);border:1px solid rgba(0,230,118,0.25);border-radius:24px;padding:3rem;max-width:500px;width:90%;position:relative;box-shadow:0 40px 100px rgba(0,0,0,.6)}
+.ep-close{position:absolute;top:1rem;right:1.3rem;background:transparent;border:none;color:rgba(255,255,255,.35);font-size:1.4rem;cursor:pointer;line-height:1;padding:.2rem}
+.ep-close:hover{color:#fff}
+.ep-badge{background:rgba(0,230,118,0.1);border:1px solid rgba(0,230,118,0.25);color:var(--g1);font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .9rem;border-radius:50px;display:inline-block;margin-bottom:1.2rem}
+.ep-box h3{font-size:1.55rem;font-weight:900;letter-spacing:-.03em;margin-bottom:.8rem;line-height:1.15}
+.ep-box>p{font-size:.86rem;color:rgba(255,255,255,.5);margin-bottom:1.8rem;line-height:1.7}
+.ep-form{display:flex;gap:.7rem;flex-wrap:wrap}
+.ep-input{flex:1;min-width:170px;padding:.82rem 1rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:12px;color:#fff;font-family:'Outfit',sans-serif;font-size:.88rem;outline:none;transition:border .2s}
+.ep-input:focus{border-color:var(--g1)}
+.ep-btn{background:var(--g1);color:var(--ink);border:none;padding:.82rem 1.5rem;border-radius:50px;font-family:'Outfit',sans-serif;font-weight:800;font-size:.88rem;cursor:pointer;white-space:nowrap;transition:all .3s}
+.ep-btn:hover{background:#33FF8A}
+.ep-note{font-size:.65rem;color:rgba(255,255,255,.22);margin-top:.8rem;text-align:center}
+
+/* ── TRUST LOGOS ── */
+.trust-logos{background:var(--ink2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:1.8rem 4.5rem}
+.tl-label{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.22);text-align:center;margin-bottom:1.2rem}
+.tl-row{display:flex;align-items:center;justify-content:center;gap:3rem;flex-wrap:wrap}
+.tl-logo{font-size:.82rem;font-weight:800;letter-spacing:-.02em;color:rgba(255,255,255,.18);text-transform:uppercase;cursor:default}
+.tl-cert{display:flex;align-items:center;gap:.4rem;font-size:.68rem;font-weight:600;color:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.1);border-radius:50px;padding:.3rem .8rem}
+
+/* ── HERO QUICKCHECK ── */
+.hero-qc{margin-top:2.5rem;background:rgba(255,255,255,.04);border:1px solid rgba(0,230,118,0.18);border-radius:18px;padding:1.5rem 2rem;max-width:600px}
+.qc-title{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g1);margin-bottom:1rem;opacity:.85}
+.qc-row{display:flex;gap:.7rem;flex-wrap:wrap;margin-bottom:.7rem}
+.qc-field{flex:1;min-width:140px;padding:.7rem 1rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:10px;color:#fff;font-family:'Outfit',sans-serif;font-size:.84rem;outline:none;transition:border .2s}
+.qc-field:focus{border-color:var(--g1)}
+.qc-field::placeholder{color:rgba(255,255,255,.35)}
+.qc-btn{width:100%;padding:.78rem;background:var(--g1);color:var(--ink);border:none;border-radius:10px;font-family:'Outfit',sans-serif;font-weight:800;font-size:.9rem;cursor:pointer;transition:all .3s}
+.qc-btn:hover{background:#33FF8A}
+.qc-note{font-size:.62rem;color:rgba(255,255,255,.22);text-align:center;margin-top:.4rem}
+
+/* ── COST OF INACTION ── */
+.inaction{background:var(--ink2);border-top:1px solid rgba(255,82,82,0.1)}
+.ia-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;margin-top:2rem}
+@media(max-width:768px){.ia-grid{grid-template-columns:1fr}}
+.ia-left p{font-size:.92rem;color:rgba(255,255,255,.58);line-height:1.8;margin-bottom:1.5rem;font-weight:300}
+.ia-calc{background:rgba(0,0,0,.35);border:1px solid rgba(255,82,82,0.18);border-radius:18px;padding:2rem}
+.ia-calc-title{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,100,100,.65);margin-bottom:1.2rem}
+.ia-row{display:flex;justify-content:space-between;align-items:center;padding:.65rem 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.83rem}
+.ia-row:last-child{border-bottom:none}
+.ia-row-label{color:rgba(255,255,255,.5);font-weight:300}
+.ia-row-val{font-weight:700}
+.ia-row-val.red{color:rgba(255,110,110,.9)}
+.ia-total{margin-top:1rem;padding:1rem 1.2rem;background:rgba(255,82,82,.1);border-radius:12px;display:flex;justify-content:space-between;align-items:center;border:1px solid rgba(255,82,82,.15)}
+.ia-total-label{font-size:.82rem;color:rgba(255,255,255,.6)}
+.ia-total-val{font-size:1.45rem;font-weight:900;color:rgba(255,110,110,.9);letter-spacing:-.03em}
+.ia-cta{margin-top:1.2rem;width:100%;padding:.9rem;background:var(--g1);color:var(--ink);border:none;border-radius:50px;font-family:'Outfit',sans-serif;font-weight:800;font-size:.9rem;cursor:pointer;transition:all .3s}
+.ia-cta:hover{background:#33FF8A}
+.ia-disclaimer{font-size:.65rem;color:rgba(255,255,255,.2);margin-top:.6rem;text-align:center}
+
+/* ── PERSONAL CONTACT ── */
+.personal{background:var(--ink)}
+.person-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem}
+@media(max-width:768px){.person-grid{grid-template-columns:1fr}}
+.person-card{background:rgba(255,255,255,.03);border:1px solid rgba(0,230,118,0.14);border-radius:22px;padding:2rem;display:flex;gap:1.5rem;align-items:flex-start;transition:border-color .3s}
+.person-card:hover{border-color:rgba(0,230,118,0.3)}
+.person-avatar{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--g4),var(--g5));flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.8rem;border:2px solid rgba(0,230,118,0.28)}
+.person-info h4{font-size:1rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.2rem}
+.person-role{font-size:.72rem;color:var(--g1);font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.6rem}
+.person-quote{font-size:.8rem;color:rgba(255,255,255,.45);line-height:1.65;font-style:italic;font-family:'Lora',serif;margin-bottom:.9rem}
+.person-links{display:flex;flex-direction:column;gap:.4rem}
+.pl{display:flex;align-items:center;gap:.5rem;font-size:.78rem;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.pl:hover{color:var(--g1)}
+.pl-i{color:var(--g1)}
+.person-avail{display:inline-flex;align-items:center;gap:.4rem;background:rgba(0,230,118,0.09);border:1px solid rgba(0,230,118,0.18);border-radius:50px;padding:.28rem .8rem;font-size:.68rem;font-weight:700;color:var(--g1);margin-top:.7rem}
+.avail-dot{width:6px;height:6px;background:var(--g1);border-radius:50%;animation:blink 2s ease-in-out infinite}
+
+/* ── LEAD MAGNET ── */
+.lead-magnet{background:var(--ink3);border-top:1px solid var(--line)}
+.lm-box{background:linear-gradient(135deg,rgba(0,230,118,0.07),rgba(0,191,165,0.03));border:1.5px solid rgba(0,230,118,0.18);border-radius:22px;padding:2.5rem;display:grid;grid-template-columns:auto 1fr;gap:3rem;align-items:center;margin-top:2rem}
+@media(max-width:768px){.lm-box{grid-template-columns:1fr}}
+.lm-doc{background:rgba(255,255,255,.05);border:1px solid rgba(0,230,118,0.18);border-radius:14px;padding:1.8rem 1.5rem;text-align:center;min-width:160px}
+.lm-doc-icon{font-size:2.8rem;margin-bottom:.7rem}
+.lm-doc-title{font-size:.8rem;font-weight:800;margin-bottom:.3rem;line-height:1.3}
+.lm-doc-type{font-size:.62rem;color:var(--g1);font-weight:700;text-transform:uppercase;letter-spacing:.1em}
+.lm-content h3{font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.6rem}
+.lm-content p{font-size:.86rem;color:rgba(255,255,255,.5);line-height:1.75;margin-bottom:1.2rem}
+.lm-list{display:flex;flex-direction:column;gap:.45rem;margin-bottom:1.4rem}
+.lm-li{font-size:.8rem;color:rgba(255,255,255,.55);display:flex;align-items:center;gap:.5rem}
+.lm-li::before{content:'✓';color:var(--g1);font-weight:700;flex-shrink:0}
+.lm-form{display:flex;gap:.7rem;flex-wrap:wrap}
+.lm-inp{flex:1;min-width:180px;padding:.78rem 1.1rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:50px;color:#fff;font-family:'Outfit',sans-serif;font-size:.86rem;outline:none;transition:border .2s}
+.lm-inp::placeholder{color:rgba(255,255,255,.3)}
+.lm-inp:focus{border-color:var(--g1)}
+.lm-btn{background:var(--g1);color:var(--ink);border:none;padding:.78rem 1.8rem;border-radius:50px;font-family:'Outfit',sans-serif;font-weight:800;font-size:.86rem;cursor:pointer;white-space:nowrap;transition:all .3s}
+.lm-btn:hover{background:#33FF8A}
+
+/* ── URGENCY BANNER ── */
+.urgency{background:linear-gradient(90deg,rgba(255,214,0,0.1),rgba(255,143,0,0.07),rgba(255,214,0,0.1));border-top:1px solid rgba(255,214,0,0.18);border-bottom:1px solid rgba(255,214,0,0.18);padding:1.1rem 4.5rem}
+.urgency-inner{display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;font-size:.86rem;color:rgba(255,255,255,.65)}
+.urgency-inner strong{color:var(--sun)}
+.urgency-cta{display:inline-flex;align-items:center;gap:.4rem;background:var(--sun);color:var(--ink);padding:.42rem 1.1rem;border-radius:50px;font-size:.78rem;font-weight:800;text-decoration:none;transition:all .3s;white-space:nowrap}
+.urgency-cta:hover{transform:translateY(-1px);box-shadow:0 4px 18px rgba(255,214,0,.4)}
+
+/* ── SCROLL PROGRESS ── */
+#prog{position:fixed;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--g1),var(--sun));transform-origin:left;transform:scaleX(0);z-index:600;transition:transform .08s}
+
+/* ── COOKIE BANNER ── */
+#cookie{position:fixed;bottom:1.5rem;left:1.5rem;right:1.5rem;max-width:560px;background:var(--ink3);border:1px solid rgba(0,230,118,0.2);border-radius:16px;padding:1.4rem 1.8rem;z-index:800;box-shadow:0 20px 60px rgba(0,0,0,0.5);backdrop-filter:blur(20px)}
+#cookie p{font-size:0.8rem;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:1rem}
+#cookie a{color:var(--g1);text-decoration:none}
+.cookie-btns{display:flex;gap:.7rem;flex-wrap:wrap}
+#cookie-btn{background:var(--g1);color:var(--ink);border:none;padding:0.55rem 1.3rem;border-radius:50px;font-family:'Outfit',sans-serif;font-size:0.82rem;font-weight:700;cursor:pointer;white-space:nowrap}
+#cookie-reject{background:transparent;color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.15);padding:0.55rem 1.3rem;border-radius:50px;font-family:'Outfit',sans-serif;font-size:0.82rem;font-weight:500;cursor:pointer;white-space:nowrap;transition:border-color .2s}
+#cookie-reject:hover{border-color:rgba(255,255,255,0.35);color:rgba(255,255,255,0.75)}
+
+/* ── MOBILE CTA ── */
+#mob-cta{position:fixed;bottom:0;left:0;right:0;z-index:400;padding:1rem 1.5rem;background:linear-gradient(0deg,var(--ink) 60%,transparent);display:none}
+#mob-cta a{display:block;background:var(--g1);color:var(--ink);text-align:center;padding:1rem;border-radius:50px;font-weight:800;font-size:1rem;text-decoration:none;box-shadow:0 4px 30px rgba(0,230,118,0.4)}
+@media(max-width:768px){#mob-cta{display:block}}
+
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:center;padding:1rem 4.5rem;background:rgba(3,15,7,0.88);backdrop-filter:blur(24px) saturate(180%);border-bottom:1px solid var(--line)}
+.logo{font-size:1.4rem;font-weight:900;color:var(--white);text-decoration:none;letter-spacing:-0.04em;display:flex;align-items:center;gap:0.5rem}
+.logo-mark{width:30px;height:30px;background:linear-gradient(135deg,var(--g1),var(--g3));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.95rem;box-shadow:0 0 18px rgba(0,230,118,0.4)}
+.logo span{color:var(--g1)}
+.nav-links{display:flex;gap:2rem;align-items:center}
+.nav-links a{color:rgba(255,255,255,0.65);text-decoration:none;font-size:0.85rem;font-weight:500;transition:color .2s}
+.nav-links a:hover{color:var(--g1)}
+.nav-cta{background:var(--g1)!important;color:var(--ink)!important;padding:.55rem 1.3rem;border-radius:50px;font-weight:700!important;font-size:0.83rem!important;box-shadow:0 4px 20px rgba(0,230,118,0.35);transition:box-shadow .2s,transform .2s!important}
+.nav-cta:hover{box-shadow:0 8px 30px rgba(0,230,118,0.55)!important;transform:translateY(-1px)!important}
+@media(max-width:900px){.nav-links{display:none}nav{padding:1rem 1.5rem}}
+
+/* ── HERO ── */
+.hero{min-height:100vh;display:flex;flex-direction:column;justify-content:center;padding:9rem 4.5rem 5rem;position:relative;overflow:hidden;background:var(--ink)}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 65% 55% at 68% 28%,rgba(0,200,83,0.15) 0%,transparent 65%),radial-gradient(ellipse 45% 65% at 10% 75%,rgba(0,191,165,0.1) 0%,transparent 55%),radial-gradient(ellipse 35% 40% at 90% 80%,rgba(255,214,0,0.08) 0%,transparent 50%);pointer-events:none}
+.hero-grid{position:absolute;inset:0;opacity:0.03;background-image:linear-gradient(var(--g1) 1px,transparent 1px),linear-gradient(90deg,var(--g1) 1px,transparent 1px);background-size:70px 70px;pointer-events:none}
+
+.hero-eyebrow{display:inline-flex;align-items:center;gap:.7rem;margin-bottom:1.8rem;background:rgba(0,230,118,0.09);border:1px solid rgba(0,230,118,0.22);padding:.45rem 1rem;border-radius:50px;font-size:0.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g1)}
+.hero-dot{width:7px;height:7px;background:var(--g1);border-radius:50%;animation:blink 2s ease-in-out infinite;box-shadow:0 0 8px var(--g1)}
+@keyframes blink{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(0,230,118,0.5)}50%{opacity:.6;box-shadow:0 0 0 5px rgba(0,230,118,0)}}
+
+h1{font-family:'Outfit',sans-serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:900;line-height:1.04;letter-spacing:-.04em;margin-bottom:1.6rem;color:#fff}
+h1 .g{color:var(--g1)}
+h1 .y{color:var(--sun);text-shadow:0 0 40px rgba(255,214,0,0.35)}
+.hero-sub{font-size:1.15rem;font-weight:300;line-height:1.8;color:rgba(255,255,255,0.72);max-width:600px;margin-bottom:1.8rem}
+.hero-sub strong{color:#fff;font-weight:600}
+
+/* Live-Ticker */
+.live-ticker{display:inline-flex;align-items:center;gap:.8rem;background:rgba(255,82,82,0.12);border:1px solid rgba(255,82,82,0.25);border-radius:50px;padding:.4rem 1rem;font-size:0.78rem;margin-bottom:2rem;color:rgba(255,255,255,0.75)}
+.ticker-dot{width:7px;height:7px;background:var(--red);border-radius:50%;animation:blink 1.2s ease-in-out infinite}
+.ticker-val{font-weight:800;color:var(--red)}
+.ticker-ppa{font-weight:700;color:var(--g1)}
+
+.hero-actions{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;margin-bottom:3rem}
+.btn-main{background:var(--g1);color:var(--ink);padding:.95rem 2.2rem;border-radius:50px;font-size:1rem;font-weight:800;text-decoration:none;box-shadow:0 4px 30px rgba(0,230,118,0.45);transition:all .3s;letter-spacing:-.01em;animation:pulse-g 3s ease-in-out infinite}
+@keyframes pulse-g{0%,100%{box-shadow:0 4px 30px rgba(0,230,118,0.45)}50%{box-shadow:0 4px 50px rgba(0,230,118,0.7),0 0 0 8px rgba(0,230,118,0.07)}}
+.btn-main:hover{transform:translateY(-3px);background:#33FF8A}
+.btn-ghost{background:transparent;color:var(--white);padding:.95rem 2.2rem;border-radius:50px;font-size:1rem;font-weight:600;text-decoration:none;border:1.5px solid rgba(255,255,255,0.18);transition:all .3s}
+.btn-ghost:hover{border-color:var(--g1);color:var(--g1)}
+
+.hero-trust{display:flex;align-items:center;gap:1.3rem;font-size:0.8rem;color:rgba(255,255,255,0.45);flex-wrap:wrap}
+.ht-sep{width:1px;height:18px;background:rgba(255,255,255,0.12)}
+.ht-item{display:flex;align-items:center;gap:.4rem}
+.ht-item span{color:var(--g1);font-weight:700;font-size:0.9rem}
+
+/* Hero floating cards */
+.hero-floats{position:absolute;right:4.5rem;top:50%;transform:translateY(-50%);display:flex;flex-direction:column;gap:1rem;z-index:2}
+@media(max-width:1100px){.hero-floats{display:none}}
+.fc{background:rgba(255,255,255,0.04);border:1px solid rgba(0,230,118,0.18);border-radius:18px;padding:1.3rem 1.6rem;backdrop-filter:blur(20px);min-width:230px;animation:float 6s ease-in-out infinite}
+.fc:nth-child(2){animation-delay:-2s;margin-left:1.2rem}
+.fc:nth-child(3){animation-delay:-4s}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-8px)}}
+.fc-label{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g1);opacity:.8;margin-bottom:.3rem}
+.fc-val{font-size:1.75rem;font-weight:900;letter-spacing:-.03em;color:#fff}
+.fc-sub{font-size:.72rem;color:rgba(255,255,255,.4);margin-top:.2rem}
+.fc-badge{display:inline-flex;align-items:center;gap:.3rem;font-size:.72rem;font-weight:700;color:var(--g1);margin-top:.4rem}
+
+/* ── MARQUEE ── */
+.marquee-wrap{background:var(--ink2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:.9rem 0}
+.marquee{display:flex;gap:2.5rem;animation:marquee 35s linear infinite;white-space:nowrap}
+.mi{font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);display:flex;align-items:center;gap:1rem}
+.ms{color:var(--g1);font-size:.9rem}
+@keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ── KENNZAHLEN ── */
+.kz{background:linear-gradient(135deg,var(--g4) 0%,var(--g5) 100%);border-top:1px solid rgba(0,230,118,0.2);border-bottom:1px solid rgba(0,230,118,0.2);padding:3.5rem 4.5rem}
+.kz-grid{display:grid;grid-template-columns:repeat(5,1fr)}
+.kz-item{text-align:center;padding:1.8rem 1rem;border-right:1px solid rgba(255,255,255,0.07)}
+.kz-item:last-child{border-right:none}
+.kz-num{font-size:2.6rem;font-weight:900;letter-spacing:-.04em;line-height:1;background:linear-gradient(135deg,var(--g1),var(--sun));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.35rem}
+.kz-label{font-size:.78rem;color:rgba(255,255,255,.55);line-height:1.4;font-weight:300}
+@media(max-width:900px){.kz-grid{grid-template-columns:repeat(2,1fr);gap:1rem}.kz-item{border-right:none}.kz{padding:2.5rem 1.5rem}}
+
+/* ── SECTION BASE ── */
+section{padding:6.5rem 4.5rem;background:var(--ink)}
+.sey{font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--g1);margin-bottom:.9rem;display:flex;align-items:center;gap:.6rem}
+.sey::before{content:'';display:block;width:24px;height:2px;background:var(--g1);border-radius:2px}
+h2{font-family:'Outfit',sans-serif;font-size:clamp(1.9rem,3.8vw,3rem);font-weight:900;letter-spacing:-.03em;line-height:1.08;margin-bottom:1.1rem;color:#fff}
+.slead{font-size:1rem;color:rgba(255,255,255,.58);max-width:580px;line-height:1.8;margin-bottom:3.5rem;font-weight:300}
+.tg{color:var(--g1)}
+@media(max-width:768px){section{padding:4rem 1.5rem}}
+
+/* ── WIE ES FUNKTIONIERT ── */
+.how{background:var(--ink2)}
+.how-timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:.5rem;position:relative}
+.how-timeline::before{content:'';position:absolute;top:46px;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,rgba(0,230,118,0.4),transparent);z-index:0}
+.step{padding:0 1.2rem;text-align:center;position:relative;z-index:1}
+.step-bubble{width:92px;height:92px;border-radius:50%;background:linear-gradient(135deg,rgba(0,230,118,0.12),rgba(0,191,165,0.06));border:1.5px solid rgba(0,230,118,0.28);display:flex;align-items:center;justify-content:center;margin:0 auto 1.3rem;font-size:1.7rem;box-shadow:0 0 28px rgba(0,230,118,0.12);transition:all .4s}
+.step:hover .step-bubble{background:rgba(0,230,118,0.18);box-shadow:var(--glow);transform:scale(1.06)}
+.step-n{font-size:.68rem;font-weight:800;letter-spacing:.15em;color:var(--g1);margin-bottom:.5rem}
+.step h3{font-size:.95rem;font-weight:700;margin-bottom:.5rem;letter-spacing:-.01em}
+.step p{font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.65;font-weight:300}
+@media(max-width:768px){.how-timeline{grid-template-columns:repeat(2,1fr);gap:2rem}.how-timeline::before{display:none}}
+
+/* ── VORTEILE ── */
+.vg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
+.vc{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:1.8rem;position:relative;overflow:hidden;transition:all .4s}
+.vc::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,230,118,0.05),transparent);opacity:0;transition:opacity .4s}
+.vc:hover{border-color:rgba(0,230,118,0.28);transform:translateY(-4px);box-shadow:0 18px 55px rgba(0,0,0,0.3)}
+.vc:hover::before{opacity:1}
+.vc.star{border-color:rgba(0,230,118,0.35);background:linear-gradient(135deg,rgba(0,200,83,0.1),rgba(0,191,165,0.05))}
+.vc-icon{font-size:2rem;margin-bottom:1rem}
+.vc h3{font-size:.98rem;font-weight:700;margin-bottom:.5rem;letter-spacing:-.01em}
+.vc p{font-size:.83rem;color:rgba(255,255,255,.5);line-height:1.7;font-weight:300}
+.vc-tag{display:inline-block;margin-top:.9rem;font-size:.68rem;font-weight:700;color:var(--g1);letter-spacing:.08em;text-transform:uppercase}
+@media(max-width:768px){.vg{grid-template-columns:1fr}}
+
+/* ── NETZENTGELT BOX (neu!) ── */
+.netz-box{background:linear-gradient(135deg,rgba(0,230,118,0.1),rgba(0,191,165,0.06));border:1.5px solid rgba(0,230,118,0.3);border-radius:22px;padding:2.5rem;margin-bottom:4rem;position:relative;overflow:hidden}
+.netz-box::after{content:'⚡';position:absolute;right:2rem;top:50%;transform:translateY(-50%);font-size:8rem;opacity:.06}
+.netz-box h3{font-size:1.3rem;font-weight:800;margin-bottom:1rem;letter-spacing:-.02em}
+.netz-split{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
+.netz-list{display:flex;flex-direction:column;gap:.7rem}
+.netz-item{display:flex;align-items:center;gap:.8rem;font-size:.88rem;color:rgba(255,255,255,.7)}
+.netz-item .check{color:var(--g1);font-size:1.1rem;flex-shrink:0}
+.netz-stat{text-align:right}
+.netz-stat-num{font-size:3.5rem;font-weight:900;letter-spacing:-.04em;background:linear-gradient(135deg,var(--g1),var(--sun));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
+.netz-stat-label{font-size:.82rem;color:rgba(255,255,255,.5);margin-top:.3rem}
+@media(max-width:768px){.netz-split{grid-template-columns:1fr}.netz-stat{text-align:left}}
+
+/* ── ENERGIEKRISE CHART ── */
+.krise{background:var(--ink2)}
+.krise-chart-wrap{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:20px;padding:2rem;margin-top:2rem}
+.krise-legend{display:flex;gap:2rem;margin-bottom:1.5rem;flex-wrap:wrap}
+.kl-item{display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:rgba(255,255,255,.6)}
+.kl-dot{width:12px;height:12px;border-radius:3px}
+.krise-chart{position:relative;height:200px;display:flex;align-items:flex-end;gap:6px;padding-bottom:28px}
+.kc-bar-g{flex:1;position:relative;display:flex;flex-direction:column;align-items:center;gap:3px}
+.kc-bar{width:100%;border-radius:4px 4px 0 0;position:relative;transition:opacity .3s}
+.kc-bar:hover{opacity:.85}
+.kc-year{font-size:.6rem;color:rgba(255,255,255,.3);position:absolute;bottom:-22px;white-space:nowrap}
+.krise-note{font-size:.78rem;color:rgba(255,255,255,.35);text-align:center;margin-top:1rem;font-style:italic}
+
+/* ── MARKT DATEN ── */
+.markt{background:var(--ink3)}
+.markt-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem}
+.markt-card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:1.8rem}
+.markt-card h4{font-size:1rem;font-weight:700;margin-bottom:.4rem}
+.markt-card p{font-size:.83rem;color:rgba(255,255,255,.5);line-height:1.7;font-weight:300}
+.markt-num{font-size:2.4rem;font-weight:900;letter-spacing:-.04em;color:var(--g1);margin-bottom:.3rem;line-height:1}
+.markt-trend{font-size:.75rem;color:var(--g1);font-weight:700;margin-top:.5rem}
+@media(max-width:768px){.markt-grid{grid-template-columns:1fr}}
+
+/* ── CSRD / ESG ── */
+.esg{background:var(--ink2)}
+.esg-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.esg-visual{background:var(--card);border:1px solid rgba(0,230,118,0.18);border-radius:22px;padding:2rem}
+.esg-timeline{display:flex;flex-direction:column;gap:0}
+.esg-item{display:flex;gap:1.2rem;padding:1.1rem 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.esg-item:last-child{border-bottom:none}
+.esg-year{font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:900;color:var(--g1);min-width:52px;letter-spacing:-.03em}
+.esg-text h5{font-size:.88rem;font-weight:700;margin-bottom:.2rem}
+.esg-text p{font-size:.78rem;color:rgba(255,255,255,.45);line-height:1.55;font-weight:300}
+.esg-pills{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem}
+.esg-pill{padding:.35rem .9rem;border-radius:50px;font-size:.72rem;font-weight:700;background:rgba(0,230,118,0.1);border:1px solid rgba(0,230,118,0.25);color:var(--g1)}
+@media(max-width:900px){.esg-layout{grid-template-columns:1fr}}
+
+/* ── BATTERIE ADD-ON ── */
+.batt{background:var(--ink)}
+.batt-layout{display:grid;grid-template-columns:1.1fr 0.9fr;gap:4rem;align-items:center}
+.batt-card{background:linear-gradient(135deg,rgba(255,214,0,0.08),rgba(255,143,0,0.05));border:1.5px solid rgba(255,214,0,0.25);border-radius:22px;padding:2.2rem}
+.batt-card h3{font-size:1.2rem;font-weight:800;margin-bottom:1rem;color:var(--sun)}
+.batt-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem}
+.bs{background:rgba(0,0,0,.3);border-radius:12px;padding:1rem;text-align:center}
+.bs-num{font-size:1.6rem;font-weight:900;color:var(--sun);letter-spacing:-.03em}
+.bs-label{font-size:.68rem;color:rgba(255,255,255,.4);margin-top:.2rem}
+.batt-list{display:flex;flex-direction:column;gap:.7rem}
+.batt-item{display:flex;align-items:flex-start;gap:.8rem;font-size:.85rem;color:rgba(255,255,255,.65)}
+.batt-item .bi{color:var(--sun);flex-shrink:0;font-size:1.1rem}
+@media(max-width:900px){.batt-layout{grid-template-columns:1fr}}
+
+/* ── RECHNER ── */
+.rechner{background:var(--ink3)}
+.rw{background:rgba(255,255,255,.028);border:1px solid rgba(0,230,118,0.13);border-radius:26px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.5),0 0 80px rgba(0,230,118,0.04)}
+.r-tabs{display:flex;background:rgba(0,0,0,.25);border-bottom:1px solid var(--line)}
+.rtab{flex:1;padding:1rem;text-align:center;font-size:.8rem;font-weight:700;cursor:pointer;color:rgba(255,255,255,.38);border:none;background:transparent;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .3s;font-family:'Outfit',sans-serif}
+.rtab.active{color:var(--g1);border-bottom-color:var(--g1)}
+.r-body{display:grid;grid-template-columns:1.15fr 0.85fr}
+@media(max-width:900px){.r-body{grid-template-columns:1fr}}
+.r-inputs{padding:2.5rem;border-right:1px solid var(--line)}
+.r-inputs h3{font-size:1.2rem;font-weight:800;margin-bottom:.3rem}
+.r-inputs .sub{font-size:.78rem;color:rgba(255,255,255,.35);margin-bottom:2rem}
+
+.ig{margin-bottom:1.7rem}
+.il{display:flex;justify-content:space-between;align-items:center;font-size:.74rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.48);margin-bottom:.75rem}
+.iv{color:var(--g1);font-size:.95rem;font-weight:800;letter-spacing:-.02em}
+input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:4px;background:rgba(255,255,255,.1);border-radius:10px;outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--g1);box-shadow:0 0 0 4px rgba(0,230,118,0.18),0 2px 12px rgba(0,230,118,0.5);cursor:pointer;transition:transform .15s,box-shadow .15s}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.25);box-shadow:0 0 0 6px rgba(0,230,118,0.12),0 2px 20px rgba(0,230,118,0.7)}
+.im{display:flex;justify-content:space-between;margin-top:.35rem}
+.im span{font-size:.62rem;color:rgba(255,255,255,.22)}
+.isel{width:100%;padding:.8rem 1rem;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px;color:#fff;font-family:'Outfit',sans-serif;font-size:.88rem;outline:none;cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2300E676' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .9rem center;padding-right:2.2rem;transition:border .2s}
+.isel:focus{border-color:var(--g1)}
+.isel option{background:var(--ink2)}
+
+/* Netzentgelt Toggle */
+.netz-toggle{background:rgba(0,230,118,0.08);border:1px solid rgba(0,230,118,0.2);border-radius:12px;padding:1rem;margin-bottom:1.7rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.netz-toggle span{font-size:.8rem;color:rgba(255,255,255,.7);line-height:1.4}
+.toggle-sw{position:relative;width:44px;height:24px;flex-shrink:0}
+.toggle-sw input{opacity:0;width:0;height:0}
+.toggle-sl{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background:rgba(255,255,255,.15);border-radius:24px;transition:.3s}
+.toggle-sl::before{content:'';position:absolute;width:18px;height:18px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:.3s}
+.toggle-sw input:checked+.toggle-sl{background:var(--g1)}
+.toggle-sw input:checked+.toggle-sl::before{transform:translateX(20px);background:var(--ink)}
+
+/* Result panel */
+.r-result{padding:2.5rem;background:linear-gradient(160deg,rgba(0,180,70,0.1) 0%,rgba(0,60,40,0.2) 100%);display:flex;flex-direction:column}
+.rm-label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g1);opacity:.75;margin-bottom:.4rem}
+.rm-num{font-size:3.5rem;font-weight:900;letter-spacing:-.04em;line-height:1;background:linear-gradient(135deg,var(--g1),#AAFF80);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.rm-unit{font-size:.85rem;color:rgba(255,255,255,.4);margin-top:.25rem;margin-bottom:1.5rem}
+
+.rv-toggle{display:flex;gap:.7rem;margin-bottom:1.3rem}
+.rvt{flex:1;padding:.55rem;text-align:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;font-size:.72rem;font-weight:700;cursor:pointer;color:rgba(255,255,255,.45);font-family:'Outfit',sans-serif;transition:all .3s}
+.rvt.active{background:rgba(0,230,118,0.13);border-color:var(--g1);color:var(--g1)}
+
+.rg{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:1.3rem}
+.rgc{background:rgba(0,0,0,.28);border-radius:12px;padding:1rem;border:1px solid rgba(255,255,255,.05)}
+.rgc-l{font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:.35rem}
+.rgc-v{font-size:1.2rem;font-weight:800;letter-spacing:-.02em;color:#fff}
+.rgc-v.g{color:var(--g1)}
+.rgc-v.y{color:var(--sun)}
+
+/* Chart bars */
+.rchart{margin-bottom:1.2rem}
+.rc-label{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.8rem}
+.rc-bars{display:flex;gap:4px;align-items:flex-end;height:72px}
+.rcb-w{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px}
+.rcb{width:100%;border-radius:3px 3px 0 0;background:linear-gradient(180deg,var(--g1),#00A040);animation:bgrow .9s ease-out both}
+@keyframes bgrow{from{transform:scaleY(0);transform-origin:bottom}to{transform:scaleY(1);transform-origin:bottom}}
+.rcb-m{font-size:.54rem;color:rgba(255,255,255,.25)}
+
+/* Breakdown table */
+.bdt{width:100%;border-collapse:collapse;margin-bottom:1.2rem}
+.bdt tr{border-bottom:1px solid rgba(255,255,255,.04)}
+.bdt td{padding:.62rem 0;font-size:.8rem;vertical-align:middle}
+.bdt td:first-child{color:rgba(255,255,255,.5);font-weight:300}
+.bdt td:last-child{text-align:right;font-weight:700}
+.bdt .tot td{font-size:.88rem;padding-top:.9rem;color:#fff}
+.bdt .tot td:last-child{color:var(--g1);font-size:1rem}
+.bdt .hl td:last-child{color:var(--sun)}
+.netz-saving-row{background:rgba(0,230,118,0.07);border-radius:8px;padding:.5rem .6rem;margin-bottom:.5rem;display:flex;justify-content:space-between;font-size:.78rem}
+.netz-saving-row .ns-label{color:rgba(255,255,255,.55)}
+.netz-saving-row .ns-val{font-weight:800;color:var(--g1)}
+
+.rcta{width:100%;padding:1rem;background:var(--g1);border:none;border-radius:50px;font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:800;color:var(--ink);cursor:pointer;letter-spacing:-.01em;box-shadow:0 4px 30px rgba(0,230,118,0.4);transition:all .3s}
+.rcta:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(0,230,118,0.6);background:#33FF8A}
+.disc{font-size:.64rem;color:rgba(255,255,255,.2);text-align:center;margin-top:.7rem;line-height:1.5}
+
+/* ── VERGLEICH ── */
+.vt-wrap{overflow-x:auto;margin-top:2rem}
+.vt{width:100%;border-collapse:separate;border-spacing:0;background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:18px;overflow:hidden;min-width:640px}
+.vt th{padding:1.1rem 1.3rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid var(--line);color:rgba(255,255,255,.38)}
+.vt .col-ppa{background:rgba(0,230,118,0.06);color:var(--g1)!important}
+.vt td{padding:1rem 1.3rem;font-size:.85rem;border-bottom:1px solid rgba(255,255,255,.04)}
+.vt tr:last-child td{border-bottom:none}
+.vt td:first-child{color:rgba(255,255,255,.55);font-weight:300}
+.ck{color:var(--g1)}
+.cx{color:rgba(255,80,80,0.7)}
+.cn{color:rgba(255,255,255,.25)}
+
+/* ── ZIELGRUPPEN ── */
+.ziel{background:var(--ink2)}
+.zg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:2rem}
+.zc{border-radius:18px;padding:1.8rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);transition:all .4s;position:relative;overflow:hidden}
+.zc::after{content:attr(data-n);position:absolute;top:.8rem;right:1.2rem;font-size:3.5rem;font-weight:900;opacity:.04;line-height:1;color:var(--g1)}
+.zc:hover{border-color:rgba(0,230,118,0.28);transform:translateY(-4px);box-shadow:0 18px 55px rgba(0,0,0,.3)}
+.zc-icon{font-size:2rem;margin-bottom:1rem}
+.zc h3{font-size:.98rem;font-weight:700;margin-bottom:.4rem}
+.zc p{font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.65;font-weight:300}
+.zc-kpi{display:flex;gap:1rem;margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.05)}
+.zck-n{font-size:1.05rem;font-weight:800;color:var(--g1);letter-spacing:-.02em}
+.zck-l{font-size:.62rem;color:rgba(255,255,255,.3)}
+@media(max-width:768px){.zg{grid-template-columns:1fr}}
+
+/* ── PROZESS ── */
+.prozess{background:var(--ink3)}
+.pz-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
+@media(max-width:900px){.pz-layout{grid-template-columns:1fr}}
+.pz-steps{display:flex;flex-direction:column}
+.pz{display:flex;gap:1.8rem;padding:1.8rem 0;border-bottom:1px solid rgba(255,255,255,.05);cursor:pointer;transition:all .3s}
+.pz:last-child{border-bottom:none}
+.pz:hover .pz-num{background:var(--g1);color:var(--ink);box-shadow:var(--glow)}
+.pz-num{width:46px;height:46px;border-radius:11px;border:1.5px solid rgba(0,230,118,0.28);display:flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:800;color:var(--g1);flex-shrink:0;transition:all .3s}
+.pz-c h4{font-size:.95rem;font-weight:700;margin-bottom:.35rem}
+.pz-c p{font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.65;font-weight:300}
+.pz-dur{font-size:.68rem;color:var(--g1);font-weight:700;margin-top:.35rem}
+.pz-sidebar{position:sticky;top:110px;background:rgba(255,255,255,.03);border:1px solid rgba(0,230,118,0.14);border-radius:22px;padding:2.2rem}
+.pzs-title{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g1);margin-bottom:1.3rem;opacity:.8}
+.pzs-tl{display:flex;flex-direction:column;gap:.75rem}
+.pzs-i{display:flex;gap:.9rem;align-items:center}
+.pzs-dot{width:9px;height:9px;border-radius:50%;background:var(--g1);flex-shrink:0;box-shadow:0 0 8px rgba(0,230,118,0.4)}
+.pzs-dot.p{background:rgba(255,255,255,.15);box-shadow:none}
+.pzs-text{font-size:.82rem;color:rgba(255,255,255,.55)}
+.pzs-week{font-size:.7rem;color:rgba(255,255,255,.25);margin-left:auto;white-space:nowrap}
+.pzs-list{margin-top:1.8rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.06)}
+.pzs-item{font-size:.8rem;color:rgba(255,255,255,.5);margin-bottom:.5rem;display:flex;align-items:center;gap:.6rem}
+.pzs-item::before{content:'✓';color:var(--g1);font-weight:700}
+
+/* ── REFERENZEN ── */
+.referenzen{background:var(--ink2)}
+.ref-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:2rem}
+.ref-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:1.8rem;transition:all .4s}
+.ref-card:hover{border-color:rgba(0,230,118,0.22);transform:translateY(-4px)}
+.ref-logo{font-size:1.3rem;font-weight:900;letter-spacing:-.04em;color:rgba(255,255,255,.28);margin-bottom:1rem}
+.ref-quote{font-family:'Lora',serif;font-style:italic;font-size:.88rem;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:1.3rem}
+.ref-bottom{display:flex;justify-content:space-between;align-items:flex-end;padding-top:.9rem;border-top:1px solid rgba(255,255,255,.05)}
+.ref-name{font-size:.8rem;font-weight:700}
+.ref-title{font-size:.7rem;color:rgba(255,255,255,.38)}
+.ref-stat-num{font-size:1.35rem;font-weight:900;color:var(--g1);letter-spacing:-.03em}
+.ref-stat-label{font-size:.62rem;color:rgba(255,255,255,.3)}
+@media(max-width:768px){.ref-grid{grid-template-columns:1fr}}
+
+/* ── FAQ ── */
+.faq{background:var(--ink)}
+.faq-layout{display:grid;grid-template-columns:1fr 2fr;gap:5rem}
+@media(max-width:900px){.faq-layout{grid-template-columns:1fr}}
+.faq-side h3{font-size:1.8rem;font-weight:900;letter-spacing:-.03em;margin-bottom:1rem}
+.faq-side p{font-size:.85rem;color:rgba(255,255,255,.45);line-height:1.75;margin-bottom:1.8rem;font-weight:300}
+.faq-contact{background:rgba(0,230,118,0.07);border:1px solid rgba(0,230,118,0.18);border-radius:18px;padding:1.8rem}
+.faq-contact h4{font-size:.95rem;font-weight:700;margin-bottom:.4rem}
+.faq-contact p{font-size:.8rem;color:rgba(255,255,255,.45);margin-bottom:1.3rem}
+.faq-list{display:flex;flex-direction:column}
+.fi{border-bottom:1px solid rgba(255,255,255,.06)}
+.fq{display:flex;justify-content:space-between;align-items:center;padding:1.3rem 0;cursor:pointer;gap:1rem;transition:color .3s}
+.fq:hover{color:var(--g1)}
+.fq h4{font-size:.9rem;font-weight:600;line-height:1.4;letter-spacing:-.01em}
+.fi-icon{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:.95rem;color:var(--g1);flex-shrink:0;transition:all .3s}
+.fi.open .fi-icon{background:var(--g1);color:var(--ink);transform:rotate(45deg)}
+.fa{max-height:0;overflow:hidden;transition:max-height .45s ease,opacity .3s;opacity:0}
+.fi.open .fa{max-height:300px;opacity:1}
+.fa p{padding-bottom:1.3rem;font-size:.85rem;color:rgba(255,255,255,.45);line-height:1.8;font-weight:300}
+
+/* ── NEWSLETTER ── */
+.newsletter{background:linear-gradient(135deg,var(--g4) 0%,var(--g5) 100%);border-top:1px solid rgba(0,230,118,0.2);border-bottom:1px solid rgba(0,230,118,0.2);padding:4rem 4.5rem;text-align:center}
+.newsletter h2{margin-bottom:.8rem}
+.newsletter p{color:rgba(255,255,255,.6);max-width:480px;margin:0 auto 2rem;font-size:.92rem}
+.nl-form{display:flex;gap:.8rem;max-width:440px;margin:0 auto;justify-content:center;flex-wrap:wrap}
+.nl-input{flex:1;padding:.85rem 1.2rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:50px;color:#fff;font-family:'Outfit',sans-serif;font-size:.9rem;outline:none;min-width:220px}
+.nl-input::placeholder{color:rgba(255,255,255,.4)}
+.nl-input:focus{border-color:var(--g1)}
+.nl-btn{background:var(--g1);color:var(--ink);border:none;padding:.85rem 1.8rem;border-radius:50px;font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:800;cursor:pointer;transition:all .3s;white-space:nowrap}
+.nl-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,230,118,0.45)}
+
+/* ── KONTAKT ── */
+.kontakt{background:var(--ink)}
+.kl{display:grid;grid-template-columns:1fr 1fr;gap:5rem}
+@media(max-width:900px){.kl{grid-template-columns:1fr}}
+.ki-info{display:flex;flex-direction:column;gap:1rem;margin-top:2rem}
+.ki-row{display:flex;align-items:center;gap:.9rem;font-size:.85rem;color:rgba(255,255,255,.55)}
+.ki-icon{width:38px;height:38px;border-radius:10px;background:rgba(0,230,118,0.1);border:1px solid rgba(0,230,118,0.18);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.cf{background:rgba(255,255,255,.028);border:1px solid rgba(0,230,118,0.14);border-radius:22px;padding:2.5rem}
+.cf-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-bottom:.9rem}
+@media(max-width:768px){.cf-row{grid-template-columns:1fr}}
+.cfi{width:100%;padding:.85rem 1.1rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:11px;color:#fff;font-family:'Outfit',sans-serif;font-size:.88rem;outline:none;transition:border .2s;display:block}
+.cfi::placeholder{color:rgba(255,255,255,.3)}
+.cfi:focus{border-color:var(--g1);box-shadow:0 0 0 3px rgba(0,230,118,0.09)}
+textarea.cfi{resize:vertical;min-height:100px;margin-bottom:.9rem}
+.cf-check{display:flex;align-items:flex-start;gap:.7rem;margin-bottom:1.3rem;font-size:.76rem;color:rgba(255,255,255,.38)}
+.cf-check input{accent-color:var(--g1);margin-top:2px;flex-shrink:0}
+.btn-send{width:100%;padding:1rem;background:var(--g1);color:var(--ink);border:none;border-radius:50px;font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:800;cursor:pointer;box-shadow:0 4px 30px rgba(0,230,118,0.4);transition:all .3s}
+.btn-send:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(0,230,118,0.6);background:#33FF8A}
+
+/* ── FOOTER ── */
+footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.5rem 2rem}
+.ft{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3.5rem;margin-bottom:2.5rem}
+@media(max-width:900px){.ft{grid-template-columns:1fr 1fr;gap:2rem}}
+@media(max-width:500px){.ft{grid-template-columns:1fr}}
+.f-logo{font-size:1.3rem;font-weight:900;letter-spacing:-.04em;margin-bottom:.8rem}
+.f-logo span{color:var(--g1)}
+.f-tag{font-size:.82rem;color:rgba(255,255,255,.3);line-height:1.7;margin-bottom:1.3rem;font-weight:300}
+.f-social{display:flex;gap:.7rem}
+.fsb{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:.82rem;text-decoration:none;color:rgba(255,255,255,.45);transition:all .3s}
+.fsb:hover{border-color:var(--g1);color:var(--g1);background:rgba(0,230,118,0.1)}
+.fc-col h5{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1.1rem}
+.fc-col a{display:block;font-size:.83rem;color:rgba(255,255,255,.45);text-decoration:none;margin-bottom:.6rem;font-weight:300;transition:color .2s}
+.fc-col a:hover{color:var(--g1)}
+.fb{display:flex;justify-content:space-between;align-items:center;padding-top:1.8rem;border-top:1px solid rgba(255,255,255,.05);font-size:.74rem;color:rgba(255,255,255,.22);flex-wrap:wrap;gap:.8rem}
+.fb a{color:rgba(255,255,255,.22);text-decoration:none}
+.fb a:hover{color:var(--g1)}
+.fb-links{display:flex;gap:1.3rem}
+
+/* ── REVEAL ANIMATIONS ── */
+.reveal{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.reveal.visible{opacity:1;transform:translateY(0)}
+.rd1{transition-delay:.1s}.rd2{transition-delay:.2s}.rd3{transition-delay:.3s}
+[id]{scroll-margin-top:85px}
+</style>
 </head>
 <body>
-  <h1>Coming soon</h1>
+
+<div id="cur"></div>
+<div id="cur-r"></div>
+<div id="prog"></div>
+
+<!-- COOKIE -->
+<div id="cookie">
+  <p>Wir verwenden Cookies, um unsere Website zu verbessern und Ihnen relevante Inhalte anzuzeigen. Mehr in unserer <a href="#">Datenschutzerklärung</a>. Sie können alle nicht notwendigen Cookies ablehnen.</p>
+  <div class="cookie-btns">
+    <button id="cookie-btn" onclick="document.getElementById('cookie').style.display='none'">Alle akzeptieren</button>
+    <button id="cookie-reject" onclick="document.getElementById('cookie').style.display='none'">Nur notwendige</button>
+  </div>
+</div>
+
+<!-- WHATSAPP -->
+<a id="wa-btn" href="https://wa.me/4980012345678?text=Hallo%2C%20ich%20interessiere%20mich%20f%C3%BCr%20ein%20PPA%20Onsite%20Angebot." target="_blank" rel="noopener">💬</a>
+<div id="wa-tooltip">WhatsApp — direkte Beratung</div>
+
+<!-- EXIT INTENT POPUP -->
+<div id="exit-popup">
+  <div class="ep-box">
+    <button class="ep-close" onclick="closeExit()">×</button>
+    <div class="ep-badge">⚡ Kostenlose Erstanalyse</div>
+    <h3>Warten kostet Sie bares Geld.</h3>
+    <p>Jeder Monat ohne PPA ist ein Monat, in dem Sie den vollen Netzstrompreis zahlen. Hinterlassen Sie Ihre E-Mail — wir schicken Ihnen eine kostenlose Ersparnis-Schätzung für Ihr Unternehmen.</p>
+    <div class="ep-form">
+      <input class="ep-input" type="email" placeholder="Ihre E-Mail-Adresse">
+      <button class="ep-btn" onclick="closeExit()">Jetzt senden →</button>
+    </div>
+    <p class="ep-note">Kein Spam. Einmalige Kontaktaufnahme. DSGVO-konform.</p>
+  </div>
+</div>
+
+<!-- MOBILE CTA -->
+<div id="mob-cta"><a href="#kontakt">☀ Jetzt kostenlos anfragen</a></div>
+
+<!-- NAV -->
+<nav>
+  <a href="#" class="logo"><div class="logo-mark">☀</div>PPA<span>.</span>onsite</a>
+  <div class="nav-links">
+    <a href="#funktioniert">So geht's</a>
+    <a href="#vorteile">Vorteile</a>
+    <a href="#rechner">Rechner</a>
+    <a href="#esg">ESG</a>
+    <a href="#faq">FAQ</a>
+    <a href="#kontakt" class="nav-cta">Kostenlos anfragen →</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-grid"></div>
+  <div style="position:relative;z-index:1">
+    <div class="hero-eyebrow"><span class="hero-dot"></span>Power Purchase Agreement — Onsite Solar</div>
+    <h1>Ihre Solaranlage.<br><span class="g">Kein Investment.</span><br><span class="y">Deutlich günstiger.</span></h1>
+
+    <div class="live-ticker">
+      <span class="ticker-dot"></span>
+      Typischer Netzstrompreis Gewerbe 2025: <span class="ticker-val">26–32 ct/kWh</span>
+      &nbsp;·&nbsp; Ihr PPA-Preis: <span class="ticker-ppa">ab ca. 17–22 ct/kWh</span>
+      <span style="color:rgba(255,255,255,0.3);font-size:.68rem;margin-left:.5rem">(Richtwerte, Stand 2025)</span>
+    </div>
+
+    <p class="hero-sub">
+      PPA Onsite: Wir finanzieren, bauen und betreiben Ihre Photovoltaikanlage — <strong>vollständig auf unsere Kosten</strong>. Sie zahlen nur für den Strom, den Sie verbrauchen. Keine Netzentgelte, keine Stromsteuer, kein Investitionsrisiko. <strong>Typisch 25–40 % günstiger als Netzstrom — in optimalen Fällen bis zu 60 %.</strong>
+    </p>
+    <div class="hero-actions">
+      <a href="#rechner" class="btn-main">☀ Ersparnis berechnen</a>
+      <a href="#funktioniert" class="btn-ghost">So funktioniert's →</a>
+    </div>
+    <div class="hero-trust">
+      <div class="ht-item"><span>✓</span> 0 € Investition</div>
+      <div class="ht-sep"></div>
+      <div class="ht-item"><span>✓</span> Keine Netzentgelte</div>
+      <div class="ht-sep"></div>
+      <div class="ht-item"><span>✓</span> Keine Stromsteuer</div>
+      <div class="ht-sep"></div>
+      <div class="ht-item"><span>✓</span> Full-Service Betrieb</div>
+      <div class="ht-sep"></div>
+      <div class="ht-item"><span>✓</span> Bis 20 Jahre fix</div>
+    </div>
+
+    <!-- QUICKCHECK -->
+    <div class="hero-qc">
+      <div class="qc-title">⚡ Schnellcheck — Bin ich qualifiziert?</div>
+      <div class="qc-row">
+        <input class="qc-field" type="text" placeholder="Jahresstromverbrauch (kWh)" id="qc-verb">
+        <input class="qc-field" type="text" placeholder="Dachfläche (m²)" id="qc-dach">
+      </div>
+      <div class="qc-row">
+        <input class="qc-field" type="email" placeholder="Ihre E-Mail-Adresse" id="qc-mail" style="flex:2">
+        <input class="qc-field" type="text" placeholder="Unternehmen" id="qc-firma">
+      </div>
+      <button class="qc-btn" onclick="quickCheck()">Sofort prüfen — kostenlos und unverbindlich →</button>
+      <p class="qc-note">Keine Weitergabe Ihrer Daten · Antwort in &lt; 24 Stunden · DSGVO-konform</p>
+    </div>
+  </div>
+  <div class="hero-floats">
+    <div class="fc">
+      <div class="fc-label">Jährl. Ersparnis Beispiel</div>
+      <div class="fc-val">38.400 €</div>
+      <div class="fc-sub">Industrie, 500.000 kWh/Jahr</div>
+      <div class="fc-badge">▲ inkl. Netzentgelt-Ersparnis</div>
+    </div>
+    <div class="fc">
+      <div class="fc-label">PPA-Markt Deutschland</div>
+      <div class="fc-val">6,6 GW</div>
+      <div class="fc-sub">Gesamtvolumen 2024 (dena)</div>
+    </div>
+    <div class="fc">
+      <div class="fc-label">Time-to-Power</div>
+      <div class="fc-val">8–12 Wo</div>
+      <div class="fc-sub">Von Vertrag bis Strom</div>
+    </div>
+  </div>
+</section>
+
+<!-- MARQUEE -->
+<div class="marquee-wrap">
+  <div class="marquee">
+    <span class="mi">Keine Netzentgelte <span class="ms">✦</span></span>
+    <span class="mi">Keine Stromsteuer <span class="ms">✦</span></span>
+    <span class="mi">0 € Investition <span class="ms">✦</span></span>
+    <span class="mi">100 % Grünstrom <span class="ms">✦</span></span>
+    <span class="mi">Typisch 25–40 % günstiger <span class="ms">✦</span></span>
+    <span class="mi">CSRD-konform <span class="ms">✦</span></span>
+    <span class="mi">Full-Service Betrieb <span class="ms">✦</span></span>
+    <span class="mi">20 Jahre Preissicherheit <span class="ms">✦</span></span>
+    <span class="mi">D · A · CH <span class="ms">✦</span></span>
+    <span class="mi">Keine Netzentgelte <span class="ms">✦</span></span>
+    <span class="mi">Keine Stromsteuer <span class="ms">✦</span></span>
+    <span class="mi">0 € Investition <span class="ms">✦</span></span>
+    <span class="mi">100 % Grünstrom <span class="ms">✦</span></span>
+    <span class="mi">Typisch 25–40 % günstiger <span class="ms">✦</span></span>
+    <span class="mi">CSRD-konform <span class="ms">✦</span></span>
+    <span class="mi">Full-Service Betrieb <span class="ms">✦</span></span>
+    <span class="mi">20 Jahre Preissicherheit <span class="ms">✦</span></span>
+  </div>
+</div>
+
+<!-- TRUST LOGOS -->
+<div class="trust-logos">
+  <div class="tl-label">Zertifizierungen &amp; Partner</div>
+  <div class="tl-row">
+    <div class="tl-logo">TÜV Süd geprüft</div>
+    <div class="tl-cert"><span class="tl-cert-icon">🌿</span> ISO 14001</div>
+    <div class="tl-cert"><span class="tl-cert-icon">⚡</span> VDE zertifiziert</div>
+    <div class="tl-logo">Bundesnetzagentur registriert</div>
+    <div class="tl-cert"><span class="tl-cert-icon">🔒</span> ISO 27001</div>
+    <div class="tl-logo">BEE Mitglied</div>
+    <div class="tl-cert"><span class="tl-cert-icon">☀</span> Sunbeam Partner</div>
+  </div>
+</div>
+
+<!-- URGENCY BANNER -->
+<div class="urgency">
+  <div class="urgency-inner">
+    <span>⏳ <strong>Kostensteigerung läuft:</strong> Jeder Monat ohne PPA kostet Sie Ihr volles Netzentgelt und Ihre Stromsteuer.</span>
+    <span>Aktuelle Netzstrompreise 2025: <strong>26–32 ct/kWh</strong> — Ihr PPA-Preis: <strong>ab ~18 ct/kWh</strong></span>
+    <a href="#rechner" class="urgency-cta">Jetzt Ersparnis berechnen →</a>
+  </div>
+</div>
+
+<!-- KENNZAHLEN -->
+<div class="kz">
+  <div class="kz-grid">
+    <div class="kz-item reveal"><div class="kz-num">0 €</div><div class="kz-label">Investition für Sie —<br>wir tragen alles</div></div>
+    <div class="kz-item reveal rd1"><div class="kz-num">bis 60 %</div><div class="kz-label">Max. Kostensenkung inkl.<br>Netzentgelte (je nach Standort)</div></div>
+    <div class="kz-item reveal rd2"><div class="kz-num">20 J.</div><div class="kz-label">Maximale<br>PPA-Laufzeit</div></div>
+    <div class="kz-item reveal rd3"><div class="kz-num">6,6 GW</div><div class="kz-label">PPA-Volumen<br>Deutschland 2024</div></div>
+    <div class="kz-item reveal"><div class="kz-num">#2</div><div class="kz-label">Deutschland: zweitgrößter<br>PPA-Markt Europas</div></div>
+  </div>
+</div>
+
+<!-- WIE ES FUNKTIONIERT -->
+<section id="funktioniert" class="how">
+  <div class="sey">So funktioniert's</div>
+  <h2>Vom Erstgespräch zum<br><span class="tg">laufenden Grünstrom</span></h2>
+  <p class="slead">In vier Schritten bringen wir Ihren Eigenstrom zum Laufen — komplett auf unsere Kosten. Sie müssen sich um nichts kümmern.</p>
+  <div class="how-timeline">
+    <div class="step reveal"><div class="step-bubble">📋</div><div class="step-n">SCHRITT 01</div><h3>Analyse & Angebot</h3><p>Wir analysieren Verbrauch, Dach und Lastprofil. In 5 Werktagen erhalten Sie ein konkretes Angebot mit PPA-Preis.</p></div>
+    <div class="step reveal rd1"><div class="step-bubble">📄</div><div class="step-n">SCHRITT 02</div><h3>PPA-Vertrag & Planung</h3><p>Fixpreis-Vertrag für bis zu 20 Jahre. Genehmigungen, Netzanmeldung und Detailplanung übernehmen vollständig wir.</p></div>
+    <div class="step reveal rd2"><div class="step-bubble">🔧</div><div class="step-n">SCHRITT 03</div><h3>Montage & Inbetrieb</h3><p>Zertifiziertes Montageteam installiert in 1–3 Wochen. Messtechnik, Monitoring-Setup und Inbetriebnahmeprotokoll inklusive.</p></div>
+    <div class="step reveal rd3"><div class="step-bubble">⚡</div><div class="step-n">SCHRITT 04</div><h3>Sparen & Wachsen</h3><p>Sie zahlen nur für verbrauchte kWh — keine Netzentgelte, keine Stromsteuer. Wartung, Monitoring und Versicherung: wir.</p></div>
+  </div>
+</section>
+
+<!-- VORTEILE -->
+<section id="vorteile" style="background:var(--ink3)">
+  <div class="sey">Ihre Vorteile</div>
+  <h2>Warum PPA Onsite <span class="tg">unschlagbar ist</span></h2>
+
+  <!-- NETZENTGELT BOX -->
+  <div class="netz-box reveal">
+    <h3>⚡ Der entscheidende Vorteil: Keine Netzentgelte &amp; Stromsteuer</h3>
+    <div class="netz-split">
+      <div>
+        <p style="font-size:.88rem;color:rgba(255,255,255,.6);margin-bottom:1.2rem;font-weight:300;line-height:1.7">Beim Onsite-PPA wird der Solarstrom direkt von der Anlage auf Ihrem Dach in Ihr Werksnetz eingespeist — ohne öffentliches Stromnetz. Das bedeutet: Alle netzabhängigen Kosten entfallen vollständig.</p>
+        <div class="netz-list">
+          <div class="netz-item"><span class="check">✓</span>Netznutzungsentgelte entfallen (ca. 6–9 ct/kWh)</div>
+          <div class="netz-item"><span class="check">✓</span>Stromsteuer entfällt (2,05 ct/kWh, §9 StromStG)</div>
+          <div class="netz-item"><span class="check">✓</span>Konzessionsabgaben entfallen</div>
+          <div class="netz-item"><span class="check">✓</span>Messstellenentgelt für PV-Strom entfällt</div>
+          <div class="netz-item"><span class="check">✓</span>Keine EEG-Umlage (seit Juli 2022 entfallen)</div>
+        </div>
+      </div>
+      <div class="netz-stat">
+        <div class="netz-stat-num">bis 60%</div>
+        <div class="netz-stat-label">Stromkostensenkung möglich —<br>typisch 25–40 % (je nach Standort<br>und Netzentgelthöhe)</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="vg">
+    <div class="vc star reveal"><div class="vc-icon">💶</div><h3>0 € Investitionskosten</h3><p>Die gesamte Anlage — Module, Wechselrichter, Verkabelung, Montage — wird vollständig durch uns finanziert. Kein Kredit, kein Kapital gebunden, keine Bilanzverlängerung.</p><span class="vc-tag">⭐ Kernvorteil</span></div>
+    <div class="vc reveal rd1"><div class="vc-icon">📉</div><h3>Sofort günstiger</h3><p>Ab dem ersten Betriebstag zahlen Sie weniger. Der PPA-Preis liegt dauerhaft 25–35 % unter dem Netzstrompreis — plus Netzentgelt-Ersparnis von weiteren 6–9 ct/kWh.</p></div>
+    <div class="vc reveal rd2"><div class="vc-icon">🔒</div><h3>Preissicherheit bis 20 Jahre</h3><p>Ihr PPA-Preis ist für die gesamte Laufzeit fix vereinbart oder indexiert. Keine Börsenschwankungen, keine Überraschungen. Volle Planungssicherheit.</p></div>
+    <div class="vc reveal"><div class="vc-icon">🌱</div><h3>ESG & CSRD-konform</h3><p>100 % zertifizierter Eigenstrom. Stärken Sie Ihr Scope-2-Reporting, erfüllen Sie CSRD-Anforderungen und kommunizieren Sie Dekarbonisierung glaubwürdig.</p></div>
+    <div class="vc reveal rd1"><div class="vc-icon">🛠️</div><h3>Full-Service — komplett sorglos</h3><p>Wartung, 24/7-Monitoring, Versicherung und Störungsbehebung: alles SLA-gesichert in unserer Hand. Sie fokussieren sich auf Ihr Kerngeschäft.</p></div>
+    <div class="vc reveal rd2"><div class="vc-icon">⚖️</div><h3>Off-Balance-Sheet</h3><p>Die Anlage steht in unserer Bilanz, nicht in Ihrer. PPA-Zahlungen sind operativer Aufwand — kein Anlagevermögen, keine AfA, keine Finanzierungsverbindlichkeit.</p></div>
+    <div class="vc reveal"><div class="vc-icon">🔌</div><h3>Versorgungssicherheit 100 %</h3><p>Nachts und bei schwachem Sonnenlicht deckt das öffentliche Netz automatisch Ihren Restbedarf. Die PV-Anlage ist Ergänzung, kein Risiko.</p></div>
+    <div class="vc reveal rd1"><div class="vc-icon">📊</div><h3>Live-Monitoring & Reporting</h3><p>Monatliche Reports über Produktion, Verbrauch, Einsparung und CO₂. Persönliches Energie-Dashboard online und per App — jederzeit abrufbar.</p></div>
+    <div class="vc reveal rd2"><div class="vc-icon">🔄</div><h3>Optionen nach Laufzeitende</h3><p>Anlage zum Restwert kaufen, Vertrag verlängern oder Anlage abbauen lassen — die Wahl liegt bei Ihnen. Volle Flexibilität für die Zukunft.</p></div>
+  </div>
+</section>
+
+<!-- ENERGIEKRISE-SCHUTZ -->
+<section class="krise">
+  <div class="sey">Krisenabsicherung</div>
+  <h2>Schutz vor <span class="tg">Energiepreisschocks</span></h2>
+  <p class="slead">Während der Energiekrise 2022 explodierten Großhandelspreise auf über 400 €/MWh. PPA-Kunden zahlten weiterhin stabile 70–80 €/MWh. Das ist der Wert langfristiger Preissicherheit.</p>
+  <div class="krise-chart-wrap reveal">
+    <div class="krise-legend">
+      <div class="kl-item"><div class="kl-dot" style="background:var(--red)"></div>Netzstrom Marktpreis</div>
+      <div class="kl-item"><div class="kl-dot" style="background:var(--g1)"></div>PPA Onsite Preis</div>
+    </div>
+    <div class="krise-chart" id="krise-chart"></div>
+    <p class="krise-note">⚠ Schematische Darstellung — keine exakten Marktpreise. Netzstrompreise basieren auf Durchschnittswerten für Gewerbekunden (Bundesnetzagentur, BDEW, Fraunhofer ISE). PPA-Preis = exemplarischer Richtwert eines 2020 abgeschlossenen Onsite-PPA; tatsächliche Preise variieren je nach Projekt. Die Darstellung dient der Veranschaulichung des Preisschutzprinzips.</p>
+  </div>
+</section>
+
+<!-- MARKTDATEN -->
+<section class="markt">
+  <div class="sey">Marktdaten 2025</div>
+  <h2>Der PPA-Markt in <span class="tg">Deutschland boomt</span></h2>
+  <p class="slead">Deutschland ist der zweitgrößte PPA-Markt Europas. Immer mehr Unternehmen erkennen den strategischen Wert langfristiger Grünstromverträge.</p>
+  <div class="markt-grid">
+    <div class="markt-card reveal"><div class="markt-num">+323 %</div><h4>PPA-Wachstum Deutschland 2023→2024</h4><p>Deutschland zählte 2024 erneut zu den bedeutendsten PPA-Märkten Europas. Das Corporate-PPA-Segment wächst stark, angetrieben durch steigende ESG-Anforderungen und den Wunsch nach Preissicherheit. (Quelle: dena PPA-Marktanalyse 2024)</p><div class="markt-trend">▲ Starkes Wachstum Corporate-PPAs</div></div>
+    <div class="markt-card reveal rd1"><div class="markt-num">55–75 €/MWh</div><h4>Typischer PPA-Preis 2025</h4><p>Gegenüber Großhandelspreisen von 80–100 €/MWh bieten Onsite-PPAs deutliche Kostenvorteile. Durch den Wegfall von Netzentgelten und Stromsteuer sind Onsite-PPAs noch attraktiver als Offsite-Modelle. (Quelle: Pexapark, pv magazine, Stand Q1 2025)</p><div class="markt-trend">▼ Attraktive Konditionen 2025</div></div>
+    <div class="markt-card reveal"><div class="markt-num">46 GW</div><h4>Globales Corporate-PPA-Volumen 2023</h4><p>Weltweit wurden 2023 laut BloombergNEF Corporate-PPAs im Rekordumfang von 46 GW abgeschlossen — ein Anstieg von 12 % gegenüber dem bisherigen Rekord von 2022. Treiber sind Dekarbonisierungsziele und steigende Energiepreise.</p><div class="markt-trend">▲ Rekordwert weltweit (BloombergNEF)</div></div>
+    <div class="markt-card reveal rd1"><div class="markt-num">2029</div><h4>Bayer-Ziel: Alle DE-Standorte via Onsite-PPA</h4><p>Bayer AG setzt explizit auf physische Onsite-PPAs für alle deutschen Standorte bis 2029. Sabrina Ritterbach (Bayer): „Wir setzen vor allem auf physische Onsite-PPAs, um lokale Produzenten und lokale Märkte zu stärken." (Quelle: energiezukunft.eu, 2025)</p><div class="markt-trend">► Große Konzerne als Vorreiter</div></div>
+  </div>
+</section>
+
+<!-- COST OF INACTION -->
+<section class="inaction">
+  <div class="sey" style="color:rgba(255,110,110,.7)">Was kostet das Warten?</div>
+  <h2>Jeder Monat ohne PPA ist<br><span style="color:rgba(255,110,110,.85)">bares Geld, das Sie verlieren</span></h2>
+  <p class="slead">Die meisten Unternehmen warten monatelang — und zahlen in dieser Zeit weiterhin den vollen Netzstrompreis. Was das konkret bedeutet, zeigt diese Beispielrechnung.</p>
+  <div class="ia-grid">
+    <div class="ia-left">
+      <p>Ein Unternehmen mit <strong style="color:#fff">300.000 kWh Jahresverbrauch</strong> und einem Netzstrompreis von 28 ct/kWh zahlt monatlich rund 7.000 € für Strom. Mit einem Onsite-PPA wären es ca. 4.500 €. Die Differenz von 2.500 € pro Monat ist Geld, das ohne PPA unwiederbringlich verloren geht.</p>
+      <p>Hinzu kommen Netzentgelte und Stromsteuer, die beim Onsite-PPA vollständig entfallen. Unternehmen, die heute handeln, haben in fünf Jahren bereits 150.000 € mehr auf dem Konto.</p>
+      <p style="color:rgba(255,255,255,.4);font-size:.8rem">* Beispielrechnung für Orientierungszwecke. Tatsächliche Werte hängen vom individuellen Verbrauchsprofil, Standort und Netzentgelten ab.</p>
+    </div>
+    <div>
+      <div class="ia-calc">
+        <div class="ia-calc-title">📉 Was Sie ohne PPA verlieren</div>
+        <div style="font-size:.72rem;color:rgba(255,255,255,.3);margin-bottom:1rem">Basis: 300.000 kWh/Jahr, 28 ct/kWh Netzstrom, PPA ~19 ct/kWh</div>
+        <div class="ia-row"><span class="ia-row-label">Verlorene Ersparnis / Monat</span><span class="ia-row-val red">~ 2.500 €</span></div>
+        <div class="ia-row"><span class="ia-row-label">Verlorene Ersparnis / Quartal</span><span class="ia-row-val red">~ 7.500 €</span></div>
+        <div class="ia-row"><span class="ia-row-label">Verlorene Ersparnis / Jahr</span><span class="ia-row-val red">~ 30.000 €</span></div>
+        <div class="ia-row"><span class="ia-row-label">Über 5 Jahre (inkl. Preissteigerung)</span><span class="ia-row-val red">~ 165.000 €</span></div>
+        <div class="ia-total">
+          <span class="ia-total-label">Opportunitätskosten über 15 Jahre</span>
+          <span class="ia-total-val">~ 600.000 €</span>
+        </div>
+        <button class="ia-cta" onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})">Jetzt handeln — kostenlose Analyse starten →</button>
+        <p class="ia-disclaimer">Indikative Berechnung ohne Gewähr. Exakte Werte nach Projektanalyse.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ESG / CSRD -->
+<section class="esg" id="esg">
+  <div class="sey">ESG & Regulierung</div>
+  <h2>CSRD, CBAM &amp; <span class="tg">Scope 2 — jetzt vorbereiten</span></h2>
+  <p class="slead">Die regulatorische Uhr tickt. Mit einem Onsite-PPA erfüllen Sie heute schon die Anforderungen von morgen — glaubwürdig, messbar, reportingfähig.</p>
+  <div class="esg-layout">
+    <div>
+      <p style="font-size:.92rem;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:1.5rem;font-weight:300">Ein Onsite-PPA liefert <strong style="color:#fff">physischen Grünstrom direkt vom Dach</strong> — keine Zertifikate, keine HKN-Unsicherheit. Das ist für ESG-Reporting (Scope 2, market-based) die sauberste und glaubwürdigste Lösung.</p>
+      <div class="esg-pills">
+        <span class="esg-pill">CSRD</span><span class="esg-pill">Scope 2</span><span class="esg-pill">CBAM</span>
+        <span class="esg-pill">GHG Protocol</span><span class="esg-pill">EU Taxonomie</span><span class="esg-pill">SBTi</span>
+        <span class="esg-pill">RE100</span><span class="esg-pill">EED Artikel 11a</span>
+      </div>
+    </div>
+    <div class="esg-visual">
+      <div style="font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g1);opacity:.8;margin-bottom:1.2rem">Regulierungs-Zeitstrahl</div>
+      <div class="esg-timeline">
+        <div class="esg-item"><div class="esg-year">2022</div><div class="esg-text"><h5>EEG-Umlage entfällt</h5><p>Onsite-PPA wird wirtschaftlich noch attraktiver. Gleichzeitig steigen On-Site-Anfragen stark an.</p></div></div>
+        <div class="esg-item"><div class="esg-year">2024</div><div class="esg-text"><h5>CSRD verpflichtend (Großunternehmen)</h5><p>Berichtspflicht für Nachhaltigkeitsinformationen inkl. Energieverbrauch und CO₂-Emissionen.</p></div></div>
+        <div class="esg-item"><div class="esg-year">2025</div><div class="esg-text"><h5>CBAM Übergangsphase / Berichtspflicht</h5><p>CO₂-Grenzausgleichsmechanismus greift. Nachweis erneuerbarer Energie wird Wettbewerbsfaktor.</p></div></div>
+        <div class="esg-item"><div class="esg-year">2026</div><div class="esg-text"><h5>CBAM Zahlungspflicht startet</h5><p>Unternehmen zahlen für importierte CO₂-intensive Güter. Eigener Grünstrom-Nachweis schützt.</p></div></div>
+        <div class="esg-item"><div class="esg-year">2026+</div><div class="esg-text"><h5>CSRD für KMU erwartet</h5><p>Berichtspflicht weitet sich auf mittelgroße Unternehmen aus. Jetzt handeln zahlt sich aus.</p></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- BATTERIE ADD-ON -->
+<section class="batt">
+  <div class="sey">Speicher-Option</div>
+  <h2>Batteriespeicher als <span class="tg">PPA-Erweiterung</span></h2>
+  <p class="slead">Neue Batterie-PPAs ("Power Storage Agreements") ergänzen die klassische PV-Anlage und erhöhen Eigenverbrauchsquote und Autarkie deutlich.</p>
+  <div class="batt-layout">
+    <div>
+      <p style="font-size:.92rem;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:1.5rem;font-weight:300">Überschüssiger Solarstrom vom Tag wird im Speicher zwischengelagert und abends oder nachts genutzt — statt ins Netz eingespeist zu werden. Das erhöht den Eigenverbrauch von typisch 60–70 % auf bis zu 85–90 % und maximiert Ihre Ersparnis.</p>
+      <div class="batt-list">
+        <div class="batt-item"><span class="bi">🔋</span>Speicher komplett durch uns finanziert und betrieben (Batterie-PPA)</div>
+        <div class="batt-item"><span class="bi">⬆</span>Eigenverbrauchsquote steigt von ~65 % auf bis zu 90 %</div>
+        <div class="batt-item"><span class="bi">🌙</span>Solarstrom auch abends und nachts nutzbar</div>
+        <div class="batt-item"><span class="bi">📉</span>Netzbezug und Peak-Shaving reduzieren Netzkosten weiter</div>
+        <div class="batt-item"><span class="bi">🔄</span>Bidirektionale Nutzung: Strom kaufen oder ins Netz verkaufen</div>
+      </div>
+    </div>
+    <div class="batt-card">
+      <h3>🔋 Batterie-PPA Kennzahlen</h3>
+      <div class="batt-stats">
+        <div class="bs"><div class="bs-num">+20 %</div><div class="bs-label">Mehr Eigenverbrauch</div></div>
+        <div class="bs"><div class="bs-num">0 €</div><div class="bs-label">Invest Speicher</div></div>
+        <div class="bs"><div class="bs-num">90 %</div><div class="bs-label">Max. Autarkie</div></div>
+        <div class="bs"><div class="bs-num">100 %</div><div class="bs-label">Betrieb durch uns</div></div>
+      </div>
+      <p style="font-size:.78rem;color:rgba(255,255,255,.4);line-height:1.6;font-weight:300">Batterie-PPAs sind ein neues, wachsendes Modell. Verfügbarkeit und Konditionen abhängig vom Standort und Anlagenkonzept. Sprechen Sie uns an.</p>
+    </div>
+  </div>
+</section>
+
+<!-- RECHNER -->
+<section class="rechner" id="rechner">
+  <div class="sey">PPA-Rechner</div>
+  <h2>Ihre Ersparnis — <span class="tg">inkl. Netzentgelte</span></h2>
+  <p class="slead">Der einzige PPA-Rechner, der auch Netzentgelt- und Stromsteuerersparnis einrechnet. Geben Sie Ihre Eckdaten ein — alle Ergebnisse in Echtzeit.</p>
+  <div class="rw">
+    <div class="r-tabs">
+      <button class="rtab active" onclick="switchRTab(0,this)">☀ Grundkalkulation</button>
+      <button class="rtab" onclick="switchRTab(1,this)">📊 Wirtschaftlichkeit</button>
+      <button class="rtab" onclick="switchRTab(2,this)">🌱 CO₂-Bilanz</button>
+    </div>
+    <div class="r-body">
+      <!-- INPUTS -->
+      <div class="r-inputs">
+        <h3>Meine Kenndaten</h3>
+        <p class="sub">Alle Werte aktualisieren das Ergebnis in Echtzeit</p>
+
+        <div class="ig">
+          <div class="il">Jahresstromverbrauch<span class="iv" id="v-verb">200.000 kWh</span></div>
+          <input type="range" id="r-verb" min="50000" max="5000000" step="25000" value="200000" oninput="rechne()">
+          <div class="im"><span>50.000</span><span>2,5 Mio.</span><span>5 Mio. kWh</span></div>
+        </div>
+
+        <div class="ig">
+          <div class="il">Aktueller Netzstrompreis<span class="iv" id="v-preis">28,0 ct/kWh</span></div>
+          <input type="range" id="r-preis" min="16" max="50" step="0.5" value="28" oninput="rechne()">
+          <div class="im"><span>16 ct</span><span>33 ct</span><span>50 ct</span></div>
+        </div>
+
+        <div class="ig">
+          <div class="il">Verfügbare Dachfläche<span class="iv" id="v-dach">1.500 m²</span></div>
+          <input type="range" id="r-dach" min="200" max="20000" step="100" value="1500" oninput="rechne()">
+          <div class="im"><span>200 m²</span><span>10.000 m²</span><span>20.000 m²</span></div>
+        </div>
+
+        <div class="ig">
+          <div class="il">PPA-Laufzeit<span class="iv" id="v-lz">15 Jahre</span></div>
+          <input type="range" id="r-lz" min="10" max="20" step="5" value="15" oninput="rechne()">
+          <div class="im"><span>10 J.</span><span>15 J.</span><span>20 J.</span></div>
+        </div>
+
+        <div class="ig">
+          <div class="il">Jährl. Strompreissteigerung (Netz)<span class="iv" id="v-stg">3,5 %</span></div>
+          <input type="range" id="r-stg" min="1" max="8" step="0.5" value="3.5" oninput="rechne()">
+          <div class="im"><span>1 %</span><span>4,5 %</span><span>8 %</span></div>
+        </div>
+
+        <div class="ig">
+          <div class="il">Unternehmenstyp</div>
+          <select class="isel" id="r-typ" onchange="rechne()">
+            <option value="1.05">Industrie / Produktion</option>
+            <option value="0.9" selected>Gewerbe / Handel</option>
+            <option value="0.85">Logistik / Lager</option>
+            <option value="0.75">Büro / Verwaltung</option>
+            <option value="1.15">Landwirtschaft / Agri-PV</option>
+            <option value="0.95">Hotellerie / Gastronomie</option>
+            <option value="0.8">Gesundheit / Soziales</option>
+          </select>
+        </div>
+
+        <div class="ig">
+          <div class="il">Dachausrichtung</div>
+          <select class="isel" id="r-ori" onchange="rechne()">
+            <option value="1.0">Süd (optimal)</option>
+            <option value="0.92">Südost / Südwest</option>
+            <option value="0.80">Ost / West</option>
+            <option value="0.75">Flachdach (alle Seiten)</option>
+          </select>
+        </div>
+
+        <div class="ig">
+          <div class="il">Standort</div>
+          <select class="isel" id="r-std" onchange="rechne()">
+            <option value="1050">Bayern / Baden-Württemberg</option>
+            <option value="980">Hessen / Rheinland-Pfalz</option>
+            <option value="950">NRW / Niedersachsen</option>
+            <option value="920">Brandenburg / Sachsen</option>
+            <option value="880">Norddeutschland / Küste</option>
+            <option value="1100">Österreich (Alpenraum)</option>
+            <option value="1080">Schweiz (Mittelland)</option>
+          </select>
+        </div>
+
+        <!-- Netzentgelt Toggle -->
+        <div class="netz-toggle">
+          <span>🔌 Netzentgelt-Ersparnis einrechnen<br><small style="color:rgba(255,255,255,.35);font-size:.72rem">Entfällt beim Onsite-PPA (§9 StromStG)</small></span>
+          <label class="toggle-sw">
+            <input type="checkbox" id="netz-cb" checked onchange="rechne()">
+            <span class="toggle-sl"></span>
+          </label>
+        </div>
+
+        <div class="ig">
+          <div class="il">Netzentgelt-Ansatz<span class="iv" id="v-ne">7,5 ct/kWh</span></div>
+          <input type="range" id="r-ne" min="4" max="12" step="0.5" value="7.5" oninput="rechne()">
+          <div class="im"><span>4 ct</span><span>8 ct</span><span>12 ct</span></div>
+        </div>
+
+        <div class="ig">
+          <div class="il">Speicher-Option</div>
+          <select class="isel" id="r-sp" onchange="rechne()">
+            <option value="0">Ohne Speicher</option>
+            <option value="1">Mit Batteriespeicher (+20 % Eigenverbrauch)</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- RESULT -->
+      <div class="r-result">
+        <div class="rm-label" id="rm-label">Gesamtersparnis Jahr 1</div>
+        <div class="rm-num" id="rm-num">–</div>
+        <div class="rm-unit" id="rm-unit">Euro pro Jahr</div>
+
+        <div class="rv-toggle">
+          <button class="rvt active" onclick="switchView('basis',this)">Basis</button>
+          <button class="rvt" onclick="switchView('wirt',this)">Wirtschaft.</button>
+          <button class="rvt" onclick="switchView('co2',this)">CO₂</button>
+        </div>
+
+        <!-- BASIS VIEW -->
+        <div id="vw-basis">
+          <div class="rg">
+            <div class="rgc"><div class="rgc-l">PPA-Preis</div><div class="rgc-v g" id="r-ppa">–</div></div>
+            <div class="rgc"><div class="rgc-l">Anlagengröße</div><div class="rgc-v" id="r-kwp">–</div></div>
+            <div class="rgc"><div class="rgc-l">Jahresertrag PV</div><div class="rgc-v" id="r-ert">–</div></div>
+            <div class="rgc"><div class="rgc-l">Eigenverbrauch</div><div class="rgc-v g" id="r-eq">–</div></div>
+          </div>
+          <!-- Netz-Saving Breakdown -->
+          <div id="netz-breakdown" style="margin-bottom:1rem">
+            <div class="netz-saving-row"><span class="ns-label">Ersparnis PPA vs. Netzpreis</span><span class="ns-val" id="r-ppa-sav">–</span></div>
+            <div class="netz-saving-row" id="netz-row"><span class="ns-label">+ Netzentgelt-Ersparnis</span><span class="ns-val" id="r-ne-sav">–</span></div>
+            <div class="netz-saving-row"><span class="ns-label">+ Stromsteuer-Ersparnis</span><span class="ns-val" id="r-st-sav">–</span></div>
+          </div>
+          <div class="rchart">
+            <div class="rc-label">Monatlicher Solarertrag</div>
+            <div class="rc-bars" id="rc-bars"></div>
+          </div>
+        </div>
+
+        <!-- WIRTSCHAFT VIEW -->
+        <div id="vw-wirt" style="display:none">
+          <table class="bdt">
+            <tr><td>Ihre heutigen Jahresstromkosten (Netz)</td><td id="b-netz">–</td></tr>
+            <tr><td style="font-size:.75rem;color:rgba(255,255,255,.4);padding-left:.5rem">davon ca. Netzentgelte &amp; Stromsteuer</td><td id="b-netze" style="color:rgba(255,255,255,.35);font-size:.78rem">–</td></tr>
+            <tr><td>PPA-Kosten Eigenstrom (Jahr 1)</td><td id="b-ppa">–</td></tr>
+            <tr><td>Verbleibender Netzbezug (Backup)</td><td id="b-rest">–</td></tr>
+            <tr class="hl"><td>Netto-Ersparnis Jahr 1</td><td id="b-j1">–</td></tr>
+            <tr><td>Ersparnis kumuliert 5 Jahre</td><td id="b-j5" style="color:var(--g1)">–</td></tr>
+            <tr><td>Ersparnis kumuliert 10 Jahre</td><td id="b-j10" style="color:var(--g1)">–</td></tr>
+            <tr class="tot"><td>Gesamtersparnis über Laufzeit</td><td id="b-ges">–</td></tr>
+          </table>
+          <div class="rg">
+            <div class="rgc"><div class="rgc-l">Ihr Invest</div><div class="rgc-v g">0 €</div></div>
+            <div class="rgc"><div class="rgc-l">Investor Break-even</div><div class="rgc-v y" id="b-be">–</div></div>
+          </div>
+        </div>
+
+        <!-- CO2 VIEW -->
+        <div id="vw-co2" style="display:none">
+          <div class="rg">
+            <div class="rgc"><div class="rgc-l">CO₂-Einsparung p.a.</div><div class="rgc-v g" id="c-pa">–</div></div>
+            <div class="rgc"><div class="rgc-l">Über Laufzeit gesamt</div><div class="rgc-v g" id="c-ges">–</div></div>
+            <div class="rgc"><div class="rgc-l">Entspricht Bäumen</div><div class="rgc-v" id="c-b">–</div></div>
+            <div class="rgc"><div class="rgc-l">Entspr. Autokilometer</div><div class="rgc-v" id="c-km">–</div></div>
+          </div>
+          <div class="rchart" style="margin-top:.5rem">
+            <div class="rc-label">CO₂-Vermeidung kumuliert über Laufzeit</div>
+            <div class="rc-bars" id="co2-chart" style="height:65px"></div>
+          </div>
+        </div>
+
+        <button class="rcta" onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})">Kostenloses Beratungsgespräch →</button>
+        <p class="disc">⚠ Indikative Schätzwerte — kein verbindliches Angebot. Tatsächliche Einsparungen hängen ab von: Standort, Netzentgelten (regional sehr unterschiedlich), Verbrauchsprofil, Dachbeschaffenheit und Marktlage. Exakte Konditionen nach kostenfreier Vor-Ort-Analyse durch unser Ingenieurteam. Der Rechner dient ausschließlich der Orientierung.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- VERGLEICH -->
+<section style="background:var(--ink2)">
+  <div class="sey">Vergleich</div>
+  <h2>PPA Onsite vs. <span class="tg">alle Alternativen</span></h2>
+  <p class="slead">Wie schlägt sich das Onsite-PPA im direkten Vergleich? Ehrlich und vollständig.</p>
+  <div class="vt-wrap reveal">
+    <table class="vt">
+      <thead><tr>
+        <th>Kriterium</th>
+        <th class="col-ppa">☀ PPA Onsite</th>
+        <th>Eigenkauf PV</th>
+        <th>Netzstrom</th>
+        <th>Offsite PPA</th>
+      </tr></thead>
+      <tbody>
+        <tr><td>Investitionskosten</td><td class="col-ppa"><span class="ck">✓</span> 0 €</td><td>150–400 €/kWp</td><td><span class="ck">✓</span> 0 €</td><td><span class="ck">✓</span> 0 €</td></tr>
+        <tr><td>Keine Netzentgelte</td><td class="col-ppa"><span class="ck">✓ Ja</span></td><td><span class="ck">✓ Ja</span></td><td><span class="cx">✗ Nein</span></td><td><span class="cx">✗ Nein</span></td></tr>
+        <tr><td>Keine Stromsteuer</td><td class="col-ppa"><span class="ck">✓ Ja (§9 StromStG)</span></td><td><span class="ck">✓ Ja</span></td><td><span class="cx">✗ Nein</span></td><td><span class="cx">✗ Nein</span></td></tr>
+        <tr><td>Preisersparnis</td><td class="col-ppa"><span class="ck">✓</span> bis 60 %</td><td>Nach Amortis. günstig</td><td><span class="cx">✗</span> Marktpreis</td><td>−10–20 %</td></tr>
+        <tr><td>Preissicherheit</td><td class="col-ppa"><span class="ck">✓</span> Fix / Index</td><td><span class="ck">✓</span> Eigenkosten fix</td><td><span class="cx">✗</span> Marktrisiko</td><td><span class="ck">✓</span> Fix</td></tr>
+        <tr><td>Off-Balance-Sheet</td><td class="col-ppa"><span class="ck">✓</span></td><td><span class="cx">✗</span> Aktivierung</td><td><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+        <tr><td>Wartung & Betrieb</td><td class="col-ppa"><span class="ck">✓</span> Full-Service</td><td><span class="cx">✗</span> Eigenverantwortung</td><td><span class="ck">✓</span> Keine Anlage</td><td><span class="ck">✓</span> Full-Service</td></tr>
+        <tr><td>ESG / Scope 2 Qualität</td><td class="col-ppa"><span class="ck">✓</span> Physisch, direkt</td><td><span class="ck">✓</span> Physisch</td><td><span class="cn">~</span> HKN nötig</td><td><span class="cn">~</span> Zertifikate</td></tr>
+        <tr><td>Umsetzungszeit</td><td class="col-ppa"><span class="ck">✓</span> 8–12 Wochen</td><td><span class="cx">✗</span> 6–18 Monate</td><td><span class="ck">✓</span> Sofort</td><td>3–6 Monate</td></tr>
+        <tr><td>Komplexität für Unternehmen</td><td class="col-ppa"><span class="ck">✓</span> Sehr gering</td><td><span class="cx">✗</span> Hoch</td><td><span class="ck">✓</span> Gering</td><td><span class="cn">~</span> Mittel</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ZIELGRUPPEN -->
+<section class="ziel">
+  <div class="sey">Zielgruppen</div>
+  <h2>Ideal für <span class="tg">diese Unternehmen</span></h2>
+  <p class="slead">Ein Onsite-PPA funktioniert am besten, wo hoher Tagesverbrauch, geeignete Dachflächen und der Wunsch nach stabilen Energiekosten zusammentreffen.</p>
+  <div class="zg">
+    <div class="zc reveal" data-n="01"><div class="zc-icon">🏭</div><h3>Industrie & Produktion</h3><p>Kontinuierlicher Tagesverbrauch, große Hallendächer, Schichtbetrieb. Eigenverbrauchsquoten von 70–90 % sind realistisch.</p><div class="zc-kpi"><div><div class="zck-n">85 %</div><div class="zck-l">Eigenverbrauch</div></div><div><div class="zck-n">ab 50 kWp</div><div class="zck-l">Anlagengröße</div></div></div></div>
+    <div class="zc reveal rd1" data-n="02"><div class="zc-icon">🏪</div><h3>Handel & Einzelhandel</h3><p>Supermärkte, Baumärkte, Einkaufszentren: Klimatisierung, Kühlung und Beleuchtung erzeugen hohen Dauerverbrauch.</p><div class="zc-kpi"><div><div class="zck-n">75 %</div><div class="zck-l">Eigenverbrauch</div></div><div><div class="zck-n">−30 %</div><div class="zck-l">Energiekosten</div></div></div></div>
+    <div class="zc reveal rd2" data-n="03"><div class="zc-icon">🚛</div><h3>Logistik & Lager</h3><p>Riesige Flachdächer, planbare Verbräuche. Logistikzentren bieten unschlagbare Flächenpotenziale — oft bis 5 MWp.</p><div class="zc-kpi"><div><div class="zck-n">bis 5 MWp</div><div class="zck-l">Anlagengröße</div></div><div><div class="zck-n">−28 %</div><div class="zck-l">Energiekosten</div></div></div></div>
+    <div class="zc reveal" data-n="04"><div class="zc-icon">🌾</div><h3>Landwirtschaft & Agri-PV</h3><p>Stallgebäude, Silos, Maschinenhallen. Agri-PV kombiniert Flächennutzung mit Solarertrag — auch auf Freiflächen.</p><div class="zc-kpi"><div><div class="zck-n">Agri-PV</div><div class="zck-l">Spezialmodell</div></div><div><div class="zck-n">−35 %</div><div class="zck-l">Energiekosten</div></div></div></div>
+    <div class="zc reveal rd1" data-n="05"><div class="zc-icon">🏨</div><h3>Hotellerie & Tourismus</h3><p>Klimaanlagen, Warmwasser, Licht — ganzjährig hoher Verbrauch. Grünstrom stärkt Nachhaltigkeitsprofil und senkt Kosten.</p><div class="zc-kpi"><div><div class="zck-n">60–80 %</div><div class="zck-l">Eigenverbrauch</div></div><div><div class="zck-n">ESG+</div><div class="zck-l">Reporting</div></div></div></div>
+    <div class="zc reveal rd2" data-n="06"><div class="zc-icon">🏥</div><h3>Gesundheit & Soziales</h3><p>Krankenhäuser, Pflegeheime: 24/7-Betrieb, stabiles Lastprofil, kein Investitionsbudget. PPA ist die ideale Lösung.</p><div class="zc-kpi"><div><div class="zck-n">24/7</div><div class="zck-l">Versorgung</div></div><div><div class="zck-n">0 €</div><div class="zck-l">Invest nötig</div></div></div></div>
+  </div>
+</section>
+
+<!-- PROZESS -->
+<section class="prozess">
+  <div class="sey">Detailprozess</div>
+  <h2>Von A bis Z — <span class="tg">was genau passiert</span></h2>
+  <div class="pz-layout">
+    <div class="pz-steps">
+      <div class="pz"><div class="pz-num">01</div><div class="pz-c"><h4>Erstgespräch & Vorqualifizierung</h4><p>30-minütiges Gespräch zu Verbrauch, Dach, Eigentumsstruktur und PPA-Eignung. Kostenlos und unverbindlich.</p><div class="pz-dur">⏱ 1–2 Tage</div></div></div>
+      <div class="pz"><div class="pz-num">02</div><div class="pz-c"><h4>Energiedatenanalyse & Lastprofil</h4><p>Wir analysieren 15-Minuten-Lastgangdaten, Einstrahlungsdaten und berechnen das optimale Anlagendesign mit maximaler Eigenverbrauchsquote.</p><div class="pz-dur">⏱ 3–5 Tage</div></div></div>
+      <div class="pz"><div class="pz-num">03</div><div class="pz-c"><h4>Indikatives Angebot & PPA-Preis</h4><p>Detailliertes Angebot mit konkretem PPA-Preis (ct/kWh), Anlagengröße, Netzentgelt-Ersparnis und Wirtschaftlichkeitsrechnung.</p><div class="pz-dur">⏱ 3–5 Tage nach Datenerhalt</div></div></div>
+      <div class="pz"><div class="pz-num">04</div><div class="pz-c"><h4>Vor-Ort-Begehung & Dachstatik</h4><p>Ingenieure prüfen Dachstatik, Kabelwege und Einspeisepunkt. Vollständige technische Planung auf unsere Kosten.</p><div class="pz-dur">⏱ 1–2 Wochen</div></div></div>
+      <div class="pz"><div class="pz-num">05</div><div class="pz-c"><h4>Vertragsabschluss & Genehmigungen</h4><p>PPA-Vertrag, Dachpachtvertrag, Stromsteuererlaubnis (Hauptzollamt) und Netzeinspeisemeldung — alles übernehmen wir.</p><div class="pz-dur">⏱ 2–4 Wochen</div></div></div>
+      <div class="pz"><div class="pz-num">06</div><div class="pz-c"><h4>Montage & Inbetriebnahme</h4><p>Zertifiziertes Team montiert in 1–3 Wochen. Messtechnik, Monitoring, Netzanmeldung und Inbetriebnahmeprotokoll inklusive.</p><div class="pz-dur">⏱ 1–3 Wochen</div></div></div>
+      <div class="pz"><div class="pz-num">07</div><div class="pz-c"><h4>Laufender Betrieb & Abrechnung</h4><p>Monatliche Abrechnung nach verbrauchten kWh. 24/7-Monitoring, Jahrescheck, Störungsbehebung — dauerhaft in unserer Hand.</p><div class="pz-dur">⏱ Laufend über Vertragsdauer</div></div></div>
+    </div>
+    <div class="pz-sidebar">
+      <div class="pzs-title">Typischer Projektzeitplan</div>
+      <div class="pzs-tl">
+        <div class="pzs-i"><div class="pzs-dot"></div><div class="pzs-text">Erstgespräch</div><div class="pzs-week">Woche 1</div></div>
+        <div class="pzs-i"><div class="pzs-dot"></div><div class="pzs-text">Analyse & Angebot</div><div class="pzs-week">Woche 2–3</div></div>
+        <div class="pzs-i"><div class="pzs-dot"></div><div class="pzs-text">Technische Planung</div><div class="pzs-week">Woche 3–5</div></div>
+        <div class="pzs-i"><div class="pzs-dot"></div><div class="pzs-text">Vertragsabschluss</div><div class="pzs-week">Woche 5–8</div></div>
+        <div class="pzs-i"><div class="pzs-dot"></div><div class="pzs-text">Genehmigungen</div><div class="pzs-week">Woche 6–10</div></div>
+        <div class="pzs-i"><div class="pzs-dot p"></div><div class="pzs-text">Montage</div><div class="pzs-week">Woche 9–12</div></div>
+        <div class="pzs-i"><div class="pzs-dot p"></div><div class="pzs-text">⚡ Strom fließt</div><div class="pzs-week">Woche 12</div></div>
+      </div>
+      <div class="pzs-list">
+        <div class="pzs-item">Finanzierung & Investition</div>
+        <div class="pzs-item">Planung & Genehmigung</div>
+        <div class="pzs-item">Stromsteuererlaubnis (Zollamt)</div>
+        <div class="pzs-item">Montage & Inbetriebnahme</div>
+        <div class="pzs-item">Versicherung & Gewährleistung</div>
+        <div class="pzs-item">Wartung & 24/7-Monitoring</div>
+        <div class="pzs-item">Abrechnung & ESG-Reporting</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- REFERENZEN -->
+<section class="referenzen">
+  <div class="sey">Referenzen</div>
+  <h2>Das sagen <span class="tg">unsere Kunden</span></h2>
+  <p style="font-size:.78rem;color:rgba(255,255,255,.3);margin-bottom:1.5rem;font-style:italic">* Die nachfolgenden Erfahrungsberichte sind repräsentative Beispiele typischer Kundensituationen. Namen und Unternehmen sind aus Datenschutzgründen anonymisiert. Gerne stellen wir auf Anfrage Kontakt zu Referenzkunden her.</p>
+  <div class="ref-grid">
+    <div class="ref-card reveal">
+      <div class="ref-logo">MEISTER FOOD GmbH</div>
+      <div class="ref-quote">„Wir haben seit Jahren über eine PV-Anlage nachgedacht — die Investition hat uns immer abgeschreckt. Mit PPA Onsite sind wir dabei, ohne auch nur einen Euro zu riskieren. Und die Netzentgelt-Ersparnis hatten wir gar nicht auf dem Schirm."</div>
+      <div class="ref-bottom"><div><div class="ref-name">Stefan Meierhans</div><div class="ref-title">GF, Lebensmittelproduktion</div></div><div style="text-align:right"><div class="ref-stat-num">−41 %</div><div class="ref-stat-label">Stromkosten gesamt</div></div></div>
+    </div>
+    <div class="ref-card reveal rd1">
+      <div class="ref-logo">LOGISTIKZENTRUM NORD</div>
+      <div class="ref-quote">„600 kWp auf unserem Hallendach — kein Euro Eigenkapital. Das ESG-Dashboard zeigt uns täglich, wie viel CO₂ wir einsparen. Für unser CSRD-Reporting ist das Gold wert."</div>
+      <div class="ref-bottom"><div><div class="ref-name">Petra Waldner</div><div class="ref-title">CFO, Logistik & Transport</div></div><div style="text-align:right"><div class="ref-stat-num">118 t</div><div class="ref-stat-label">CO₂ p.a. gespart</div></div></div>
+    </div>
+    <div class="ref-card reveal rd2">
+      <div class="ref-logo">ALPENGASTHOF HUBERTUS</div>
+      <div class="ref-quote">„Als familiengeführtes Hotel war Nachhaltigkeit für uns immer wichtig — aber das Budget war begrenzt. Der PPA hat uns einen Weg eröffnet, den wir sofort gehen konnten. Unsere Gäste fragen aktiv danach."</div>
+      <div class="ref-bottom"><div><div class="ref-name">Franz Huber</div><div class="ref-title">Inhaber, 4-Sterne-Hotel</div></div><div style="text-align:right"><div class="ref-stat-num">−33 %</div><div class="ref-stat-label">Energiekosten</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PERSÖNLICHE ANSPRECHPARTNER -->
+<section class="personal">
+  <div class="sey">Ihr direkter Kontakt</div>
+  <h2>Sie sprechen mit <span class="tg">echten Experten</span></h2>
+  <p class="slead">Kein Callcenter. Kein Bot. Bei PPA Onsite haben Sie von Anfang an einen persönlichen Ansprechpartner — mit Branchenerfahrung und direktem Draht ins Projektteam.</p>
+  <div class="person-grid">
+    <div class="person-card">
+      <div class="person-avatar">👨‍💼</div>
+      <div class="person-info">
+        <h4>Thomas Kirchner</h4>
+        <div class="person-role">Senior PPA-Berater · Industrie &amp; Gewerbe</div>
+        <div class="person-quote">„Mein Ziel ist ein Angebot, das für Ihr Unternehmen wirklich rechnet — nicht nur auf dem Papier."</div>
+        <div class="person-links">
+          <a class="pl" href="tel:+498001234567"><span class="pl-i">📞</span>+49 800 123 456 7</a>
+          <a class="pl" href="mailto:t.kirchner@ppa-onsite.de"><span class="pl-i">✉️</span>t.kirchner@ppa-onsite.de</a>
+          <a class="pl" href="#" target="_blank"><span class="pl-i">in</span>LinkedIn-Profil</a>
+        </div>
+        <div class="person-avail"><span class="avail-dot"></span>Verfügbar Mo–Fr, 8–18 Uhr</div>
+      </div>
+    </div>
+    <div class="person-card">
+      <div class="person-avatar">👩‍🔬</div>
+      <div class="person-info">
+        <h4>Dr. Sarah Bauer</h4>
+        <div class="person-role">Leiterin Technik &amp; ESG-Beratung</div>
+        <div class="person-quote">„Ich erkläre Ihnen gerne, wie Ihr PPA-Strom ins CSRD-Reporting passt und welche Nachweise wir liefern."</div>
+        <div class="person-links">
+          <a class="pl" href="tel:+498001234568"><span class="pl-i">📞</span>+49 800 123 456 8</a>
+          <a class="pl" href="mailto:s.bauer@ppa-onsite.de"><span class="pl-i">✉️</span>s.bauer@ppa-onsite.de</a>
+          <a class="pl" href="#" target="_blank"><span class="pl-i">in</span>LinkedIn-Profil</a>
+        </div>
+        <div class="person-avail"><span class="avail-dot"></span>Verfügbar Mo–Fr, 9–17 Uhr</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- LEAD MAGNET -->
+<section class="lead-magnet">
+  <div class="sey">Kostenloses Whitepaper</div>
+  <h2>Der PPA-Leitfaden für <span class="tg">Entscheider</span></h2>
+  <p class="slead">Alles, was CFOs, Energiemanager und Einkäufer vor Vertragsabschluss wissen müssen — kompakt auf 18 Seiten.</p>
+  <div class="lm-box">
+    <div class="lm-doc">
+      <div class="lm-doc-icon">📋</div>
+      <div class="lm-doc-title">PPA Onsite<br>Entscheider-Leitfaden</div>
+      <div class="lm-doc-type">PDF · 18 Seiten · Kostenlos</div>
+    </div>
+    <div class="lm-content">
+      <h3>Was Sie im Whitepaper erfahren</h3>
+      <p>Der Leitfaden fasst zusammen, worauf es wirklich ankommt — aus Sicht von Unternehmen, die PPAs bereits umgesetzt haben.</p>
+      <div class="lm-list">
+        <div class="lm-li">Die 7 wichtigsten Vertragsklauseln, die Sie kennen müssen</div>
+        <div class="lm-li">Checkliste: Ist mein Unternehmen PPA-geeignet?</div>
+        <div class="lm-li">Typische Stolpersteine und wie man sie vermeidet</div>
+        <div class="lm-li">CSRD-Reporting mit PPA-Strom: Schritt für Schritt</div>
+        <div class="lm-li">Kalkulationsbeispiele aus 5 verschiedenen Branchen</div>
+      </div>
+      <div class="lm-form">
+        <input class="lm-inp" type="email" placeholder="Ihre E-Mail-Adresse">
+        <input class="lm-inp" type="text" placeholder="Unternehmen">
+        <button class="lm-btn">Jetzt kostenlos downloaden →</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="faq" id="faq">
+  <div class="faq-layout">
+    <div class="faq-side">
+      <div class="sey">FAQ</div>
+      <h3>Häufige Fragen</h3>
+      <p>Alles, was Sie über das Onsite-PPA wissen müssen — transparent und verständlich erklärt.</p>
+      <div class="faq-contact">
+        <h4>Ihre Frage nicht dabei?</h4>
+        <p>Unser Expertenteam antwortet persönlich — kostenlos, ohne Verkaufsdruck.</p>
+        <a href="#kontakt" class="btn-main" style="font-size:.85rem;padding:.7rem 1.5rem;display:inline-block">Jetzt anfragen →</a>
+      </div>
+    </div>
+    <div class="faq-list">
+      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><h4>Was ist ein Onsite-PPA genau — und was unterscheidet es vom Offsite-PPA?</h4><div class="fi-icon">+</div></div><div class="fa"><p>Beim Onsite-PPA steht die PV-Anlage direkt auf Ihrem Dach oder Ihrem Gelände. Der erzeugte Strom fließt direkt in Ihr Werksnetz — ohne öffentliches Stromnetz. Das bedeutet: keine Netzentgelte, keine Stromsteuer (§9 StromStG), kein Umweg. Beim Offsite-PPA steht die Anlage woanders; Sie beziehen "virtuell" Grünstrom über das Netz — günstiger als Standardtarif, aber ohne die Netzentgelt-Ersparnis des Onsite-Modells.</p></div></div>
+      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><h4>Warum fallen beim Onsite-PPA keine Netzentgelte an?</h4><div class="fi-icon">+</div></div><div class="fa"><p>Der Strom fließt direkt von der PV-Anlage in Ihr Betriebsnetz — er nutzt das öffentliche Stromnetz nicht. Netzentgelte sind eine Gebühr für die Nutzung des Netzes. Da beim Onsite-PPA kein Netz genutzt wird, entfallen diese Kosten vollständig. Hinzu kommt die Stromsteuerbefreiung nach §9 Abs. 1 StromStG für Strom aus erneuerbaren Energien, der vor Ort verbraucht wird. Die Erlaubnis beim Hauptzollamt wird von uns beantragt.</p></div></div>
+      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><h4>Wer finanziert die Anlage, und wem gehört sie?</h4><div class="fi-icon">+</div></div><div class="fa"><p>Wir finanzieren die Anlage vollständig und sie bleibt während der Vertragslaufzeit in unserem Eigentum. Sie stellen die Dachfläche (Dachpachtvertrag) und beziehen den Strom zum vereinbarten Preis. Kein Investitionsrisiko, keine Wartungspflichten, keine Bilanzbelastung für Sie.</p></div></div>
+      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><h4>Wie wird der PPA-Preis kalkuliert?</h4><div class="fi-icon">+</div></div><div class="fa"><p>Der PPA-Preis ergibt sich aus Anlagengröße, Standort (Sonneneinstrahlung), Dachausrichtung, Laufzeit und Kapitalkosten des Investors. Typisch liegt er 20–35 % unter dem Netzstrompreis (ct/kWh). Zuzüglich der eingesparten Netzentgelte (6–9 ct/kWh) und Stromsteuer (2,05 ct/kWh) ergibt sich eine Gesamtersparnis von häufig 40–60 % gegenüber dem bisherigen Strombezug.</p></div></div>
+      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><h4>Ab welcher Größe lohnt sich ein Onsite-PPA?</h4><div class="fi-icon">+</div></div><div class="fa"><p>Faustregel: Ab ca. 100.000 kWh Jahresstromverbrauch und einer geeigneten Dachfläche ab 400–500 m² ist ein Onsite-PPA wirtschaftlich und organisatorisch sinnvoll. Für Unternehmen ab 500.000 kWh/Jahr sind Einsparungen und Umsetzungskomplexität besonders attraktiv.</p></div></div>
+      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><h4>Was passiert bei Ausfall oder Schäden?</h4><div class="fi-icon">+</div></div><div class="fa"><p>Wartung, Reparatur, Versicherung und 24/7-Monitoring liegen vollständig bei uns. Ein SLA regelt Reaktionszeiten. Bei Produktionsausfall durch technische Defekte zahlen Sie nur für tatsächlich gelieferte kWh — kein Ausfall-Risiko für Sie.</p></div></div>
+      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><h4>Was passiert nach Ablauf der PPA-Laufzeit?</h4><div class="fi-icon">+</div></div><div class="fa"><p>Sie haben drei Optionen: (1) Anlage zum vereinbarten Restwert kaufen, (2) PPA-Vertrag zu neuen Konditionen verlängern, oder (3) Anlage auf unsere Kosten abbauen lassen. Die gewählte Option wird bereits im Ursprungsvertrag festgehalten.</p></div></div>
+      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><h4>Wie ist PPA Onsite für mein ESG-Reporting nutzbar?</h4><div class="fi-icon">+</div></div><div class="fa"><p>Ein Onsite-PPA liefert physischen Grünstrom direkt vom Dach — das ist für Scope-2-Reporting (market-based) die sauberste Methode. Sie erhalten monatliche Produktionsnachweise und können den Strom direkt in Ihrem CSRD-Report, GHG-Protocol-Reporting und für RE100-Ziele ausweisen. Kein HKN-Kauf nötig.</p></div></div>
+      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><h4>Ist ein Batteriespeicher kombinierbar?</h4><div class="fi-icon">+</div></div><div class="fa"><p>Ja. Batterie-PPAs ("Power Storage Agreements") sind ein neues, wachsendes Modell. Der Speicher wird ebenfalls von uns finanziert und betrieben. Er erhöht die Eigenverbrauchsquote von typisch 65 % auf bis zu 90 % und maximiert damit Ihre Gesamtersparnis. Anfragen willkommen.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- NEWSLETTER -->
+<div class="newsletter">
+  <div class="sey" style="justify-content:center">Newsletter</div>
+  <h2>PPA-Insights &<br><span class="tg">Markt-Updates</span></h2>
+  <p>Aktuelle Marktpreise, Regulierungsänderungen und Praxistipps zum Thema Onsite-PPA — direkt in Ihr Postfach.</p>
+  <div class="nl-form">
+    <input class="nl-input" type="email" placeholder="Ihre E-Mail-Adresse">
+    <button class="nl-btn">Anmelden →</button>
+  </div>
+</div>
+
+<!-- KONTAKT -->
+<section class="kontakt" id="kontakt">
+  <div class="sey">Kontakt & Anfrage</div>
+  <div class="kl">
+    <div>
+      <h2>Starten Sie jetzt Ihren<br><span class="tg">kostenlosen Check</span></h2>
+      <p class="slead">Unser Ingenieurteam analysiert Ihre Situation und erstellt innerhalb von 5 Werktagen ein indikatives Angebot — völlig kostenlos und ohne Verpflichtung.</p>
+      <div class="ki-info">
+        <div class="ki-row"><div class="ki-icon">📞</div>+49 (0) 800 PPA-ONSITE</div>
+        <div class="ki-row"><div class="ki-icon">✉️</div>info@ppa-onsite.de</div>
+        <div class="ki-row"><div class="ki-icon">📍</div>Deutschland · Österreich · Schweiz</div>
+        <div class="ki-row"><div class="ki-icon">⏱</div>Antwortzeit: &lt; 24 Stunden</div>
+        <div class="ki-row"><div class="ki-icon">🔒</div>DSGVO-konform · keine Datenweitergabe</div>
+      </div>
+    </div>
+    <div class="cf reveal">
+      <p style="font-size:.78rem;color:rgba(255,255,255,.35);margin-bottom:1.2rem">* Pflichtfelder. Ihre Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet.</p>
+      <div class="cf-row">
+        <input class="cfi" type="text" id="cf-vorname" placeholder="Vorname *" required>
+        <input class="cfi" type="text" id="cf-nachname" placeholder="Nachname *" required>
+      </div>
+      <div class="cf-row">
+        <input class="cfi" type="email" id="cf-email" placeholder="E-Mail *" required>
+        <input class="cfi" type="tel" id="cf-tel" placeholder="Telefon">
+      </div>
+      <input class="cfi" type="text" id="cf-firma" placeholder="Unternehmen *" style="width:100%;margin-bottom:.9rem" required>
+      <div class="cf-row">
+        <input class="cfi" type="text" placeholder="Jahresstromverbrauch (kWh)">
+        <input class="cfi" type="text" placeholder="Dachfläche (m²)">
+      </div>
+      <div class="cf-row" style="margin-bottom:.9rem">
+        <select class="cfi isel" style="border-radius:11px;padding:.85rem 1rem">
+          <option value="">Branche wählen</option>
+          <option>Industrie / Produktion</option><option>Handel / Einzelhandel</option>
+          <option>Logistik / Lager</option><option>Landwirtschaft</option>
+          <option>Hotellerie / Gastronomie</option><option>Gesundheit / Soziales</option>
+          <option>Büro / Verwaltung</option><option>Sonstiges</option>
+        </select>
+        <select class="cfi isel" style="border-radius:11px;padding:.85rem 1rem">
+          <option value="">Wie gefunden?</option>
+          <option>Google / Suche</option><option>Empfehlung</option>
+          <option>LinkedIn</option><option>Messe / Event</option><option>Sonstiges</option>
+        </select>
+      </div>
+      <textarea class="cfi" placeholder="Nachricht / offene Fragen (optional)"></textarea>
+      <div class="cf-check">
+        <input type="checkbox" id="dsgvo" required>
+        <label for="dsgvo">Ich stimme zu, dass meine Daten zur Bearbeitung dieser Anfrage gespeichert und genutzt werden. Ich habe die <a href="#" style="color:var(--g1)">Datenschutzerklärung</a> gelesen und akzeptiert. *</label>
+      </div>
+      <div id="cf-error" style="display:none;background:rgba(255,82,82,0.12);border:1px solid rgba(255,82,82,0.3);border-radius:10px;padding:.8rem 1rem;font-size:.8rem;color:rgba(255,120,120,0.9);margin-bottom:1rem">
+        Bitte füllen Sie alle Pflichtfelder aus und bestätigen Sie die Datenschutzerklärung.
+      </div>
+      <button class="btn-send" onclick="submitForm(event)">Kostenlose Analyse anfordern ☀</button>
+      <p style="font-size:.7rem;color:rgba(255,255,255,.25);text-align:center;margin-top:.8rem">🔒 SSL-verschlüsselt · DSGVO-konform · Keine Weitergabe an Dritte</p>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="ft">
+    <div>
+      <div class="f-logo">PPA<span>.onsite</span></div>
+      <div class="f-tag">Grünstrom vom eigenen Dach.<br>Kein Investment. Typisch 25–40 % günstiger.<br>Deutschland · Österreich · Schweiz.</div>
+      <div class="f-social">
+        <a href="#" class="fsb">in</a><a href="#" class="fsb">X</a>
+        <a href="#" class="fsb">fb</a><a href="#" class="fsb">▶</a>
+      </div>
+    </div>
+    <div class="fc-col">
+      <h5>Leistungen</h5>
+      <a href="#">Onsite-PPA</a><a href="#">Agri-PV PPA</a>
+      <a href="#">Batterie-PPA</a><a href="#">Carport-PV PPA</a>
+      <a href="#">PPA-Beratung</a>
+    </div>
+    <div class="fc-col">
+      <h5>Wissen</h5>
+      <a href="#">Was ist ein PPA?</a><a href="#">Netzentgelte & Steuern</a>
+      <a href="#">ESG & CSRD</a><a href="#">PPA vs. Eigenkauf</a>
+      <a href="#">FAQ</a><a href="#">Blog</a>
+    </div>
+    <div class="fc-col">
+      <h5>Unternehmen</h5>
+      <a href="#">Über uns</a><a href="#">Team</a>
+      <a href="#">Karriere</a><a href="#">Presse</a>
+      <a href="#kontakt">Kontakt</a>
+    </div>
+  </div>
+  <div class="fb">
+    <span>© 2025 PPA-Onsite.de — Alle Rechte vorbehalten · Angaben gemäß §5 TMG</span>
+    <div class="fb-links">
+      <a href="#">Impressum</a><a href="#">Datenschutz</a>
+      <a href="#">AGB</a><a href="#">Cookie-Einstellungen</a><a href="#">Sitemap</a>
+    </div>
+  </div>
+  <p style="font-size:.68rem;color:rgba(255,255,255,.15);text-align:center;margin-top:1.2rem;line-height:1.6">
+    Alle Angaben auf dieser Website sind unverbindlich und dienen der allgemeinen Information. Preisangaben und Ersparnisprognosen sind Richtwerte und stellen kein verbindliches Angebot dar. Die tatsächlichen Konditionen werden im Rahmen einer individuellen Projektanalyse ermittelt. Irrtümer vorbehalten.
+  </p>
+</footer>
+
+<script>
+// ── CURSOR ──
+const cur=document.getElementById('cur'),ring=document.getElementById('cur-r');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;cur.style.left=mx+'px';cur.style.top=my+'px'});
+(function anim(){rx+=(mx-rx)*.14;ry+=(my-ry)*.14;ring.style.left=rx+'px';ring.style.top=ry+'px';requestAnimationFrame(anim)})();
+document.querySelectorAll('a,button,input,select,textarea,.vc,.zc,.pz,.ref-card').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{cur.style.width='5px';cur.style.height='5px';ring.style.width='52px';ring.style.height='52px'});
+  el.addEventListener('mouseleave',()=>{cur.style.width='10px';cur.style.height='10px';ring.style.width='34px';ring.style.height='34px'});
+});
+
+// ── SCROLL PROGRESS ──
+window.addEventListener('scroll',()=>{
+  const pct=window.scrollY/(document.documentElement.scrollHeight-window.innerHeight);
+  document.getElementById('prog').style.transform=`scaleX(${pct})`;
+});
+
+// ── REVEAL ──
+const ro=new IntersectionObserver(entries=>entries.forEach(e=>{if(e.isIntersecting)e.target.classList.add('visible')}),{threshold:.09});
+document.querySelectorAll('.reveal').forEach(el=>ro.observe(el));
+
+// ── FAQ ──
+function toggleFaq(el){el.closest('.fi').classList.toggle('open')}
+
+// ── FORM VALIDATION ──
+function submitForm(e) {
+  e.preventDefault();
+  const v = document.getElementById('cf-vorname').value.trim();
+  const n = document.getElementById('cf-nachname').value.trim();
+  const em = document.getElementById('cf-email').value.trim();
+  const fi = document.getElementById('cf-firma').value.trim();
+  const dsgvo = document.getElementById('dsgvo').checked;
+  const err = document.getElementById('cf-error');
+  const emailOk = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em);
+  if(!v || !n || !em || !fi || !dsgvo || !emailOk) {
+    err.style.display = 'block';
+    err.textContent = !emailOk && em ? 'Bitte geben Sie eine gültige E-Mail-Adresse ein.' : 'Bitte füllen Sie alle Pflichtfelder aus und bestätigen Sie die Datenschutzerklärung.';
+    return;
+  }
+  err.style.display = 'none';
+  // Success state
+  const btn = e.target;
+  btn.textContent = '✓ Anfrage gesendet — wir melden uns innerhalb von 24 Stunden!';
+  btn.style.background = '#00A040';
+  btn.disabled = true;
+}
+
+// ── ENERGIEKRISE CHART ──
+const krisenData=[
+  {year:'2019',netz:21,ppa:13},{year:'2020',netz:22,ppa:13},
+  {year:'2021',netz:30,ppa:14},{year:'2022',netz:52,ppa:14},
+  {year:'2023',netz:35,ppa:15},{year:'2024',netz:28,ppa:17},
+  {year:'2025',netz:30,ppa:18}
+];
+function buildKriseChart(){
+  const c=document.getElementById('krise-chart');
+  if(!c)return;
+  c.innerHTML='';
+  const maxV=Math.max(...krisenData.map(d=>d.netz));
+  krisenData.forEach((d,i)=>{
+    const g=document.createElement('div');
+    g.style.cssText='flex:1;display:flex;flex-direction:column;align-items:center;gap:3px;position:relative';
+    const nB=document.createElement('div');
+    nB.className='kc-bar';
+    nB.style.cssText=`height:${(d.netz/maxV*100)}%;background:linear-gradient(180deg,rgba(255,82,82,0.8),rgba(255,82,82,0.4));animation-delay:${i*0.08}s`;
+    nB.title=`Netz ${d.year}: ${d.netz} ct/kWh`;
+    const pB=document.createElement('div');
+    pB.className='kc-bar';
+    pB.style.cssText=`height:${(d.ppa/maxV*100)}%;background:linear-gradient(180deg,var(--g1),#00A040);animation-delay:${i*0.08+0.04}s;position:absolute;bottom:0;left:0;right:0;width:40%;margin:0 auto`;
+    pB.title=`PPA ${d.year}: ${d.ppa} ct/kWh`;
+    const yr=document.createElement('div');
+    yr.className='kc-year';yr.textContent=d.year;
+    g.appendChild(nB);g.appendChild(pB);g.appendChild(yr);
+    c.appendChild(g);
+  });
+}
+buildKriseChart();
+
+// ── RECHNER TABS ──
+let rTab=0;
+function switchRTab(i,btn){
+  rTab=i;
+  document.querySelectorAll('.rtab').forEach(t=>t.classList.remove('active'));
+  btn.classList.add('active');
+  rechne();
+}
+
+// ── VIEW SWITCH ──
+let rView='basis';
+function switchView(v,btn){
+  rView=v;
+  ['basis','wirt','co2'].forEach(id=>{const el=document.getElementById('vw-'+id);if(el)el.style.display=(id===v?'block':'none')});
+  document.querySelectorAll('.rvt').forEach(b=>b.classList.remove('active'));
+  if(btn)btn.classList.add('active');
+  rechne();
+}
+
+// ── MONATSFAKTOREN ──
+const mf=[0.35,0.48,0.72,0.88,1.0,1.08,1.1,1.04,0.82,0.58,0.32,0.22];
+const mn=['J','F','M','A','M','J','J','A','S','O','N','D'];
+
+// ── FORMATTER ──
+function fmt(n){return Math.round(n).toLocaleString('de-DE')}
+function fE(n){return fmt(n)+' €'}
+function fct(n){return n.toFixed(1).replace('.',',')+' ct/kWh'}
+
+// ── HAUPTRECHNER ──
+function rechne(){
+  const verb=+document.getElementById('r-verb').value;
+  const preis=+document.getElementById('r-preis').value;
+  const dach=+document.getElementById('r-dach').value;
+  const lz=+document.getElementById('r-lz').value;
+  const stg=+document.getElementById('r-stg').value/100;
+  const typF=+document.getElementById('r-typ').value;
+  const oriF=+document.getElementById('r-ori').value;
+  const spezE=+document.getElementById('r-std').value;
+  const netzCt=+document.getElementById('r-ne').value;
+  const netzCb=document.getElementById('netz-cb').checked;
+  const mitSp=+document.getElementById('r-sp').value;
+
+  // Display values
+  document.getElementById('v-verb').textContent=fmt(verb)+' kWh';
+  document.getElementById('v-preis').textContent=preis.toFixed(1).replace('.',',')+' ct/kWh';
+  document.getElementById('v-dach').textContent=fmt(dach)+' m²';
+  document.getElementById('v-lz').textContent=lz+' Jahre';
+  document.getElementById('v-stg').textContent=(+document.getElementById('r-stg').value).toFixed(1).replace('.',',')+' %';
+  document.getElementById('v-ne').textContent=netzCt.toFixed(1).replace('.',',')+' ct/kWh';
+
+  // Netz-row visibility
+  const nr=document.getElementById('netz-row');
+  if(nr)nr.style.display=netzCb?'flex':'none';
+
+  // Anlage
+  const maxKwpDach=dach/6.5;
+  const kwpBedarf=(verb/(spezE*oriF))*typF;
+  const kwp=Math.min(maxKwpDach,kwpBedarf*1.12);
+  const jahresertrag=kwp*spezE*oriF;
+
+  // Eigenverbrauch
+  const evBase=Math.min(jahresertrag*0.78,verb*0.88);
+  const ev=mitSp?Math.min(evBase*1.2,verb*0.92):evBase;
+  const evQ=Math.round((ev/verb)*100);
+  const rest=verb-ev;
+
+  // Stromsteuer-Ersparnis (2,05 ct/kWh)
+  const stomstF=2.05;
+
+  // PPA Preis
+  const ppaRab=0.315;
+  const ppaCt=preis*(1-ppaRab);
+
+  // Kostenkalkulation — korrekte Methodik:
+  // kostenNetz = was der Kunde heute zahlt (enthält Netzentgelt & Stromsteuer bereits)
+  // kostenPPA = nur PPA-Preis (kein Netzentgelt, keine Stromsteuer für Eigenverbrauch)
+  // Netzentgelt/Stromsteuer-Ersparnis = Differenz zwischen dem was im Netzpreis steckt
+  //   und dem was beim PPA-Strom entfällt
+  const kostenNetz = verb * preis / 100;  // Gesamte heutige Stromrechnung
+  const kostenPPA = ev * ppaCt / 100;     // PPA-Anteil (ohne Netz/Steuer)
+  const restKosten = rest * preis / 100;  // Restbezug vom Netz (weiterhin Netzpreis)
+  // Ersparnis = Heutige Gesamtkosten minus (PPA-Kosten + Restbezug)
+  const einspar1 = kostenNetz - kostenPPA - restKosten;
+
+  // Aufschlüsselung der Einsparungskomponenten (nur informativ, kein doppeltes Zählen)
+  const ppaSav = ev * (preis - ppaCt) / 100;            // Günstigerer kWh-Preis
+  const neSav = netzCb ? ev * netzCt / 100 : 0;         // Anteil Netzentgelt in Ersparnis
+  const stSav = netzCb ? ev * stomstF / 100 : 0;        // Anteil Stromsteuer in Ersparnis
+
+  // Kumulierte Einsparungen über Laufzeit
+  let ges=0,e5=0,e10=0;
+  for(let j=1;j<=lz;j++){
+    const nJ = verb * (preis/100) * Math.pow(1+stg, j-1);   // Netz steigt jährlich
+    const pJ = ev * (ppaCt/100) * Math.pow(1.015, j-1);      // PPA steigt langsamer
+    const rJ = rest * (preis/100) * Math.pow(1+stg, j-1);    // Restbezug steigt mit Netz
+    const eJ = nJ - pJ - rJ;
+    ges += eJ;
+    if(j<=5) e5 += eJ;
+    if(j<=10) e10 += eJ;
+  }
+
+  // CO2
+  const co2F=0.000434;
+  const co2pa=ev*co2F;
+  const co2ges=co2pa*lz;
+
+  // Investor BE
+  const anlK=kwp*950;
+  const invEinn=ev*ppaCt/100+(jahresertrag-ev)*0.07;
+  const be=anlK/invEinn;
+
+  // ── AUSGABE ──
+  document.getElementById('rm-num').textContent=fE(einspar1);
+
+  // Basis
+  const sn=el=>document.getElementById(el);
+  sn('r-ppa').textContent=fct(ppaCt);
+  sn('r-kwp').textContent=fmt(Math.round(kwp*10)/10)+' kWp';
+  sn('r-ert').textContent=fmt(Math.round(jahresertrag))+' kWh';
+  sn('r-eq').textContent=evQ+' %';
+  sn('r-ppa-sav').textContent=fE(ppaSav)+'/Jahr';
+  sn('r-ne-sav').textContent=netzCb?fE(neSav)+'/Jahr':'–';
+  sn('r-st-sav').textContent=netzCb?fE(stSav)+'/Jahr':'–';
+
+  // Wirtschaft
+  sn('b-netz').textContent=fE(kostenNetz);
+  sn('b-netze').textContent='ca. '+fE(ev*(netzCt+stomstF)/100)+' (inform.)';
+  sn('b-ppa').textContent=fE(kostenPPA);
+  sn('b-rest').textContent=fE(restKosten);
+  sn('b-j1').textContent=fE(einspar1);
+  sn('b-j5').textContent=fE(e5);
+  sn('b-j10').textContent=fE(e10);
+  sn('b-ges').textContent=fE(ges);
+  sn('b-be').textContent=(Math.round(be*10)/10)+' Jahre';
+
+  // CO2
+  sn('c-pa').textContent=fmt(Math.round(co2pa))+' t CO₂';
+  sn('c-ges').textContent=fmt(Math.round(co2ges))+' t CO₂';
+  sn('c-b').textContent=fmt(Math.round(co2pa*40))+' Bäume';
+  sn('c-km').textContent=fmt(Math.round(co2pa*6500))+' km';
+
+  // Monatschart
+  const cb=document.getElementById('rc-bars');
+  cb.innerHTML='';
+  mf.forEach((f,i)=>{
+    const w=document.createElement('div');w.className='rcb-w';
+    const b=document.createElement('div');b.className='rcb';
+    b.style.height=(f/1.12*100)+'%';b.style.animationDelay=(i*.06)+'s';
+    const l=document.createElement('div');l.className='rcb-m';l.textContent=mn[i];
+    w.appendChild(b);w.appendChild(l);cb.appendChild(w);
+  });
+
+  // CO2 chart
+  const cc=document.getElementById('co2-chart');
+  if(cc){
+    cc.innerHTML='';
+    for(let j=1;j<=lz;j+=Math.ceil(lz/10)){
+      const w=document.createElement('div');
+      w.style.cssText='flex:1;display:flex;flex-direction:column;align-items:center;gap:3px';
+      const b=document.createElement('div');
+      b.style.cssText=`width:100%;height:${j/lz*100}%;background:linear-gradient(180deg,var(--g1),#00A040);border-radius:3px 3px 0 0;animation:bgrow .8s ease-out ${j*.05}s both`;
+      const l=document.createElement('div');
+      l.style.cssText='font-size:.54rem;color:rgba(255,255,255,.25)';l.textContent='J'+j;
+      w.appendChild(b);w.appendChild(l);cc.appendChild(w);
+    }
+  }
+}
+
+rechne();
+
+// ── EXIT INTENT ──
+let exitShown=false;
+document.addEventListener('mouseleave',e=>{if(e.clientY<=0&&!exitShown){exitShown=true;document.getElementById('exit-popup').classList.add('show');}});
+function closeExit(){document.getElementById('exit-popup').classList.remove('show');}
+document.getElementById('exit-popup').addEventListener('click',e=>{if(e.target===document.getElementById('exit-popup'))closeExit();});
+setTimeout(()=>{if(!exitShown&&window.innerWidth<768){exitShown=true;document.getElementById('exit-popup').classList.add('show');}},45000);
+// ── QUICKCHECK ──
+function quickCheck(){
+  const verb=document.getElementById('qc-verb').value.trim();
+  const mail=document.getElementById('qc-mail').value.trim();
+  if(!mail||!verb){alert('Bitte Jahresstromverbrauch und E-Mail angeben.');return;}
+  const vn=parseFloat(verb.replace(/[.,\s]/g,''));
+  let msg,col;
+  if(vn>=100000){msg='✅ Sehr gut! Mit '+verb+' kWh/Jahr sind Sie ideal geeignet. Wir melden uns in <24h.';col='#00A040';}
+  else if(vn>=50000){msg='✅ Grundsätzlich geeignet. Wir prüfen das kostenlos für Sie.';col='#00A040';}
+  else{msg='ℹ️ Grenzwertig — wir beraten Sie zu passenden Lösungen.';col='rgba(255,200,0,.85)';}
+  const btn=document.querySelector('.qc-btn');
+  btn.textContent=msg;btn.style.cssText='background:'+col+';color:#fff;font-size:.76rem;border-radius:10px;text-align:left;padding:.8rem 1rem;width:100%;border:none;font-family:Outfit,sans-serif;font-weight:600;cursor:default';
+}
+
+</script>
 </body>
 </html>
