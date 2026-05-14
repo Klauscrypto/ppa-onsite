@@ -33,6 +33,26 @@ body{font-family:'Outfit',sans-serif;background:var(--ink);color:var(--white);ov
 #wa-tooltip{position:fixed;bottom:6.5rem;right:5rem;z-index:449;background:var(--ink3);border:1px solid rgba(37,211,102,0.25);border-radius:10px;padding:.5rem 1rem;font-size:.75rem;color:rgba(255,255,255,.75);white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .3s;box-shadow:0 8px 24px rgba(0,0,0,.4)}
 #wa-btn:hover~#wa-tooltip{opacity:1}
 
+/* ── BLOG ── */
+.blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:2rem}
+@media(max-width:900px){.blog-grid{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.blog-grid{grid-template-columns:1fr}}
+.blog-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:1.8rem;cursor:pointer;transition:all .4s;display:flex;flex-direction:column}
+.blog-card:hover{border-color:rgba(0,230,118,0.22);transform:translateY(-4px);box-shadow:0 18px 55px rgba(0,0,0,.3)}
+.blog-cat{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g1);margin-bottom:.55rem}
+.blog-title{font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.6rem;letter-spacing:-.01em}
+.blog-summary{font-size:.8rem;color:rgba(255,255,255,.45);line-height:1.7;flex:1;margin-bottom:.9rem}
+.blog-meta{font-size:.68rem;color:rgba(255,255,255,.22);display:flex;gap:.7rem}
+.blog-more-btn{display:none;margin:2rem auto 0;padding:.75rem 2rem;background:transparent;border:1.5px solid rgba(0,230,118,0.28);color:var(--g1);border-radius:50px;font-family:'Outfit',sans-serif;font-size:.88rem;font-weight:700;cursor:pointer;transition:all .3s}
+.blog-more-btn:hover{background:rgba(0,230,118,0.08)}
+/* post modal content */
+.post-category{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g1);margin-bottom:.7rem}
+.post-meta{font-size:.74rem;color:rgba(255,255,255,.28);margin-bottom:2rem;display:flex;gap:.8rem}
+.post-body{font-size:.88rem;color:rgba(255,255,255,.65);line-height:1.9}
+.post-body h3{font-size:1.05rem;font-weight:700;color:#fff;margin:1.8rem 0 .6rem;letter-spacing:-.01em}
+.post-body p{margin-bottom:1.1rem}
+.post-body strong{color:rgba(255,255,255,.88)}
+
 /* ── LEGAL MODALS ── */
 .legal-modal{display:none;position:fixed;inset:0;z-index:960;background:rgba(0,0,0,0.88);backdrop-filter:blur(10px);align-items:flex-start;justify-content:center;overflow-y:auto;padding:2rem 1rem}
 .legal-modal.show{display:flex}
@@ -694,6 +714,7 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
     <a href="#rechner">Rechner</a>
     <a href="#esg">ESG</a>
     <a href="#faq">FAQ</a>
+    <a href="#blog">Blog</a>
     <a href="#kontakt" class="nav-cta">Kostenlos anfragen →</a>
   </div>
 </nav>
@@ -1351,6 +1372,25 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
   </div>
 </section>
 
+<!-- BLOG -->
+<section id="blog" style="background:var(--ink2)">
+  <div class="sey">Blog & Insights</div>
+  <h2>PPA-Wissen für <span class="tg">Entscheider</span></h2>
+  <p class="slead">Aktuelle Beiträge zu Power Purchase Agreements, Energiespeicher und regulatorischen Entwicklungen — täglich neu.</p>
+  <div class="blog-grid" id="blog-grid">
+    <div style="grid-column:1/-1;text-align:center;padding:3rem;color:rgba(255,255,255,.2);font-size:.85rem">Beiträge werden geladen …</div>
+  </div>
+  <div style="text-align:center"><button class="blog-more-btn" id="blog-more-btn" onclick="loadMorePosts()">Weitere Beiträge laden</button></div>
+</section>
+
+<!-- POST MODAL -->
+<div id="modal-post" class="legal-modal" onclick="if(event.target===this)closeModal('post')">
+  <div class="lm-wrap" style="max-width:760px">
+    <button class="lm-close" onclick="closeModal('post')">×</button>
+    <div id="post-content"></div>
+  </div>
+</div>
+
 <!-- NEWSLETTER -->
 <div class="newsletter">
   <div class="sey" style="justify-content:center">Newsletter</div>
@@ -1865,6 +1905,72 @@ function spChange() {
   }
   rechne();
 }
+
+// ── BLOG ──
+let allPosts = [];
+let shownPosts = 6;
+
+function mdToHtml(text) {
+  return text
+    .split('\n\n')
+    .map(p => {
+      if (p.startsWith('## ')) return '<h3>' + p.slice(3).trim() + '</h3>';
+      return '<p>' + p.replace(/\*\*(.*?)\*\*/g, '<strong>$1</strong>') + '</p>';
+    })
+    .join('');
+}
+
+function renderPosts(posts, count) {
+  const grid = document.getElementById('blog-grid');
+  const btn  = document.getElementById('blog-more-btn');
+  if (!grid) return;
+  const slice = posts.slice(0, count);
+  grid.innerHTML = slice.map((p, i) => `
+    <div class="blog-card reveal" onclick="openPost(${i})">
+      <div class="blog-cat">${p.category}</div>
+      <div class="blog-title">${p.title}</div>
+      <div class="blog-summary">${p.summary}</div>
+      <div class="blog-meta">
+        <span>${new Date(p.date).toLocaleDateString('de-DE')}</span>
+        <span>· ${p.readTime} Lesezeit</span>
+      </div>
+    </div>`).join('');
+  // Re-observe new cards for reveal animation
+  grid.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+  if (btn) btn.style.display = posts.length > count ? 'inline-block' : 'none';
+}
+
+function loadMorePosts() {
+  shownPosts += 6;
+  renderPosts(allPosts, shownPosts);
+}
+
+function openPost(idx) {
+  const p = allPosts[idx];
+  if (!p) return;
+  document.getElementById('post-content').innerHTML = `
+    <div class="post-category">${p.category}</div>
+    <h2 style="font-size:1.55rem;font-weight:900;letter-spacing:-.03em;margin-bottom:.5rem;line-height:1.15">${p.title}</h2>
+    <div class="post-meta">
+      <span>${new Date(p.date).toLocaleDateString('de-DE', {day:'numeric',month:'long',year:'numeric'})}</span>
+      <span>· ${p.readTime} Lesezeit</span>
+    </div>
+    <div class="post-body">${mdToHtml(p.content)}</div>`;
+  openModal('post');
+}
+
+async function loadBlog() {
+  try {
+    const r = await fetch('posts.json?v=' + Date.now());
+    if (!r.ok) throw new Error('fetch failed');
+    allPosts = await r.json();
+    renderPosts(allPosts, shownPosts);
+  } catch(e) {
+    const g = document.getElementById('blog-grid');
+    if (g) g.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:2rem;color:rgba(255,255,255,.25);font-size:.82rem">Blog-Beiträge werden geladen …</div>';
+  }
+}
+loadBlog();
 
 // ── LEGAL MODALS ──
 function openModal(id){

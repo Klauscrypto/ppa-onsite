@@ -1,0 +1,38 @@
+name: Daily Blog Post
+
+on:
+  schedule:
+    - cron: '0 7 * * *'   # 08:00 CET / 09:00 CEST
+  workflow_dispatch:        # manual trigger via GitHub UI
+
+jobs:
+  generate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependencies
+        run: pip install anthropic --quiet
+
+      - name: Generate blog post
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+        run: python3 generate_post.py
+
+      - name: Commit and push
+        run: |
+          git config user.email "blog-bot@ppa-onsite.de"
+          git config user.name "PPA Blog Bot"
+          git add html/posts.json
+          git diff --staged --quiet && echo "No changes" || (
+            git commit -m "Auto: Blog post $(date +%Y-%m-%d)"
+            git push
+          )
