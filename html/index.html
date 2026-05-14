@@ -149,9 +149,9 @@ body{font-family:'Outfit',sans-serif;background:var(--ink);color:var(--white);ov
 
 /* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:center;padding:1rem 4.5rem;background:rgba(3,15,7,0.88);backdrop-filter:blur(24px) saturate(180%);border-bottom:1px solid var(--line)}
-.logo{font-size:1.4rem;font-weight:900;color:var(--white);text-decoration:none;letter-spacing:-0.04em;display:flex;align-items:center;gap:0.5rem}
-.logo-mark{width:30px;height:30px;background:linear-gradient(135deg,var(--g1),var(--g3));border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:0.95rem;box-shadow:0 0 18px rgba(0,230,118,0.4)}
-.logo span{color:var(--g1)}
+.logo{text-decoration:none;display:flex;align-items:center;line-height:1}
+.nav-logo{height:38px;width:auto;filter:brightness(0) invert(1);display:block;transition:opacity .2s}
+.logo:hover .nav-logo{opacity:.8}
 .nav-links{display:flex;gap:2rem;align-items:center}
 .nav-links a{color:rgba(255,255,255,0.65);text-decoration:none;font-size:0.85rem;font-weight:500;transition:color .2s}
 .nav-links a:hover{color:var(--g1)}
@@ -519,8 +519,7 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 .ft{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3.5rem;margin-bottom:2.5rem}
 @media(max-width:900px){footer{padding:2.5rem 2rem 1.5rem}.ft{grid-template-columns:1fr 1fr;gap:2rem}}
 @media(max-width:600px){.ft{grid-template-columns:1fr;gap:1.5rem}}
-.f-logo{font-size:1.3rem;font-weight:900;letter-spacing:-.04em;margin-bottom:.8rem}
-.f-logo span{color:var(--g1)}
+.footer-logo{height:44px;width:auto;filter:brightness(0) invert(1);display:block;margin-bottom:.8rem;opacity:.85}
 .f-tag{font-size:.82rem;color:rgba(255,255,255,.3);line-height:1.7;margin-bottom:1.3rem;font-weight:300}
 .f-social{display:flex;gap:.7rem}
 .fsb{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:.82rem;text-decoration:none;color:rgba(255,255,255,.45);transition:all .3s}
@@ -673,7 +672,7 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="logo"><div class="logo-mark">☀</div>PPA<span>.</span>onsite</a>
+  <a href="#" class="logo"><img src="logo.png" alt="Pilsner Vertriebs GmbH" class="nav-logo"></a>
   <div class="nav-links">
     <a href="#funktioniert">So geht's</a>
     <a href="#vorteile">Vorteile</a>
@@ -1410,7 +1409,7 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 <footer>
   <div class="ft">
     <div>
-      <div class="f-logo">PPA<span>.onsite</span></div>
+      <img src="logo.png" alt="Pilsner Vertriebs GmbH" class="footer-logo">
       <div class="f-tag">Grünstrom vom eigenen Dach.<br>Kein Investment. Typisch 25–40 % günstiger.<br>Deutschland · Österreich · Schweiz.</div>
       <div class="f-social">
         <a href="mailto:info@pilsner-vertrieb.de" class="fsb" title="E-Mail">✉</a>
