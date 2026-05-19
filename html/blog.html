@@ -32,7 +32,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 .nav-cta:hover{box-shadow:0 8px 30px rgba(27,46,90,0.55)!important;transform:translateY(-1px)!important}
 .lang-switch{display:flex;align-items:center;gap:.3rem;margin-left:1rem}
 .lang-btn{background:transparent;border:1.5px solid rgba(27,46,90,0.3);color:rgba(5,14,31,0.55);padding:.28rem .65rem;border-radius:6px;font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:700;cursor:pointer;transition:all .2s;line-height:1}
-.lang-btn:hover{background:var(--g1);border-color:var(--g1);color:#fff}
+.lang-btn:hover,.lang-btn.active{background:var(--g1);border-color:var(--g1);color:#fff}
 #mob-cta{position:fixed;bottom:0;left:0;right:0;z-index:400;padding:1rem 1.5rem;background:linear-gradient(0deg,#F0F4FF 60%,transparent);display:none}
 #mob-cta a{display:block;background:var(--g1);color:#fff;text-align:center;padding:1rem;border-radius:50px;font-weight:800;font-size:1rem;text-decoration:none;box-shadow:0 4px 30px rgba(27,46,90,0.4)}
 @media(max-width:768px){#mob-cta{display:block}}
@@ -101,6 +101,7 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 .post-body h3{font-size:1.05rem;font-weight:700;color:var(--g1);margin:1.8rem 0 .6rem;letter-spacing:-.01em}
 .post-body p{margin-bottom:1.1rem}
 .post-body strong{color:var(--g1)}
+.post-lang-badge{display:inline-flex;align-items:center;gap:.35rem;font-size:.65rem;font-weight:700;letter-spacing:.08em;color:rgba(27,46,90,.35);margin-bottom:1rem}
 
 /* ── FOOTER ── */
 footer{background:var(--g1);color:rgba(255,255,255,.6);border-top:1px solid rgba(255,255,255,.08);padding:2.5rem 4.5rem 2rem}
@@ -132,32 +133,32 @@ footer{background:var(--g1);color:rgba(255,255,255,.6);border-top:1px solid rgba
 
 <div id="prog"></div>
 
-<div id="mob-cta"><a href="index.html#kontakt">☀ Jetzt Beratung anfragen</a></div>
+<div id="mob-cta"><a href="index.html#kontakt" id="mob-cta-link">☀ Jetzt Beratung anfragen</a></div>
 
 <nav>
   <a href="index.html" class="logo"><img src="logo.png" alt="SOMV Project Consulting GmbH" class="nav-logo"></a>
   <div class="nav-links">
-    <a href="index.html#funktioniert">So geht's</a>
-    <a href="index.html#vorteile">Vorteile</a>
-    <a href="index.html#rechner">Rechner</a>
-    <a href="index.html#esg">ESG</a>
-    <a href="index.html#faq">FAQ</a>
-    <a href="blog.html" class="active">Blog</a>
-    <a href="index.html#kontakt" class="nav-cta">Kostenlos anfragen →</a>
+    <a href="index.html#funktioniert" id="nl-how">So geht's</a>
+    <a href="index.html#vorteile" id="nl-benefits">Vorteile</a>
+    <a href="index.html#rechner" id="nl-calc">Rechner</a>
+    <a href="index.html#esg" id="nl-esg">ESG</a>
+    <a href="index.html#faq" id="nl-faq">FAQ</a>
+    <a href="blog.html" class="active" id="nl-blog">Blog</a>
+    <a href="index.html#kontakt" class="nav-cta" id="nl-cta">Kostenlos anfragen →</a>
   </div>
   <div class="lang-switch">
-    <button class="lang-btn active">DE</button>
-    <button class="lang-btn">EN</button>
-    <button class="lang-btn">TR</button>
+    <button class="lang-btn active" id="lb-de" onclick="setLang('de')">DE</button>
+    <button class="lang-btn" id="lb-en" onclick="setLang('en')">EN</button>
+    <button class="lang-btn" id="lb-tr" onclick="setLang('tr')">TR</button>
   </div>
 </nav>
 
 <!-- PAGE HEADER -->
 <div class="blog-header">
   <div class="bh-inner">
-    <div class="bh-eyebrow"><span class="bh-dot"></span>Blog & Insights</div>
-    <h1>Solar-Wissen für<br><span>Entscheider</span></h1>
-    <p>Aktuelle Beiträge zu Photovoltaik, Förderungen, Energiewende und Wirtschaftlichkeit — praxisnah für Privat, Gewerbe & Industrie.</p>
+    <div class="bh-eyebrow"><span class="bh-dot"></span><span id="bh-eyebrow">Blog & Insights</span></div>
+    <h1 id="bh-h1">Solar-Wissen für<br><span id="bh-h1-span">Entscheider</span></h1>
+    <p id="bh-p">Aktuelle Beiträge zu Photovoltaik, Förderungen, Energiewende und Wirtschaftlichkeit — praxisnah für Privat, Gewerbe & Industrie.</p>
   </div>
 </div>
 
@@ -168,7 +169,7 @@ footer{background:var(--g1);color:rgba(255,255,255,.6);border-top:1px solid rgba
     <input type="text" id="search-input" placeholder="Beiträge durchsuchen …" oninput="filterPosts()">
   </div>
   <div class="cat-filters" id="cat-filters">
-    <button class="cf-btn active" data-cat="" onclick="setCategory('',this)">Alle</button>
+    <button class="cf-btn active" data-cat="" onclick="setCategory('',this)" id="cat-all-btn">Alle</button>
   </div>
   <span class="blog-count" id="post-count"></span>
 </div>
@@ -176,10 +177,10 @@ footer{background:var(--g1);color:rgba(255,255,255,.6);border-top:1px solid rgba
 <!-- POST GRID -->
 <div class="blog-main">
   <div class="post-grid" id="post-grid">
-    <div class="no-results">Beiträge werden geladen …</div>
+    <div class="no-results" id="loading-msg">Beiträge werden geladen …</div>
   </div>
   <div class="load-more-wrap" id="load-more-wrap" style="display:none">
-    <button class="load-more-btn" onclick="loadMore()">Weitere Beiträge laden</button>
+    <button class="load-more-btn" onclick="loadMore()" id="load-more-btn">Weitere Beiträge laden</button>
   </div>
 </div>
 
@@ -203,7 +204,7 @@ footer{background:var(--g1);color:rgba(255,255,255,.6);border-top:1px solid rgba
     <h3>Handelsregister</h3>
     <p>Registergericht: Amtsgericht Kiel<br>Handelsregisternummer: HRB 18295</p>
     <h3>Vertreten durch</h3>
-    <p>Geschäftsführer: Michael Volz &amp; Ugur Ögütmen</p>
+    <p>Geschäftsführer: Ugur Ögütmen &amp; Michael Volz</p>
     <h3>Kontakt</h3>
     <p>Telefon: <a href="tel:+4917779526080">+49 177 7952608</a><br>E-Mail: <a href="mailto:kp@somv-project.de">kp@somv-project.de</a><br>Web: <a href="https://www.somv-project.de" target="_blank" rel="noopener">www.somv-project.de</a></p>
     <h3>EU-Streitschlichtung</h3>
@@ -240,33 +241,33 @@ footer{background:var(--g1);color:rgba(255,255,255,.6);border-top:1px solid rgba
   <div class="ft">
     <div>
       <img src="logo.png" alt="SOMV Project Consulting GmbH" class="footer-logo">
-      <div class="f-tag">Solaranlagen von Profis.<br>Planung · Montage · Wartung.<br>Deggendorf · Bayern · Deutschland.</div>
+      <div class="f-tag" id="ft-tag">Solaranlagen von Profis.<br>Planung · Montage · Wartung.<br>Deggendorf · Bayern · Deutschland.</div>
     </div>
     <div class="fc-col">
-      <h5>Leistungen</h5>
-      <a href="index.html#vorteile">PV-Anlagen Privat</a>
-      <a href="index.html#vorteile">PV-Anlagen Gewerbe</a>
-      <a href="index.html#leistungen">Speichersysteme</a>
-      <a href="index.html#kontakt">Beratung</a>
+      <h5 id="ft-services">Leistungen</h5>
+      <a href="index.html#vorteile" id="ft-pv-priv">PV-Anlagen Privat</a>
+      <a href="index.html#vorteile" id="ft-pv-gew">PV-Anlagen Gewerbe</a>
+      <a href="index.html#leistungen" id="ft-storage">Speichersysteme</a>
+      <a href="index.html#kontakt" id="ft-consult">Beratung</a>
     </div>
     <div class="fc-col">
-      <h5>Wissen</h5>
-      <a href="index.html#vorteile">Förderungen</a>
+      <h5 id="ft-knowledge">Wissen</h5>
+      <a href="index.html#vorteile" id="ft-funding">Förderungen</a>
       <a href="index.html#faq">FAQ</a>
       <a href="blog.html">Blog</a>
     </div>
     <div class="fc-col">
-      <h5>Unternehmen</h5>
-      <a href="index.html#kontakt">Kontakt</a>
+      <h5 id="ft-company">Unternehmen</h5>
+      <a href="index.html#kontakt" id="ft-contact">Kontakt</a>
       <a href="mailto:kp@somv-project.de">kp@somv-project.de</a>
       <a href="tel:+4917779526080">+49 177 7952608</a>
     </div>
   </div>
   <div class="fb">
-    <span>© 2026 SOMV-Project.de — Alle Rechte vorbehalten · SOMV Project Consulting GmbH</span>
+    <span id="ft-copy">© 2026 SOMV-Project.de — Alle Rechte vorbehalten · SOMV Project Consulting GmbH</span>
     <div class="fb-links">
-      <a href="#" onclick="openModal('impressum');return false;">Impressum</a>
-      <a href="#" onclick="openModal('datenschutz');return false;">Datenschutz</a>
+      <a href="#" id="ft-imprint" onclick="openModal('impressum');return false;">Impressum</a>
+      <a href="#" id="ft-privacy" onclick="openModal('datenschutz');return false;">Datenschutz</a>
     </div>
   </div>
 </footer>
@@ -281,10 +282,169 @@ function openModal(id){const m=document.getElementById('modal-'+id);if(m){m.clas
 function closeModal(id){const m=document.getElementById('modal-'+id);if(m){m.classList.remove('show');document.body.style.overflow='';}}
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){['post','impressum','datenschutz'].forEach(closeModal);}});
 
+/* ═══ TRANSLATIONS ═══ */
+const T = {
+de: {
+  "mob.cta":"☀ Jetzt Beratung anfragen",
+  "nav.how":"So geht's","nav.benefits":"Vorteile","nav.calc":"Rechner",
+  "nav.esg":"ESG","nav.faq":"FAQ","nav.blog":"Blog",
+  "nav.cta":"Kostenlos anfragen →",
+  "bh.eyebrow":"Blog & Insights",
+  "bh.h1":"Solar-Wissen für","bh.span":"Entscheider",
+  "bh.p":"Aktuelle Beiträge zu Photovoltaik, Förderungen, Energiewende und Wirtschaftlichkeit — praxisnah für Privat, Gewerbe & Industrie.",
+  "search.ph":"Beiträge durchsuchen …",
+  "cat.all":"Alle",
+  "post.loading":"Beiträge werden geladen …",
+  "post.error":"Fehler beim Laden der Beiträge.",
+  "post.empty":"Keine Beiträge gefunden.",
+  "post.read":"Lesen →",
+  "post.readmore":"Weitere Beiträge laden",
+  "post.readtime":"Lesezeit",
+  "post.count_suffix":"Beiträge",
+  "post.date_locale":"de-DE",
+  "ft.tag":"Solaranlagen von Profis.<br>Planung · Montage · Wartung.<br>Deggendorf · Bayern · Deutschland.",
+  "ft.services":"Leistungen","ft.knowledge":"Wissen","ft.company":"Unternehmen",
+  "ft.pv_priv":"PV-Anlagen Privat","ft.pv_gew":"PV-Anlagen Gewerbe",
+  "ft.storage":"Speichersysteme","ft.consult":"Beratung",
+  "ft.funding":"Förderungen",
+  "ft.contact":"Kontakt",
+  "ft.copy":"© 2026 SOMV-Project.de — Alle Rechte vorbehalten · SOMV Project Consulting GmbH",
+  "ft.imprint":"Impressum","ft.privacy":"Datenschutz"
+},
+en: {
+  "mob.cta":"☀ Get free solar advice",
+  "nav.how":"How It Works","nav.benefits":"Benefits","nav.calc":"Calculator",
+  "nav.esg":"ESG","nav.faq":"FAQ","nav.blog":"Blog",
+  "nav.cta":"Free quote →",
+  "bh.eyebrow":"Blog & Insights",
+  "bh.h1":"Solar Knowledge for","bh.span":"Decision-Makers",
+  "bh.p":"Current articles on photovoltaics, subsidies, energy transition and economics — practical insights for residential, commercial & industrial customers.",
+  "search.ph":"Search posts …",
+  "cat.all":"All",
+  "post.loading":"Loading posts …",
+  "post.error":"Error loading posts.",
+  "post.empty":"No posts found.",
+  "post.read":"Read →",
+  "post.readmore":"Load more posts",
+  "post.readtime":"read time",
+  "post.count_suffix":"posts",
+  "post.date_locale":"en-GB",
+  "ft.tag":"Solar systems by professionals.<br>Planning · Installation · Maintenance.<br>Deggendorf · Bavaria · Germany.",
+  "ft.services":"Services","ft.knowledge":"Knowledge","ft.company":"Company",
+  "ft.pv_priv":"Residential Solar","ft.pv_gew":"Commercial Solar",
+  "ft.storage":"Battery Storage","ft.consult":"Consultation",
+  "ft.funding":"Subsidies & Funding",
+  "ft.contact":"Contact",
+  "ft.copy":"© 2026 SOMV-Project.de — All rights reserved · SOMV Project Consulting GmbH",
+  "ft.imprint":"Legal notice","ft.privacy":"Privacy policy"
+},
+tr: {
+  "mob.cta":"☀ Ücretsiz danışmanlık al",
+  "nav.how":"Nasıl Çalışır","nav.benefits":"Avantajlar","nav.calc":"Hesap Makinesi",
+  "nav.esg":"ESG","nav.faq":"SSS","nav.blog":"Blog",
+  "nav.cta":"Ücretsiz teklif →",
+  "bh.eyebrow":"Blog & İçgörüler",
+  "bh.h1":"Karar Vericiler için","bh.span":"Solar Bilgisi",
+  "bh.p":"Fotovoltaik, teşvikler, enerji dönüşümü ve ekonomi hakkında güncel makaleler — konut, ticari ve endüstriyel müşteriler için pratik içgörüler.",
+  "search.ph":"Yazılarda ara …",
+  "cat.all":"Tümü",
+  "post.loading":"Yazılar yükleniyor …",
+  "post.error":"Yazılar yüklenirken hata oluştu.",
+  "post.empty":"Yazı bulunamadı.",
+  "post.read":"Oku →",
+  "post.readmore":"Daha fazla yükle",
+  "post.readtime":"okuma süresi",
+  "post.count_suffix":"yazı",
+  "post.date_locale":"tr-TR",
+  "ft.tag":"Profesyonellerden güneş enerjisi sistemleri.<br>Planlama · Montaj · Bakım.<br>Deggendorf · Bavyera · Almanya.",
+  "ft.services":"Hizmetler","ft.knowledge":"Bilgi","ft.company":"Şirket",
+  "ft.pv_priv":"Konut Güneş Sistemi","ft.pv_gew":"Ticari Güneş Sistemi",
+  "ft.storage":"Batarya Depolama","ft.consult":"Danışmanlık",
+  "ft.funding":"Teşvikler & Destekler",
+  "ft.contact":"İletişim",
+  "ft.copy":"© 2026 SOMV-Project.de — Tüm hakları saklıdır · SOMV Project Consulting GmbH",
+  "ft.imprint":"Künye","ft.privacy":"Gizlilik politikası"
+}
+};
+
+let currentLang = 'de';
+
+function setLang(lang) {
+  if (!T[lang]) return;
+  currentLang = lang;
+  document.documentElement.lang = lang;
+  localStorage.setItem('ppa_lang', lang);
+
+  // nav active state
+  ['de','en','tr'].forEach(l => {
+    const b = document.getElementById('lb-' + l);
+    if (b) b.classList.toggle('active', l === lang);
+  });
+
+  const t = T[lang];
+
+  // static elements
+  const set = (id, val) => { const el = document.getElementById(id); if (el) el.textContent = val; };
+  const setHtml = (id, val) => { const el = document.getElementById(id); if (el) el.innerHTML = val; };
+  const setPlh = (id, val) => { const el = document.getElementById(id); if (el) el.placeholder = val; };
+  const setHref = (el, href) => { if (el) el.href = href; };
+
+  set('mob-cta-link', t['mob.cta']);
+  set('nl-how', t['nav.how']);
+  set('nl-benefits', t['nav.benefits']);
+  set('nl-calc', t['nav.calc']);
+  set('nl-esg', t['nav.esg']);
+  set('nl-faq', t['nav.faq']);
+  set('nl-blog', t['nav.blog']);
+  set('nl-cta', t['nav.cta']);
+
+  set('bh-eyebrow', t['bh.eyebrow']);
+  set('bh-h1', t['bh.h1']);
+  set('bh-h1-span', t['bh.span']);
+  set('bh-p', t['bh.p']);
+
+  setPlh('search-input', t['search.ph']);
+  set('cat-all-btn', t['cat.all']);
+  set('load-more-btn', t['post.readmore']);
+
+  setHtml('ft-tag', t['ft.tag']);
+  set('ft-services', t['ft.services']);
+  set('ft-knowledge', t['ft.knowledge']);
+  set('ft-company', t['ft.company']);
+  set('ft-pv-priv', t['ft.pv_priv']);
+  set('ft-pv-gew', t['ft.pv_gew']);
+  set('ft-storage', t['ft.storage']);
+  set('ft-consult', t['ft.consult']);
+  set('ft-funding', t['ft.funding']);
+  set('ft-contact', t['ft.contact']);
+  set('ft-copy', t['ft.copy']);
+  set('ft-imprint', t['ft.imprint']);
+  set('ft-privacy', t['ft.privacy']);
+
+  // page title
+  if (lang === 'en') document.title = 'Blog & Insights — SOMV Project Consulting GmbH';
+  else if (lang === 'tr') document.title = 'Blog & İçgörüler — SOMV Project Consulting GmbH';
+  else document.title = 'Blog & Insights — SOMV Project Consulting GmbH';
+
+  // re-render grid with new language
+  if (allPosts.length) {
+    activeCategory = '';  // reset filter — category names change per language
+    rebuildCategoryFilters();
+    applyFilters();
+  }
+}
+
+/* ═══ BLOG LOGIC ═══ */
 let allPosts = [];
 let filtered = [];
 let shown = 12;
 let activeCategory = '';
+
+/* Get a localised field from a post, falling back to DE (root field) */
+function pf(post, field) {
+  const suffix = currentLang === 'de' ? '' : '_' + currentLang;
+  return post[field + suffix] || post[field] || '';
+}
 
 function mdToHtml(text) {
   return text.split('\n\n').map(p => {
@@ -293,12 +453,16 @@ function mdToHtml(text) {
   }).join('');
 }
 
-function buildCategoryFilters(posts) {
-  const cats = [...new Set(posts.map(p => p.category))].filter(Boolean);
+function rebuildCategoryFilters() {
   const wrap = document.getElementById('cat-filters');
+  const t = T[currentLang];
+  // Clear dynamic buttons (keep "all" button)
+  wrap.innerHTML = `<button class="cf-btn ${activeCategory===''?'active':''}" data-cat="" onclick="setCategory('',this)">${t['cat.all']}</button>`;
+  // Collect categories in current language
+  const cats = [...new Set(allPosts.map(p => pf(p, 'category')))].filter(Boolean);
   cats.forEach(cat => {
     const btn = document.createElement('button');
-    btn.className = 'cf-btn';
+    btn.className = 'cf-btn' + (activeCategory && pf(allPosts.find(p=>pf(p,'category')===cat||p.category===cat||p.category_en===cat||p.category_tr===cat), 'category') === activeCategory ? ' active' : '');
     btn.dataset.cat = cat;
     btn.textContent = cat;
     btn.onclick = () => setCategory(cat, btn);
@@ -322,8 +486,12 @@ function filterPosts() {
 function applyFilters() {
   const q = document.getElementById('search-input').value.toLowerCase().trim();
   filtered = allPosts.filter(p => {
-    const matchCat = !activeCategory || p.category === activeCategory;
-    const matchQ   = !q || p.title.toLowerCase().includes(q) || p.summary.toLowerCase().includes(q) || p.content.toLowerCase().includes(q);
+    const cat = pf(p, 'category');
+    const matchCat = !activeCategory || cat === activeCategory;
+    const matchQ = !q ||
+      pf(p,'title').toLowerCase().includes(q) ||
+      pf(p,'summary').toLowerCase().includes(q) ||
+      pf(p,'content').toLowerCase().includes(q);
     return matchCat && matchQ;
   });
   renderGrid();
@@ -333,29 +501,38 @@ function renderGrid() {
   const grid = document.getElementById('post-grid');
   const moreWrap = document.getElementById('load-more-wrap');
   const countEl  = document.getElementById('post-count');
+  const t = T[currentLang];
   const slice = filtered.slice(0, shown);
+  const locale = t['post.date_locale'];
 
-  countEl.textContent = filtered.length + ' Beiträge';
+  countEl.textContent = filtered.length + ' ' + t['post.count_suffix'];
 
   if (!slice.length) {
-    grid.innerHTML = '<div class="no-results">Keine Beiträge gefunden.</div>';
+    grid.innerHTML = `<div class="no-results">${t['post.empty']}</div>`;
     moreWrap.style.display = 'none';
     return;
   }
 
-  grid.innerHTML = slice.map(p => `
-    <div class="post-card" onclick="openPost(${allPosts.indexOf(p)})">
-      <div class="pc-cat">${p.category}</div>
-      <div class="pc-title">${p.title}</div>
-      <div class="pc-summary">${p.summary}</div>
+  grid.innerHTML = slice.map(p => {
+    const idx = allPosts.indexOf(p);
+    const hasLang = currentLang === 'de' || p['title_' + currentLang];
+    const langBadge = !hasLang ? `<div class="post-lang-badge">🌐 DE</div>` : '';
+    return `
+    <div class="post-card" onclick="openPost(${idx})">
+      ${langBadge}
+      <div class="pc-cat">${pf(p,'category')}</div>
+      <div class="pc-title">${pf(p,'title')}</div>
+      <div class="pc-summary">${pf(p,'summary')}</div>
       <div class="pc-meta">
-        <span>${new Date(p.date).toLocaleDateString('de-DE',{day:'numeric',month:'long',year:'numeric'})}</span>
-        <span>· ${p.readTime} Lesezeit</span>
+        <span>${new Date(p.date).toLocaleDateString(locale,{day:'numeric',month:'long',year:'numeric'})}</span>
+        <span>· ${p.readTime} ${t['post.readtime']}</span>
       </div>
-      <div class="pc-read">Lesen →</div>
-    </div>`).join('');
+      <div class="pc-read">${t['post.read']}</div>
+    </div>`;
+  }).join('');
 
   moreWrap.style.display = filtered.length > shown ? 'block' : 'none';
+  document.getElementById('load-more-btn').textContent = t['post.readmore'];
 }
 
 function loadMore() {
@@ -367,14 +544,19 @@ function loadMore() {
 function openPost(idx) {
   const p = allPosts[idx];
   if (!p) return;
+  const t = T[currentLang];
+  const locale = t['post.date_locale'];
+  const hasLang = currentLang === 'de' || p['title_' + currentLang];
+  const langNote = !hasLang ? `<div class="post-lang-badge">🌐 ${t['post.readtime']==='Lesezeit'?'Dieser Beitrag ist nur auf Deutsch verfügbar.':t['post.readtime']==='read time'?'This post is only available in German.':'Bu makale yalnızca Almanca mevcuttur.'}</div>` : '';
   document.getElementById('post-content').innerHTML = `
-    <div class="post-category">${p.category}</div>
-    <h2 style="font-size:1.55rem;font-weight:900;letter-spacing:-.03em;margin-bottom:.5rem;line-height:1.15;color:var(--g1)">${p.title}</h2>
+    <div class="post-category">${pf(p,'category')}</div>
+    <h2 style="font-size:1.55rem;font-weight:900;letter-spacing:-.03em;margin-bottom:.5rem;line-height:1.15;color:var(--g1)">${pf(p,'title')}</h2>
     <div class="post-meta">
-      <span>${new Date(p.date).toLocaleDateString('de-DE',{day:'numeric',month:'long',year:'numeric'})}</span>
-      <span>· ${p.readTime} Lesezeit</span>
+      <span>${new Date(p.date).toLocaleDateString(locale,{day:'numeric',month:'long',year:'numeric'})}</span>
+      <span>· ${p.readTime} ${t['post.readtime']}</span>
     </div>
-    <div class="post-body">${mdToHtml(p.content)}</div>`;
+    ${langNote}
+    <div class="post-body">${mdToHtml(pf(p,'content'))}</div>`;
   openModal('post');
 }
 
@@ -384,13 +566,19 @@ async function loadBlog() {
     if (!r.ok) throw new Error();
     allPosts = await r.json();
     filtered = allPosts;
-    buildCategoryFilters(allPosts);
+    rebuildCategoryFilters();
     renderGrid();
   } catch(e) {
-    document.getElementById('post-grid').innerHTML = '<div class="no-results">Fehler beim Laden der Beiträge.</div>';
+    document.getElementById('post-grid').innerHTML = `<div class="no-results">${T[currentLang]['post.error']}</div>`;
   }
 }
-loadBlog();
+
+/* ═══ INIT ═══ */
+(function(){
+  const saved = localStorage.getItem('ppa_lang') || 'de';
+  setLang(saved);
+  loadBlog();
+})();
 </script>
 </body>
 </html>
