@@ -26,9 +26,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 .nav-logo{height:38px;width:auto;display:block;transition:opacity .2s}
 .logo:hover .nav-logo{opacity:.8}
 .nav-links{display:flex;gap:2rem;align-items:center}
-.nav-links a{color:rgba(27,46,90,0.6);text-decoration:none;font-size:0.85rem;font-weight:500;transition:color .2s}
+.nav-links a{color:rgba(5,14,31,0.65);text-decoration:none;font-size:0.85rem;font-weight:500;transition:color .2s}
 .nav-links a:hover,.nav-links a.active{color:var(--g1)}
-.nav-cta{background:var(--g1)!important;color:#fff!important;padding:.55rem 1.3rem;border-radius:50px;font-weight:700!important;font-size:0.83rem!important;box-shadow:0 4px 20px rgba(27,46,90,0.25)}
+.nav-cta{background:var(--g1)!important;color:var(--ink)!important;padding:.55rem 1.3rem;border-radius:50px;font-weight:700!important;font-size:0.83rem!important;box-shadow:0 4px 20px rgba(27,46,90,0.35);transition:box-shadow .2s,transform .2s!important}
+.nav-cta:hover{box-shadow:0 8px 30px rgba(27,46,90,0.55)!important;transform:translateY(-1px)!important}
+.lang-switch{display:flex;align-items:center;gap:.3rem;margin-left:1rem}
+.lang-btn{background:transparent;border:1.5px solid rgba(27,46,90,0.3);color:rgba(5,14,31,0.55);padding:.28rem .65rem;border-radius:6px;font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:700;cursor:pointer;transition:all .2s;line-height:1}
+.lang-btn:hover{background:var(--g1);border-color:var(--g1);color:#fff}
+#mob-cta{position:fixed;bottom:0;left:0;right:0;z-index:400;padding:1rem 1.5rem;background:linear-gradient(0deg,#F0F4FF 60%,transparent);display:none}
+#mob-cta a{display:block;background:var(--g1);color:#fff;text-align:center;padding:1rem;border-radius:50px;font-weight:800;font-size:1rem;text-decoration:none;box-shadow:0 4px 30px rgba(27,46,90,0.4)}
+@media(max-width:768px){#mob-cta{display:block}}
 @media(max-width:900px){.nav-links{display:none}nav{padding:1rem 1.5rem}}
 
 /* ── SCROLL PROGRESS ── */
@@ -125,15 +132,23 @@ footer{background:var(--g1);color:rgba(255,255,255,.6);border-top:1px solid rgba
 
 <div id="prog"></div>
 
+<div id="mob-cta"><a href="index.html#kontakt">☀ Jetzt Beratung anfragen</a></div>
+
 <nav>
   <a href="index.html" class="logo"><img src="logo.png" alt="SOMV Project Consulting GmbH" class="nav-logo"></a>
   <div class="nav-links">
+    <a href="index.html#funktioniert">So geht's</a>
     <a href="index.html#vorteile">Vorteile</a>
-    <a href="index.html#leistungen">Leistungen</a>
     <a href="index.html#rechner">Rechner</a>
+    <a href="index.html#esg">ESG</a>
     <a href="index.html#faq">FAQ</a>
     <a href="blog.html" class="active">Blog</a>
     <a href="index.html#kontakt" class="nav-cta">Kostenlos anfragen →</a>
+  </div>
+  <div class="lang-switch">
+    <button class="lang-btn active">DE</button>
+    <button class="lang-btn">EN</button>
+    <button class="lang-btn">TR</button>
   </div>
 </nav>
 
