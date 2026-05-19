@@ -10,157 +10,157 @@
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <style>
 :root {
-  --g1:#00E676; --g2:#00C853; --g3:#69F0AE; --g4:#1B5E20; --g5:#004D40;
+  --g1:#2563EB; --g2:#1D4ED8; --g3:#93C5FD; --g4:#EFF6FF; --g5:#DBEAFE;
   --sun:#FFD600; --sun2:#FF8F00; --red:#FF5252;
-  --ink:#0C1F12; --ink2:#142818; --ink3:#1A3222;
-  --white:#FFFFFF; --line:rgba(0,230,118,0.13);
-  --card:rgba(255,255,255,0.035);
-  --glow:0 0 60px rgba(0,230,118,0.22);
+  --ink:#FFFFFF; --ink2:#F0F4FF; --ink3:#E8EEFF;
+  --white:#FFFFFF; --line:rgba(37,99,235,0.13);
+  --card:rgba(37,99,235,0.05);
+  --glow:0 0 60px rgba(37,99,235,0.22);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
-body{font-family:'Outfit',sans-serif;background:var(--ink);color:var(--white);overflow-x:hidden;line-height:1.6;cursor:none}
+body{font-family:'Outfit',sans-serif;background:var(--ink);color:#050E1F;overflow-x:hidden;line-height:1.6;cursor:none}
 
 /* ── CURSOR ── */
 #cur{position:fixed;width:10px;height:10px;background:var(--g1);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference;transition:width .25s,height .25s}
-#cur-r{position:fixed;width:34px;height:34px;border:1.5px solid rgba(0,230,118,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s}
+#cur-r{position:fixed;width:34px;height:34px;border:1.5px solid rgba(37,99,235,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s}
 @media(max-width:768px){#cur,#cur-r{display:none}body{cursor:auto}}
 
 /* ── WHATSAPP BUTTON ── */
 #wa-btn{position:fixed;bottom:5.5rem;right:1.5rem;z-index:450;width:54px;height:54px;background:#25D366;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;box-shadow:0 4px 20px rgba(37,211,102,0.45);cursor:pointer;text-decoration:none;transition:transform .25s,box-shadow .25s;animation:wa-pulse 3s ease-in-out infinite}
 @keyframes wa-pulse{0%,100%{box-shadow:0 4px 20px rgba(37,211,102,0.45)}50%{box-shadow:0 4px 35px rgba(37,211,102,0.7),0 0 0 8px rgba(37,211,102,0.1)}}
 #wa-btn:hover{transform:scale(1.1)}
-#wa-tooltip{position:fixed;bottom:6.5rem;right:5rem;z-index:449;background:var(--ink3);border:1px solid rgba(37,211,102,0.25);border-radius:10px;padding:.5rem 1rem;font-size:.75rem;color:rgba(255,255,255,.75);white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .3s;box-shadow:0 8px 24px rgba(0,0,0,.4)}
+#wa-tooltip{position:fixed;bottom:6.5rem;right:5rem;z-index:449;background:var(--ink3);border:1px solid rgba(37,211,102,0.25);border-radius:10px;padding:.5rem 1rem;font-size:.75rem;color:rgba(5,14,31,.75);white-space:nowrap;opacity:0;pointer-events:none;transition:opacity .3s;box-shadow:0 8px 24px rgba(0,0,0,.4)}
 #wa-btn:hover~#wa-tooltip{opacity:1}
 
 /* ── BLOG ── */
 .blog-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:2rem}
 @media(max-width:900px){.blog-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.blog-grid{grid-template-columns:1fr}}
-.blog-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:1.8rem;cursor:pointer;transition:all .4s;display:flex;flex-direction:column}
-.blog-card:hover{border-color:rgba(0,230,118,0.22);transform:translateY(-4px);box-shadow:0 18px 55px rgba(0,0,0,.3)}
+.blog-card{background:rgba(5,14,31,.03);border:1px solid rgba(5,14,31,.06);border-radius:18px;padding:1.8rem;cursor:pointer;transition:all .4s;display:flex;flex-direction:column}
+.blog-card:hover{border-color:rgba(37,99,235,0.22);transform:translateY(-4px);box-shadow:0 18px 55px rgba(0,0,0,.3)}
 .blog-cat{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g1);margin-bottom:.55rem}
 .blog-title{font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.6rem;letter-spacing:-.01em}
-.blog-summary{font-size:.8rem;color:rgba(255,255,255,.45);line-height:1.7;flex:1;margin-bottom:.9rem}
-.blog-meta{font-size:.68rem;color:rgba(255,255,255,.22);display:flex;gap:.7rem}
-.blog-more-btn{display:none;margin:2rem auto 0;padding:.75rem 2rem;background:transparent;border:1.5px solid rgba(0,230,118,0.28);color:var(--g1);border-radius:50px;font-family:'Outfit',sans-serif;font-size:.88rem;font-weight:700;cursor:pointer;transition:all .3s}
-.blog-more-btn:hover{background:rgba(0,230,118,0.08)}
+.blog-summary{font-size:.8rem;color:rgba(5,14,31,.45);line-height:1.7;flex:1;margin-bottom:.9rem}
+.blog-meta{font-size:.68rem;color:rgba(5,14,31,.22);display:flex;gap:.7rem}
+.blog-more-btn{display:none;margin:2rem auto 0;padding:.75rem 2rem;background:transparent;border:1.5px solid rgba(37,99,235,0.28);color:var(--g1);border-radius:50px;font-family:'Outfit',sans-serif;font-size:.88rem;font-weight:700;cursor:pointer;transition:all .3s}
+.blog-more-btn:hover{background:rgba(37,99,235,0.08)}
 /* post modal content */
 .post-category{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g1);margin-bottom:.7rem}
-.post-meta{font-size:.74rem;color:rgba(255,255,255,.28);margin-bottom:2rem;display:flex;gap:.8rem}
-.post-body{font-size:.88rem;color:rgba(255,255,255,.65);line-height:1.9}
-.post-body h3{font-size:1.05rem;font-weight:700;color:#fff;margin:1.8rem 0 .6rem;letter-spacing:-.01em}
+.post-meta{font-size:.74rem;color:rgba(5,14,31,.28);margin-bottom:2rem;display:flex;gap:.8rem}
+.post-body{font-size:.88rem;color:rgba(5,14,31,.65);line-height:1.9}
+.post-body h3{font-size:1.05rem;font-weight:700;color:#050E1F;margin:1.8rem 0 .6rem;letter-spacing:-.01em}
 .post-body p{margin-bottom:1.1rem}
-.post-body strong{color:rgba(255,255,255,.88)}
+.post-body strong{color:rgba(5,14,31,.88)}
 
 /* ── LEGAL MODALS ── */
 .legal-modal{display:none;position:fixed;inset:0;z-index:960;background:rgba(0,0,0,0.88);backdrop-filter:blur(10px);align-items:flex-start;justify-content:center;overflow-y:auto;padding:2rem 1rem}
 .legal-modal.show{display:flex}
-.lm-wrap{background:var(--ink3);border:1px solid rgba(0,230,118,0.15);border-radius:20px;padding:2.5rem 2.5rem 3rem;max-width:720px;width:100%;margin:auto;position:relative;box-shadow:0 40px 100px rgba(0,0,0,.7)}
-.lm-close{position:absolute;top:1.1rem;right:1.4rem;background:transparent;border:none;color:rgba(255,255,255,.35);font-size:1.5rem;cursor:pointer;line-height:1;padding:.2rem;transition:color .2s}
-.lm-close:hover{color:#fff}
+.lm-wrap{background:var(--ink3);border:1px solid rgba(37,99,235,0.15);border-radius:20px;padding:2.5rem 2.5rem 3rem;max-width:720px;width:100%;margin:auto;position:relative;box-shadow:0 40px 100px rgba(0,0,0,.7)}
+.lm-close{position:absolute;top:1.1rem;right:1.4rem;background:transparent;border:none;color:rgba(5,14,31,0.45);font-size:1.5rem;cursor:pointer;line-height:1;padding:.2rem;transition:color .2s}
+.lm-close:hover{color:#050E1F}
 .lm-wrap h2{font-size:1.5rem;font-weight:900;letter-spacing:-.03em;margin-bottom:1.8rem;padding-right:2rem}
 .lm-wrap h3{font-size:.95rem;font-weight:700;margin:1.6rem 0 .5rem;color:var(--g1)}
-.lm-wrap p,.lm-wrap li{font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.8;font-weight:300}
+.lm-wrap p,.lm-wrap li{font-size:.85rem;color:rgba(5,14,31,.6);line-height:1.8;font-weight:300}
 .lm-wrap ul{padding-left:1.2rem;margin:.4rem 0 .8rem}
 .lm-wrap li{margin-bottom:.3rem}
 .lm-wrap a{color:var(--g1);text-decoration:none}
 .lm-wrap .lm-placeholder{background:rgba(255,214,0,.1);border:1px dashed rgba(255,214,0,.35);border-radius:8px;padding:.4rem .8rem;font-size:.78rem;color:rgba(255,214,0,.8);display:inline-block;margin:.2rem 0}
-.lm-stamp{font-size:.7rem;color:rgba(255,255,255,.2);margin-top:2rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.05)}
+.lm-stamp{font-size:.7rem;color:rgba(5,14,31,.2);margin-top:2rem;padding-top:1rem;border-top:1px solid rgba(5,14,31,.05)}
 
 /* ── EXIT INTENT POPUP ── */
 #exit-popup{display:none;position:fixed;inset:0;z-index:900;background:rgba(0,0,0,0.78);backdrop-filter:blur(8px);align-items:center;justify-content:center}
 #exit-popup.show{display:flex}
-.ep-box{background:var(--ink3);border:1px solid rgba(0,230,118,0.25);border-radius:24px;padding:3rem;max-width:500px;width:90%;position:relative;box-shadow:0 40px 100px rgba(0,0,0,.6)}
-.ep-close{position:absolute;top:1rem;right:1.3rem;background:transparent;border:none;color:rgba(255,255,255,.35);font-size:1.4rem;cursor:pointer;line-height:1;padding:.2rem}
-.ep-close:hover{color:#fff}
-.ep-badge{background:rgba(0,230,118,0.1);border:1px solid rgba(0,230,118,0.25);color:var(--g1);font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .9rem;border-radius:50px;display:inline-block;margin-bottom:1.2rem}
+.ep-box{background:var(--ink3);border:1px solid rgba(37,99,235,0.25);border-radius:24px;padding:3rem;max-width:500px;width:90%;position:relative;box-shadow:0 40px 100px rgba(0,0,0,.6)}
+.ep-close{position:absolute;top:1rem;right:1.3rem;background:transparent;border:none;color:rgba(5,14,31,0.45);font-size:1.4rem;cursor:pointer;line-height:1;padding:.2rem}
+.ep-close:hover{color:#050E1F}
+.ep-badge{background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.25);color:var(--g1);font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .9rem;border-radius:50px;display:inline-block;margin-bottom:1.2rem}
 .ep-box h3{font-size:1.55rem;font-weight:900;letter-spacing:-.03em;margin-bottom:.8rem;line-height:1.15}
-.ep-box>p{font-size:.86rem;color:rgba(255,255,255,.5);margin-bottom:1.8rem;line-height:1.7}
+.ep-box>p{font-size:.86rem;color:rgba(5,14,31,.5);margin-bottom:1.8rem;line-height:1.7}
 .ep-form{display:flex;gap:.7rem;flex-wrap:wrap}
-.ep-input{flex:1;min-width:170px;padding:.82rem 1rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:12px;color:#fff;font-family:'Outfit',sans-serif;font-size:.88rem;outline:none;transition:border .2s}
+.ep-input{flex:1;min-width:170px;padding:.82rem 1rem;background:rgba(37,99,235,0.07);border:1px solid rgba(5,14,31,.12);border-radius:12px;color:#050E1F;font-family:'Outfit',sans-serif;font-size:.88rem;outline:none;transition:border .2s}
 .ep-input:focus{border-color:var(--g1)}
 .ep-btn{background:var(--g1);color:var(--ink);border:none;padding:.82rem 1.5rem;border-radius:50px;font-family:'Outfit',sans-serif;font-weight:800;font-size:.88rem;cursor:pointer;white-space:nowrap;transition:all .3s}
-.ep-btn:hover{background:#33FF8A}
-.ep-note{font-size:.65rem;color:rgba(255,255,255,.22);margin-top:.8rem;text-align:center}
+.ep-btn:hover{background:#60A5FA}
+.ep-note{font-size:.65rem;color:rgba(5,14,31,.22);margin-top:.8rem;text-align:center}
 
 /* ── TRUST LOGOS ── */
 .trust-logos{background:var(--ink2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:1.8rem 4.5rem}
-.tl-label{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.22);text-align:center;margin-bottom:1.2rem}
+.tl-label{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:rgba(5,14,31,.22);text-align:center;margin-bottom:1.2rem}
 .tl-row{display:flex;align-items:center;justify-content:center;gap:3rem;flex-wrap:wrap}
-.tl-logo{font-size:.82rem;font-weight:800;letter-spacing:-.02em;color:rgba(255,255,255,.18);text-transform:uppercase;cursor:default}
-.tl-cert{display:flex;align-items:center;gap:.4rem;font-size:.68rem;font-weight:600;color:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.1);border-radius:50px;padding:.3rem .8rem}
+.tl-logo{font-size:.82rem;font-weight:800;letter-spacing:-.02em;color:rgba(5,14,31,.18);text-transform:uppercase;cursor:default}
+.tl-cert{display:flex;align-items:center;gap:.4rem;font-size:.68rem;font-weight:600;color:rgba(5,14,31,.2);border:1px solid rgba(5,14,31,.1);border-radius:50px;padding:.3rem .8rem}
 
 /* ── HERO QUICKCHECK ── */
-.hero-qc{margin-top:2.5rem;background:rgba(255,255,255,.04);border:1px solid rgba(0,230,118,0.18);border-radius:18px;padding:1.5rem 2rem;max-width:600px}
+.hero-qc{margin-top:2.5rem;background:rgba(5,14,31,.04);border:1px solid rgba(37,99,235,0.18);border-radius:18px;padding:1.5rem 2rem;max-width:600px}
 .qc-title{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g1);margin-bottom:1rem;opacity:.85}
 .qc-row{display:flex;gap:.7rem;flex-wrap:wrap;margin-bottom:.7rem}
-.qc-field{flex:1;min-width:140px;padding:.7rem 1rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:10px;color:#fff;font-family:'Outfit',sans-serif;font-size:.84rem;outline:none;transition:border .2s}
+.qc-field{flex:1;min-width:140px;padding:.7rem 1rem;background:rgba(37,99,235,0.07);border:1px solid rgba(5,14,31,.12);border-radius:10px;color:#050E1F;font-family:'Outfit',sans-serif;font-size:.84rem;outline:none;transition:border .2s}
 .qc-field:focus{border-color:var(--g1)}
-.qc-field::placeholder{color:rgba(255,255,255,.35)}
+.qc-field::placeholder{color:rgba(5,14,31,0.45)}
 .qc-btn{width:100%;padding:.78rem;background:var(--g1);color:var(--ink);border:none;border-radius:10px;font-family:'Outfit',sans-serif;font-weight:800;font-size:.9rem;cursor:pointer;transition:all .3s}
-.qc-btn:hover{background:#33FF8A}
-.qc-note{font-size:.62rem;color:rgba(255,255,255,.22);text-align:center;margin-top:.4rem}
+.qc-btn:hover{background:#60A5FA}
+.qc-note{font-size:.62rem;color:rgba(5,14,31,.22);text-align:center;margin-top:.4rem}
 
 /* ── COST OF INACTION ── */
 .inaction{background:var(--ink2);border-top:1px solid rgba(255,82,82,0.1)}
 .ia-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;margin-top:2rem}
 @media(max-width:768px){.ia-grid{grid-template-columns:1fr}}
-.ia-left p{font-size:.92rem;color:rgba(255,255,255,.58);line-height:1.8;margin-bottom:1.5rem;font-weight:300}
-.ia-calc{background:rgba(0,0,0,.35);border:1px solid rgba(255,82,82,0.18);border-radius:18px;padding:2rem}
+.ia-left p{font-size:.92rem;color:rgba(5,14,31,.58);line-height:1.8;margin-bottom:1.5rem;font-weight:300}
+.ia-calc{background:rgba(37,99,235,0.06);border:1px solid rgba(255,82,82,0.25);border-radius:18px;padding:2rem;background:rgba(255,255,255,0.7)}
 .ia-calc-title{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,100,100,.65);margin-bottom:1.2rem}
-.ia-row{display:flex;justify-content:space-between;align-items:center;padding:.65rem 0;border-bottom:1px solid rgba(255,255,255,.05);font-size:.83rem}
+.ia-row{display:flex;justify-content:space-between;align-items:center;padding:.65rem 0;border-bottom:1px solid rgba(5,14,31,.05);font-size:.83rem}
 .ia-row:last-child{border-bottom:none}
-.ia-row-label{color:rgba(255,255,255,.5);font-weight:300}
+.ia-row-label{color:rgba(5,14,31,.5);font-weight:300}
 .ia-row-val{font-weight:700}
 .ia-row-val.red{color:rgba(255,110,110,.9)}
 .ia-total{margin-top:1rem;padding:1rem 1.2rem;background:rgba(255,82,82,.1);border-radius:12px;display:flex;justify-content:space-between;align-items:center;border:1px solid rgba(255,82,82,.15)}
-.ia-total-label{font-size:.82rem;color:rgba(255,255,255,.6)}
+.ia-total-label{font-size:.82rem;color:rgba(5,14,31,.6)}
 .ia-total-val{font-size:1.45rem;font-weight:900;color:rgba(255,110,110,.9);letter-spacing:-.03em}
 .ia-cta{margin-top:1.2rem;width:100%;padding:.9rem;background:var(--g1);color:var(--ink);border:none;border-radius:50px;font-family:'Outfit',sans-serif;font-weight:800;font-size:.9rem;cursor:pointer;transition:all .3s}
-.ia-cta:hover{background:#33FF8A}
-.ia-disclaimer{font-size:.65rem;color:rgba(255,255,255,.2);margin-top:.6rem;text-align:center}
+.ia-cta:hover{background:#60A5FA}
+.ia-disclaimer{font-size:.65rem;color:rgba(5,14,31,.2);margin-top:.6rem;text-align:center}
 
 /* ── PERSONAL CONTACT ── */
 .personal{background:var(--ink)}
 .person-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem}
 @media(max-width:768px){.person-grid{grid-template-columns:1fr}}
-.person-card{background:rgba(255,255,255,.03);border:1px solid rgba(0,230,118,0.14);border-radius:22px;padding:2rem;display:flex;gap:1.5rem;align-items:flex-start;transition:border-color .3s}
-.person-card:hover{border-color:rgba(0,230,118,0.3)}
-.person-avatar{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--g4),var(--g5));flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.8rem;border:2px solid rgba(0,230,118,0.28)}
+.person-card{background:rgba(5,14,31,.03);border:1px solid rgba(37,99,235,0.14);border-radius:22px;padding:2rem;display:flex;gap:1.5rem;align-items:flex-start;transition:border-color .3s}
+.person-card:hover{border-color:rgba(37,99,235,0.3)}
+.person-avatar{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--g4),var(--g5));flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.8rem;border:2px solid rgba(37,99,235,0.28)}
 .person-info h4{font-size:1rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.2rem}
 .person-role{font-size:.72rem;color:var(--g1);font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.6rem}
-.person-quote{font-size:.8rem;color:rgba(255,255,255,.45);line-height:1.65;font-style:italic;font-family:'Lora',serif;margin-bottom:.9rem}
+.person-quote{font-size:.8rem;color:rgba(5,14,31,.45);line-height:1.65;font-style:italic;font-family:'Lora',serif;margin-bottom:.9rem}
 .person-links{display:flex;flex-direction:column;gap:.4rem}
-.pl{display:flex;align-items:center;gap:.5rem;font-size:.78rem;color:rgba(255,255,255,.5);text-decoration:none;transition:color .2s}
+.pl{display:flex;align-items:center;gap:.5rem;font-size:.78rem;color:rgba(5,14,31,.5);text-decoration:none;transition:color .2s}
 .pl:hover{color:var(--g1)}
 .pl-i{color:var(--g1)}
-.person-avail{display:inline-flex;align-items:center;gap:.4rem;background:rgba(0,230,118,0.09);border:1px solid rgba(0,230,118,0.18);border-radius:50px;padding:.28rem .8rem;font-size:.68rem;font-weight:700;color:var(--g1);margin-top:.7rem}
+.person-avail{display:inline-flex;align-items:center;gap:.4rem;background:rgba(37,99,235,0.09);border:1px solid rgba(37,99,235,0.18);border-radius:50px;padding:.28rem .8rem;font-size:.68rem;font-weight:700;color:var(--g1);margin-top:.7rem}
 .avail-dot{width:6px;height:6px;background:var(--g1);border-radius:50%;animation:blink 2s ease-in-out infinite}
 
 /* ── LEAD MAGNET ── */
 .lead-magnet{background:var(--ink3);border-top:1px solid var(--line)}
-.lm-box{background:linear-gradient(135deg,rgba(0,230,118,0.07),rgba(0,191,165,0.03));border:1.5px solid rgba(0,230,118,0.18);border-radius:22px;padding:2.5rem;display:grid;grid-template-columns:auto 1fr;gap:3rem;align-items:center;margin-top:2rem}
+.lm-box{background:linear-gradient(135deg,rgba(37,99,235,0.07),rgba(29,78,216,0.03));border:1.5px solid rgba(37,99,235,0.18);border-radius:22px;padding:2.5rem;display:grid;grid-template-columns:auto 1fr;gap:3rem;align-items:center;margin-top:2rem}
 @media(max-width:768px){.lm-box{grid-template-columns:1fr}}
-.lm-doc{background:rgba(255,255,255,.05);border:1px solid rgba(0,230,118,0.18);border-radius:14px;padding:1.8rem 1.5rem;text-align:center;min-width:160px}
+.lm-doc{background:rgba(37,99,235,0.07);border:1px solid rgba(37,99,235,0.18);border-radius:14px;padding:1.8rem 1.5rem;text-align:center;min-width:160px}
 .lm-doc-icon{font-size:2.8rem;margin-bottom:.7rem}
 .lm-doc-title{font-size:.8rem;font-weight:800;margin-bottom:.3rem;line-height:1.3}
 .lm-doc-type{font-size:.62rem;color:var(--g1);font-weight:700;text-transform:uppercase;letter-spacing:.1em}
 .lm-content h3{font-size:1.2rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.6rem}
-.lm-content p{font-size:.86rem;color:rgba(255,255,255,.5);line-height:1.75;margin-bottom:1.2rem}
+.lm-content p{font-size:.86rem;color:rgba(5,14,31,.5);line-height:1.75;margin-bottom:1.2rem}
 .lm-list{display:flex;flex-direction:column;gap:.45rem;margin-bottom:1.4rem}
-.lm-li{font-size:.8rem;color:rgba(255,255,255,.55);display:flex;align-items:center;gap:.5rem}
+.lm-li{font-size:.8rem;color:rgba(5,14,31,.55);display:flex;align-items:center;gap:.5rem}
 .lm-li::before{content:'✓';color:var(--g1);font-weight:700;flex-shrink:0}
 .lm-form{display:flex;gap:.7rem;flex-wrap:wrap}
-.lm-inp{flex:1;min-width:180px;padding:.78rem 1.1rem;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:50px;color:#fff;font-family:'Outfit',sans-serif;font-size:.86rem;outline:none;transition:border .2s}
-.lm-inp::placeholder{color:rgba(255,255,255,.3)}
+.lm-inp{flex:1;min-width:180px;padding:.78rem 1.1rem;background:rgba(37,99,235,0.07);border:1px solid rgba(5,14,31,.12);border-radius:50px;color:#050E1F;font-family:'Outfit',sans-serif;font-size:.86rem;outline:none;transition:border .2s}
+.lm-inp::placeholder{color:rgba(5,14,31,0.4)}
 .lm-inp:focus{border-color:var(--g1)}
 .lm-btn{background:var(--g1);color:var(--ink);border:none;padding:.78rem 1.8rem;border-radius:50px;font-family:'Outfit',sans-serif;font-weight:800;font-size:.86rem;cursor:pointer;white-space:nowrap;transition:all .3s}
-.lm-btn:hover{background:#33FF8A}
+.lm-btn:hover{background:#60A5FA}
 
 /* ── URGENCY BANNER ── */
 .urgency{background:linear-gradient(90deg,rgba(255,214,0,0.1),rgba(255,143,0,0.07),rgba(255,214,0,0.1));border-top:1px solid rgba(255,214,0,0.18);border-bottom:1px solid rgba(255,214,0,0.18);padding:1.1rem 4.5rem}
-.urgency-inner{display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;font-size:.86rem;color:rgba(255,255,255,.65)}
+.urgency-inner{display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;font-size:.86rem;color:#050E1F}
 .urgency-inner strong{color:var(--sun)}
 .urgency-cta{display:inline-flex;align-items:center;gap:.4rem;background:var(--sun);color:var(--ink);padding:.42rem 1.1rem;border-radius:50px;font-size:.78rem;font-weight:800;text-decoration:none;transition:all .3s;white-space:nowrap}
 .urgency-cta:hover{transform:translateY(-1px);box-shadow:0 4px 18px rgba(255,214,0,.4)}
@@ -169,61 +169,61 @@ body{font-family:'Outfit',sans-serif;background:var(--ink);color:var(--white);ov
 #prog{position:fixed;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--g1),var(--sun));transform-origin:left;transform:scaleX(0);z-index:600;transition:transform .08s}
 
 /* ── COOKIE BANNER ── */
-#cookie{position:fixed;bottom:1.5rem;left:1.5rem;right:1.5rem;max-width:560px;background:var(--ink3);border:1px solid rgba(0,230,118,0.2);border-radius:16px;padding:1.4rem 1.8rem;z-index:800;box-shadow:0 20px 60px rgba(0,0,0,0.5);backdrop-filter:blur(20px)}
-#cookie p{font-size:0.8rem;color:rgba(255,255,255,0.55);line-height:1.6;margin-bottom:1rem}
+#cookie{position:fixed;bottom:1.5rem;left:1.5rem;right:1.5rem;max-width:560px;background:var(--ink3);border:1px solid rgba(37,99,235,0.2);border-radius:16px;padding:1.4rem 1.8rem;z-index:800;box-shadow:0 20px 60px rgba(0,0,0,0.5);backdrop-filter:blur(20px)}
+#cookie p{font-size:0.8rem;color:rgba(5,14,31,0.55);line-height:1.6;margin-bottom:1rem}
 #cookie a{color:var(--g1);text-decoration:none}
 .cookie-btns{display:flex;gap:.7rem;flex-wrap:wrap}
 #cookie-btn{background:var(--g1);color:var(--ink);border:none;padding:0.55rem 1.3rem;border-radius:50px;font-family:'Outfit',sans-serif;font-size:0.82rem;font-weight:700;cursor:pointer;white-space:nowrap}
-#cookie-reject{background:transparent;color:rgba(255,255,255,0.5);border:1px solid rgba(255,255,255,0.15);padding:0.55rem 1.3rem;border-radius:50px;font-family:'Outfit',sans-serif;font-size:0.82rem;font-weight:500;cursor:pointer;white-space:nowrap;transition:border-color .2s}
-#cookie-reject:hover{border-color:rgba(255,255,255,0.35);color:rgba(255,255,255,0.75)}
+#cookie-reject{background:transparent;color:rgba(5,14,31,0.5);border:1px solid rgba(37,99,235,0.25);padding:0.55rem 1.3rem;border-radius:50px;font-family:'Outfit',sans-serif;font-size:0.82rem;font-weight:500;cursor:pointer;white-space:nowrap;transition:border-color .2s}
+#cookie-reject:hover{border-color:rgba(5,14,31,0.35);color:rgba(5,14,31,0.75)}
 
 /* ── MOBILE CTA ── */
-#mob-cta{position:fixed;bottom:0;left:0;right:0;z-index:400;padding:1rem 1.5rem;background:linear-gradient(0deg,var(--ink) 60%,transparent);display:none}
-#mob-cta a{display:block;background:var(--g1);color:var(--ink);text-align:center;padding:1rem;border-radius:50px;font-weight:800;font-size:1rem;text-decoration:none;box-shadow:0 4px 30px rgba(0,230,118,0.4)}
+#mob-cta{position:fixed;bottom:0;left:0;right:0;z-index:400;padding:1rem 1.5rem;background:linear-gradient(0deg,#F0F4FF 60%,transparent);display:none}
+#mob-cta a{display:block;background:var(--g1);color:var(--ink);text-align:center;padding:1rem;border-radius:50px;font-weight:800;font-size:1rem;text-decoration:none;box-shadow:0 4px 30px rgba(37,99,235,0.4)}
 @media(max-width:768px){#mob-cta{display:block}}
 
 /* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:center;padding:1rem 4.5rem;background:rgba(3,15,7,0.88);backdrop-filter:blur(24px) saturate(180%);border-bottom:1px solid var(--line)}
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:center;padding:1rem 4.5rem;background:rgba(255,255,255,0.95);backdrop-filter:blur(24px) saturate(180%);border-bottom:1px solid var(--line)}
 .logo{text-decoration:none;display:flex;align-items:center;line-height:1}
 .nav-logo{height:38px;width:auto;filter:brightness(0) invert(1);display:block;transition:opacity .2s}
 .logo:hover .nav-logo{opacity:.8}
 .nav-links{display:flex;gap:2rem;align-items:center}
-.nav-links a{color:rgba(255,255,255,0.65);text-decoration:none;font-size:0.85rem;font-weight:500;transition:color .2s}
+.nav-links a{color:rgba(5,14,31,0.65);text-decoration:none;font-size:0.85rem;font-weight:500;transition:color .2s}
 .nav-links a:hover{color:var(--g1)}
-.nav-cta{background:var(--g1)!important;color:var(--ink)!important;padding:.55rem 1.3rem;border-radius:50px;font-weight:700!important;font-size:0.83rem!important;box-shadow:0 4px 20px rgba(0,230,118,0.35);transition:box-shadow .2s,transform .2s!important}
-.nav-cta:hover{box-shadow:0 8px 30px rgba(0,230,118,0.55)!important;transform:translateY(-1px)!important}
+.nav-cta{background:var(--g1)!important;color:var(--ink)!important;padding:.55rem 1.3rem;border-radius:50px;font-weight:700!important;font-size:0.83rem!important;box-shadow:0 4px 20px rgba(37,99,235,0.35);transition:box-shadow .2s,transform .2s!important}
+.nav-cta:hover{box-shadow:0 8px 30px rgba(37,99,235,0.55)!important;transform:translateY(-1px)!important}
 @media(max-width:900px){.nav-links{display:none}nav{padding:1rem 1.5rem}}
 
 /* ── HERO ── */
 .hero{display:flex;flex-direction:column;justify-content:center;padding:7rem 4.5rem 4rem;position:relative;overflow:hidden;background:var(--ink)}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 65% 55% at 68% 28%,rgba(0,200,83,0.15) 0%,transparent 65%),radial-gradient(ellipse 45% 65% at 10% 75%,rgba(0,191,165,0.1) 0%,transparent 55%),radial-gradient(ellipse 35% 40% at 90% 80%,rgba(255,214,0,0.08) 0%,transparent 50%);pointer-events:none}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 65% 55% at 68% 28%,rgba(37,99,235,0.10) 0%,transparent 65%),radial-gradient(ellipse 45% 65% at 10% 75%,rgba(29,78,216,0.07) 0%,transparent 55%),radial-gradient(ellipse 35% 40% at 90% 80%,rgba(255,214,0,0.08) 0%,transparent 50%);pointer-events:none}
 .hero-grid{position:absolute;inset:0;opacity:0.03;background-image:linear-gradient(var(--g1) 1px,transparent 1px),linear-gradient(90deg,var(--g1) 1px,transparent 1px);background-size:70px 70px;pointer-events:none}
 
-.hero-eyebrow{display:inline-flex;align-items:center;gap:.7rem;margin-bottom:1.8rem;background:rgba(0,230,118,0.09);border:1px solid rgba(0,230,118,0.22);padding:.45rem 1rem;border-radius:50px;font-size:0.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g1)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:.7rem;margin-bottom:1.8rem;background:rgba(37,99,235,0.09);border:1px solid rgba(37,99,235,0.22);padding:.45rem 1rem;border-radius:50px;font-size:0.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g1)}
 .hero-dot{width:7px;height:7px;background:var(--g1);border-radius:50%;animation:blink 2s ease-in-out infinite;box-shadow:0 0 8px var(--g1)}
-@keyframes blink{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(0,230,118,0.5)}50%{opacity:.6;box-shadow:0 0 0 5px rgba(0,230,118,0)}}
+@keyframes blink{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(37,99,235,0.5)}50%{opacity:.6;box-shadow:0 0 0 5px rgba(37,99,235,0)}}
 
-h1{font-family:'Outfit',sans-serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:900;line-height:1.04;letter-spacing:-.04em;margin-bottom:1.6rem;color:#fff}
+h1{font-family:'Outfit',sans-serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:900;line-height:1.04;letter-spacing:-.04em;margin-bottom:1.6rem;color:#050E1F}
 h1 .g{color:var(--g1)}
 h1 .y{color:var(--sun);text-shadow:0 0 40px rgba(255,214,0,0.35)}
-.hero-sub{font-size:1.15rem;font-weight:300;line-height:1.8;color:rgba(255,255,255,0.72);max-width:600px;margin-bottom:1.8rem}
-.hero-sub strong{color:#fff;font-weight:600}
+.hero-sub{font-size:1.15rem;font-weight:300;line-height:1.8;color:rgba(5,14,31,0.72);max-width:600px;margin-bottom:1.8rem}
+.hero-sub strong{color:#050E1F;font-weight:600}
 
 /* Live-Ticker */
-.live-ticker{display:inline-flex;align-items:center;gap:.8rem;background:rgba(255,82,82,0.12);border:1px solid rgba(255,82,82,0.25);border-radius:50px;padding:.4rem 1rem;font-size:0.78rem;margin-bottom:2rem;color:rgba(255,255,255,0.75)}
+.live-ticker{display:inline-flex;align-items:center;gap:.8rem;background:rgba(255,82,82,0.12);border:1px solid rgba(255,82,82,0.25);border-radius:50px;padding:.4rem 1rem;font-size:0.78rem;margin-bottom:2rem;color:rgba(5,14,31,0.75)}
 .ticker-dot{width:7px;height:7px;background:var(--red);border-radius:50%;animation:blink 1.2s ease-in-out infinite}
 .ticker-val{font-weight:800;color:var(--red)}
 .ticker-ppa{font-weight:700;color:var(--g1)}
 
 .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;margin-bottom:3rem}
-.btn-main{background:var(--g1);color:var(--ink);padding:.95rem 2.2rem;border-radius:50px;font-size:1rem;font-weight:800;text-decoration:none;box-shadow:0 4px 30px rgba(0,230,118,0.45);transition:all .3s;letter-spacing:-.01em;animation:pulse-g 3s ease-in-out infinite}
-@keyframes pulse-g{0%,100%{box-shadow:0 4px 30px rgba(0,230,118,0.45)}50%{box-shadow:0 4px 50px rgba(0,230,118,0.7),0 0 0 8px rgba(0,230,118,0.07)}}
-.btn-main:hover{transform:translateY(-3px);background:#33FF8A}
-.btn-ghost{background:transparent;color:var(--white);padding:.95rem 2.2rem;border-radius:50px;font-size:1rem;font-weight:600;text-decoration:none;border:1.5px solid rgba(255,255,255,0.18);transition:all .3s}
+.btn-main{background:var(--g1);color:var(--ink);padding:.95rem 2.2rem;border-radius:50px;font-size:1rem;font-weight:800;text-decoration:none;box-shadow:0 4px 30px rgba(37,99,235,0.45);transition:all .3s;letter-spacing:-.01em;animation:pulse-g 3s ease-in-out infinite}
+@keyframes pulse-g{0%,100%{box-shadow:0 4px 30px rgba(37,99,235,0.45)}50%{box-shadow:0 4px 50px rgba(37,99,235,0.7),0 0 0 8px rgba(37,99,235,0.07)}}
+.btn-main:hover{transform:translateY(-3px);background:#60A5FA}
+.btn-ghost{background:transparent;color:var(--white);padding:.95rem 2.2rem;border-radius:50px;font-size:1rem;font-weight:600;text-decoration:none;border:1.5px solid rgba(5,14,31,0.18);transition:all .3s}
 .btn-ghost:hover{border-color:var(--g1);color:var(--g1)}
 
-.hero-trust{display:flex;align-items:center;gap:1.3rem;font-size:0.8rem;color:rgba(255,255,255,0.45);flex-wrap:wrap}
-.ht-sep{width:1px;height:18px;background:rgba(255,255,255,0.12)}
+.hero-trust{display:flex;align-items:center;gap:1.3rem;font-size:0.8rem;color:rgba(5,14,31,0.45);flex-wrap:wrap}
+.ht-sep{width:1px;height:18px;background:rgba(5,14,31,0.12)}
 .ht-item{display:flex;align-items:center;gap:.4rem}
 .ht-item span{color:var(--g1);font-weight:700;font-size:0.9rem}
 
@@ -233,115 +233,115 @@ h1 .y{color:var(--sun);text-shadow:0 0 40px rgba(255,214,0,0.35)}
 .hero-right{display:flex;flex-direction:column}
 
 /* Unified right CTA card */
-.hero-cta-card{background:rgba(255,255,255,0.04);border:1px solid rgba(0,230,118,0.22);border-radius:22px;padding:2rem 2rem 1.6rem;backdrop-filter:blur(20px);box-shadow:0 24px 64px rgba(0,0,0,.35),inset 0 1px 0 rgba(255,255,255,.06)}
+.hero-cta-card{background:rgba(5,14,31,0.04);border:1px solid rgba(37,99,235,0.22);border-radius:22px;padding:2rem 2rem 1.6rem;backdrop-filter:blur(20px);box-shadow:0 24px 64px rgba(0,0,0,.35),inset 0 1px 0 rgba(5,14,31,.06)}
 .hcc-label{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g1);margin-bottom:1.1rem;display:flex;align-items:center;gap:.5rem}
-.hcc-divider{height:1px;background:rgba(0,230,118,0.12);margin:1.3rem 0 1.1rem}
+.hcc-divider{height:1px;background:rgba(37,99,235,0.12);margin:1.3rem 0 1.1rem}
 
 .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
-.hsc{background:rgba(0,0,0,.25);border-radius:10px;padding:.8rem .85rem;text-align:center}
+.hsc{background:rgba(37,99,235,0.06);border-radius:10px;padding:.8rem .85rem;text-align:center}
 .hsc-label{font-size:.52rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g1);opacity:.8;margin-bottom:.25rem}
-.hsc-val{font-size:1.15rem;font-weight:900;letter-spacing:-.03em;color:#fff;line-height:1.1}
-.hsc-sub{font-size:.58rem;color:rgba(255,255,255,.3);margin-top:.15rem}
+.hsc-val{font-size:1.15rem;font-weight:900;letter-spacing:-.03em;color:#050E1F;line-height:1.1}
+.hsc-sub{font-size:.58rem;color:rgba(5,14,31,0.4);margin-top:.15rem}
 @media(max-width:1100px){.hero-inner{grid-template-columns:1fr}.hero-cta-card{max-width:560px}}
 
 /* ── MARQUEE ── */
 .marquee-wrap{background:var(--ink2);border-top:1px solid var(--line);border-bottom:1px solid var(--line);overflow:hidden;padding:.9rem 0}
 .marquee{display:flex;gap:2.5rem;animation:marquee 35s linear infinite;white-space:nowrap}
-.mi{font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);display:flex;align-items:center;gap:1rem}
+.mi{font-size:.78rem;font-weight:600;letter-spacing:.1em;text-transform:uppercase;color:rgba(5,14,31,0.4);display:flex;align-items:center;gap:1rem}
 .ms{color:var(--g1);font-size:.9rem}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* ── KENNZAHLEN ── */
-.kz{background:linear-gradient(135deg,var(--g4) 0%,var(--g5) 100%);border-top:1px solid rgba(0,230,118,0.2);border-bottom:1px solid rgba(0,230,118,0.2);padding:3.5rem 4.5rem}
+.kz{background:linear-gradient(135deg,var(--g4) 0%,var(--g5) 100%);border-top:1px solid rgba(37,99,235,0.2);border-bottom:1px solid rgba(37,99,235,0.2);padding:3.5rem 4.5rem}
 .kz-grid{display:grid;grid-template-columns:repeat(5,1fr)}
-.kz-item{text-align:center;padding:1.8rem 1rem;border-right:1px solid rgba(255,255,255,0.07)}
+.kz-item{text-align:center;padding:1.8rem 1rem;border-right:1px solid rgba(5,14,31,0.07)}
 .kz-item:last-child{border-right:none}
 .kz-num{font-size:2.6rem;font-weight:900;letter-spacing:-.04em;line-height:1;background:linear-gradient(135deg,var(--g1),var(--sun));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:.35rem}
-.kz-label{font-size:.78rem;color:rgba(255,255,255,.55);line-height:1.4;font-weight:300}
+.kz-label{font-size:.78rem;color:rgba(5,14,31,.55);line-height:1.4;font-weight:300}
 @media(max-width:900px){.kz-grid{grid-template-columns:repeat(2,1fr);gap:1rem}.kz-item{border-right:none}.kz{padding:2.5rem 1.5rem}}
 
 /* ── SECTION BASE ── */
 section{padding:6.5rem 4.5rem;background:var(--ink)}
 .sey{font-size:.7rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:var(--g1);margin-bottom:.9rem;display:flex;align-items:center;gap:.6rem}
 .sey::before{content:'';display:block;width:24px;height:2px;background:var(--g1);border-radius:2px}
-h2{font-family:'Outfit',sans-serif;font-size:clamp(1.9rem,3.8vw,3rem);font-weight:900;letter-spacing:-.03em;line-height:1.08;margin-bottom:1.1rem;color:#fff}
-.slead{font-size:1rem;color:rgba(255,255,255,.58);max-width:580px;line-height:1.8;margin-bottom:3.5rem;font-weight:300}
+h2{font-family:'Outfit',sans-serif;font-size:clamp(1.9rem,3.8vw,3rem);font-weight:900;letter-spacing:-.03em;line-height:1.08;margin-bottom:1.1rem;color:#050E1F}
+.slead{font-size:1rem;color:rgba(5,14,31,.58);max-width:580px;line-height:1.8;margin-bottom:3.5rem;font-weight:300}
 .tg{color:var(--g1)}
 @media(max-width:768px){section{padding:4rem 1.5rem}}
 
 /* ── WIE ES FUNKTIONIERT ── */
-.how{background:var(--ink2)}
+.how{background:#F0F4FF}
 .how-timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:.5rem;position:relative}
-.how-timeline::before{content:'';position:absolute;top:46px;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,rgba(0,230,118,0.4),transparent);z-index:0}
+.how-timeline::before{content:'';position:absolute;top:46px;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,rgba(37,99,235,0.4),transparent);z-index:0}
 .step{padding:0 1.2rem;text-align:center;position:relative;z-index:1}
-.step-bubble{width:92px;height:92px;border-radius:50%;background:linear-gradient(135deg,rgba(0,230,118,0.12),rgba(0,191,165,0.06));border:1.5px solid rgba(0,230,118,0.28);display:flex;align-items:center;justify-content:center;margin:0 auto 1.3rem;font-size:1.7rem;box-shadow:0 0 28px rgba(0,230,118,0.12);transition:all .4s}
-.step:hover .step-bubble{background:rgba(0,230,118,0.18);box-shadow:var(--glow);transform:scale(1.06)}
+.step-bubble{width:92px;height:92px;border-radius:50%;background:linear-gradient(135deg,rgba(37,99,235,0.12),rgba(29,78,216,0.06));border:1.5px solid rgba(37,99,235,0.28);display:flex;align-items:center;justify-content:center;margin:0 auto 1.3rem;font-size:1.7rem;box-shadow:0 0 28px rgba(37,99,235,0.12);transition:all .4s}
+.step:hover .step-bubble{background:rgba(37,99,235,0.18);box-shadow:var(--glow);transform:scale(1.06)}
 .step-n{font-size:.68rem;font-weight:800;letter-spacing:.15em;color:var(--g1);margin-bottom:.5rem}
 .step h3{font-size:.95rem;font-weight:700;margin-bottom:.5rem;letter-spacing:-.01em}
-.step p{font-size:.82rem;color:rgba(255,255,255,.5);line-height:1.65;font-weight:300}
+.step p{font-size:.82rem;color:rgba(5,14,31,.5);line-height:1.65;font-weight:300}
 @media(max-width:768px){.how-timeline{grid-template-columns:repeat(2,1fr);gap:2rem}.how-timeline::before{display:none}}
 
 /* ── VORTEILE ── */
 .vg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
-.vc{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:1.8rem;position:relative;overflow:hidden;transition:all .4s}
-.vc::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(0,230,118,0.05),transparent);opacity:0;transition:opacity .4s}
-.vc:hover{border-color:rgba(0,230,118,0.28);transform:translateY(-4px);box-shadow:0 18px 55px rgba(0,0,0,0.3)}
+.vc{background:var(--card);border:1px solid rgba(5,14,31,.06);border-radius:18px;padding:1.8rem;position:relative;overflow:hidden;transition:all .4s}
+.vc::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(37,99,235,0.05),transparent);opacity:0;transition:opacity .4s}
+.vc:hover{border-color:rgba(37,99,235,0.28);transform:translateY(-4px);box-shadow:0 18px 55px rgba(0,0,0,0.3)}
 .vc:hover::before{opacity:1}
-.vc.star{border-color:rgba(0,230,118,0.35);background:linear-gradient(135deg,rgba(0,200,83,0.1),rgba(0,191,165,0.05))}
+.vc.star{border-color:rgba(37,99,235,0.35);background:linear-gradient(135deg,rgba(37,99,235,0.1),rgba(29,78,216,0.05))}
 .vc-icon{font-size:2rem;margin-bottom:1rem}
 .vc h3{font-size:.98rem;font-weight:700;margin-bottom:.5rem;letter-spacing:-.01em}
-.vc p{font-size:.83rem;color:rgba(255,255,255,.5);line-height:1.7;font-weight:300}
+.vc p{font-size:.83rem;color:rgba(5,14,31,.5);line-height:1.7;font-weight:300}
 .vc-tag{display:inline-block;margin-top:.9rem;font-size:.68rem;font-weight:700;color:var(--g1);letter-spacing:.08em;text-transform:uppercase}
 @media(max-width:768px){.vg{grid-template-columns:1fr}}
 
 /* ── NETZENTGELT BOX (neu!) ── */
-.netz-box{background:linear-gradient(135deg,rgba(0,230,118,0.1),rgba(0,191,165,0.06));border:1.5px solid rgba(0,230,118,0.3);border-radius:22px;padding:2.5rem;margin-bottom:4rem;position:relative;overflow:hidden}
+.netz-box{background:linear-gradient(135deg,rgba(37,99,235,0.1),rgba(29,78,216,0.06));border:1.5px solid rgba(37,99,235,0.3);border-radius:22px;padding:2.5rem;margin-bottom:4rem;position:relative;overflow:hidden}
 .netz-box::after{content:'⚡';position:absolute;right:2rem;top:50%;transform:translateY(-50%);font-size:8rem;opacity:.06}
 .netz-box h3{font-size:1.3rem;font-weight:800;margin-bottom:1rem;letter-spacing:-.02em}
 .netz-split{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
 .netz-list{display:flex;flex-direction:column;gap:.7rem}
-.netz-item{display:flex;align-items:center;gap:.8rem;font-size:.88rem;color:rgba(255,255,255,.7)}
+.netz-item{display:flex;align-items:center;gap:.8rem;font-size:.88rem;color:rgba(5,14,31,.7)}
 .netz-item .check{color:var(--g1);font-size:1.1rem;flex-shrink:0}
 .netz-stat{text-align:right}
 .netz-stat-num{font-size:3.5rem;font-weight:900;letter-spacing:-.04em;background:linear-gradient(135deg,var(--g1),var(--sun));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;line-height:1}
-.netz-stat-label{font-size:.82rem;color:rgba(255,255,255,.5);margin-top:.3rem}
+.netz-stat-label{font-size:.82rem;color:rgba(5,14,31,.5);margin-top:.3rem}
 @media(max-width:768px){.netz-split{grid-template-columns:1fr}.netz-stat{text-align:left}}
 
 /* ── ENERGIEKRISE CHART ── */
-.krise{background:var(--ink2)}
-.krise-chart-wrap{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:20px;padding:2rem;margin-top:2rem}
+.krise{background:#F0F4FF}
+.krise-chart-wrap{background:var(--card);border:1px solid rgba(5,14,31,.06);border-radius:20px;padding:2rem;margin-top:2rem}
 .krise-legend{display:flex;gap:2rem;margin-bottom:1.5rem;flex-wrap:wrap}
-.kl-item{display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:rgba(255,255,255,.6)}
+.kl-item{display:flex;align-items:center;gap:.5rem;font-size:.8rem;color:rgba(5,14,31,.6)}
 .kl-dot{width:12px;height:12px;border-radius:3px}
 .krise-chart{position:relative;height:200px;display:flex;align-items:flex-end;gap:6px;padding-bottom:28px}
 .kc-bar-g{flex:1;position:relative;display:flex;flex-direction:column;align-items:center;gap:3px}
 .kc-bar{width:100%;border-radius:4px 4px 0 0;position:relative;transition:opacity .3s}
 .kc-bar:hover{opacity:.85}
-.kc-year{font-size:.6rem;color:rgba(255,255,255,.3);position:absolute;bottom:-22px;white-space:nowrap}
-.krise-note{font-size:.78rem;color:rgba(255,255,255,.35);text-align:center;margin-top:1rem;font-style:italic}
+.kc-year{font-size:.6rem;color:rgba(5,14,31,0.4);position:absolute;bottom:-22px;white-space:nowrap}
+.krise-note{font-size:.78rem;color:rgba(5,14,31,0.45);text-align:center;margin-top:1rem;font-style:italic}
 
 /* ── MARKT DATEN ── */
 .markt{background:var(--ink3)}
 .markt-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem}
-.markt-card{background:var(--card);border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:1.8rem}
+.markt-card{background:var(--card);border:1px solid rgba(5,14,31,.06);border-radius:18px;padding:1.8rem}
 .markt-card h4{font-size:1rem;font-weight:700;margin-bottom:.4rem}
-.markt-card p{font-size:.83rem;color:rgba(255,255,255,.5);line-height:1.7;font-weight:300}
+.markt-card p{font-size:.83rem;color:rgba(5,14,31,.5);line-height:1.7;font-weight:300}
 .markt-num{font-size:2.4rem;font-weight:900;letter-spacing:-.04em;color:var(--g1);margin-bottom:.3rem;line-height:1}
 .markt-trend{font-size:.75rem;color:var(--g1);font-weight:700;margin-top:.5rem}
 @media(max-width:768px){.markt-grid{grid-template-columns:1fr}}
 
 /* ── CSRD / ESG ── */
-.esg{background:var(--ink2)}
+.esg{background:#F0F4FF}
 .esg-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
-.esg-visual{background:var(--card);border:1px solid rgba(0,230,118,0.18);border-radius:22px;padding:2rem}
+.esg-visual{background:var(--card);border:1px solid rgba(37,99,235,0.18);border-radius:22px;padding:2rem}
 .esg-timeline{display:flex;flex-direction:column;gap:0}
-.esg-item{display:flex;gap:1.2rem;padding:1.1rem 0;border-bottom:1px solid rgba(255,255,255,.05)}
+.esg-item{display:flex;gap:1.2rem;padding:1.1rem 0;border-bottom:1px solid rgba(5,14,31,.05)}
 .esg-item:last-child{border-bottom:none}
 .esg-year{font-family:'Outfit',sans-serif;font-size:1.1rem;font-weight:900;color:var(--g1);min-width:52px;letter-spacing:-.03em}
 .esg-text h5{font-size:.88rem;font-weight:700;margin-bottom:.2rem}
-.esg-text p{font-size:.78rem;color:rgba(255,255,255,.45);line-height:1.55;font-weight:300}
+.esg-text p{font-size:.78rem;color:rgba(5,14,31,.45);line-height:1.55;font-weight:300}
 .esg-pills{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem}
-.esg-pill{padding:.35rem .9rem;border-radius:50px;font-size:.72rem;font-weight:700;background:rgba(0,230,118,0.1);border:1px solid rgba(0,230,118,0.25);color:var(--g1)}
+.esg-pill{padding:.35rem .9rem;border-radius:50px;font-size:.72rem;font-weight:700;background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.25);color:var(--g1)}
 @media(max-width:900px){.esg-layout{grid-template-columns:1fr}}
 
 /* ── BATTERIE ADD-ON ── */
@@ -350,115 +350,115 @@ h2{font-family:'Outfit',sans-serif;font-size:clamp(1.9rem,3.8vw,3rem);font-weigh
 .batt-card{background:linear-gradient(135deg,rgba(255,214,0,0.08),rgba(255,143,0,0.05));border:1.5px solid rgba(255,214,0,0.25);border-radius:22px;padding:2.2rem}
 .batt-card h3{font-size:1.2rem;font-weight:800;margin-bottom:1rem;color:var(--sun)}
 .batt-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem}
-.bs{background:rgba(0,0,0,.3);border-radius:12px;padding:1rem;text-align:center}
+.bs{background:rgba(37,99,235,0.06);border-radius:12px;padding:1rem;text-align:center}
 .bs-num{font-size:1.6rem;font-weight:900;color:var(--sun);letter-spacing:-.03em}
-.bs-label{font-size:.68rem;color:rgba(255,255,255,.4);margin-top:.2rem}
+.bs-label{font-size:.68rem;color:rgba(5,14,31,.4);margin-top:.2rem}
 .batt-list{display:flex;flex-direction:column;gap:.7rem}
-.batt-item{display:flex;align-items:flex-start;gap:.8rem;font-size:.85rem;color:rgba(255,255,255,.65)}
+.batt-item{display:flex;align-items:flex-start;gap:.8rem;font-size:.85rem;color:rgba(5,14,31,.65)}
 .batt-item .bi{color:var(--sun);flex-shrink:0;font-size:1.1rem}
 @media(max-width:900px){.batt-layout{grid-template-columns:1fr}}
 
 /* ── RECHNER ── */
 .rechner{background:var(--ink3)}
-.rw{background:rgba(255,255,255,.028);border:1px solid rgba(0,230,118,0.13);border-radius:26px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.5),0 0 80px rgba(0,230,118,0.04)}
-.r-tabs{display:flex;background:rgba(0,0,0,.25);border-bottom:1px solid var(--line)}
-.rtab{flex:1;padding:1rem;text-align:center;font-size:.8rem;font-weight:700;cursor:pointer;color:rgba(255,255,255,.38);border:none;background:transparent;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .3s;font-family:'Outfit',sans-serif}
+.rw{background:rgba(5,14,31,.028);border:1px solid rgba(37,99,235,0.13);border-radius:26px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.5),0 0 80px rgba(37,99,235,0.04)}
+.r-tabs{display:flex;background:rgba(37,99,235,0.06);border-bottom:1px solid var(--line)}
+.rtab{flex:1;padding:1rem;text-align:center;font-size:.8rem;font-weight:700;cursor:pointer;color:rgba(5,14,31,.38);border:none;background:transparent;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .3s;font-family:'Outfit',sans-serif}
 .rtab.active{color:var(--g1);border-bottom-color:var(--g1)}
 .r-body{display:grid;grid-template-columns:1.15fr 0.85fr}
 @media(max-width:900px){.r-body{grid-template-columns:1fr}}
 .r-inputs{padding:2.5rem;border-right:1px solid var(--line)}
 .r-inputs h3{font-size:1.2rem;font-weight:800;margin-bottom:.3rem}
-.r-inputs .sub{font-size:.78rem;color:rgba(255,255,255,.35);margin-bottom:2rem}
+.r-inputs .sub{font-size:.78rem;color:rgba(5,14,31,0.45);margin-bottom:2rem}
 
 .ig{margin-bottom:1.7rem}
-.il{display:flex;justify-content:space-between;align-items:center;font-size:.74rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:rgba(255,255,255,.48);margin-bottom:.75rem}
+.il{display:flex;justify-content:space-between;align-items:center;font-size:.74rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:rgba(5,14,31,.48);margin-bottom:.75rem}
 .iv{color:var(--g1);font-size:.95rem;font-weight:800;letter-spacing:-.02em}
-input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:4px;background:rgba(255,255,255,.1);border-radius:10px;outline:none;cursor:pointer}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--g1);box-shadow:0 0 0 4px rgba(0,230,118,0.18),0 2px 12px rgba(0,230,118,0.5);cursor:pointer;transition:transform .15s,box-shadow .15s}
-input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.25);box-shadow:0 0 0 6px rgba(0,230,118,0.12),0 2px 20px rgba(0,230,118,0.7)}
+input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:4px;background:rgba(37,99,235,0.15);border-radius:10px;outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--g1);box-shadow:0 0 0 4px rgba(37,99,235,0.18),0 2px 12px rgba(37,99,235,0.5);cursor:pointer;transition:transform .15s,box-shadow .15s}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.25);box-shadow:0 0 0 6px rgba(37,99,235,0.12),0 2px 20px rgba(37,99,235,0.7)}
 .im{display:flex;justify-content:space-between;margin-top:.35rem}
-.im span{font-size:.62rem;color:rgba(255,255,255,.22)}
-.isel{width:100%;padding:.8rem 1rem;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:10px;color:#fff;font-family:'Outfit',sans-serif;font-size:.88rem;outline:none;cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%2300E676' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .9rem center;padding-right:2.2rem;transition:border .2s}
+.im span{font-size:.62rem;color:rgba(5,14,31,.22)}
+.isel{width:100%;padding:.8rem 1rem;background:rgba(37,99,235,0.07);border:1px solid rgba(5,14,31,.1);border-radius:10px;color:#050E1F;font-family:'Outfit',sans-serif;font-size:.88rem;outline:none;cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%232563EB' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .9rem center;padding-right:2.2rem;transition:border .2s}
 .isel:focus{border-color:var(--g1)}
-.isel option{background:var(--ink2)}
+.isel option{background:#F0F4FF}
 
 /* Netzentgelt Toggle */
-.netz-toggle{background:rgba(0,230,118,0.08);border:1px solid rgba(0,230,118,0.2);border-radius:12px;padding:1rem;margin-bottom:1.7rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
-.netz-toggle span{font-size:.8rem;color:rgba(255,255,255,.7);line-height:1.4}
+.netz-toggle{background:rgba(37,99,235,0.06);border:1px solid rgba(37,99,235,0.2);border-radius:12px;padding:1rem;margin-bottom:1.7rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.netz-toggle span{font-size:.8rem;color:rgba(5,14,31,.7);line-height:1.4}
 .toggle-sw{position:relative;width:44px;height:24px;flex-shrink:0}
 .toggle-sw input{opacity:0;width:0;height:0}
-.toggle-sl{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background:rgba(255,255,255,.15);border-radius:24px;transition:.3s}
+.toggle-sl{position:absolute;cursor:pointer;top:0;left:0;right:0;bottom:0;background:rgba(5,14,31,.15);border-radius:24px;transition:.3s}
 .toggle-sl::before{content:'';position:absolute;width:18px;height:18px;left:3px;bottom:3px;background:#fff;border-radius:50%;transition:.3s}
 .toggle-sw input:checked+.toggle-sl{background:var(--g1)}
 .toggle-sw input:checked+.toggle-sl::before{transform:translateX(20px);background:var(--ink)}
 
 /* Result panel */
-.r-result{padding:2.5rem;background:linear-gradient(160deg,rgba(0,180,70,0.1) 0%,rgba(0,60,40,0.2) 100%);display:flex;flex-direction:column}
+.r-result{padding:2.5rem;background:linear-gradient(160deg,rgba(37,99,235,0.1) 0%,rgba(15,31,58,0.2) 100%);display:flex;flex-direction:column}
 .rm-label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g1);opacity:.75;margin-bottom:.4rem}
-.rm-num{font-size:3.5rem;font-weight:900;letter-spacing:-.04em;line-height:1;background:linear-gradient(135deg,var(--g1),#AAFF80);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
-.rm-unit{font-size:.85rem;color:rgba(255,255,255,.4);margin-top:.25rem;margin-bottom:1.5rem}
+.rm-num{font-size:3.5rem;font-weight:900;letter-spacing:-.04em;line-height:1;background:linear-gradient(135deg,var(--g1),#93C5FD);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.rm-unit{font-size:.85rem;color:rgba(5,14,31,.4);margin-top:.25rem;margin-bottom:1.5rem}
 
 .rv-toggle{display:flex;gap:.7rem;margin-bottom:1.3rem}
-.rvt{flex:1;padding:.55rem;text-align:center;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:8px;font-size:.72rem;font-weight:700;cursor:pointer;color:rgba(255,255,255,.45);font-family:'Outfit',sans-serif;transition:all .3s}
-.rvt.active{background:rgba(0,230,118,0.13);border-color:var(--g1);color:var(--g1)}
+.rvt{flex:1;padding:.55rem;text-align:center;background:rgba(37,99,235,0.07);border:1px solid rgba(5,14,31,.1);border-radius:8px;font-size:.72rem;font-weight:700;cursor:pointer;color:rgba(5,14,31,.45);font-family:'Outfit',sans-serif;transition:all .3s}
+.rvt.active{background:rgba(37,99,235,0.13);border-color:var(--g1);color:var(--g1)}
 
 .rg{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:1.3rem}
-.rgc{background:rgba(0,0,0,.28);border-radius:12px;padding:1rem;border:1px solid rgba(255,255,255,.05)}
-.rgc-l{font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(255,255,255,.35);margin-bottom:.35rem}
-.rgc-v{font-size:1.2rem;font-weight:800;letter-spacing:-.02em;color:#fff}
+.rgc{background:rgba(0,0,0,.28);border-radius:12px;padding:1rem;border:1px solid rgba(5,14,31,.05)}
+.rgc-l{font-size:.62rem;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(5,14,31,0.45);margin-bottom:.35rem}
+.rgc-v{font-size:1.2rem;font-weight:800;letter-spacing:-.02em;color:#050E1F}
 .rgc-v.g{color:var(--g1)}
 .rgc-v.y{color:var(--sun)}
 
 /* Chart bars */
 .rchart{margin-bottom:1.2rem}
-.rc-label{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:.8rem}
+.rc-label{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(5,14,31,0.4);margin-bottom:.8rem}
 .rc-bars{display:flex;gap:4px;align-items:flex-end;height:72px}
 .rcb-w{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px}
-.rcb{width:100%;border-radius:3px 3px 0 0;background:linear-gradient(180deg,var(--g1),#00A040);animation:bgrow .9s ease-out both}
+.rcb{width:100%;border-radius:3px 3px 0 0;background:linear-gradient(180deg,var(--g1),#1D4ED8);animation:bgrow .9s ease-out both}
 @keyframes bgrow{from{transform:scaleY(0);transform-origin:bottom}to{transform:scaleY(1);transform-origin:bottom}}
-.rcb-m{font-size:.54rem;color:rgba(255,255,255,.25)}
+.rcb-m{font-size:.54rem;color:rgba(5,14,31,.25)}
 
 /* Breakdown table */
 .bdt{width:100%;border-collapse:collapse;margin-bottom:1.2rem}
-.bdt tr{border-bottom:1px solid rgba(255,255,255,.04)}
+.bdt tr{border-bottom:1px solid rgba(5,14,31,.04)}
 .bdt td{padding:.62rem 0;font-size:.8rem;vertical-align:middle}
-.bdt td:first-child{color:rgba(255,255,255,.5);font-weight:300}
+.bdt td:first-child{color:rgba(5,14,31,.5);font-weight:300}
 .bdt td:last-child{text-align:right;font-weight:700}
-.bdt .tot td{font-size:.88rem;padding-top:.9rem;color:#fff}
+.bdt .tot td{font-size:.88rem;padding-top:.9rem;color:#050E1F}
 .bdt .tot td:last-child{color:var(--g1);font-size:1rem}
 .bdt .hl td:last-child{color:var(--sun)}
-.netz-saving-row{background:rgba(0,230,118,0.07);border-radius:8px;padding:.5rem .6rem;margin-bottom:.5rem;display:flex;justify-content:space-between;font-size:.78rem}
-.netz-saving-row .ns-label{color:rgba(255,255,255,.55)}
+.netz-saving-row{background:rgba(37,99,235,0.07);border-radius:8px;padding:.5rem .6rem;margin-bottom:.5rem;display:flex;justify-content:space-between;font-size:.78rem}
+.netz-saving-row .ns-label{color:rgba(5,14,31,.55)}
 .netz-saving-row .ns-val{font-weight:800;color:var(--g1)}
 
-.rcta{width:100%;padding:1rem;background:var(--g1);border:none;border-radius:50px;font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:800;color:var(--ink);cursor:pointer;letter-spacing:-.01em;box-shadow:0 4px 30px rgba(0,230,118,0.4);transition:all .3s}
-.rcta:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(0,230,118,0.6);background:#33FF8A}
-.disc{font-size:.64rem;color:rgba(255,255,255,.2);text-align:center;margin-top:.7rem;line-height:1.5}
+.rcta{width:100%;padding:1rem;background:var(--g1);border:none;border-radius:50px;font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:800;color:var(--ink);cursor:pointer;letter-spacing:-.01em;box-shadow:0 4px 30px rgba(37,99,235,0.4);transition:all .3s}
+.rcta:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(37,99,235,0.6);background:#60A5FA}
+.disc{font-size:.64rem;color:rgba(5,14,31,.2);text-align:center;margin-top:.7rem;line-height:1.5}
 
 /* ── VERGLEICH ── */
 .vt-wrap{overflow-x:auto;margin-top:2rem}
-.vt{width:100%;border-collapse:separate;border-spacing:0;background:rgba(255,255,255,.02);border:1px solid var(--line);border-radius:18px;overflow:hidden;min-width:640px}
-.vt th{padding:1.1rem 1.3rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid var(--line);color:rgba(255,255,255,.38)}
-.vt .col-ppa{background:rgba(0,230,118,0.06);color:var(--g1)!important}
-.vt td{padding:1rem 1.3rem;font-size:.85rem;border-bottom:1px solid rgba(255,255,255,.04)}
+.vt{width:100%;border-collapse:separate;border-spacing:0;background:rgba(5,14,31,.02);border:1px solid var(--line);border-radius:18px;overflow:hidden;min-width:640px}
+.vt th{padding:1.1rem 1.3rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid var(--line);color:rgba(5,14,31,.38)}
+.vt .col-ppa{background:rgba(37,99,235,0.06);color:var(--g1)!important}
+.vt td{padding:1rem 1.3rem;font-size:.85rem;border-bottom:1px solid rgba(5,14,31,.04)}
 .vt tr:last-child td{border-bottom:none}
-.vt td:first-child{color:rgba(255,255,255,.55);font-weight:300}
+.vt td:first-child{color:rgba(5,14,31,.55);font-weight:300}
 .ck{color:var(--g1)}
 .cx{color:rgba(255,80,80,0.7)}
-.cn{color:rgba(255,255,255,.25)}
+.cn{color:rgba(5,14,31,.25)}
 
 /* ── ZIELGRUPPEN ── */
-.ziel{background:var(--ink2)}
+.ziel{background:#F0F4FF}
 .zg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:2rem}
-.zc{border-radius:18px;padding:1.8rem;background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);transition:all .4s;position:relative;overflow:hidden}
+.zc{border-radius:18px;padding:1.8rem;background:rgba(5,14,31,.03);border:1px solid rgba(5,14,31,.06);transition:all .4s;position:relative;overflow:hidden}
 .zc::after{content:attr(data-n);position:absolute;top:.8rem;right:1.2rem;font-size:3.5rem;font-weight:900;opacity:.04;line-height:1;color:var(--g1)}
-.zc:hover{border-color:rgba(0,230,118,0.28);transform:translateY(-4px);box-shadow:0 18px 55px rgba(0,0,0,.3)}
+.zc:hover{border-color:rgba(37,99,235,0.28);transform:translateY(-4px);box-shadow:0 18px 55px rgba(0,0,0,.3)}
 .zc-icon{font-size:2rem;margin-bottom:1rem}
 .zc h3{font-size:.98rem;font-weight:700;margin-bottom:.4rem}
-.zc p{font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.65;font-weight:300}
-.zc-kpi{display:flex;gap:1rem;margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.05)}
+.zc p{font-size:.82rem;color:rgba(5,14,31,.45);line-height:1.65;font-weight:300}
+.zc-kpi{display:flex;gap:1rem;margin-top:1rem;padding-top:1rem;border-top:1px solid rgba(5,14,31,.05)}
 .zck-n{font-size:1.05rem;font-weight:800;color:var(--g1);letter-spacing:-.02em}
-.zck-l{font-size:.62rem;color:rgba(255,255,255,.3)}
+.zck-l{font-size:.62rem;color:rgba(5,14,31,0.4)}
 @media(max-width:768px){.zg{grid-template-columns:1fr}}
 
 /* ── PROZESS ── */
@@ -466,37 +466,37 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.25);box-shadow:0
 .pz-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start}
 @media(max-width:900px){.pz-layout{grid-template-columns:1fr}}
 .pz-steps{display:flex;flex-direction:column}
-.pz{display:flex;gap:1.8rem;padding:1.8rem 0;border-bottom:1px solid rgba(255,255,255,.05);cursor:pointer;transition:all .3s}
+.pz{display:flex;gap:1.8rem;padding:1.8rem 0;border-bottom:1px solid rgba(5,14,31,.05);cursor:pointer;transition:all .3s}
 .pz:last-child{border-bottom:none}
 .pz:hover .pz-num{background:var(--g1);color:var(--ink);box-shadow:var(--glow)}
-.pz-num{width:46px;height:46px;border-radius:11px;border:1.5px solid rgba(0,230,118,0.28);display:flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:800;color:var(--g1);flex-shrink:0;transition:all .3s}
+.pz-num{width:46px;height:46px;border-radius:11px;border:1.5px solid rgba(37,99,235,0.28);display:flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:800;color:var(--g1);flex-shrink:0;transition:all .3s}
 .pz-c h4{font-size:.95rem;font-weight:700;margin-bottom:.35rem}
-.pz-c p{font-size:.82rem;color:rgba(255,255,255,.45);line-height:1.65;font-weight:300}
+.pz-c p{font-size:.82rem;color:rgba(5,14,31,.45);line-height:1.65;font-weight:300}
 .pz-dur{font-size:.68rem;color:var(--g1);font-weight:700;margin-top:.35rem}
-.pz-sidebar{position:sticky;top:110px;background:rgba(255,255,255,.03);border:1px solid rgba(0,230,118,0.14);border-radius:22px;padding:2.2rem}
+.pz-sidebar{position:sticky;top:110px;background:rgba(5,14,31,.03);border:1px solid rgba(37,99,235,0.14);border-radius:22px;padding:2.2rem}
 .pzs-title{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g1);margin-bottom:1.3rem;opacity:.8}
 .pzs-tl{display:flex;flex-direction:column;gap:.75rem}
 .pzs-i{display:flex;gap:.9rem;align-items:center}
-.pzs-dot{width:9px;height:9px;border-radius:50%;background:var(--g1);flex-shrink:0;box-shadow:0 0 8px rgba(0,230,118,0.4)}
-.pzs-dot.p{background:rgba(255,255,255,.15);box-shadow:none}
-.pzs-text{font-size:.82rem;color:rgba(255,255,255,.55)}
-.pzs-week{font-size:.7rem;color:rgba(255,255,255,.25);margin-left:auto;white-space:nowrap}
-.pzs-list{margin-top:1.8rem;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.06)}
-.pzs-item{font-size:.8rem;color:rgba(255,255,255,.5);margin-bottom:.5rem;display:flex;align-items:center;gap:.6rem}
+.pzs-dot{width:9px;height:9px;border-radius:50%;background:var(--g1);flex-shrink:0;box-shadow:0 0 8px rgba(37,99,235,0.4)}
+.pzs-dot.p{background:rgba(5,14,31,.15);box-shadow:none}
+.pzs-text{font-size:.82rem;color:rgba(5,14,31,.55)}
+.pzs-week{font-size:.7rem;color:rgba(5,14,31,.25);margin-left:auto;white-space:nowrap}
+.pzs-list{margin-top:1.8rem;padding-top:1.5rem;border-top:1px solid rgba(5,14,31,.06)}
+.pzs-item{font-size:.8rem;color:rgba(5,14,31,.5);margin-bottom:.5rem;display:flex;align-items:center;gap:.6rem}
 .pzs-item::before{content:'✓';color:var(--g1);font-weight:700}
 
 /* ── REFERENZEN ── */
-.referenzen{background:var(--ink2)}
+.referenzen{background:#F0F4FF}
 .ref-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:2rem}
-.ref-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:1.8rem;transition:all .4s}
-.ref-card:hover{border-color:rgba(0,230,118,0.22);transform:translateY(-4px)}
-.ref-logo{font-size:1.3rem;font-weight:900;letter-spacing:-.04em;color:rgba(255,255,255,.28);margin-bottom:1rem}
-.ref-quote{font-family:'Lora',serif;font-style:italic;font-size:.88rem;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:1.3rem}
-.ref-bottom{display:flex;justify-content:space-between;align-items:flex-end;padding-top:.9rem;border-top:1px solid rgba(255,255,255,.05)}
+.ref-card{background:rgba(5,14,31,.03);border:1px solid rgba(5,14,31,.06);border-radius:18px;padding:1.8rem;transition:all .4s}
+.ref-card:hover{border-color:rgba(37,99,235,0.22);transform:translateY(-4px)}
+.ref-logo{font-size:1.3rem;font-weight:900;letter-spacing:-.04em;color:rgba(5,14,31,.28);margin-bottom:1rem}
+.ref-quote{font-family:'Lora',serif;font-style:italic;font-size:.88rem;color:rgba(5,14,31,.6);line-height:1.8;margin-bottom:1.3rem}
+.ref-bottom{display:flex;justify-content:space-between;align-items:flex-end;padding-top:.9rem;border-top:1px solid rgba(5,14,31,.05)}
 .ref-name{font-size:.8rem;font-weight:700}
-.ref-title{font-size:.7rem;color:rgba(255,255,255,.38)}
+.ref-title{font-size:.7rem;color:rgba(5,14,31,.38)}
 .ref-stat-num{font-size:1.35rem;font-weight:900;color:var(--g1);letter-spacing:-.03em}
-.ref-stat-label{font-size:.62rem;color:rgba(255,255,255,.3)}
+.ref-stat-label{font-size:.62rem;color:rgba(5,14,31,0.4)}
 @media(max-width:768px){.ref-grid{grid-template-columns:1fr}}
 
 /* ── FAQ ── */
@@ -504,50 +504,50 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.25);box-shadow:0
 .faq-layout{display:grid;grid-template-columns:1fr 2fr;gap:5rem}
 @media(max-width:900px){.faq-layout{grid-template-columns:1fr}}
 .faq-side h3{font-size:1.8rem;font-weight:900;letter-spacing:-.03em;margin-bottom:1rem}
-.faq-side p{font-size:.85rem;color:rgba(255,255,255,.45);line-height:1.75;margin-bottom:1.8rem;font-weight:300}
-.faq-contact{background:rgba(0,230,118,0.07);border:1px solid rgba(0,230,118,0.18);border-radius:18px;padding:1.8rem}
+.faq-side p{font-size:.85rem;color:rgba(5,14,31,.45);line-height:1.75;margin-bottom:1.8rem;font-weight:300}
+.faq-contact{background:rgba(37,99,235,0.07);border:1px solid rgba(37,99,235,0.18);border-radius:18px;padding:1.8rem}
 .faq-contact h4{font-size:.95rem;font-weight:700;margin-bottom:.4rem}
-.faq-contact p{font-size:.8rem;color:rgba(255,255,255,.45);margin-bottom:1.3rem}
+.faq-contact p{font-size:.8rem;color:rgba(5,14,31,.45);margin-bottom:1.3rem}
 .faq-list{display:flex;flex-direction:column}
-.fi{border-bottom:1px solid rgba(255,255,255,.06)}
+.fi{border-bottom:1px solid rgba(5,14,31,.06)}
 .fq{display:flex;justify-content:space-between;align-items:center;padding:1.3rem 0;cursor:pointer;gap:1rem;transition:color .3s}
 .fq:hover{color:var(--g1)}
 .fq h4{font-size:.9rem;font-weight:600;line-height:1.4;letter-spacing:-.01em}
-.fi-icon{width:28px;height:28px;border-radius:50%;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);display:flex;align-items:center;justify-content:center;font-size:.95rem;color:var(--g1);flex-shrink:0;transition:all .3s}
+.fi-icon{width:28px;height:28px;border-radius:50%;background:rgba(37,99,235,0.07);border:1px solid rgba(5,14,31,.1);display:flex;align-items:center;justify-content:center;font-size:.95rem;color:var(--g1);flex-shrink:0;transition:all .3s}
 .fi.open .fi-icon{background:var(--g1);color:var(--ink);transform:rotate(45deg)}
 .fa{max-height:0;overflow:hidden;transition:max-height .45s ease,opacity .3s;opacity:0}
 .fi.open .fa{max-height:300px;opacity:1}
-.fa p{padding-bottom:1.3rem;font-size:.85rem;color:rgba(255,255,255,.45);line-height:1.8;font-weight:300}
+.fa p{padding-bottom:1.3rem;font-size:.85rem;color:rgba(5,14,31,.45);line-height:1.8;font-weight:300}
 
 /* ── NEWSLETTER ── */
-.newsletter{background:linear-gradient(135deg,var(--g4) 0%,var(--g5) 100%);border-top:1px solid rgba(0,230,118,0.2);border-bottom:1px solid rgba(0,230,118,0.2);padding:4rem 4.5rem;text-align:center}
+.newsletter{background:linear-gradient(135deg,var(--g4) 0%,var(--g5) 100%);border-top:1px solid rgba(37,99,235,0.2);border-bottom:1px solid rgba(37,99,235,0.2);padding:4rem 4.5rem;text-align:center}
 .newsletter h2{margin-bottom:.8rem}
-.newsletter p{color:rgba(255,255,255,.6);max-width:480px;margin:0 auto 2rem;font-size:.92rem}
+.newsletter p{color:rgba(5,14,31,.6);max-width:480px;margin:0 auto 2rem;font-size:.92rem}
 .nl-form{display:flex;gap:.8rem;max-width:440px;margin:0 auto;justify-content:center;flex-wrap:wrap}
-.nl-input{flex:1;padding:.85rem 1.2rem;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.18);border-radius:50px;color:#fff;font-family:'Outfit',sans-serif;font-size:.9rem;outline:none;min-width:220px}
-.nl-input::placeholder{color:rgba(255,255,255,.4)}
+.nl-input{flex:1;padding:.85rem 1.2rem;background:rgba(37,99,235,0.15);border:1px solid rgba(5,14,31,.18);border-radius:50px;color:#050E1F;font-family:'Outfit',sans-serif;font-size:.9rem;outline:none;min-width:220px}
+.nl-input::placeholder{color:rgba(5,14,31,.4)}
 .nl-input:focus{border-color:var(--g1)}
 .nl-btn{background:var(--g1);color:var(--ink);border:none;padding:.85rem 1.8rem;border-radius:50px;font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:800;cursor:pointer;transition:all .3s;white-space:nowrap}
-.nl-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(0,230,118,0.45)}
+.nl-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,99,235,0.45)}
 
 /* ── KONTAKT ── */
 .kontakt{background:var(--ink)}
 .kl{display:grid;grid-template-columns:1fr 1fr;gap:5rem}
 @media(max-width:900px){.kl{grid-template-columns:1fr}}
 .ki-info{display:flex;flex-direction:column;gap:1rem;margin-top:2rem}
-.ki-row{display:flex;align-items:center;gap:.9rem;font-size:.85rem;color:rgba(255,255,255,.55)}
-.ki-icon{width:38px;height:38px;border-radius:10px;background:rgba(0,230,118,0.1);border:1px solid rgba(0,230,118,0.18);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
-.cf{background:rgba(255,255,255,.028);border:1px solid rgba(0,230,118,0.14);border-radius:22px;padding:2.5rem}
+.ki-row{display:flex;align-items:center;gap:.9rem;font-size:.85rem;color:rgba(5,14,31,.55)}
+.ki-icon{width:38px;height:38px;border-radius:10px;background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.18);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.cf{background:rgba(5,14,31,.028);border:1px solid rgba(37,99,235,0.14);border-radius:22px;padding:2.5rem}
 .cf-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-bottom:.9rem}
 @media(max-width:768px){.cf-row{grid-template-columns:1fr}}
-.cfi{width:100%;padding:.85rem 1.1rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:11px;color:#fff;font-family:'Outfit',sans-serif;font-size:.88rem;outline:none;transition:border .2s;display:block}
-.cfi::placeholder{color:rgba(255,255,255,.3)}
-.cfi:focus{border-color:var(--g1);box-shadow:0 0 0 3px rgba(0,230,118,0.09)}
+.cfi{width:100%;padding:.85rem 1.1rem;background:rgba(37,99,235,0.07);border:1px solid rgba(5,14,31,.1);border-radius:11px;color:#050E1F;font-family:'Outfit',sans-serif;font-size:.88rem;outline:none;transition:border .2s;display:block}
+.cfi::placeholder{color:rgba(5,14,31,0.4)}
+.cfi:focus{border-color:var(--g1);box-shadow:0 0 0 3px rgba(37,99,235,0.09)}
 textarea.cfi{resize:vertical;min-height:100px;margin-bottom:.9rem}
-.cf-check{display:flex;align-items:flex-start;gap:.7rem;margin-bottom:1.3rem;font-size:.76rem;color:rgba(255,255,255,.38)}
+.cf-check{display:flex;align-items:flex-start;gap:.7rem;margin-bottom:1.3rem;font-size:.76rem;color:rgba(5,14,31,.38)}
 .cf-check input{accent-color:var(--g1);margin-top:2px;flex-shrink:0}
-.btn-send{width:100%;padding:1rem;background:var(--g1);color:var(--ink);border:none;border-radius:50px;font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:800;cursor:pointer;box-shadow:0 4px 30px rgba(0,230,118,0.4);transition:all .3s}
-.btn-send:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(0,230,118,0.6);background:#33FF8A}
+.btn-send{width:100%;padding:1rem;background:var(--g1);color:var(--ink);border:none;border-radius:50px;font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:800;cursor:pointer;box-shadow:0 4px 30px rgba(37,99,235,0.4);transition:all .3s}
+.btn-send:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(37,99,235,0.6);background:#60A5FA}
 
 /* ── FOOTER ── */
 footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.5rem 2rem}
@@ -555,15 +555,15 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 @media(max-width:900px){footer{padding:2.5rem 2rem 1.5rem}.ft{grid-template-columns:1fr 1fr;gap:2rem}}
 @media(max-width:600px){.ft{grid-template-columns:1fr;gap:1.5rem}}
 .footer-logo{height:44px;width:auto;filter:brightness(0) invert(1);display:block;margin-bottom:.8rem;opacity:.85}
-.f-tag{font-size:.82rem;color:rgba(255,255,255,.3);line-height:1.7;margin-bottom:1.3rem;font-weight:300}
+.f-tag{font-size:.82rem;color:rgba(5,14,31,0.4);line-height:1.7;margin-bottom:1.3rem;font-weight:300}
 .f-social{display:flex;gap:.7rem}
-.fsb{width:36px;height:36px;border-radius:9px;background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.08);display:flex;align-items:center;justify-content:center;font-size:.82rem;text-decoration:none;color:rgba(255,255,255,.45);transition:all .3s}
-.fsb:hover{border-color:var(--g1);color:var(--g1);background:rgba(0,230,118,0.1)}
-.fc-col h5{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1.1rem}
-.fc-col a{display:block;font-size:.83rem;color:rgba(255,255,255,.45);text-decoration:none;margin-bottom:.6rem;font-weight:300;transition:color .2s}
+.fsb{width:36px;height:36px;border-radius:9px;background:rgba(37,99,235,0.07);border:1px solid rgba(5,14,31,.08);display:flex;align-items:center;justify-content:center;font-size:.82rem;text-decoration:none;color:rgba(5,14,31,.45);transition:all .3s}
+.fsb:hover{border-color:var(--g1);color:var(--g1);background:rgba(37,99,235,0.1)}
+.fc-col h5{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(5,14,31,0.4);margin-bottom:1.1rem}
+.fc-col a{display:block;font-size:.83rem;color:rgba(5,14,31,.45);text-decoration:none;margin-bottom:.6rem;font-weight:300;transition:color .2s}
 .fc-col a:hover{color:var(--g1)}
-.fb{display:flex;justify-content:space-between;align-items:center;padding-top:1.8rem;border-top:1px solid rgba(255,255,255,.05);font-size:.74rem;color:rgba(255,255,255,.22);flex-wrap:wrap;gap:.8rem}
-.fb a{color:rgba(255,255,255,.22);text-decoration:none}
+.fb{display:flex;justify-content:space-between;align-items:center;padding-top:1.8rem;border-top:1px solid rgba(5,14,31,.05);font-size:.74rem;color:rgba(5,14,31,.22);flex-wrap:wrap;gap:.8rem}
+.fb a{color:rgba(5,14,31,.22);text-decoration:none}
 .fb a:hover{color:var(--g1)}
 .fb-links{display:flex;gap:1.3rem}
 
@@ -666,6 +666,11 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
   .batt-stats{grid-template-columns:1fr}
   .rg{grid-template-columns:1fr}
 }
+
+/* ── LANG SWITCH ── */
+.lang-switch{display:flex;align-items:center;gap:.3rem;margin-left:1rem}
+.lang-btn{background:transparent;border:1.5px solid rgba(37,99,235,0.3);color:rgba(5,14,31,0.55);padding:.28rem .65rem;border-radius:6px;font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:700;cursor:pointer;transition:all .2s;line-height:1}
+.lang-btn.active,.lang-btn:hover{background:var(--g1);border-color:var(--g1);color:#fff}
 </style>
 </head>
 <body>
@@ -678,8 +683,8 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 <div id="cookie">
   <p>Wir verwenden Cookies, um unsere Website zu verbessern und Ihnen relevante Inhalte anzuzeigen. Mehr in unserer <a href="#" onclick="openModal('datenschutz');return false;">Datenschutzerklärung</a>. Sie können alle nicht notwendigen Cookies ablehnen.</p>
   <div class="cookie-btns">
-    <button id="cookie-btn" onclick="document.getElementById('cookie').style.display='none'">Alle akzeptieren</button>
-    <button id="cookie-reject" onclick="document.getElementById('cookie').style.display='none'">Nur notwendige</button>
+    <button id="cookie-btn" data-i18n="cookie.accept" onclick="document.getElementById('cookie').style.display='none'">Alle akzeptieren</button>
+    <button id="cookie-reject" data-i18n="cookie.reject" onclick="document.getElementById('cookie').style.display='none'">Nur notwendige</button>
   </div>
 </div>
 
@@ -691,32 +696,33 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 <div id="exit-popup">
   <div class="ep-box">
     <button class="ep-close" onclick="closeExit()">×</button>
-    <div class="ep-badge">⚡ Kostenlose Erstanalyse</div>
-    <h3>Warten kostet Sie bares Geld.</h3>
+    <div class="ep-badge" data-i18n="exit.badge">⚡ Kostenlose Erstanalyse</div>
+    <h3 data-i18n="exit.title">Warten kostet Sie bares Geld.</h3>
     <p>Jeder Monat ohne PPA ist ein Monat, in dem Sie den vollen Netzstrompreis zahlen. Hinterlassen Sie Ihre E-Mail — wir schicken Ihnen eine kostenlose Ersparnis-Schätzung für Ihr Unternehmen.</p>
     <div class="ep-form">
       <input class="ep-input" type="email" placeholder="Ihre E-Mail-Adresse">
-      <button class="ep-btn" onclick="closeExit()">Jetzt senden →</button>
+      <button class="ep-btn" data-i18n="exit.btn" onclick="closeExit()">Jetzt senden →</button>
     </div>
-    <p class="ep-note">Kein Spam. Einmalige Kontaktaufnahme. DSGVO-konform.</p>
+    <p class="ep-note" data-i18n="exit.note">Kein Spam. Einmalige Kontaktaufnahme. DSGVO-konform.</p>
   </div>
 </div>
 
 <!-- MOBILE CTA -->
-<div id="mob-cta"><a href="#kontakt">☀ Jetzt kostenlos anfragen</a></div>
+<div id="mob-cta"><a href="#kontakt" data-i18n="mob.cta">☀ Jetzt kostenlos anfragen</a></div>
 
 <!-- NAV -->
 <nav>
   <a href="#" class="logo"><img src="logo.png" alt="Pilsner Vertriebs GmbH" class="nav-logo"></a>
   <div class="nav-links">
-    <a href="#funktioniert">So geht's</a>
-    <a href="#vorteile">Vorteile</a>
-    <a href="#rechner">Rechner</a>
-    <a href="#esg">ESG</a>
-    <a href="#faq">FAQ</a>
-    <a href="blog.html">Blog</a>
-    <a href="#kontakt" class="nav-cta">Kostenlos anfragen →</a>
+    <a href="#funktioniert" data-i18n="nav.how">So geht's</a>
+    <a href="#vorteile" data-i18n="nav.benefits">Vorteile</a>
+    <a href="#rechner" data-i18n="nav.calc">Rechner</a>
+    <a href="#esg" data-i18n="nav.esg">ESG</a>
+    <a href="#faq" data-i18n="nav.faq">FAQ</a>
+    <a href="blog.html" data-i18n="nav.blog">Blog</a>
+    <a href="#kontakt" class="nav-cta" data-i18n="nav.cta">Kostenlos anfragen →</a>
   </div>
+  <div class="lang-switch"><button onclick="setLang('de')" class="lang-btn active" id="lb-de">DE</button><button onclick="setLang('en')" class="lang-btn" id="lb-en">EN</button><button onclick="setLang('tr')" class="lang-btn" id="lb-tr">TR</button></div>
 </nav>
 
 <!-- HERO -->
@@ -726,61 +732,61 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 
     <!-- LINKS: Headline & Aktionen -->
     <div class="hero-left">
-      <div class="hero-eyebrow"><span class="hero-dot"></span>Power Purchase Agreement — Onsite Solar</div>
-      <h1>Ihre Solaranlage.<br><span class="g">Kein Investment.</span><br><span class="y">Deutlich günstiger.</span></h1>
+      <div class="hero-eyebrow"><span class="hero-dot"></span><span data-i18n="hero.eyebrow">Power Purchase Agreement — Onsite Solar</span></div>
+      <h1 data-i18n-html="hero.h1">Ihre Solaranlage.<br><span class="g">Kein Investment.</span><br><span class="y">Deutlich günstiger.</span></h1>
       <div class="live-ticker">
         <span class="ticker-dot"></span>
-        Netzstrom 2025: <span class="ticker-val">22–28 ct/kWh</span>
-        &nbsp;·&nbsp; Ihr PPA-Preis: <span class="ticker-ppa">ab 12–22 ct/kWh</span>
+        <span data-i18n="ticker.grid">Netzstrom 2025:</span> <span class="ticker-val">22–28 ct/kWh</span>
+        &nbsp;·&nbsp; <span data-i18n="ticker.ppa">Ihr PPA-Preis:</span> <span class="ticker-ppa">ab 12–22 ct/kWh</span>
       </div>
       <p class="hero-sub">
-        Wir finanzieren, bauen und betreiben Ihre PV-Anlage — <strong>vollständig auf unsere Kosten</strong>. Keine Netzentgelte, keine Stromsteuer, kein Investitionsrisiko.
+        <span data-i18n-html="hero.sub">Wir finanzieren, bauen und betreiben Ihre PV-Anlage — <strong>vollständig auf unsere Kosten</strong>. Keine Netzentgelte, keine Stromsteuer, kein Investitionsrisiko.</span>
       </p>
       <div class="hero-actions">
-        <a href="#rechner" class="btn-main">☀ Ersparnis berechnen</a>
-        <a href="#funktioniert" class="btn-ghost">So funktioniert's →</a>
+        <a href="#rechner" class="btn-main" data-i18n="hero.btn_main">☀ Ersparnis berechnen</a>
+        <a href="#funktioniert" class="btn-ghost" data-i18n="hero.btn_ghost">So funktioniert's →</a>
       </div>
       <div class="hero-trust">
-        <div class="ht-item"><span>✓</span> 0 € Investition</div>
+        <div class="ht-item"><span>✓</span> <span data-i18n="trust.1">0 € Investition</span></div>
         <div class="ht-sep"></div>
-        <div class="ht-item"><span>✓</span> Keine Netzentgelte</div>
+        <div class="ht-item"><span>✓</span> <span data-i18n="trust.2">Keine Netzentgelte</span></div>
         <div class="ht-sep"></div>
-        <div class="ht-item"><span>✓</span> Full-Service</div>
+        <div class="ht-item"><span>✓</span> <span data-i18n="trust.3">Full-Service</span></div>
         <div class="ht-sep"></div>
-        <div class="ht-item"><span>✓</span> Bis 20 J. fix</div>
+        <div class="ht-item"><span>✓</span> <span data-i18n="trust.4">Bis 20 J. fix</span></div>
       </div>
     </div>
 
     <!-- RECHTS: Unified CTA-Card -->
     <div class="hero-right">
       <div class="hero-cta-card">
-        <div class="hcc-label">⚡ Schnellcheck — Bin ich qualifiziert?</div>
+        <div class="hcc-label" data-i18n="qc.label">⚡ Schnellcheck — Bin ich qualifiziert?</div>
         <div class="qc-row">
-          <input class="qc-field" type="text" placeholder="Jahresstromverbrauch (kWh)" id="qc-verb">
-          <input class="qc-field" type="text" placeholder="Dachfläche (m²)" id="qc-dach">
+          <input class="qc-field" type="text" data-i18n-placeholder="qc.p_verb" data-i18n-placeholder="kon.p_verb" placeholder="Jahresstromverbrauch (kWh)" id="qc-verb">
+          <input class="qc-field" type="text" data-i18n-placeholder="qc.p_dach" data-i18n-placeholder="kon.p_dach" placeholder="Dachfläche (m²)" id="qc-dach">
         </div>
         <div class="qc-row">
-          <input class="qc-field" type="email" placeholder="Ihre E-Mail-Adresse" id="qc-mail" style="flex:2">
-          <input class="qc-field" type="text" placeholder="Unternehmen" id="qc-firma">
+          <input class="qc-field" type="email" data-i18n-placeholder="qc.p_email" placeholder="Ihre E-Mail-Adresse" id="qc-mail" style="flex:2">
+          <input class="qc-field" type="text" data-i18n-placeholder="qc.p_firma" placeholder="Unternehmen" id="qc-firma">
         </div>
-        <button class="qc-btn" onclick="quickCheck()">Sofort prüfen — kostenlos und unverbindlich →</button>
-        <p class="qc-note">Keine Weitergabe Ihrer Daten · Antwort in &lt; 24 Stunden · DSGVO-konform</p>
+        <button class="qc-btn" data-i18n="qc.btn" onclick="quickCheck()">Sofort prüfen — kostenlos und unverbindlich →</button>
+        <p class="qc-note" data-i18n="qc.note">Keine Weitergabe Ihrer Daten · Antwort in &lt; 24 Stunden · DSGVO-konform</p>
         <div class="hcc-divider"></div>
         <div class="hero-stats">
           <div class="hsc">
-            <div class="hsc-label">Ersparnis Beispiel</div>
+            <div class="hsc-label" data-i18n="stat.sav_label">Ersparnis Beispiel</div>
             <div class="hsc-val">38.400 €</div>
-            <div class="hsc-sub">500 tkWh/Jahr</div>
+            <div class="hsc-sub" data-i18n="stat.sav_sub">500 tkWh/Jahr</div>
           </div>
           <div class="hsc">
-            <div class="hsc-label">PPA-Markt DE</div>
+            <div class="hsc-label" data-i18n="stat.mkt_label">PPA-Markt DE</div>
             <div class="hsc-val">6,6 GW</div>
-            <div class="hsc-sub">Volumen 2024</div>
+            <div class="hsc-sub" data-i18n="stat.mkt_sub">Volumen 2024</div>
           </div>
           <div class="hsc">
             <div class="hsc-label">Time-to-Power</div>
             <div class="hsc-val">8–12 Wo</div>
-            <div class="hsc-sub">Vertrag bis Strom</div>
+            <div class="hsc-sub" data-i18n="stat.ttp_sub">Vertrag bis Strom</div>
           </div>
         </div>
       </div>
@@ -818,45 +824,45 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
   <div class="urgency-inner">
     <span>⏳ <strong>Kostensteigerung läuft:</strong> Jeder Monat ohne PPA kostet Sie Ihr volles Netzentgelt und Ihre Stromsteuer.</span>
     <span>Aktuelle Netzstrompreise 2025: <strong>22–28 ct/kWh</strong> — Ihr PPA-Preis: <strong>ab 12–22 ct/kWh</strong></span>
-    <a href="#rechner" class="urgency-cta">Jetzt Ersparnis berechnen →</a>
+    <a href="#rechner" class="urgency-cta" data-i18n="urg.cta">Jetzt Ersparnis berechnen →</a>
   </div>
 </div>
 
 <!-- KENNZAHLEN -->
 <div class="kz">
   <div class="kz-grid">
-    <div class="kz-item reveal"><div class="kz-num">0 €</div><div class="kz-label">Investition für Sie —<br>wir tragen alles</div></div>
-    <div class="kz-item reveal rd1"><div class="kz-num">bis 60 %</div><div class="kz-label">Max. Kostensenkung inkl.<br>Netzentgelte (je nach Standort)</div></div>
-    <div class="kz-item reveal rd2"><div class="kz-num">20 J.</div><div class="kz-label">Maximale<br>PPA-Laufzeit</div></div>
-    <div class="kz-item reveal rd3"><div class="kz-num">6,6 GW</div><div class="kz-label">PPA-Volumen<br>Deutschland 2024</div></div>
-    <div class="kz-item reveal"><div class="kz-num">#2</div><div class="kz-label">Deutschland: zweitgrößter<br>PPA-Markt Europas</div></div>
+    <div class="kz-item reveal"><div class="kz-num">0 €</div><div class="kz-label" data-i18n-html="kz.1">Investition für Sie —<br>wir tragen alles</div></div>
+    <div class="kz-item reveal rd1"><div class="kz-num">bis 60 %</div><div class="kz-label" data-i18n-html="kz.2">Max. Kostensenkung inkl.<br>Netzentgelte (je nach Standort)</div></div>
+    <div class="kz-item reveal rd2"><div class="kz-num">20 J.</div><div class="kz-label" data-i18n-html="kz.3">Maximale<br>PPA-Laufzeit</div></div>
+    <div class="kz-item reveal rd3"><div class="kz-num">6,6 GW</div><div class="kz-label" data-i18n-html="kz.4">PPA-Volumen<br>Deutschland 2024</div></div>
+    <div class="kz-item reveal"><div class="kz-num">#2</div><div class="kz-label" data-i18n-html="kz.5">Deutschland: zweitgrößter<br>PPA-Markt Europas</div></div>
   </div>
 </div>
 
 <!-- WIE ES FUNKTIONIERT -->
 <section id="funktioniert" class="how">
-  <div class="sey">So funktioniert's</div>
-  <h2>Vom Erstgespräch zum<br><span class="tg">laufenden Grünstrom</span></h2>
-  <p class="slead">In vier Schritten bringen wir Ihren Eigenstrom zum Laufen — komplett auf unsere Kosten. Sie müssen sich um nichts kümmern.</p>
+  <div class="sey" data-i18n="how.sey">So funktioniert's</div>
+  <h2 data-i18n-html="how.h2">Vom Erstgespräch zum<br><span class="tg">laufenden Grünstrom</span></h2>
+  <p class="slead" data-i18n="how.lead">In vier Schritten bringen wir Ihren Eigenstrom zum Laufen — komplett auf unsere Kosten. Sie müssen sich um nichts kümmern.</p>
   <div class="how-timeline">
-    <div class="step reveal"><div class="step-bubble">📋</div><div class="step-n">SCHRITT 01</div><h3>Analyse & Angebot</h3><p>Wir analysieren Verbrauch, Dach und Lastprofil. In 5 Werktagen erhalten Sie ein konkretes Angebot mit PPA-Preis.</p></div>
-    <div class="step reveal rd1"><div class="step-bubble">📄</div><div class="step-n">SCHRITT 02</div><h3>PPA-Vertrag & Planung</h3><p>Fixpreis-Vertrag für bis zu 20 Jahre. Genehmigungen, Netzanmeldung und Detailplanung übernehmen vollständig wir.</p></div>
-    <div class="step reveal rd2"><div class="step-bubble">🔧</div><div class="step-n">SCHRITT 03</div><h3>Montage & Inbetrieb</h3><p>Zertifiziertes Montageteam installiert in 1–3 Wochen. Messtechnik, Monitoring-Setup und Inbetriebnahmeprotokoll inklusive.</p></div>
-    <div class="step reveal rd3"><div class="step-bubble">⚡</div><div class="step-n">SCHRITT 04</div><h3>Sparen & Wachsen</h3><p>Sie zahlen nur für verbrauchte kWh — keine Netzentgelte, keine Stromsteuer. Wartung, Monitoring und Versicherung: wir.</p></div>
+    <div class="step reveal"><div class="step-bubble">📋</div><span data-i18n-html="step.1"><div class="step-n">SCHRITT 01</div><h3>Analyse & Angebot</h3><p>Wir analysieren Verbrauch, Dach und Lastprofil. In 5 Werktagen erhalten Sie ein konkretes Angebot mit PPA-Preis.</p></span></div>
+    <div class="step reveal rd1"><div class="step-bubble">📄</div><span data-i18n-html="step.2"><div class="step-n">SCHRITT 02</div><h3>PPA-Vertrag & Planung</h3><p>Fixpreis-Vertrag für bis zu 20 Jahre. Genehmigungen, Netzanmeldung und Detailplanung übernehmen vollständig wir.</p></span></div>
+    <div class="step reveal rd2"><div class="step-bubble">🔧</div><span data-i18n-html="step.3"><div class="step-n">SCHRITT 03</div><h3>Montage & Inbetrieb</h3><p>Zertifiziertes Montageteam installiert in 1–3 Wochen. Messtechnik, Monitoring-Setup und Inbetriebnahmeprotokoll inklusive.</p></span></div>
+    <div class="step reveal rd3"><div class="step-bubble">⚡</div><span data-i18n-html="step.4"><div class="step-n">SCHRITT 04</div><h3>Sparen & Wachsen</h3><p>Sie zahlen nur für verbrauchte kWh — keine Netzentgelte, keine Stromsteuer. Wartung, Monitoring und Versicherung: wir.</p></span></div>
   </div>
 </section>
 
 <!-- VORTEILE -->
 <section id="vorteile" style="background:var(--ink3)">
-  <div class="sey">Ihre Vorteile</div>
-  <h2>Warum PPA Onsite <span class="tg">unschlagbar ist</span></h2>
+  <div class="sey" data-i18n="ben.sey">Ihre Vorteile</div>
+  <h2 data-i18n-html="ben.h2">Warum PPA Onsite <span class="tg">unschlagbar ist</span></h2>
 
   <!-- NETZENTGELT BOX -->
   <div class="netz-box reveal">
     <h3>⚡ Der entscheidende Vorteil: Keine Netzentgelte &amp; Stromsteuer</h3>
     <div class="netz-split">
       <div>
-        <p style="font-size:.88rem;color:rgba(255,255,255,.6);margin-bottom:1.2rem;font-weight:300;line-height:1.7">Beim Onsite-PPA wird der Solarstrom direkt von der Anlage auf Ihrem Dach in Ihr Werksnetz eingespeist — ohne öffentliches Stromnetz. Das bedeutet: Alle netzabhängigen Kosten entfallen vollständig.</p>
+        <p style="font-size:.88rem;color:rgba(5,14,31,.6);margin-bottom:1.2rem;font-weight:300;line-height:1.7">Beim Onsite-PPA wird der Solarstrom direkt von der Anlage auf Ihrem Dach in Ihr Werksnetz eingespeist — ohne öffentliches Stromnetz. Das bedeutet: Alle netzabhängigen Kosten entfallen vollständig.</p>
         <div class="netz-list">
           <div class="netz-item"><span class="check">✓</span>Netznutzungsentgelte entfallen (ca. 6–9 ct/kWh)</div>
           <div class="netz-item"><span class="check">✓</span>Stromsteuer entfällt (2,05 ct/kWh, §9 StromStG)</div>
@@ -920,14 +926,14 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
   <p class="slead">Die meisten Unternehmen warten monatelang — und zahlen in dieser Zeit weiterhin den vollen Netzstrompreis. Was das konkret bedeutet, zeigt diese Beispielrechnung.</p>
   <div class="ia-grid">
     <div class="ia-left">
-      <p>Ein Unternehmen mit <strong style="color:#fff">300.000 kWh Jahresverbrauch</strong> und einem Netzstrompreis von 28 ct/kWh zahlt monatlich rund 7.000 € für Strom. Mit einem Onsite-PPA wären es ca. 4.500 €. Die Differenz von 2.500 € pro Monat ist Geld, das ohne PPA unwiederbringlich verloren geht.</p>
+      <p>Ein Unternehmen mit <strong style="color:#050E1F">300.000 kWh Jahresverbrauch</strong> und einem Netzstrompreis von 28 ct/kWh zahlt monatlich rund 7.000 € für Strom. Mit einem Onsite-PPA wären es ca. 4.500 €. Die Differenz von 2.500 € pro Monat ist Geld, das ohne PPA unwiederbringlich verloren geht.</p>
       <p>Hinzu kommen Netzentgelte und Stromsteuer, die beim Onsite-PPA vollständig entfallen. Unternehmen, die heute handeln, haben in fünf Jahren bereits 150.000 € mehr auf dem Konto.</p>
-      <p style="color:rgba(255,255,255,.4);font-size:.8rem">* Beispielrechnung für Orientierungszwecke. Tatsächliche Werte hängen vom individuellen Verbrauchsprofil, Standort und Netzentgelten ab.</p>
+      <p style="color:rgba(5,14,31,.4);font-size:.8rem">* Beispielrechnung für Orientierungszwecke. Tatsächliche Werte hängen vom individuellen Verbrauchsprofil, Standort und Netzentgelten ab.</p>
     </div>
     <div>
       <div class="ia-calc">
         <div class="ia-calc-title">📉 Was Sie ohne PPA verlieren</div>
-        <div style="font-size:.72rem;color:rgba(255,255,255,.3);margin-bottom:1rem">Basis: 300.000 kWh/Jahr, 28 ct/kWh Netzstrom, PPA ~19 ct/kWh</div>
+        <div style="font-size:.72rem;color:rgba(5,14,31,0.4);margin-bottom:1rem">Basis: 300.000 kWh/Jahr, 28 ct/kWh Netzstrom, PPA ~19 ct/kWh</div>
         <div class="ia-row"><span class="ia-row-label">Verlorene Ersparnis / Monat</span><span class="ia-row-val red">~ 2.500 €</span></div>
         <div class="ia-row"><span class="ia-row-label">Verlorene Ersparnis / Quartal</span><span class="ia-row-val red">~ 7.500 €</span></div>
         <div class="ia-row"><span class="ia-row-label">Verlorene Ersparnis / Jahr</span><span class="ia-row-val red">~ 30.000 €</span></div>
@@ -950,7 +956,7 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
   <p class="slead">Die regulatorische Uhr tickt. Mit einem Onsite-PPA erfüllen Sie heute schon die Anforderungen von morgen — glaubwürdig, messbar, reportingfähig.</p>
   <div class="esg-layout">
     <div>
-      <p style="font-size:.92rem;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:1.5rem;font-weight:300">Ein Onsite-PPA liefert <strong style="color:#fff">physischen Grünstrom direkt vom Dach</strong> — keine Zertifikate, keine HKN-Unsicherheit. Das ist für ESG-Reporting (Scope 2, market-based) die sauberste und glaubwürdigste Lösung.</p>
+      <p style="font-size:.92rem;color:rgba(5,14,31,.6);line-height:1.8;margin-bottom:1.5rem;font-weight:300">Ein Onsite-PPA liefert <strong style="color:#050E1F">physischen Grünstrom direkt vom Dach</strong> — keine Zertifikate, keine HKN-Unsicherheit. Das ist für ESG-Reporting (Scope 2, market-based) die sauberste und glaubwürdigste Lösung.</p>
       <div class="esg-pills">
         <span class="esg-pill">CSRD</span><span class="esg-pill">Scope 2</span><span class="esg-pill">CBAM</span>
         <span class="esg-pill">GHG Protocol</span><span class="esg-pill">EU Taxonomie</span><span class="esg-pill">SBTi</span>
@@ -977,7 +983,7 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
   <p class="slead">Neue Batterie-PPAs ("Power Storage Agreements") ergänzen die klassische PV-Anlage und erhöhen Eigenverbrauchsquote und Autarkie deutlich.</p>
   <div class="batt-layout">
     <div>
-      <p style="font-size:.92rem;color:rgba(255,255,255,.6);line-height:1.8;margin-bottom:1.5rem;font-weight:300">Überschüssiger Solarstrom vom Tag wird im Speicher zwischengelagert und abends oder nachts genutzt — statt ins Netz eingespeist zu werden. Das erhöht den Eigenverbrauch von typisch 60–70 % auf bis zu 85–90 % und maximiert Ihre Ersparnis.</p>
+      <p style="font-size:.92rem;color:rgba(5,14,31,.6);line-height:1.8;margin-bottom:1.5rem;font-weight:300">Überschüssiger Solarstrom vom Tag wird im Speicher zwischengelagert und abends oder nachts genutzt — statt ins Netz eingespeist zu werden. Das erhöht den Eigenverbrauch von typisch 60–70 % auf bis zu 85–90 % und maximiert Ihre Ersparnis.</p>
       <div class="batt-list">
         <div class="batt-item"><span class="bi">🔋</span>Speicher komplett durch uns finanziert und betrieben (Batterie-PPA)</div>
         <div class="batt-item"><span class="bi">⬆</span>Eigenverbrauchsquote steigt von ~65 % auf bis zu 90 %</div>
@@ -994,7 +1000,7 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
         <div class="bs"><div class="bs-num">90 %</div><div class="bs-label">Max. Autarkie</div></div>
         <div class="bs"><div class="bs-num">100 %</div><div class="bs-label">Betrieb durch uns</div></div>
       </div>
-      <p style="font-size:.78rem;color:rgba(255,255,255,.4);line-height:1.6;font-weight:300">Batterie-PPAs sind ein neues, wachsendes Modell. Verfügbarkeit und Konditionen abhängig vom Standort und Anlagenkonzept. Sprechen Sie uns an.</p>
+      <p style="font-size:.78rem;color:rgba(5,14,31,.4);line-height:1.6;font-weight:300">Batterie-PPAs sind ein neues, wachsendes Modell. Verfügbarkeit und Konditionen abhängig vom Standort und Anlagenkonzept. Sprechen Sie uns an.</p>
     </div>
   </div>
 </section>
@@ -1138,7 +1144,7 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
         <div id="vw-wirt" style="display:none">
           <table class="bdt">
             <tr><td>Ihre heutigen Jahresstromkosten (Netz)</td><td id="b-netz">–</td></tr>
-            <tr><td style="font-size:.75rem;color:rgba(255,255,255,.4);padding-left:.5rem">davon ca. Netzentgelte &amp; Stromsteuer</td><td id="b-netze" style="color:rgba(255,255,255,.35);font-size:.78rem">–</td></tr>
+            <tr><td style="font-size:.75rem;color:rgba(5,14,31,.4);padding-left:.5rem">davon ca. Netzentgelte &amp; Stromsteuer</td><td id="b-netze" style="color:rgba(5,14,31,0.45);font-size:.78rem">–</td></tr>
             <tr><td>PPA-Kosten Eigenstrom (Jahr 1)</td><td id="b-ppa">–</td></tr>
             <tr><td>Verbleibender Netzbezug (Backup)</td><td id="b-rest">–</td></tr>
             <tr class="hl"><td>Netto-Ersparnis Jahr 1</td><td id="b-j1">–</td></tr>
@@ -1260,7 +1266,7 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 <section class="referenzen">
   <div class="sey">Referenzen</div>
   <h2>Das sagen <span class="tg">unsere Kunden</span></h2>
-  <p style="font-size:.78rem;color:rgba(255,255,255,.3);margin-bottom:1.5rem;font-style:italic">* Die nachfolgenden Erfahrungsberichte sind repräsentative Beispiele typischer Kundensituationen. Namen und Unternehmen sind aus Datenschutzgründen anonymisiert. Gerne stellen wir auf Anfrage Kontakt zu Referenzkunden her.</p>
+  <p style="font-size:.78rem;color:rgba(5,14,31,0.4);margin-bottom:1.5rem;font-style:italic">* Die nachfolgenden Erfahrungsberichte sind repräsentative Beispiele typischer Kundensituationen. Namen und Unternehmen sind aus Datenschutzgründen anonymisiert. Gerne stellen wir auf Anfrage Kontakt zu Referenzkunden her.</p>
   <div class="ref-grid">
     <div class="ref-card reveal">
       <div class="ref-logo">MEISTER FOOD GmbH</div>
@@ -1282,9 +1288,9 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 
 <!-- PERSÖNLICHE ANSPRECHPARTNER -->
 <section class="personal">
-  <div class="sey">Ihr direkter Kontakt</div>
-  <h2>Sie sprechen mit <span class="tg">echten Experten</span></h2>
-  <p class="slead">Kein Callcenter. Kein Bot. Schreiben oder rufen Sie uns direkt an — wir melden uns persönlich, innerhalb von 24 Stunden.</p>
+  <div class="sey" data-i18n="per.sey">Ihr direkter Kontakt</div>
+  <h2 data-i18n-html="per.h2">Sie sprechen mit <span class="tg">echten Experten</span></h2>
+  <p class="slead" data-i18n="per.lead">Kein Callcenter. Kein Bot. Schreiben oder rufen Sie uns direkt an — wir melden uns persönlich, innerhalb von 24 Stunden.</p>
   <div class="person-grid" style="grid-template-columns:1fr 1fr">
     <div class="person-card">
       <div class="person-avatar">☀</div>
@@ -1317,8 +1323,8 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 
 <!-- LEAD MAGNET -->
 <section class="lead-magnet">
-  <div class="sey">Kostenloses Whitepaper</div>
-  <h2>Der PPA-Leitfaden für <span class="tg">Entscheider</span></h2>
+  <div class="sey" data-i18n="lm.sey">Kostenloses Whitepaper</div>
+  <h2 data-i18n-html="lm.h2">Der PPA-Leitfaden für <span class="tg">Entscheider</span></h2>
   <p class="slead">Alles, was CFOs, Energiemanager und Einkäufer vor Vertragsabschluss wissen müssen — kompakt auf 18 Seiten.</p>
   <div class="lm-box">
     <div class="lm-doc">
@@ -1339,7 +1345,7 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
       <div class="lm-form">
         <input class="lm-inp" type="email" id="lm-email" placeholder="Ihre E-Mail-Adresse">
         <input class="lm-inp" type="text" id="lm-firma" placeholder="Unternehmen">
-        <button class="lm-btn" onclick="submitLeadMagnet(this)">Jetzt kostenlos downloaden →</button>
+        <button class="lm-btn" data-i18n="lm.btn" onclick="submitLeadMagnet(this)">Jetzt kostenlos downloaden →</button>
       </div>
     </div>
   </div>
@@ -1350,7 +1356,7 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
   <div class="faq-layout">
     <div class="faq-side">
       <div class="sey">FAQ</div>
-      <h3>Häufige Fragen</h3>
+      <h3 data-i18n="faq.title">Häufige Fragen</h3>
       <p>Alles, was Sie über das Onsite-PPA wissen müssen — transparent und verständlich erklärt.</p>
       <div class="faq-contact">
         <h4>Ihre Frage nicht dabei?</h4>
@@ -1374,14 +1380,14 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 
 <!-- BLOG -->
 <section id="blog" style="background:var(--ink2)">
-  <div class="sey">Blog & Insights</div>
-  <h2>PPA-Wissen für <span class="tg">Entscheider</span></h2>
+  <div class="sey" data-i18n="blog.sey">Blog & Insights</div>
+  <h2 data-i18n-html="blog.h2">PPA-Wissen für <span class="tg">Entscheider</span></h2>
   <p class="slead">Aktuelle Beiträge zu Power Purchase Agreements, Energiespeicher und regulatorischen Entwicklungen — täglich neu.</p>
   <div class="blog-grid" id="blog-grid">
-    <div style="grid-column:1/-1;text-align:center;padding:3rem;color:rgba(255,255,255,.2);font-size:.85rem">Beiträge werden geladen …</div>
+    <div style="grid-column:1/-1;text-align:center;padding:3rem;color:rgba(5,14,31,.2);font-size:.85rem">Beiträge werden geladen …</div>
   </div>
   <div style="text-align:center;margin-top:2.2rem">
-    <a href="blog.html" style="display:inline-flex;align-items:center;gap:.55rem;padding:.8rem 2.2rem;background:transparent;border:1.5px solid rgba(0,230,118,0.32);color:var(--g1);border-radius:50px;font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:700;text-decoration:none;transition:all .3s" onmouseover="this.style.background='rgba(0,230,118,0.08)'" onmouseout="this.style.background='transparent'">Alle Beiträge lesen <span style="font-size:1.1rem">→</span></a>
+    <a href="blog.html" style="display:inline-flex;align-items:center;gap:.55rem;padding:.8rem 2.2rem;background:transparent;border:1.5px solid rgba(37,99,235,0.32);color:var(--g1);border-radius:50px;font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:700;text-decoration:none;transition:all .3s" onmouseover="this.style.background='rgba(37,99,235,0.08)'" onmouseout="this.style.background='transparent'">Alle Beiträge lesen <span style="font-size:1.1rem">→</span></a>
   </div>
 </section>
 
@@ -1396,21 +1402,21 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 <!-- NEWSLETTER -->
 <div class="newsletter">
   <div class="sey" style="justify-content:center">Newsletter</div>
-  <h2>PPA-Insights &<br><span class="tg">Markt-Updates</span></h2>
-  <p>Aktuelle Marktpreise, Regulierungsänderungen und Praxistipps zum Thema Onsite-PPA — direkt in Ihr Postfach.</p>
+  <h2 data-i18n-html="nl.h2">PPA-Insights &<br><span class="tg">Markt-Updates</span></h2>
+  <p data-i18n="nl.p">Aktuelle Marktpreise, Regulierungsänderungen und Praxistipps zum Thema Onsite-PPA — direkt in Ihr Postfach.</p>
   <div class="nl-form">
     <input class="nl-input" id="nl-email" type="email" placeholder="Ihre E-Mail-Adresse">
-    <button class="nl-btn" onclick="submitNewsletter(this)">Anmelden →</button>
+    <button class="nl-btn" data-i18n="nl.btn" onclick="submitNewsletter(this)">Anmelden →</button>
   </div>
 </div>
 
 <!-- KONTAKT -->
 <section class="kontakt" id="kontakt">
-  <div class="sey">Kontakt & Anfrage</div>
+  <div class="sey" data-i18n="kon.sey">Kontakt & Anfrage</div>
   <div class="kl">
     <div>
-      <h2>Starten Sie jetzt Ihren<br><span class="tg">kostenlosen Check</span></h2>
-      <p class="slead">Unser Ingenieurteam analysiert Ihre Situation und erstellt innerhalb von 5 Werktagen ein indikatives Angebot — völlig kostenlos und ohne Verpflichtung.</p>
+      <h2 data-i18n-html="kon.h2">Starten Sie jetzt Ihren<br><span class="tg">kostenlosen Check</span></h2>
+      <p class="slead" data-i18n="kon.lead">Unser Ingenieurteam analysiert Ihre Situation und erstellt innerhalb von 5 Werktagen ein indikatives Angebot — völlig kostenlos und ohne Verpflichtung.</p>
       <div class="ki-info">
         <div class="ki-row"><div class="ki-icon">📞</div>+49 (0) 800 PPA-ONSITE</div>
         <div class="ki-row"><div class="ki-icon">✉️</div><a href="mailto:info@pilsner-vertrieb.de" style="color:inherit;text-decoration:none">info@pilsner-vertrieb.de</a></div>
@@ -1420,19 +1426,19 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
       </div>
     </div>
     <div class="cf reveal">
-      <p style="font-size:.78rem;color:rgba(255,255,255,.35);margin-bottom:1.2rem">* Pflichtfelder. Ihre Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet.</p>
+      <p style="font-size:.78rem;color:rgba(5,14,31,0.45);margin-bottom:1.2rem">* Pflichtfelder. Ihre Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet.</p>
       <div class="cf-row">
-        <input class="cfi" type="text" id="cf-vorname" placeholder="Vorname *" required>
-        <input class="cfi" type="text" id="cf-nachname" placeholder="Nachname *" required>
+        <input class="cfi" type="text" id="cf-vorname" data-i18n-placeholder="kon.p_vname" placeholder="Vorname *" required>
+        <input class="cfi" type="text" id="cf-nachname" data-i18n-placeholder="kon.p_nname" placeholder="Nachname *" required>
       </div>
       <div class="cf-row">
-        <input class="cfi" type="email" id="cf-email" placeholder="E-Mail *" required>
-        <input class="cfi" type="tel" id="cf-tel" placeholder="Telefon">
+        <input class="cfi" type="email" id="cf-email" data-i18n-placeholder="kon.p_email" placeholder="E-Mail *" required>
+        <input class="cfi" type="tel" id="cf-tel" data-i18n-placeholder="kon.p_tel" placeholder="Telefon">
       </div>
-      <input class="cfi" type="text" id="cf-firma" placeholder="Unternehmen *" style="width:100%;margin-bottom:.9rem" required>
+      <input class="cfi" type="text" id="cf-firma" data-i18n-placeholder="kon.p_firma" placeholder="Unternehmen *" style="width:100%;margin-bottom:.9rem" required>
       <div class="cf-row">
-        <input class="cfi" type="text" id="cf-verb" placeholder="Jahresstromverbrauch (kWh)">
-        <input class="cfi" type="text" id="cf-dach" placeholder="Dachfläche (m²)">
+        <input class="cfi" type="text" id="cf-verb" data-i18n-placeholder="kon.p_verb" placeholder="Jahresstromverbrauch (kWh)">
+        <input class="cfi" type="text" id="cf-dach" data-i18n-placeholder="kon.p_dach" placeholder="Dachfläche (m²)">
       </div>
       <div class="cf-row" style="margin-bottom:.9rem">
         <select class="cfi isel" style="border-radius:11px;padding:.85rem 1rem">
@@ -1448,7 +1454,7 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
           <option>LinkedIn</option><option>Messe / Event</option><option>Sonstiges</option>
         </select>
       </div>
-      <textarea class="cfi" id="cf-nachricht" placeholder="Nachricht / offene Fragen (optional)"></textarea>
+      <textarea class="cfi" id="cf-nachricht" data-i18n-placeholder="kon.p_msg" placeholder="Nachricht / offene Fragen (optional)"></textarea>
       <div class="cf-check">
         <input type="checkbox" id="dsgvo" required>
         <label for="dsgvo">Ich stimme zu, dass meine Daten zur Bearbeitung dieser Anfrage gespeichert und genutzt werden. Ich habe die <a href="#" onclick="openModal('datenschutz');return false;" style="color:var(--g1)">Datenschutzerklärung</a> gelesen und akzeptiert. *</label>
@@ -1456,8 +1462,8 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
       <div id="cf-error" style="display:none;background:rgba(255,82,82,0.12);border:1px solid rgba(255,82,82,0.3);border-radius:10px;padding:.8rem 1rem;font-size:.8rem;color:rgba(255,120,120,0.9);margin-bottom:1rem">
         Bitte füllen Sie alle Pflichtfelder aus und bestätigen Sie die Datenschutzerklärung.
       </div>
-      <button class="btn-send" onclick="submitForm(event)">Kostenlose Analyse anfordern ☀</button>
-      <p style="font-size:.7rem;color:rgba(255,255,255,.25);text-align:center;margin-top:.8rem">🔒 SSL-verschlüsselt · DSGVO-konform · Keine Weitergabe an Dritte</p>
+      <button class="btn-send" data-i18n="kon.btn" onclick="submitForm(event)">Kostenlose Analyse anfordern ☀</button>
+      <p style="font-size:.7rem;color:rgba(5,14,31,.25);text-align:center;margin-top:.8rem">🔒 SSL-verschlüsselt · DSGVO-konform · Keine Weitergabe an Dritte</p>
     </div>
   </div>
 </section>
@@ -1473,33 +1479,33 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
       </div>
     </div>
     <div class="fc-col">
-      <h5>Leistungen</h5>
+      <h5 data-i18n="ft.services">Leistungen</h5>
       <a href="#vorteile">Onsite-PPA</a><a href="#zielgruppen">Agri-PV PPA</a>
       <a href="#rechner">Batterie-PPA</a><a href="#rechner">Carport-PV PPA</a>
       <a href="#kontakt">PPA-Beratung</a>
     </div>
     <div class="fc-col">
-      <h5>Wissen</h5>
+      <h5 data-i18n="ft.knowledge">Wissen</h5>
       <a href="#funktioniert">Was ist ein PPA?</a>
       <a href="#vorteile">Netzentgelte &amp; Steuern</a>
       <a href="#esg">ESG &amp; CSRD</a>
       <a href="#vergleich">PPA vs. Eigenkauf</a>
-      <a href="#faq">FAQ</a>
+      <a href="#faq" data-i18n="nav.faq">FAQ</a>
       <a href="blog.html">Blog & Insights</a>
     </div>
     <div class="fc-col">
-      <h5>Unternehmen</h5>
+      <h5 data-i18n="ft.company">Unternehmen</h5>
       <a href="#kontakt">Kontakt</a>
     </div>
   </div>
   <div class="fb">
     <span>© 2025 PPA-Onsite.de — Alle Rechte vorbehalten · Angaben gemäß §5 TMG</span>
     <div class="fb-links">
-      <a href="#" onclick="openModal('impressum');return false;">Impressum</a>
-      <a href="#" onclick="openModal('datenschutz');return false;">Datenschutz</a>
+      <a href="#" data-i18n="ft.imprint" onclick="openModal('impressum');return false;">Impressum</a>
+      <a href="#" data-i18n="ft.privacy" onclick="openModal('datenschutz');return false;">Datenschutz</a>
     </div>
   </div>
-  <p style="font-size:.68rem;color:rgba(255,255,255,.15);text-align:center;margin-top:1.2rem;line-height:1.6">
+  <p style="font-size:.68rem;color:rgba(5,14,31,.15);text-align:center;margin-top:1.2rem;line-height:1.6">
     Alle Angaben auf dieser Website sind unverbindlich und dienen der allgemeinen Information. Preisangaben und Ersparnisprognosen sind Richtwerte und stellen kein verbindliches Angebot dar. Die tatsächlichen Konditionen werden im Rahmen einer individuellen Projektanalyse ermittelt. Irrtümer vorbehalten.
   </p>
 </footer>
@@ -1560,14 +1566,14 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
     </p>
 
     <h3>2. Welche Daten wir erheben und warum</h3>
-    <p><strong style="color:#fff">Kontaktformulare &amp; Schnellcheck:</strong> Wenn Sie unsere Formulare nutzen, verarbeiten wir die von Ihnen eingegebenen Daten (Name, E-Mail, Unternehmen, Verbrauch, Nachricht) ausschließlich zur Bearbeitung Ihrer Anfrage. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung).</p>
-    <p><strong style="color:#fff">Newsletter-Anmeldung:</strong> Ihre E-Mail-Adresse wird ausschließlich zum Versand des PPA-Newsletters genutzt. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung). Sie können sich jederzeit abmelden.</p>
+    <p><strong style="color:#050E1F">Kontaktformulare &amp; Schnellcheck:</strong> Wenn Sie unsere Formulare nutzen, verarbeiten wir die von Ihnen eingegebenen Daten (Name, E-Mail, Unternehmen, Verbrauch, Nachricht) ausschließlich zur Bearbeitung Ihrer Anfrage. Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragsanbahnung).</p>
+    <p><strong style="color:#050E1F">Newsletter-Anmeldung:</strong> Ihre E-Mail-Adresse wird ausschließlich zum Versand des PPA-Newsletters genutzt. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung). Sie können sich jederzeit abmelden.</p>
 
     <h3>3. Externe Dienste — Web3Forms</h3>
-    <p>Zur sicheren Übermittlung Ihrer Formulardaten nutzen wir den Dienst <strong style="color:#fff">Web3Forms</strong> (web3forms.com, Auftragsverarbeiter gemäß Art. 28 DSGVO). Die Daten werden verschlüsselt übertragen und nach Bearbeitung Ihrer Anfrage gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten bestehen. Ein Auftragsverarbeitungsvertrag (AVV) ist abgeschlossen. Weitere Informationen: <a href="https://web3forms.com/privacy" target="_blank" rel="noopener">web3forms.com/privacy</a>.</p>
+    <p>Zur sicheren Übermittlung Ihrer Formulardaten nutzen wir den Dienst <strong style="color:#050E1F">Web3Forms</strong> (web3forms.com, Auftragsverarbeiter gemäß Art. 28 DSGVO). Die Daten werden verschlüsselt übertragen und nach Bearbeitung Ihrer Anfrage gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten bestehen. Ein Auftragsverarbeitungsvertrag (AVV) ist abgeschlossen. Weitere Informationen: <a href="https://web3forms.com/privacy" target="_blank" rel="noopener">web3forms.com/privacy</a>.</p>
 
     <h3>4. Cookies</h3>
-    <p>Diese Website verwendet ausschließlich <strong style="color:#fff">technisch notwendige Cookies</strong> (Cookie-Consent-Speicherung). Es werden keine Analyse-, Tracking- oder Marketing-Cookies eingesetzt. Eine Einwilligung ist für technisch notwendige Cookies nach § 25 Abs. 2 TTDSG nicht erforderlich.</p>
+    <p>Diese Website verwendet ausschließlich <strong style="color:#050E1F">technisch notwendige Cookies</strong> (Cookie-Consent-Speicherung). Es werden keine Analyse-, Tracking- oder Marketing-Cookies eingesetzt. Eine Einwilligung ist für technisch notwendige Cookies nach § 25 Abs. 2 TTDSG nicht erforderlich.</p>
 
     <h3>5. Server-Logfiles</h3>
     <p>Unser Hosting-Anbieter speichert beim Aufruf der Website automatisch technische Verbindungsdaten (IP-Adresse, Datum/Uhrzeit, aufgerufene Seite, Browsertyp). Diese Daten dienen ausschließlich der Betriebssicherheit, werden nicht mit anderen Daten verknüpft und nach spätestens 14 Tagen gelöscht. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse).</p>
@@ -1635,7 +1641,7 @@ function w3fSend(payload, btn, okText) {
   .then(d => {
     if (d.success) {
       btn.textContent = okText;
-      btn.style.background = '#00A040';
+      btn.style.background = '#1D4ED8';
       btn.style.color = '#fff';
     } else {
       btn.textContent = 'Fehler — bitte direkt mailen: info@pilsner-vertrieb.de';
@@ -1719,7 +1725,7 @@ function buildKriseChart(){
     nB.title=`Netz ${d.year}: ${d.netz} ct/kWh`;
     const pB=document.createElement('div');
     pB.className='kc-bar';
-    pB.style.cssText=`position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:40%;height:${pH}px;background:linear-gradient(180deg,var(--g1),#00A040);animation-delay:${i*0.08+0.04}s`;
+    pB.style.cssText=`position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:40%;height:${pH}px;background:linear-gradient(180deg,var(--g1),#1D4ED8);animation-delay:${i*0.08+0.04}s`;
     pB.title=`PPA ${d.year}: ${d.ppa} ct/kWh`;
     const yr=document.createElement('div');
     yr.className='kc-year';yr.textContent=d.year;
@@ -1864,9 +1870,9 @@ function rechne(){
       const w=document.createElement('div');
       w.style.cssText='flex:1;display:flex;flex-direction:column;align-items:center;gap:3px';
       const b=document.createElement('div');
-      b.style.cssText=`width:100%;height:${j/lz*100}%;background:linear-gradient(180deg,var(--g1),#00A040);border-radius:3px 3px 0 0;animation:bgrow .8s ease-out ${j*.05}s both`;
+      b.style.cssText=`width:100%;height:${j/lz*100}%;background:linear-gradient(180deg,var(--g1),#1D4ED8);border-radius:3px 3px 0 0;animation:bgrow .8s ease-out ${j*.05}s both`;
       const l=document.createElement('div');
-      l.style.cssText='font-size:.54rem;color:rgba(255,255,255,.25)';l.textContent='J'+j;
+      l.style.cssText='font-size:.54rem;color:rgba(5,14,31,.25)';l.textContent='J'+j;
       w.appendChild(b);w.appendChild(l);cc.appendChild(w);
     }
   }
@@ -1970,7 +1976,7 @@ async function loadBlog() {
     renderPosts(allPosts, shownPosts);
   } catch(e) {
     const g = document.getElementById('blog-grid');
-    if (g) g.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:2rem;color:rgba(255,255,255,.25);font-size:.82rem">Blog-Beiträge werden geladen …</div>';
+    if (g) g.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:2rem;color:rgba(5,14,31,.25);font-size:.82rem">Blog-Beiträge werden geladen …</div>';
   }
 }
 loadBlog();
@@ -2002,8 +2008,8 @@ function quickCheck(){
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)){alert('Bitte eine gültige E-Mail-Adresse eingeben.');return;}
   const vn=parseFloat(verb.replace(/[.,\s]/g,''));
   let okMsg,col;
-  if(vn>=100000){okMsg='✅ Sehr gut! Mit '+verb+' kWh/Jahr sind Sie ideal geeignet. Wir melden uns in <24h.';col='#00A040';}
-  else if(vn>=50000){okMsg='✅ Grundsätzlich geeignet. Wir prüfen das kostenlos für Sie.';col='#00A040';}
+  if(vn>=100000){okMsg='✅ Sehr gut! Mit '+verb+' kWh/Jahr sind Sie ideal geeignet. Wir melden uns in <24h.';col='#1D4ED8';}
+  else if(vn>=50000){okMsg='✅ Grundsätzlich geeignet. Wir prüfen das kostenlos für Sie.';col='#1D4ED8';}
   else{okMsg='ℹ️ Grenzwertig — wir beraten Sie zu passenden Lösungen. Wir melden uns.';col='rgba(200,160,0,.9)';}
   const btn=document.querySelector('.qc-btn');
   btn.textContent='Wird gesendet …';btn.disabled=true;
@@ -2029,5 +2035,239 @@ function quickCheck(){
 }
 
 </script>
+
+<script>
+/* ═══════════════════════════════════════════════════════
+   i18n — DE / EN / TR
+   ═══════════════════════════════════════════════════════ */
+const T = {
+de: {
+  "nav.how":"So geht's","nav.benefits":"Vorteile","nav.calc":"Rechner",
+  "nav.esg":"ESG","nav.faq":"FAQ","nav.blog":"Blog",
+  "nav.cta":"Kostenlos anfragen →",
+  "cookie.accept":"Alle akzeptieren","cookie.reject":"Nur notwendige",
+  "exit.badge":"⚡ Kostenlose Erstanalyse",
+  "exit.title":"Warten kostet Sie bares Geld.",
+  "exit.btn":"Jetzt senden →",
+  "exit.note":"Kein Spam. Einmalige Kontaktaufnahme. DSGVO-konform.",
+  "mob.cta":"☀ Jetzt kostenlos anfragen",
+  "hero.eyebrow":"Power Purchase Agreement — Onsite Solar",
+  "hero.h1":'Ihre Solaranlage.<br><span class="g">Kein Investment.</span><br><span class="y">Deutlich günstiger.</span>',
+  "ticker.grid":"Netzstrom 2025:","ticker.ppa":"Ihr PPA-Preis:",
+  "hero.sub":'Wir finanzieren, bauen und betreiben Ihre PV-Anlage — <strong>vollständig auf unsere Kosten</strong>. Keine Netzentgelte, keine Stromsteuer, kein Investitionsrisiko.',
+  "hero.btn_main":"☀ Ersparnis berechnen","hero.btn_ghost":"So funktioniert's →",
+  "trust.1":"0 € Investition","trust.2":"Keine Netzentgelte",
+  "trust.3":"Full-Service","trust.4":"Bis 20 J. fix",
+  "qc.label":"⚡ Schnellcheck — Bin ich qualifiziert?",
+  "qc.p_verb":"Jahresstromverbrauch (kWh)","qc.p_dach":"Dachfläche (m²)",
+  "qc.p_email":"Ihre E-Mail-Adresse","qc.p_firma":"Unternehmen",
+  "qc.btn":"Sofort prüfen — kostenlos und unverbindlich →",
+  "qc.note":"Keine Weitergabe Ihrer Daten · Antwort in < 24 Stunden · DSGVO-konform",
+  "stat.sav_label":"Ersparnis Beispiel","stat.sav_sub":"500 tkWh/Jahr",
+  "stat.mkt_label":"PPA-Markt DE","stat.mkt_sub":"Volumen 2024",
+  "stat.ttp_sub":"Vertrag bis Strom",
+  "urg.cta":"Jetzt Ersparnis berechnen →",
+  "kz.1":"Investition für Sie —<br>wir tragen alles",
+  "kz.2":"Max. Kostensenkung inkl.<br>Netzentgelte (je nach Standort)",
+  "kz.3":"Maximale<br>PPA-Laufzeit",
+  "kz.4":"PPA-Volumen<br>Deutschland 2024",
+  "kz.5":"Deutschland: zweitgrößter<br>PPA-Markt Europas",
+  "how.sey":"So funktioniert's",
+  "how.h2":'Vom Erstgespräch zum<br><span class="tg">laufenden Grünstrom</span>',
+  "how.lead":"In vier Schritten bringen wir Ihren Eigenstrom zum Laufen — komplett auf unsere Kosten. Sie müssen sich um nichts kümmern.",
+  "step.1":'<div class="step-n">SCHRITT 01</div><h3>Analyse & Angebot</h3><p>Wir analysieren Verbrauch, Dach und Lastprofil. In 5 Werktagen erhalten Sie ein konkretes Angebot mit PPA-Preis.</p>',
+  "step.2":'<div class="step-n">SCHRITT 02</div><h3>PPA-Vertrag & Planung</h3><p>Fixpreis-Vertrag für bis zu 20 Jahre. Genehmigungen, Netzanmeldung und Detailplanung übernehmen vollständig wir.</p>',
+  "step.3":'<div class="step-n">SCHRITT 03</div><h3>Montage & Inbetrieb</h3><p>Zertifiziertes Montageteam installiert in 1–3 Wochen. Messtechnik, Monitoring-Setup und Inbetriebnahmeprotokoll inklusive.</p>',
+  "step.4":'<div class="step-n">SCHRITT 04</div><h3>Sparen & Wachsen</h3><p>Sie zahlen nur für verbrauchte kWh — keine Netzentgelte, keine Stromsteuer. Wartung, Monitoring und Versicherung: wir.</p>',
+  "ben.sey":"Ihre Vorteile",
+  "ben.h2":'Warum PPA Onsite <span class="tg">unschlagbar ist</span>',
+  "blog.sey":"Blog & Insights",
+  "blog.h2":'PPA-Wissen für <span class="tg">Entscheider</span>',
+  "nl.h2":'PPA-Insights &<br><span class="tg">Markt-Updates</span>',
+  "nl.p":"Aktuelle Marktpreise, Regulierungsänderungen und Praxistipps zum Thema Onsite-PPA — direkt in Ihr Postfach.",
+  "nl.btn":"Anmelden →",
+  "lm.sey":"Kostenloses Whitepaper",
+  "lm.h2":'Der PPA-Leitfaden für <span class="tg">Entscheider</span>',
+  "lm.btn":"Jetzt kostenlos downloaden →",
+  "per.sey":"Ihr direkter Kontakt",
+  "per.h2":'Sie sprechen mit <span class="tg">echten Experten</span>',
+  "per.lead":"Kein Callcenter. Kein Bot. Schreiben oder rufen Sie uns direkt an — wir melden uns persönlich, innerhalb von 24 Stunden.",
+  "faq.title":"Häufige Fragen",
+  "kon.sey":"Kontakt & Anfrage",
+  "kon.h2":'Starten Sie jetzt Ihren<br><span class="tg">kostenlosen Check</span>',
+  "kon.lead":"Unser Ingenieurteam analysiert Ihre Situation und erstellt innerhalb von 5 Werktagen ein indikatives Angebot — völlig kostenlos und ohne Verpflichtung.",
+  "kon.p_vname":"Vorname *","kon.p_nname":"Nachname *",
+  "kon.p_email":"E-Mail *","kon.p_tel":"Telefon",
+  "kon.p_firma":"Unternehmen *","kon.p_verb":"Jahresstromverbrauch (kWh)",
+  "kon.p_dach":"Dachfläche (m²)","kon.p_msg":"Nachricht / offene Fragen (optional)",
+  "kon.btn":"Kostenlose Analyse anfordern ☀",
+  "ft.services":"Leistungen","ft.knowledge":"Wissen","ft.company":"Unternehmen",
+  "ft.imprint":"Impressum","ft.privacy":"Datenschutz"
+},
+en: {
+  "nav.how":"How It Works","nav.benefits":"Benefits","nav.calc":"Calculator",
+  "nav.esg":"ESG","nav.faq":"FAQ","nav.blog":"Blog",
+  "nav.cta":"Free Quote →",
+  "cookie.accept":"Accept all","cookie.reject":"Necessary only",
+  "exit.badge":"⚡ Free Initial Analysis",
+  "exit.title":"Waiting costs you real money.",
+  "exit.btn":"Send now →",
+  "exit.note":"No spam. One-time contact. GDPR-compliant.",
+  "mob.cta":"☀ Get free quote now",
+  "hero.eyebrow":"Power Purchase Agreement — Onsite Solar",
+  "hero.h1":'Your Solar Plant.<br><span class="g">Zero Investment.</span><br><span class="y">Significantly Cheaper.</span>',
+  "ticker.grid":"Grid power 2025:","ticker.ppa":"Your PPA price:",
+  "hero.sub":'We finance, build and operate your PV system — <strong>entirely at our expense</strong>. No grid fees, no electricity tax, no investment risk.',
+  "hero.btn_main":"☀ Calculate Savings","hero.btn_ghost":"How it works →",
+  "trust.1":"€0 Investment","trust.2":"No Grid Fees",
+  "trust.3":"Full-Service","trust.4":"Up to 20 Yrs Fixed",
+  "qc.label":"⚡ Quick Check — Am I eligible?",
+  "qc.p_verb":"Annual electricity (kWh)","qc.p_dach":"Roof area (m²)",
+  "qc.p_email":"Your email address","qc.p_firma":"Company",
+  "qc.btn":"Check instantly — free & non-binding →",
+  "qc.note":"No data sharing · Reply within 24 hrs · GDPR-compliant",
+  "stat.sav_label":"Savings Example","stat.sav_sub":"500 MWh/year",
+  "stat.mkt_label":"PPA Market DE","stat.mkt_sub":"Volume 2024",
+  "stat.ttp_sub":"Contract to power",
+  "urg.cta":"Calculate savings now →",
+  "kz.1":"Your investment —<br>we cover everything",
+  "kz.2":"Max. cost reduction incl.<br>grid fees (location-dependent)",
+  "kz.3":"Maximum<br>PPA term",
+  "kz.4":"PPA volume<br>Germany 2024",
+  "kz.5":"Germany: 2nd largest<br>PPA market in Europe",
+  "how.sey":"How It Works",
+  "how.h2":'From first call to<br><span class="tg">running green power</span>',
+  "how.lead":"In four steps we get your own electricity running — entirely at our expense. You don't have to worry about a thing.",
+  "step.1":'<div class="step-n">STEP 01</div><h3>Analysis & Offer</h3><p>We analyse consumption, roof and load profile. Within 5 working days you receive a concrete offer with PPA price.</p>',
+  "step.2":'<div class="step-n">STEP 02</div><h3>PPA Contract & Planning</h3><p>Fixed-price contract for up to 20 years. We handle permits, grid registration and detailed planning entirely.</p>',
+  "step.3":'<div class="step-n">STEP 03</div><h3>Installation & Commissioning</h3><p>Certified installation team installs in 1–3 weeks. Metering, monitoring setup and commissioning report included.</p>',
+  "step.4":'<div class="step-n">STEP 04</div><h3>Save & Grow</h3><p>You only pay for consumed kWh — no grid fees, no electricity tax. Maintenance, monitoring and insurance: us.</p>',
+  "ben.sey":"Your Benefits",
+  "ben.h2":'Why PPA Onsite <span class="tg">is unbeatable</span>',
+  "blog.sey":"Blog & Insights",
+  "blog.h2":'PPA knowledge for <span class="tg">decision-makers</span>',
+  "nl.h2":'PPA Insights &<br><span class="tg">Market Updates</span>',
+  "nl.p":"Current market prices, regulatory changes and practical tips on Onsite-PPA — straight to your inbox.",
+  "nl.btn":"Subscribe →",
+  "lm.sey":"Free Whitepaper",
+  "lm.h2":'The PPA Guide for <span class="tg">Decision-Makers</span>',
+  "lm.btn":"Download free now →",
+  "per.sey":"Your Direct Contact",
+  "per.h2":'You speak with <span class="tg">real experts</span>',
+  "per.lead":"No call centre. No bot. Write or call us directly — we respond personally within 24 hours.",
+  "faq.title":"Frequently Asked Questions",
+  "kon.sey":"Contact & Enquiry",
+  "kon.h2":'Start your<br><span class="tg">free check now</span>',
+  "kon.lead":"Our engineering team analyses your situation and provides an indicative offer within 5 working days — completely free and without obligation.",
+  "kon.p_vname":"First name *","kon.p_nname":"Last name *",
+  "kon.p_email":"Email *","kon.p_tel":"Phone",
+  "kon.p_firma":"Company *","kon.p_verb":"Annual consumption (kWh)",
+  "kon.p_dach":"Roof area (m²)","kon.p_msg":"Message / open questions (optional)",
+  "kon.btn":"Request free analysis ☀",
+  "ft.services":"Services","ft.knowledge":"Knowledge","ft.company":"Company",
+  "ft.imprint":"Legal notice","ft.privacy":"Privacy policy"
+},
+tr: {
+  "nav.how":"Nasıl Çalışır","nav.benefits":"Avantajlar","nav.calc":"Hesap Makinesi",
+  "nav.esg":"ESG","nav.faq":"SSS","nav.blog":"Blog",
+  "nav.cta":"Ücretsiz Teklif →",
+  "cookie.accept":"Tümünü kabul et","cookie.reject":"Yalnızca gerekli",
+  "exit.badge":"⚡ Ücretsiz Ön Analiz",
+  "exit.title":"Beklemek size para kaybettirir.",
+  "exit.btn":"Şimdi gönder →",
+  "exit.note":"Spam yok. Tek seferlik iletişim. GDPR uyumlu.",
+  "mob.cta":"☀ Ücretsiz teklif al",
+  "hero.eyebrow":"Güç Satın Alma Anlaşması — Çatı Güneş Enerjisi",
+  "hero.h1":'Güneş Santraliniz.<br><span class="g">Sıfır Yatırım.</span><br><span class="y">Belirgin Tasarruf.</span>',
+  "ticker.grid":"Şebeke fiyatı 2025:","ticker.ppa":"PPA fiyatınız:",
+  "hero.sub":'PV sisteminizi tamamen <strong>kendi maliyetimizle</strong> finanse eder, inşa eder ve işletiriz. Şebeke ücreti yok, elektrik vergisi yok, yatırım riski yok.',
+  "hero.btn_main":"☀ Tasarrufu Hesapla","hero.btn_ghost":"Nasıl çalışır →",
+  "trust.1":"0 € Yatırım","trust.2":"Şebeke Ücreti Yok",
+  "trust.3":"Tam Hizmet","trust.4":"20 Yıla Kadar Sabit",
+  "qc.label":"⚡ Hızlı Kontrol — Uygun muyum?",
+  "qc.p_verb":"Yıllık elektrik tüketimi (kWh)","qc.p_dach":"Çatı alanı (m²)",
+  "qc.p_email":"E-posta adresiniz","qc.p_firma":"Şirket",
+  "qc.btn":"Hemen kontrol et — ücretsiz ve bağlayıcı değil →",
+  "qc.note":"Veri paylaşımı yok · 24 saat içinde yanıt · GDPR uyumlu",
+  "stat.sav_label":"Tasarruf Örneği","stat.sav_sub":"500 MWs/yıl",
+  "stat.mkt_label":"PPA Pazarı DE","stat.mkt_sub":"Hacim 2024",
+  "stat.ttp_sub":"Sözleşmeden akıma",
+  "urg.cta":"Tasarrufu şimdi hesapla →",
+  "kz.1":"Sizin yatırımınız —<br>her şeyi biz karşılıyoruz",
+  "kz.2":"Şebeke ücretleri dahil<br>maks. maliyet düşüşü",
+  "kz.3":"Maksimum<br>PPA süresi",
+  "kz.4":"PPA hacmi<br>Almanya 2024",
+  "kz.5":"Almanya: Avrupa'nın<br>2. büyük PPA pazarı",
+  "how.sey":"Nasıl Çalışır",
+  "how.h2":'İlk görüşmeden<br><span class="tg">yeşil elektriğe</span>',
+  "how.lead":"Dört adımda kendi elektriğinizi devreye alıyoruz — tamamen bizim maliyetimizle. Siz hiçbir şeyle uğraşmak zorunda değilsiniz.",
+  "step.1":'<div class="step-n">ADIM 01</div><h3>Analiz & Teklif</h3><p>Tüketimi, çatıyı ve yük profilini analiz ediyoruz. 5 iş günü içinde PPA fiyatını içeren somut bir teklif alıyorsunuz.</p>',
+  "step.2":'<div class="step-n">ADIM 02</div><h3>PPA Sözleşmesi & Planlama</h3><p>20 yıla kadar sabit fiyatlı sözleşme. İzinleri, şebeke kaydını ve detaylı planlamayı tamamen biz üstleniyoruz.</p>',
+  "step.3":'<div class="step-n">ADIM 03</div><h3>Montaj & Devreye Alma</h3><p>Sertifikalı ekibimiz 1–3 haftada kurar. Ölçüm, izleme kurulumu ve devreye alma raporu dahildir.</p>',
+  "step.4":'<div class="step-n">ADIM 04</div><h3>Tasarruf Et & Büyü</h3><p>Yalnızca tüketilen kWh için ödeme yaparsınız — şebeke ücreti yok, elektrik vergisi yok. Bakım, izleme ve sigorta: bizde.</p>',
+  "ben.sey":"Avantajlarınız",
+  "ben.h2":'Neden PPA Onsite <span class="tg">rakipsizdir</span>',
+  "blog.sey":"Blog & İçgörüler",
+  "blog.h2":'Karar vericiler için <span class="tg">PPA bilgisi</span>',
+  "nl.h2":'PPA İçgörüleri &<br><span class="tg">Piyasa Güncellemeleri</span>',
+  "nl.p":"Güncel piyasa fiyatları, mevzuat değişiklikleri ve Onsite-PPA hakkında pratik ipuçları — doğrudan gelen kutunuza.",
+  "nl.btn":"Abone ol →",
+  "lm.sey":"Ücretsiz Teknik Kılavuz",
+  "lm.h2":'Karar vericiler için <span class="tg">PPA Rehberi</span>',
+  "lm.btn":"Şimdi ücretsiz indir →",
+  "per.sey":"Doğrudan İletişim",
+  "per.h2":'<span class="tg">Gerçek uzmanlarla</span> konuşuyorsunuz',
+  "per.lead":"Çağrı merkezi yok. Bot yok. Bize doğrudan yazın veya arayın — 24 saat içinde kişisel olarak yanıt veriyoruz.",
+  "faq.title":"Sık Sorulan Sorular",
+  "kon.sey":"İletişim & Talep",
+  "kon.h2":'<span class="tg">Ücretsiz kontrolünüzü</span><br>şimdi başlatın',
+  "kon.lead":"Mühendis ekibimiz durumunuzu analiz eder ve 5 iş günü içinde tamamen ücretsiz ve bağlayıcı olmayan bir gösterge teklif sunar.",
+  "kon.p_vname":"Ad *","kon.p_nname":"Soyad *",
+  "kon.p_email":"E-posta *","kon.p_tel":"Telefon",
+  "kon.p_firma":"Şirket *","kon.p_verb":"Yıllık tüketim (kWh)",
+  "kon.p_dach":"Çatı alanı (m²)","kon.p_msg":"Mesaj / açık sorular (isteğe bağlı)",
+  "kon.btn":"Ücretsiz analiz talep et ☀",
+  "ft.services":"Hizmetler","ft.knowledge":"Bilgi","ft.company":"Şirket",
+  "ft.imprint":"Künye","ft.privacy":"Gizlilik politikası"
+}
+};
+
+/* ═══ ENGINE ═══ */
+function setLang(lang) {
+  if (!T[lang]) return;
+  document.documentElement.lang = lang;
+  localStorage.setItem('ppa_lang', lang);
+  ['de','en','tr'].forEach(l => {
+    const b = document.getElementById('lb-' + l);
+    if (b) b.classList.toggle('active', l === lang);
+  });
+  // text content
+  document.querySelectorAll('[data-i18n]').forEach(el => {
+    const k = el.getAttribute('data-i18n');
+    if (T[lang][k] !== undefined) el.textContent = T[lang][k];
+  });
+  // innerHTML
+  document.querySelectorAll('[data-i18n-html]').forEach(el => {
+    const k = el.getAttribute('data-i18n-html');
+    if (T[lang][k] !== undefined) el.innerHTML = T[lang][k];
+  });
+  // placeholders
+  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
+    const k = el.getAttribute('data-i18n-placeholder');
+    if (T[lang][k] !== undefined) el.placeholder = T[lang][k];
+  });
+  // page title
+  if (lang === 'en') document.title = 'PPA Onsite – Solar from your roof. €0 Investment.';
+  else if (lang === 'tr') document.title = 'PPA Onsite – Çatıdan güneş enerjisi. 0 € Yatırım.';
+  else document.title = 'PPA Onsite – Grünstrom vom eigenen Dach. 0 € Investment.';
+}
+
+// init on load
+(function(){
+  const saved = localStorage.getItem('ppa_lang') || 'de';
+  setLang(saved);
+})();
+</script>
+
 </body>
 </html>
