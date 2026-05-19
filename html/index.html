@@ -185,7 +185,7 @@ body{font-family:'Outfit',sans-serif;background:var(--ink);color:#050E1F;overflo
 /* ── NAV ── */
 nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:center;padding:1rem 4.5rem;background:rgba(255,255,255,0.95);backdrop-filter:blur(24px) saturate(180%);border-bottom:1px solid var(--line)}
 .logo{text-decoration:none;display:flex;align-items:center;line-height:1}
-.nav-logo{height:38px;width:auto;filter:brightness(0) invert(1);display:block;transition:opacity .2s}
+.nav-logo{height:38px;width:auto;display:block;transition:opacity .2s}
 .logo:hover .nav-logo{opacity:.8}
 .nav-links{display:flex;gap:2rem;align-items:center}
 .nav-links a{color:rgba(5,14,31,0.65);text-decoration:none;font-size:0.85rem;font-weight:500;transition:color .2s}
@@ -554,7 +554,7 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 .ft{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3.5rem;margin-bottom:2.5rem}
 @media(max-width:900px){footer{padding:2.5rem 2rem 1.5rem}.ft{grid-template-columns:1fr 1fr;gap:2rem}}
 @media(max-width:600px){.ft{grid-template-columns:1fr;gap:1.5rem}}
-.footer-logo{height:44px;width:auto;filter:brightness(0) invert(1);display:block;margin-bottom:.8rem;opacity:.85}
+.footer-logo{height:44px;width:auto;display:block;margin-bottom:.8rem}
 .f-tag{font-size:.82rem;color:rgba(5,14,31,0.4);line-height:1.7;margin-bottom:1.3rem;font-weight:300}
 .f-social{display:flex;gap:.7rem}
 .fsb{width:36px;height:36px;border-radius:9px;background:rgba(27,46,90,0.07);border:1px solid rgba(5,14,31,.08);display:flex;align-items:center;justify-content:center;font-size:.82rem;text-decoration:none;color:rgba(5,14,31,.45);transition:all .3s}
@@ -1269,6 +1269,18 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
   <p class="slead" data-i18n="per.lead">Kein Callcenter. Kein Bot. Schreiben oder rufen Sie uns direkt an — wir melden uns persönlich, innerhalb von 24 Stunden.</p>
   <div class="person-grid" style="grid-template-columns:1fr 1fr">
     <div class="person-card">
+      <div class="person-avatar">🔋</div>
+      <div class="person-info">
+        <h4>Ugur Ögütmen</h4>
+        <div class="person-role">SOMV Project Consulting GmbH · Geschäftsführer</div>
+        <div class="person-quote">„Von der Dachbegehung bis zur ersten erzeugten Kilowattstunde — unser Team begleitet Sie professionell durch jeden Schritt Ihres Solarprojekts."</div>
+        <div class="person-links">
+          <a class="pl" href="mailto:info@somv-project.de"><span class="pl-i">✉️</span>info@somv-project.de</a>
+        </div>
+        <div class="person-avail"><span class="avail-dot"></span>Verfügbar Mo–Fr, 9–17 Uhr</div>
+      </div>
+    </div>
+    <div class="person-card">
       <div class="person-avatar">☀</div>
       <div class="person-info">
         <h4>Michael Volz</h4>
@@ -1279,19 +1291,6 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
           <a class="pl" href="#kontakt" onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'});return false;"><span class="pl-i">📋</span>Anfrage stellen</a>
         </div>
         <div class="person-avail"><span class="avail-dot"></span>Verfügbar Mo–Fr, 8–18 Uhr</div>
-      </div>
-    </div>
-    <div class="person-card">
-      <div class="person-avatar">🔋</div>
-      <div class="person-info">
-        <h4>Ugur Ögütmen</h4>
-        <div class="person-role">SOMV Project Consulting GmbH · Geschäftsführer</div>
-        <div class="person-quote">„Von der Dachbegehung bis zur ersten erzeugten Kilowattstunde — unser Team begleitet Sie professionell durch jeden Schritt Ihres Solarprojekts."</div>
-        <div class="person-links">
-          <a class="pl" href="mailto:kp@somv-project.de"><span class="pl-i">✉️</span>kp@somv-project.de</a>
-          <a class="pl" href="#kontakt" onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'});return false;"><span class="pl-i">📋</span>Technische Anfrage</a>
-        </div>
-        <div class="person-avail"><span class="avail-dot"></span>Verfügbar Mo–Fr, 9–17 Uhr</div>
       </div>
     </div>
   </div>
@@ -1364,9 +1363,9 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
       <h2 data-i18n-html="kon.h2">Starten Sie jetzt Ihren<br><span class="tg">kostenlosen Check</span></h2>
       <p class="slead" data-i18n="kon.lead">Unser Team analysiert Ihr Objekt und erstellt innerhalb von 5 Werktagen ein konkretes Angebot für Ihre Solaranlage — kostenlos und unverbindlich.</p>
       <div class="ki-info">
-        <div class="ki-row"><div class="ki-icon">📞</div><a href="tel:+4999138314070" style="color:inherit;text-decoration:none">+49 991 38314070</a></div>
-        <div class="ki-row"><div class="ki-icon">✉️</div><a href="mailto:info@somv-project.de" style="color:inherit;text-decoration:none">info@somv-project.de</a></div>
-        <div class="ki-row"><div class="ki-icon">📍</div>Bayern · Schleswig-Holstein · Deutschland</div>
+        <div class="ki-row"><div class="ki-icon">📞</div><a href="tel:+4917779526080" style="color:inherit;text-decoration:none">+49 177 7952608</a></div>
+        <div class="ki-row"><div class="ki-icon">✉️</div><a href="mailto:kp@somv-project.de" style="color:inherit;text-decoration:none">kp@somv-project.de</a></div>
+        <div class="ki-row"><div class="ki-icon">📍</div>Deggendorf · Bayern · Deutschland</div>
         <div class="ki-row"><div class="ki-icon">⏱</div>Antwortzeit: &lt; 24 Stunden</div>
         <div class="ki-row"><div class="ki-icon">🔒</div>DSGVO-konform · SSL-verschlüsselt</div>
       </div>
@@ -1419,9 +1418,9 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
   <div class="ft">
     <div>
       <img src="logo.png" alt="SOMV Project Consulting GmbH" class="footer-logo">
-      <div class="f-tag">Solaranlagen von Profis.<br>Planung · Montage · Wartung.<br>Bayern · Schleswig-Holstein · Deutschland.</div>
+      <div class="f-tag">Solaranlagen von Profis.<br>Planung · Montage · Wartung.<br>Deggendorf · Bayern · Deutschland.</div>
       <div class="f-social">
-        <a href="mailto:info@somv-project.de" class="fsb" title="E-Mail">✉</a>
+        <a href="mailto:kp@somv-project.de" class="fsb" title="E-Mail">✉</a>
       </div>
     </div>
     <div class="fc-col">

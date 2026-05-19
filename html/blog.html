@@ -3,122 +3,122 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Blog & Insights — PPA Onsite | Grünspeicher, Grauspeicher, PPA</title>
-<meta name="description" content="Aktuelle Beiträge zu Power Purchase Agreements, Grünspeicher, Grauspeicher und ESG-Regulierung für Gewerbe- und Industriekunden.">
+<title>Blog & Insights — SOMV Project Consulting GmbH</title>
+<meta name="description" content="Aktuelle Beiträge zu Photovoltaik, Solaranlagen, Förderungen und Energiewende für Privat, Gewerbe & Industrie — von SOMV Project Consulting GmbH.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <style>
 :root{
-  --g1:#00E676;--g2:#00C853;--g3:#69F0AE;--g4:#1B5E20;--g5:#004D40;
-  --sun:#FFD600;--red:#FF5252;
-  --ink:#0C1F12;--ink2:#142818;--ink3:#1A3222;
-  --white:#FFFFFF;--line:rgba(0,230,118,0.13);
-  --card:rgba(255,255,255,0.035);
+  --g1:#1B2E5A;--g2:#152449;--g3:#7B9ED9;--g4:#E8EEF8;--g5:#D0DCF0;
+  --red:#CC2936;
+  --ink:#FFFFFF;--ink2:#F0F3FA;--ink3:#E5EAF5;
+  --white:#FFFFFF;--line:rgba(27,46,90,0.13);
+  --card:rgba(27,46,90,0.05);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
-body{font-family:'Outfit',sans-serif;background:var(--ink);color:var(--white);overflow-x:hidden;line-height:1.6}
+body{font-family:'Outfit',sans-serif;background:var(--ink2);color:var(--g1);overflow-x:hidden;line-height:1.6}
 
 /* ── NAV ── */
-nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:center;padding:1rem 4.5rem;background:rgba(3,15,7,0.92);backdrop-filter:blur(24px) saturate(180%);border-bottom:1px solid var(--line)}
+nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content:space-between;align-items:center;padding:1rem 4.5rem;background:rgba(255,255,255,0.95);backdrop-filter:blur(24px) saturate(180%);border-bottom:1px solid var(--line)}
 .logo{text-decoration:none;display:flex;align-items:center;line-height:1}
-.nav-logo{height:38px;width:auto;filter:brightness(0) invert(1);display:block;transition:opacity .2s}
+.nav-logo{height:38px;width:auto;display:block;transition:opacity .2s}
 .logo:hover .nav-logo{opacity:.8}
 .nav-links{display:flex;gap:2rem;align-items:center}
-.nav-links a{color:rgba(255,255,255,0.65);text-decoration:none;font-size:0.85rem;font-weight:500;transition:color .2s}
+.nav-links a{color:rgba(27,46,90,0.6);text-decoration:none;font-size:0.85rem;font-weight:500;transition:color .2s}
 .nav-links a:hover,.nav-links a.active{color:var(--g1)}
-.nav-cta{background:var(--g1)!important;color:var(--ink)!important;padding:.55rem 1.3rem;border-radius:50px;font-weight:700!important;font-size:0.83rem!important;box-shadow:0 4px 20px rgba(0,230,118,0.35)}
+.nav-cta{background:var(--g1)!important;color:#fff!important;padding:.55rem 1.3rem;border-radius:50px;font-weight:700!important;font-size:0.83rem!important;box-shadow:0 4px 20px rgba(27,46,90,0.25)}
 @media(max-width:900px){.nav-links{display:none}nav{padding:1rem 1.5rem}}
 
 /* ── SCROLL PROGRESS ── */
-#prog{position:fixed;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--g1),var(--sun));transform-origin:left;transform:scaleX(0);z-index:600;transition:transform .08s}
+#prog{position:fixed;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--g1),var(--red));transform-origin:left;transform:scaleX(0);z-index:600;transition:transform .08s}
 
 /* ── PAGE HEADER ── */
-.blog-header{padding:7rem 4.5rem 3.5rem;background:var(--ink);border-bottom:1px solid var(--line);position:relative;overflow:hidden}
-.blog-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(0,200,83,0.1) 0%,transparent 65%);pointer-events:none}
+.blog-header{padding:7rem 4.5rem 3.5rem;background:var(--g1);position:relative;overflow:hidden}
+.blog-header::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 80% at 80% 50%,rgba(204,41,54,0.18) 0%,transparent 65%);pointer-events:none}
 .bh-inner{position:relative;z-index:1;max-width:760px}
-.bh-eyebrow{display:inline-flex;align-items:center;gap:.6rem;background:rgba(0,230,118,0.09);border:1px solid rgba(0,230,118,0.22);padding:.4rem .95rem;border-radius:50px;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g1);margin-bottom:1.2rem}
-.bh-dot{width:6px;height:6px;background:var(--g1);border-radius:50%;animation:blink 2s ease-in-out infinite}
+.bh-eyebrow{display:inline-flex;align-items:center;gap:.6rem;background:rgba(255,255,255,0.1);border:1px solid rgba(255,255,255,0.25);padding:.4rem .95rem;border-radius:50px;font-size:.72rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#fff;margin-bottom:1.2rem}
+.bh-dot{width:6px;height:6px;background:var(--red);border-radius:50%;animation:blink 2s ease-in-out infinite}
 @keyframes blink{0%,100%{opacity:1}50%{opacity:.4}}
-.blog-header h1{font-size:clamp(2rem,4vw,3rem);font-weight:900;letter-spacing:-.04em;line-height:1.08;margin-bottom:.8rem}
-.blog-header h1 span{color:var(--g1)}
-.blog-header p{font-size:.95rem;color:rgba(255,255,255,.55);font-weight:300;line-height:1.7;max-width:540px}
+.blog-header h1{font-size:clamp(2rem,4vw,3rem);font-weight:900;letter-spacing:-.04em;line-height:1.08;margin-bottom:.8rem;color:#fff}
+.blog-header h1 span{color:var(--red)}
+.blog-header p{font-size:.95rem;color:rgba(255,255,255,.65);font-weight:300;line-height:1.7;max-width:540px}
 @media(max-width:768px){.blog-header{padding:5.5rem 1.5rem 2.5rem}}
 
 /* ── CONTROLS ── */
-.blog-controls{padding:1.8rem 4.5rem;background:var(--ink2);border-bottom:1px solid var(--line);display:flex;gap:1rem;align-items:center;flex-wrap:wrap;position:sticky;top:66px;z-index:400}
+.blog-controls{padding:1.8rem 4.5rem;background:var(--white);border-bottom:1px solid var(--line);display:flex;gap:1rem;align-items:center;flex-wrap:wrap;position:sticky;top:66px;z-index:400}
 .search-wrap{flex:1;min-width:200px;max-width:340px;position:relative}
-.search-wrap input{width:100%;padding:.65rem 1rem .65rem 2.4rem;background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:50px;color:#fff;font-family:'Outfit',sans-serif;font-size:.84rem;outline:none;transition:border .2s}
+.search-wrap input{width:100%;padding:.65rem 1rem .65rem 2.4rem;background:var(--g4);border:1px solid var(--line);border-radius:50px;color:var(--g1);font-family:'Outfit',sans-serif;font-size:.84rem;outline:none;transition:border .2s}
 .search-wrap input:focus{border-color:var(--g1)}
-.search-wrap input::placeholder{color:rgba(255,255,255,.3)}
+.search-wrap input::placeholder{color:rgba(27,46,90,.35)}
 .search-icon{position:absolute;left:.85rem;top:50%;transform:translateY(-50%);font-size:.85rem;opacity:.4;pointer-events:none}
 .cat-filters{display:flex;gap:.5rem;flex-wrap:wrap}
-.cf-btn{padding:.42rem 1rem;border-radius:50px;border:1px solid rgba(255,255,255,.12);background:transparent;color:rgba(255,255,255,.5);font-family:'Outfit',sans-serif;font-size:.75rem;font-weight:600;cursor:pointer;transition:all .25s;white-space:nowrap}
-.cf-btn:hover{border-color:rgba(0,230,118,0.35);color:rgba(255,255,255,.8)}
-.cf-btn.active{background:rgba(0,230,118,0.12);border-color:var(--g1);color:var(--g1)}
-.blog-count{font-size:.75rem;color:rgba(255,255,255,.28);margin-left:auto;white-space:nowrap}
+.cf-btn{padding:.42rem 1rem;border-radius:50px;border:1px solid var(--line);background:transparent;color:rgba(27,46,90,.5);font-family:'Outfit',sans-serif;font-size:.75rem;font-weight:600;cursor:pointer;transition:all .25s;white-space:nowrap}
+.cf-btn:hover{border-color:rgba(27,46,90,0.35);color:var(--g1)}
+.cf-btn.active{background:var(--g1);border-color:var(--g1);color:#fff}
+.blog-count{font-size:.75rem;color:rgba(27,46,90,.35);margin-left:auto;white-space:nowrap}
 @media(max-width:768px){.blog-controls{padding:1.2rem 1.5rem;top:58px}.search-wrap{max-width:100%;width:100%}.blog-count{width:100%;text-align:right}}
 
 /* ── POST GRID ── */
-.blog-main{padding:3rem 4.5rem 5rem;background:var(--ink)}
+.blog-main{padding:3rem 4.5rem 5rem;background:var(--ink2)}
 .post-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.4rem}
 @media(max-width:1100px){.post-grid{grid-template-columns:repeat(2,1fr)}}
 @media(max-width:600px){.post-grid{grid-template-columns:1fr}}
 @media(max-width:768px){.blog-main{padding:2rem 1.5rem 3rem}}
 
-.post-card{background:rgba(255,255,255,.03);border:1px solid rgba(255,255,255,.06);border-radius:18px;padding:1.8rem;cursor:pointer;transition:all .35s;display:flex;flex-direction:column}
-.post-card:hover{border-color:rgba(0,230,118,0.22);transform:translateY(-4px);box-shadow:0 18px 55px rgba(0,0,0,.3)}
-.pc-cat{font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g1);margin-bottom:.55rem}
-.pc-title{font-size:.98rem;font-weight:700;line-height:1.35;margin-bottom:.6rem;letter-spacing:-.01em}
-.pc-summary{font-size:.8rem;color:rgba(255,255,255,.45);line-height:1.7;flex:1;margin-bottom:.9rem}
-.pc-meta{font-size:.68rem;color:rgba(255,255,255,.22);display:flex;gap:.7rem}
+.post-card{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:1.8rem;cursor:pointer;transition:all .35s;display:flex;flex-direction:column}
+.post-card:hover{border-color:rgba(27,46,90,0.3);transform:translateY(-4px);box-shadow:0 18px 55px rgba(27,46,90,.12)}
+.pc-cat{font-size:.6rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--red);margin-bottom:.55rem}
+.pc-title{font-size:.98rem;font-weight:700;line-height:1.35;margin-bottom:.6rem;letter-spacing:-.01em;color:var(--g1)}
+.pc-summary{font-size:.8rem;color:rgba(27,46,90,.55);line-height:1.7;flex:1;margin-bottom:.9rem}
+.pc-meta{font-size:.68rem;color:rgba(27,46,90,.3);display:flex;gap:.7rem}
 .pc-read{font-size:.72rem;font-weight:700;color:var(--g1);margin-top:.9rem;display:flex;align-items:center;gap:.3rem}
 
-.no-results{grid-column:1/-1;text-align:center;padding:4rem 2rem;color:rgba(255,255,255,.25);font-size:.9rem}
+.no-results{grid-column:1/-1;text-align:center;padding:4rem 2rem;color:rgba(27,46,90,.3);font-size:.9rem}
 
 /* ── LOAD MORE ── */
 .load-more-wrap{text-align:center;margin-top:2.5rem}
-.load-more-btn{padding:.8rem 2.2rem;background:transparent;border:1.5px solid rgba(0,230,118,0.28);color:var(--g1);border-radius:50px;font-family:'Outfit',sans-serif;font-size:.88rem;font-weight:700;cursor:pointer;transition:all .3s}
-.load-more-btn:hover{background:rgba(0,230,118,0.08)}
+.load-more-btn{padding:.8rem 2.2rem;background:transparent;border:1.5px solid rgba(27,46,90,0.28);color:var(--g1);border-radius:50px;font-family:'Outfit',sans-serif;font-size:.88rem;font-weight:700;cursor:pointer;transition:all .3s}
+.load-more-btn:hover{background:var(--g4)}
 
 /* ── POST MODAL ── */
-.legal-modal{display:none;position:fixed;inset:0;z-index:960;background:rgba(0,0,0,0.88);backdrop-filter:blur(10px);align-items:flex-start;justify-content:center;overflow-y:auto;padding:2rem 1rem}
+.legal-modal{display:none;position:fixed;inset:0;z-index:960;background:rgba(0,0,0,0.6);backdrop-filter:blur(10px);align-items:flex-start;justify-content:center;overflow-y:auto;padding:2rem 1rem}
 .legal-modal.show{display:flex}
-.lm-wrap{background:var(--ink3);border:1px solid rgba(0,230,118,0.15);border-radius:20px;padding:2.5rem 2.5rem 3rem;max-width:760px;width:100%;margin:auto;position:relative;box-shadow:0 40px 100px rgba(0,0,0,.7)}
-.lm-close{position:absolute;top:1.1rem;right:1.4rem;background:transparent;border:none;color:rgba(255,255,255,.35);font-size:1.5rem;cursor:pointer;line-height:1;padding:.2rem;transition:color .2s}
-.lm-close:hover{color:#fff}
-.post-category{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g1);margin-bottom:.7rem}
-.post-meta{font-size:.74rem;color:rgba(255,255,255,.28);margin-bottom:2rem;display:flex;gap:.8rem}
-.post-body{font-size:.88rem;color:rgba(255,255,255,.65);line-height:1.9}
-.post-body h3{font-size:1.05rem;font-weight:700;color:#fff;margin:1.8rem 0 .6rem;letter-spacing:-.01em}
+.lm-wrap{background:var(--white);border:1px solid var(--line);border-radius:20px;padding:2.5rem 2.5rem 3rem;max-width:760px;width:100%;margin:auto;position:relative;box-shadow:0 40px 100px rgba(27,46,90,.15)}
+.lm-close{position:absolute;top:1.1rem;right:1.4rem;background:transparent;border:none;color:rgba(27,46,90,.35);font-size:1.5rem;cursor:pointer;line-height:1;padding:.2rem;transition:color .2s}
+.lm-close:hover{color:var(--g1)}
+.post-category{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--red);margin-bottom:.7rem}
+.post-meta{font-size:.74rem;color:rgba(27,46,90,.3);margin-bottom:2rem;display:flex;gap:.8rem}
+.post-body{font-size:.88rem;color:rgba(27,46,90,.7);line-height:1.9}
+.post-body h3{font-size:1.05rem;font-weight:700;color:var(--g1);margin:1.8rem 0 .6rem;letter-spacing:-.01em}
 .post-body p{margin-bottom:1.1rem}
-.post-body strong{color:rgba(255,255,255,.88)}
+.post-body strong{color:var(--g1)}
 
 /* ── FOOTER ── */
-footer{background:var(--ink2);border-top:1px solid var(--line);padding:2.5rem 4.5rem 2rem}
+footer{background:var(--g1);color:rgba(255,255,255,.6);border-top:1px solid rgba(255,255,255,.08);padding:2.5rem 4.5rem 2rem}
 .ft{display:grid;grid-template-columns:2fr 1fr 1fr 1fr;gap:3rem;margin-bottom:2rem}
 @media(max-width:900px){footer{padding:2rem 2rem 1.5rem}.ft{grid-template-columns:1fr 1fr;gap:2rem}}
 @media(max-width:600px){.ft{grid-template-columns:1fr;gap:1.5rem}}
-.footer-logo{height:40px;width:auto;filter:brightness(0) invert(1);display:block;margin-bottom:.8rem;opacity:.85}
-.f-tag{font-size:.8rem;color:rgba(255,255,255,.3);line-height:1.7;font-weight:300}
+.footer-logo{height:44px;width:auto;display:block;margin-bottom:.8rem;filter:brightness(0) invert(1)}
+.f-tag{font-size:.8rem;color:rgba(255,255,255,.4);line-height:1.7;font-weight:300}
 .fc-col h5{font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,255,255,.3);margin-bottom:1rem}
 .fc-col a{display:block;font-size:.82rem;color:rgba(255,255,255,.45);text-decoration:none;margin-bottom:.55rem;font-weight:300;transition:color .2s}
-.fc-col a:hover{color:var(--g1)}
-.fb{display:flex;justify-content:space-between;align-items:center;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.05);font-size:.73rem;color:rgba(255,255,255,.22);flex-wrap:wrap;gap:.8rem}
-.fb a{color:rgba(255,255,255,.22);text-decoration:none}
-.fb a:hover{color:var(--g1)}
+.fc-col a:hover{color:#fff}
+.fb{display:flex;justify-content:space-between;align-items:center;padding-top:1.5rem;border-top:1px solid rgba(255,255,255,.08);font-size:.73rem;color:rgba(255,255,255,.25);flex-wrap:wrap;gap:.8rem}
+.fb a{color:rgba(255,255,255,.25);text-decoration:none}
+.fb a:hover{color:#fff}
 .fb-links{display:flex;gap:1.2rem}
 
 /* ── LEGAL MODALS ── */
 #modal-impressum .lm-wrap,#modal-datenschutz .lm-wrap{max-width:720px}
-.lm-wrap h2{font-size:1.5rem;font-weight:900;letter-spacing:-.03em;margin-bottom:1.5rem;padding-right:2rem}
+.lm-wrap h2{font-size:1.5rem;font-weight:900;letter-spacing:-.03em;margin-bottom:1.5rem;padding-right:2rem;color:var(--g1)}
 .lm-wrap h3{font-size:.95rem;font-weight:700;margin:1.5rem 0 .45rem;color:var(--g1)}
-.lm-wrap p,.lm-wrap li{font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.8;font-weight:300}
+.lm-wrap p,.lm-wrap li{font-size:.85rem;color:rgba(27,46,90,.65);line-height:1.8;font-weight:300}
 .lm-wrap ul{padding-left:1.2rem;margin:.4rem 0 .8rem}
 .lm-wrap li{margin-bottom:.3rem}
 .lm-wrap a{color:var(--g1);text-decoration:none}
-.lm-stamp{font-size:.7rem;color:rgba(255,255,255,.2);margin-top:2rem;padding-top:1rem;border-top:1px solid rgba(255,255,255,.05)}
+.lm-stamp{font-size:.7rem;color:rgba(27,46,90,.25);margin-top:2rem;padding-top:1rem;border-top:1px solid var(--line)}
 </style>
 </head>
 <body>
@@ -126,12 +126,11 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:2.5rem 4.
 <div id="prog"></div>
 
 <nav>
-  <a href="index.html" class="logo"><img src="logo.png" alt="Pilsner Vertriebs GmbH" class="nav-logo"></a>
+  <a href="index.html" class="logo"><img src="logo.png" alt="SOMV Project Consulting GmbH" class="nav-logo"></a>
   <div class="nav-links">
-    <a href="index.html#funktioniert">So geht's</a>
     <a href="index.html#vorteile">Vorteile</a>
+    <a href="index.html#leistungen">Leistungen</a>
     <a href="index.html#rechner">Rechner</a>
-    <a href="index.html#esg">ESG</a>
     <a href="index.html#faq">FAQ</a>
     <a href="blog.html" class="active">Blog</a>
     <a href="index.html#kontakt" class="nav-cta">Kostenlos anfragen →</a>
@@ -142,8 +141,8 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:2.5rem 4.
 <div class="blog-header">
   <div class="bh-inner">
     <div class="bh-eyebrow"><span class="bh-dot"></span>Blog & Insights</div>
-    <h1>PPA-Wissen für<br><span>Entscheider</span></h1>
-    <p>Täglich neue Beiträge zu Power Purchase Agreements, Grünspeicher, Grauspeicher und ESG-Regulierung — kompakt und praxisnah für Gewerbe- und Industriekunden.</p>
+    <h1>Solar-Wissen für<br><span>Entscheider</span></h1>
+    <p>Aktuelle Beiträge zu Photovoltaik, Förderungen, Energiewende und Wirtschaftlichkeit — praxisnah für Privat, Gewerbe & Industrie.</p>
   </div>
 </div>
 
@@ -183,20 +182,18 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:2.5rem 4.
     <button class="lm-close" onclick="closeModal('impressum')">×</button>
     <h2>Impressum</h2>
     <h3>Angaben gemäß § 5 TMG</h3>
-    <p>Pilsner Vertriebs GmbH<br>Detterstraße 38<br>94469 Deggendorf<br>Deutschland</p>
+    <p>SOMV Project Consulting GmbH<br>Bossee 3<br>24259 Westensee<br>Deutschland</p>
+    <h3>Niederlassung</h3>
+    <p>Land-Au 8<br>94469 Deggendorf<br>Deutschland</p>
     <h3>Handelsregister</h3>
-    <p>Registergericht: Amtsgericht Deggendorf<br>Handelsregisternummer: HRB 6296</p>
+    <p>Registergericht: Amtsgericht Kiel<br>Handelsregisternummer: HRB 18295</p>
     <h3>Vertreten durch</h3>
-    <p>Geschäftsführerin: Doris Pilsner-Albrecht</p>
+    <p>Geschäftsführer: Michael Volz &amp; Ugur Ögütmen</p>
     <h3>Kontakt</h3>
-    <p>E-Mail: <a href="mailto:info@pilsner-vertrieb.de">info@pilsner-vertrieb.de</a><br>Web: <a href="https://www.pilsner-vertrieb.de" target="_blank" rel="noopener">www.pilsner-vertrieb.de</a></p>
-    <h3>Umsatzsteuer-ID</h3>
-    <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: DE456481286</p>
-    <h3>Inhaltlich verantwortlich gemäß § 55 Abs. 2 MStV</h3>
-    <p>Doris Pilsner-Albrecht, Anschrift wie oben</p>
+    <p>Telefon: <a href="tel:+4917779526080">+49 177 7952608</a><br>E-Mail: <a href="mailto:kp@somv-project.de">kp@somv-project.de</a><br>Web: <a href="https://www.somv-project.de" target="_blank" rel="noopener">www.somv-project.de</a></p>
     <h3>EU-Streitschlichtung</h3>
     <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. Wir nehmen an Streitbeilegungsverfahren nicht teil.</p>
-    <div class="lm-stamp">Stand: Mai 2026 · ppa-onsite.de — betrieben von Pilsner Vertriebs GmbH</div>
+    <div class="lm-stamp">Stand: Mai 2026 · somv-project.de — betrieben von SOMV Project Consulting GmbH</div>
   </div>
 </div>
 
@@ -206,20 +203,20 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:2.5rem 4.
     <button class="lm-close" onclick="closeModal('datenschutz')">×</button>
     <h2>Datenschutzerklärung</h2>
     <h3>1. Verantwortlicher</h3>
-    <p>Pilsner Vertriebs GmbH<br>Detterstraße 38, 94469 Deggendorf<br>E-Mail: <a href="mailto:info@pilsner-vertrieb.de">info@pilsner-vertrieb.de</a></p>
+    <p>SOMV Project Consulting GmbH<br>Bossee 3, 24259 Westensee<br>E-Mail: <a href="mailto:kp@somv-project.de">kp@somv-project.de</a></p>
     <h3>2. Erhobene Daten</h3>
     <p>Wir erheben personenbezogene Daten nur, wenn Sie uns diese freiwillig mitteilen (Kontaktformulare, Newsletter). Rechtsgrundlage: Art. 6 Abs. 1 lit. b und lit. a DSGVO.</p>
     <h3>3. Web3Forms</h3>
     <p>Formulardaten werden über Web3Forms (web3forms.com) als Auftragsverarbeiter gemäß Art. 28 DSGVO übermittelt. Ein AVV ist abgeschlossen. Details: <a href="https://web3forms.com/privacy" target="_blank" rel="noopener">web3forms.com/privacy</a>.</p>
     <h3>4. Cookies</h3>
-    <p>Ausschließlich technisch notwendige Cookies (Cookie-Consent). Kein Tracking, keine Analyse-Tools.</p>
+    <p>Ausschließlich technisch notwendige Cookies. Kein Tracking, keine Analyse-Tools.</p>
     <h3>5. Server-Logfiles</h3>
     <p>Technische Verbindungsdaten (IP, Datum, aufgerufene Seiten) werden max. 14 Tage gespeichert. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO.</p>
     <h3>6. Ihre Rechte</h3>
-    <p>Auskunft · Berichtigung · Löschung · Einschränkung · Datenübertragbarkeit · Widerspruch (Art. 15–21 DSGVO). Kontakt: <a href="mailto:info@pilsner-vertrieb.de">info@pilsner-vertrieb.de</a></p>
+    <p>Auskunft · Berichtigung · Löschung · Einschränkung · Datenübertragbarkeit · Widerspruch (Art. 15–21 DSGVO). Kontakt: <a href="mailto:kp@somv-project.de">kp@somv-project.de</a></p>
     <h3>7. Beschwerderecht</h3>
     <p>Bayerisches Landesamt für Datenschutzaufsicht (BayLDA), Promenade 18, 91522 Ansbach, <a href="https://www.lda.bayern.de" target="_blank" rel="noopener">www.lda.bayern.de</a></p>
-    <div class="lm-stamp">Stand: Mai 2026 · Diese Datenschutzerklärung gilt für ppa-onsite.de, betrieben von Pilsner Vertriebs GmbH.</div>
+    <div class="lm-stamp">Stand: Mai 2026 · Diese Datenschutzerklärung gilt für somv-project.de</div>
   </div>
 </div>
 
@@ -227,31 +224,31 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:2.5rem 4.
 <footer>
   <div class="ft">
     <div>
-      <img src="logo.png" alt="Pilsner Vertriebs GmbH" class="footer-logo">
-      <div class="f-tag">Grünstrom vom eigenen Dach.<br>Kein Investment. Typisch 25–40 % günstiger.<br>Deutschland · Österreich · Schweiz.</div>
+      <img src="logo.png" alt="SOMV Project Consulting GmbH" class="footer-logo">
+      <div class="f-tag">Solaranlagen von Profis.<br>Planung · Montage · Wartung.<br>Deggendorf · Bayern · Deutschland.</div>
     </div>
     <div class="fc-col">
       <h5>Leistungen</h5>
-      <a href="index.html#vorteile">Onsite-PPA</a>
-      <a href="index.html#zielgruppen">Agri-PV PPA</a>
-      <a href="index.html#rechner">Batterie-PPA</a>
-      <a href="index.html#kontakt">PPA-Beratung</a>
+      <a href="index.html#vorteile">PV-Anlagen Privat</a>
+      <a href="index.html#vorteile">PV-Anlagen Gewerbe</a>
+      <a href="index.html#leistungen">Speichersysteme</a>
+      <a href="index.html#kontakt">Beratung</a>
     </div>
     <div class="fc-col">
       <h5>Wissen</h5>
-      <a href="index.html#funktioniert">Was ist ein PPA?</a>
-      <a href="index.html#vorteile">Netzentgelte &amp; Steuern</a>
-      <a href="index.html#esg">ESG &amp; CSRD</a>
+      <a href="index.html#vorteile">Förderungen</a>
       <a href="index.html#faq">FAQ</a>
       <a href="blog.html">Blog</a>
     </div>
     <div class="fc-col">
       <h5>Unternehmen</h5>
       <a href="index.html#kontakt">Kontakt</a>
+      <a href="mailto:kp@somv-project.de">kp@somv-project.de</a>
+      <a href="tel:+4917779526080">+49 177 7952608</a>
     </div>
   </div>
   <div class="fb">
-    <span>© 2026 PPA-Onsite.de — Alle Rechte vorbehalten · Pilsner Vertriebs GmbH</span>
+    <span>© 2026 SOMV-Project.de — Alle Rechte vorbehalten · SOMV Project Consulting GmbH</span>
     <div class="fb-links">
       <a href="#" onclick="openModal('impressum');return false;">Impressum</a>
       <a href="#" onclick="openModal('datenschutz');return false;">Datenschutz</a>
@@ -260,24 +257,19 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:2.5rem 4.
 </footer>
 
 <script>
-// ── SCROLL PROGRESS ──
 window.addEventListener('scroll',()=>{
   const pct=window.scrollY/(document.documentElement.scrollHeight-window.innerHeight);
   document.getElementById('prog').style.transform=`scaleX(${pct})`;
 });
 
-// ── MODALS ──
 function openModal(id){const m=document.getElementById('modal-'+id);if(m){m.classList.add('show');document.body.style.overflow='hidden';}}
 function closeModal(id){const m=document.getElementById('modal-'+id);if(m){m.classList.remove('show');document.body.style.overflow='';}}
 document.addEventListener('keydown',e=>{if(e.key==='Escape'){['post','impressum','datenschutz'].forEach(closeModal);}});
 
-// ── BLOG ──
 let allPosts = [];
 let filtered = [];
 let shown = 12;
 let activeCategory = '';
-
-const CATEGORIES = ['PPA Grundlagen','Grünspeicher','Grauspeicher','Marktentwicklung','ESG & Regulierung','Wirtschaftlichkeit','Technologie'];
 
 function mdToHtml(text) {
   return text.split('\n\n').map(p => {
@@ -289,7 +281,6 @@ function mdToHtml(text) {
 function buildCategoryFilters(posts) {
   const cats = [...new Set(posts.map(p => p.category))].filter(Boolean);
   const wrap = document.getElementById('cat-filters');
-  // keep "Alle" button, add others
   cats.forEach(cat => {
     const btn = document.createElement('button');
     btn.className = 'cf-btn';
@@ -337,7 +328,7 @@ function renderGrid() {
     return;
   }
 
-  grid.innerHTML = slice.map((p, i) => `
+  grid.innerHTML = slice.map(p => `
     <div class="post-card" onclick="openPost(${allPosts.indexOf(p)})">
       <div class="pc-cat">${p.category}</div>
       <div class="pc-title">${p.title}</div>
@@ -355,7 +346,6 @@ function renderGrid() {
 function loadMore() {
   shown += 12;
   applyFilters();
-  // smooth scroll to newly visible cards
   setTimeout(() => window.scrollBy({top: 400, behavior: 'smooth'}), 50);
 }
 
@@ -364,7 +354,7 @@ function openPost(idx) {
   if (!p) return;
   document.getElementById('post-content').innerHTML = `
     <div class="post-category">${p.category}</div>
-    <h2 style="font-size:1.55rem;font-weight:900;letter-spacing:-.03em;margin-bottom:.5rem;line-height:1.15">${p.title}</h2>
+    <h2 style="font-size:1.55rem;font-weight:900;letter-spacing:-.03em;margin-bottom:.5rem;line-height:1.15;color:var(--g1)">${p.title}</h2>
     <div class="post-meta">
       <span>${new Date(p.date).toLocaleDateString('de-DE',{day:'numeric',month:'long',year:'numeric'})}</span>
       <span>· ${p.readTime} Lesezeit</span>
