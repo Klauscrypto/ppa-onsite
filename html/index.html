@@ -681,7 +681,7 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 
 <!-- COOKIE -->
 <div id="cookie">
-  <p>Wir verwenden technisch notwendige Cookies. Mehr Infos in unserer <a href="#" onclick="openModal('datenschutz');return false;">Datenschutzerklärung</a>.</p>
+  <p data-i18n-html="cookie.text">Wir verwenden technisch notwendige Cookies. Mehr Infos in unserer <a href="#" onclick="openModal('datenschutz');return false;">Datenschutzerklärung</a>.</p>
   <div class="cookie-btns">
     <button id="cookie-btn" data-i18n="cookie.accept" onclick="document.getElementById('cookie').style.display='none'">Alle akzeptieren</button>
     <button id="cookie-reject" data-i18n="cookie.reject" onclick="document.getElementById('cookie').style.display='none'">Nur notwendige</button>
@@ -736,8 +736,8 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
       <h1 data-i18n-html="hero.h1">Ihre Solaranlage.<br><span class="g">Von Profis geplant.</span><br><span class="y">Für Ihre Zukunft.</span></h1>
       <div class="live-ticker">
         <span class="ticker-dot"></span>
-        <span data-i18n="ticker.grid">Solarstrom 2025:</span> <span class="ticker-val">ab 8–12 ct/kWh</span>
-        &nbsp;·&nbsp; <span data-i18n="ticker.ppa">Amortisation:</span> <span class="ticker-ppa">ca. 8–12 Jahre</span>
+        <span data-i18n="ticker.grid">Solarstrom 2025:</span> <span class="ticker-val" data-i18n="ticker.val">ab 8–12 ct/kWh</span>
+        &nbsp;·&nbsp; <span data-i18n="ticker.ppa">Amortisation:</span> <span class="ticker-ppa" data-i18n="ticker.ppa_val">ca. 8–12 Jahre</span>
       </div>
       <p class="hero-sub">
         <span data-i18n-html="hero.sub">SOMV plant, liefert und installiert Ihre PV-Anlage — <strong>komplett aus einer Hand</strong>. Für Einfamilienhäuser, Gewerbe, Industrie und Freiflächenanlagen.</span>
@@ -797,33 +797,15 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 
 <!-- MARQUEE -->
 <div class="marquee-wrap">
-  <div class="marquee">
-    <span class="mi">Photovoltaik aus Profis <span class="ms">✦</span></span>
-    <span class="mi">Q CELLS Partner <span class="ms">✦</span></span>
-    <span class="mi">Huawei Wechselrichter <span class="ms">✦</span></span>
-    <span class="mi">100 % Solarstrom <span class="ms">✦</span></span>
-    <span class="mi">Einfamilienhaus · Gewerbe · Industrie <span class="ms">✦</span></span>
-    <span class="mi">Freiflächenanlagen <span class="ms">✦</span></span>
-    <span class="mi">Wartung & Kundendienst <span class="ms">✦</span></span>
-    <span class="mi">Bayern & Schleswig-Holstein <span class="ms">✦</span></span>
-    <span class="mi">SOMV-Project.de <span class="ms">✦</span></span>
-    <span class="mi">Photovoltaik aus Profis <span class="ms">✦</span></span>
-    <span class="mi">Q CELLS Partner <span class="ms">✦</span></span>
-    <span class="mi">Huawei Wechselrichter <span class="ms">✦</span></span>
-    <span class="mi">100 % Solarstrom <span class="ms">✦</span></span>
-    <span class="mi">Einfamilienhaus · Gewerbe · Industrie <span class="ms">✦</span></span>
-    <span class="mi">Freiflächenanlagen <span class="ms">✦</span></span>
-    <span class="mi">Wartung & Kundendienst <span class="ms">✦</span></span>
-    <span class="mi">Bayern & Schleswig-Holstein <span class="ms">✦</span></span>
-  </div>
+  <div class="marquee" id="marquee-inner"></div>
 </div>
 
 
 <!-- URGENCY BANNER -->
 <div class="urgency">
   <div class="urgency-inner">
-    <span>⏳ <strong>Strompreise 2025:</strong> Wer jetzt auf Solar umsteigt, spart über 30 Jahre erheblich.</span>
-    <span>Netzstrom: <strong>22–28 ct/kWh</strong> — Solarstrom vom eigenen Dach: <strong>ab 8–12 ct/kWh</strong></span>
+    <span data-i18n-html="urg.text1">⏳ <strong>Strompreise 2025:</strong> Wer jetzt auf Solar umsteigt, spart über 30 Jahre erheblich.</span>
+    <span data-i18n-html="urg.text2">Netzstrom: <strong>22–28 ct/kWh</strong> — Solarstrom vom eigenen Dach: <strong>ab 8–12 ct/kWh</strong></span>
     <a href="#rechner" class="urgency-cta" data-i18n="urg.cta">Jetzt berechnen →</a>
   </div>
 </div>
@@ -859,21 +841,21 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 
   <!-- NETZENTGELT BOX -->
   <div class="netz-box reveal">
-    <h3>☀ Der SOMV-Vorteil: Alles aus einer Hand — von der Planung bis zur Wartung</h3>
+    <h3 data-i18n="ben.box_h3">☀ Der SOMV-Vorteil: Alles aus einer Hand — von der Planung bis zur Wartung</h3>
     <div class="netz-split">
       <div>
-        <p style="font-size:.88rem;color:rgba(5,14,31,.6);margin-bottom:1.2rem;font-weight:300;line-height:1.7">SOMV begleitet Sie von der ersten Beratung bis zum laufenden Betrieb Ihrer Solaranlage. Wir arbeiten mit Premium-Komponenten von Q CELLS und Huawei — für maximale Effizienz und Langlebigkeit.</p>
+        <p style="font-size:.88rem;color:rgba(5,14,31,.6);margin-bottom:1.2rem;font-weight:300;line-height:1.7" data-i18n="ben.box_p">SOMV begleitet Sie von der ersten Beratung bis zum laufenden Betrieb Ihrer Solaranlage. Wir arbeiten mit Premium-Komponenten von renommierten Herstellern — für maximale Effizienz und Langlebigkeit.</p>
         <div class="netz-list">
-          <div class="netz-item"><span class="check">✓</span>Kostenlose Vor-Ort-Beratung & Dachanalyse</div>
-          <div class="netz-item"><span class="check">✓</span>Individuelle Anlagenplanung & Statikprüfung</div>
-          <div class="netz-item"><span class="check">✓</span>Professionelle Montage durch zertifiziertes Team</div>
-          <div class="netz-item"><span class="check">✓</span>Netzanmeldung & Inbetriebnahme inklusive</div>
-          <div class="netz-item"><span class="check">✓</span>Langfristige Wartung & 24/7-Monitoring</div>
+          <div class="netz-item"><span class="check">✓</span><span data-i18n="ben.li1">Kostenlose Vor-Ort-Beratung & Dachanalyse</span></div>
+          <div class="netz-item"><span class="check">✓</span><span data-i18n="ben.li2">Individuelle Anlagenplanung & Statikprüfung</span></div>
+          <div class="netz-item"><span class="check">✓</span><span data-i18n="ben.li3">Professionelle Montage durch zertifiziertes Team</span></div>
+          <div class="netz-item"><span class="check">✓</span><span data-i18n="ben.li4">Netzanmeldung & Inbetriebnahme inklusive</span></div>
+          <div class="netz-item"><span class="check">✓</span><span data-i18n="ben.li5">Langfristige Wartung & 24/7-Monitoring</span></div>
         </div>
       </div>
       <div class="netz-stat">
         <div class="netz-stat-num">30 J.</div>
-        <div class="netz-stat-label">Garantierte Lebensdauer<br>Ihrer SOMV-Solaranlage<br>mit Premium-Komponenten</div>
+        <div class="netz-stat-label" data-i18n-html="ben.stat_label">Garantierte Lebensdauer<br>Ihrer SOMV-Solaranlage<br>mit Premium-Komponenten</div>
       </div>
     </div>
   </div>
@@ -2047,7 +2029,20 @@ de: {
   "kon.p_dach":"Dachfläche (m²)","kon.p_msg":"Nachricht / offene Fragen (optional)",
   "kon.btn":"Kostenlose Analyse anfordern ☀",
   "ft.services":"Leistungen","ft.knowledge":"Wissen","ft.company":"Unternehmen",
-  "ft.imprint":"Impressum","ft.privacy":"Datenschutz"
+  "ft.imprint":"Impressum","ft.privacy":"Datenschutz",
+  "cookie.text":'Wir verwenden technisch notwendige Cookies. Mehr Infos in unserer <a href="#" onclick="openModal(\'datenschutz\');return false;">Datenschutzerklärung</a>.',
+  "ticker.val":"ab 8–12 ct/kWh","ticker.ppa_val":"ca. 8–12 Jahre",
+  "urg.text1":'⏳ <strong>Strompreise 2025:</strong> Wer jetzt auf Solar umsteigt, spart über 30 Jahre erheblich.',
+  "urg.text2":'Netzstrom: <strong>22–28 ct/kWh</strong> — Solarstrom vom eigenen Dach: <strong>ab 8–12 ct/kWh</strong>',
+  "ben.box_h3":"☀ Der SOMV-Vorteil: Alles aus einer Hand — von der Planung bis zur Wartung",
+  "ben.box_p":"SOMV begleitet Sie von der ersten Beratung bis zum laufenden Betrieb Ihrer Solaranlage. Wir arbeiten mit Premium-Komponenten von renommierten Herstellern — für maximale Effizienz und Langlebigkeit.",
+  "ben.li1":"Kostenlose Vor-Ort-Beratung & Dachanalyse",
+  "ben.li2":"Individuelle Anlagenplanung & Statikprüfung",
+  "ben.li3":"Professionelle Montage durch zertifiziertes Team",
+  "ben.li4":"Netzanmeldung & Inbetriebnahme inklusive",
+  "ben.li5":"Langfristige Wartung & 24/7-Monitoring",
+  "ben.stat_label":"Garantierte Lebensdauer<br>Ihrer SOMV-Solaranlage<br>mit Premium-Komponenten",
+  "marquee":"Photovoltaik von Profis|Q CELLS Partner|Huawei Wechselrichter|100 % Solarstrom|Einfamilienhaus · Gewerbe · Industrie|Freiflächenanlagen|Wartung & Kundendienst|Bayern & Schleswig-Holstein|SOMV-Project.de"
 },
 en: {
   "nav.how":"How It Works","nav.benefits":"Benefits","nav.calc":"Calculator",
@@ -2110,7 +2105,20 @@ en: {
   "kon.p_dach":"Roof area (m²)","kon.p_msg":"Message / questions (optional)",
   "kon.btn":"Request free analysis ☀",
   "ft.services":"Services","ft.knowledge":"Knowledge","ft.company":"Company",
-  "ft.imprint":"Legal notice","ft.privacy":"Privacy policy"
+  "ft.imprint":"Legal notice","ft.privacy":"Privacy policy",
+  "cookie.text":'We use technically necessary cookies. More info in our <a href="#" onclick="openModal(\'datenschutz\');return false;">Privacy Policy</a>.',
+  "ticker.val":"from 8–12 ct/kWh","ticker.ppa_val":"approx. 8–12 years",
+  "urg.text1":'⏳ <strong>Energy prices 2025:</strong> Switching to solar now saves significantly over 30 years.',
+  "urg.text2":'Grid power: <strong>22–28 ct/kWh</strong> — Solar from your own roof: <strong>from 8–12 ct/kWh</strong>',
+  "ben.box_h3":"☀ The SOMV Advantage: All from one source — from planning to maintenance",
+  "ben.box_p":"SOMV accompanies you from the first consultation to the ongoing operation of your solar system. We work with premium components from renowned manufacturers — for maximum efficiency and longevity.",
+  "ben.li1":"Free on-site consultation & roof analysis",
+  "ben.li2":"Individual system planning & structural assessment",
+  "ben.li3":"Professional installation by certified team",
+  "ben.li4":"Grid registration & commissioning included",
+  "ben.li5":"Long-term maintenance & 24/7 monitoring",
+  "ben.stat_label":"Guaranteed lifespan<br>of your SOMV solar system<br>with premium components",
+  "marquee":"Professional PV Solar|Q CELLS Partner|Huawei Inverter|100 % Solar Power|Residential · Commercial · Industrial|Open Space Solar|Service & Support|Bavaria & Schleswig-Holstein|SOMV-Project.de"
 },
 tr: {
   "nav.how":"Nasıl Çalışır","nav.benefits":"Avantajlar","nav.calc":"Hesap Makinesi",
@@ -2173,7 +2181,20 @@ tr: {
   "kon.p_dach":"Çatı alanı (m²)","kon.p_msg":"Mesaj / açık sorular (isteğe bağlı)",
   "kon.btn":"Ücretsiz danışmanlık talep et ☀",
   "ft.services":"Hizmetler","ft.knowledge":"Bilgi","ft.company":"Şirket",
-  "ft.imprint":"Künye","ft.privacy":"Gizlilik politikası"
+  "ft.imprint":"Künye","ft.privacy":"Gizlilik politikası",
+  "cookie.text":'Teknik olarak gerekli çerezler kullanıyoruz. Daha fazla bilgi için <a href="#" onclick="openModal(\'datenschutz\');return false;">Gizlilik Politikamıza</a> bakın.',
+  "ticker.val":"8–12 ct/kWh'den","ticker.ppa_val":"yakl. 8–12 yıl",
+  "urg.text1":'⏳ <strong>Enerji fiyatları 2025:</strong> Şimdi güneş enerjisine geçmek 30 yıl boyunca önemli tasarruf sağlar.',
+  "urg.text2":'Şebeke fiyatı: <strong>22–28 ct/kWh</strong> — Kendi çatınızdan güneş enerjisi: <strong>8–12 ct/kWh'den</strong>',
+  "ben.box_h3":"☀ SOMV Avantajı: Tek elden — planlamadan bakıma kadar her şey",
+  "ben.box_p":"SOMV, ilk danışmanlıktan güneş sisteminizin sürekli işletimine kadar yanınızda. Tanınmış üreticilerin premium bileşenleriyle çalışıyoruz — maksimum verimlilik ve uzun ömür için.",
+  "ben.li1":"Ücretsiz yerinde danışmanlık & çatı analizi",
+  "ben.li2":"Bireysel sistem planlaması & statik değerlendirme",
+  "ben.li3":"Sertifikalı ekip tarafından profesyonel montaj",
+  "ben.li4":"Şebeke kaydı & devreye alma dahil",
+  "ben.li5":"Uzun vadeli bakım & 7/24 izleme",
+  "ben.stat_label":"Garanti edilen ömür<br>SOMV güneş sisteminizin<br>premium bileşenlerle",
+  "marquee":"Profesyonel PV Solar|Q CELLS Partner|Huawei İnvertör|100 % Güneş Enerjisi|Konut · Ticari · Endüstriyel|Açık Alan Güneş|Servis & Destek|Bavyera & Schleswig-Holstein|SOMV-Project.de"
 }
 };
 
@@ -2201,6 +2222,12 @@ function setLang(lang) {
     const k = el.getAttribute('data-i18n-placeholder');
     if (T[lang][k] !== undefined) el.placeholder = T[lang][k];
   });
+  // marquee
+  const mq = document.getElementById('marquee-inner');
+  if (mq && T[lang]['marquee']) {
+    const items = T[lang]['marquee'].split('|').map(t => `<span class="mi">${t} <span class="ms">✦</span></span>`).join('');
+    mq.innerHTML = items + items;
+  }
   // page title
   if (lang === 'en') document.title = 'SOMV-Project.de – Solar Systems by Professionals. Planning, Installation, Maintenance.';
   else if (lang === 'tr') document.title = 'SOMV-Project.de – Profesyonellerden Güneş Enerjisi Sistemleri.';
