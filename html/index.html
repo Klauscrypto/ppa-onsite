@@ -3,19 +3,19 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>PPA Onsite – Grünstrom vom eigenen Dach. 0 € Investment.</title>
-<meta name="description" content="Onsite-PPA: Keine Netzentgelte, keine Stromsteuer, keine Investition. Bis zu 60% günstigerer Strom direkt vom Dach. Jetzt kostenlos berechnen.">
+<title>SOMV-Project.de – Solaranlagen von Profis. Planung, Installation, Wartung.</title>
+<meta name="description" content="SOMV Project Consulting GmbH: Photovoltaik-Anlagen für Privat, Gewerbe & Industrie. Kostenlose Beratung, Planung, Montage und Wartung aus einer Hand. Bayern & Schleswig-Holstein.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
 <style>
 :root {
-  --g1:#2563EB; --g2:#1D4ED8; --g3:#93C5FD; --g4:#EFF6FF; --g5:#DBEAFE;
+  --g1:#1B2E5A; --g2:#152449; --g3:#7B9ED9; --g4:#E8EEF8; --g5:#D0DCF0;
   --sun:#FFD600; --sun2:#FF8F00; --red:#FF5252;
-  --ink:#FFFFFF; --ink2:#F0F4FF; --ink3:#E8EEFF;
-  --white:#FFFFFF; --line:rgba(37,99,235,0.13);
-  --card:rgba(37,99,235,0.05);
-  --glow:0 0 60px rgba(37,99,235,0.22);
+  --ink:#FFFFFF; --ink2:#F0F3FA; --ink3:#E5EAF5;
+  --white:#FFFFFF; --line:rgba(27,46,90,0.13);
+  --card:rgba(27,46,90,0.05);
+  --glow:0 0 60px rgba(27,46,90,0.22);
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
 html{scroll-behavior:smooth;font-size:16px}
@@ -23,7 +23,7 @@ body{font-family:'Outfit',sans-serif;background:var(--ink);color:#050E1F;overflo
 
 /* ── CURSOR ── */
 #cur{position:fixed;width:10px;height:10px;background:var(--g1);border-radius:50%;pointer-events:none;z-index:9999;transform:translate(-50%,-50%);mix-blend-mode:difference;transition:width .25s,height .25s}
-#cur-r{position:fixed;width:34px;height:34px;border:1.5px solid rgba(37,99,235,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s}
+#cur-r{position:fixed;width:34px;height:34px;border:1.5px solid rgba(27,46,90,0.5);border-radius:50%;pointer-events:none;z-index:9998;transform:translate(-50%,-50%);transition:width .3s,height .3s}
 @media(max-width:768px){#cur,#cur-r{display:none}body{cursor:auto}}
 
 /* ── WHATSAPP BUTTON ── */
@@ -38,13 +38,13 @@ body{font-family:'Outfit',sans-serif;background:var(--ink);color:#050E1F;overflo
 @media(max-width:900px){.blog-grid{grid-template-columns:1fr 1fr}}
 @media(max-width:600px){.blog-grid{grid-template-columns:1fr}}
 .blog-card{background:rgba(5,14,31,.03);border:1px solid rgba(5,14,31,.06);border-radius:18px;padding:1.8rem;cursor:pointer;transition:all .4s;display:flex;flex-direction:column}
-.blog-card:hover{border-color:rgba(37,99,235,0.22);transform:translateY(-4px);box-shadow:0 18px 55px rgba(0,0,0,.3)}
+.blog-card:hover{border-color:rgba(27,46,90,0.22);transform:translateY(-4px);box-shadow:0 18px 55px rgba(0,0,0,.3)}
 .blog-cat{font-size:.62rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g1);margin-bottom:.55rem}
 .blog-title{font-size:.95rem;font-weight:700;line-height:1.35;margin-bottom:.6rem;letter-spacing:-.01em}
 .blog-summary{font-size:.8rem;color:rgba(5,14,31,.45);line-height:1.7;flex:1;margin-bottom:.9rem}
 .blog-meta{font-size:.68rem;color:rgba(5,14,31,.22);display:flex;gap:.7rem}
-.blog-more-btn{display:none;margin:2rem auto 0;padding:.75rem 2rem;background:transparent;border:1.5px solid rgba(37,99,235,0.28);color:var(--g1);border-radius:50px;font-family:'Outfit',sans-serif;font-size:.88rem;font-weight:700;cursor:pointer;transition:all .3s}
-.blog-more-btn:hover{background:rgba(37,99,235,0.08)}
+.blog-more-btn{display:none;margin:2rem auto 0;padding:.75rem 2rem;background:transparent;border:1.5px solid rgba(27,46,90,0.28);color:var(--g1);border-radius:50px;font-family:'Outfit',sans-serif;font-size:.88rem;font-weight:700;cursor:pointer;transition:all .3s}
+.blog-more-btn:hover{background:rgba(27,46,90,0.08)}
 /* post modal content */
 .post-category{font-size:.65rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g1);margin-bottom:.7rem}
 .post-meta{font-size:.74rem;color:rgba(5,14,31,.28);margin-bottom:2rem;display:flex;gap:.8rem}
@@ -56,7 +56,7 @@ body{font-family:'Outfit',sans-serif;background:var(--ink);color:#050E1F;overflo
 /* ── LEGAL MODALS ── */
 .legal-modal{display:none;position:fixed;inset:0;z-index:960;background:rgba(0,0,0,0.88);backdrop-filter:blur(10px);align-items:flex-start;justify-content:center;overflow-y:auto;padding:2rem 1rem}
 .legal-modal.show{display:flex}
-.lm-wrap{background:var(--ink3);border:1px solid rgba(37,99,235,0.15);border-radius:20px;padding:2.5rem 2.5rem 3rem;max-width:720px;width:100%;margin:auto;position:relative;box-shadow:0 40px 100px rgba(0,0,0,.7)}
+.lm-wrap{background:var(--ink3);border:1px solid rgba(27,46,90,0.15);border-radius:20px;padding:2.5rem 2.5rem 3rem;max-width:720px;width:100%;margin:auto;position:relative;box-shadow:0 40px 100px rgba(0,0,0,.7)}
 .lm-close{position:absolute;top:1.1rem;right:1.4rem;background:transparent;border:none;color:rgba(5,14,31,0.45);font-size:1.5rem;cursor:pointer;line-height:1;padding:.2rem;transition:color .2s}
 .lm-close:hover{color:#050E1F}
 .lm-wrap h2{font-size:1.5rem;font-weight:900;letter-spacing:-.03em;margin-bottom:1.8rem;padding-right:2rem}
@@ -71,17 +71,17 @@ body{font-family:'Outfit',sans-serif;background:var(--ink);color:#050E1F;overflo
 /* ── EXIT INTENT POPUP ── */
 #exit-popup{display:none;position:fixed;inset:0;z-index:900;background:rgba(0,0,0,0.78);backdrop-filter:blur(8px);align-items:center;justify-content:center}
 #exit-popup.show{display:flex}
-.ep-box{background:var(--ink3);border:1px solid rgba(37,99,235,0.25);border-radius:24px;padding:3rem;max-width:500px;width:90%;position:relative;box-shadow:0 40px 100px rgba(0,0,0,.6)}
+.ep-box{background:var(--ink3);border:1px solid rgba(27,46,90,0.25);border-radius:24px;padding:3rem;max-width:500px;width:90%;position:relative;box-shadow:0 40px 100px rgba(0,0,0,.6)}
 .ep-close{position:absolute;top:1rem;right:1.3rem;background:transparent;border:none;color:rgba(5,14,31,0.45);font-size:1.4rem;cursor:pointer;line-height:1;padding:.2rem}
 .ep-close:hover{color:#050E1F}
-.ep-badge{background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.25);color:var(--g1);font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .9rem;border-radius:50px;display:inline-block;margin-bottom:1.2rem}
+.ep-badge{background:rgba(27,46,90,0.1);border:1px solid rgba(27,46,90,0.25);color:var(--g1);font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.3rem .9rem;border-radius:50px;display:inline-block;margin-bottom:1.2rem}
 .ep-box h3{font-size:1.55rem;font-weight:900;letter-spacing:-.03em;margin-bottom:.8rem;line-height:1.15}
 .ep-box>p{font-size:.86rem;color:rgba(5,14,31,.5);margin-bottom:1.8rem;line-height:1.7}
 .ep-form{display:flex;gap:.7rem;flex-wrap:wrap}
-.ep-input{flex:1;min-width:170px;padding:.82rem 1rem;background:rgba(37,99,235,0.07);border:1px solid rgba(5,14,31,.12);border-radius:12px;color:#050E1F;font-family:'Outfit',sans-serif;font-size:.88rem;outline:none;transition:border .2s}
+.ep-input{flex:1;min-width:170px;padding:.82rem 1rem;background:rgba(27,46,90,0.07);border:1px solid rgba(5,14,31,.12);border-radius:12px;color:#050E1F;font-family:'Outfit',sans-serif;font-size:.88rem;outline:none;transition:border .2s}
 .ep-input:focus{border-color:var(--g1)}
 .ep-btn{background:var(--g1);color:var(--ink);border:none;padding:.82rem 1.5rem;border-radius:50px;font-family:'Outfit',sans-serif;font-weight:800;font-size:.88rem;cursor:pointer;white-space:nowrap;transition:all .3s}
-.ep-btn:hover{background:#60A5FA}
+.ep-btn:hover{background:#2A4A8C}
 .ep-note{font-size:.65rem;color:rgba(5,14,31,.22);margin-top:.8rem;text-align:center}
 
 /* ── TRUST LOGOS ── */
@@ -92,14 +92,14 @@ body{font-family:'Outfit',sans-serif;background:var(--ink);color:#050E1F;overflo
 .tl-cert{display:flex;align-items:center;gap:.4rem;font-size:.68rem;font-weight:600;color:rgba(5,14,31,.2);border:1px solid rgba(5,14,31,.1);border-radius:50px;padding:.3rem .8rem}
 
 /* ── HERO QUICKCHECK ── */
-.hero-qc{margin-top:2.5rem;background:rgba(5,14,31,.04);border:1px solid rgba(37,99,235,0.18);border-radius:18px;padding:1.5rem 2rem;max-width:600px}
+.hero-qc{margin-top:2.5rem;background:rgba(5,14,31,.04);border:1px solid rgba(27,46,90,0.18);border-radius:18px;padding:1.5rem 2rem;max-width:600px}
 .qc-title{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g1);margin-bottom:1rem;opacity:.85}
 .qc-row{display:flex;gap:.7rem;flex-wrap:wrap;margin-bottom:.7rem}
-.qc-field{flex:1;min-width:140px;padding:.7rem 1rem;background:rgba(37,99,235,0.07);border:1px solid rgba(5,14,31,.12);border-radius:10px;color:#050E1F;font-family:'Outfit',sans-serif;font-size:.84rem;outline:none;transition:border .2s}
+.qc-field{flex:1;min-width:140px;padding:.7rem 1rem;background:rgba(27,46,90,0.07);border:1px solid rgba(5,14,31,.12);border-radius:10px;color:#050E1F;font-family:'Outfit',sans-serif;font-size:.84rem;outline:none;transition:border .2s}
 .qc-field:focus{border-color:var(--g1)}
 .qc-field::placeholder{color:rgba(5,14,31,0.45)}
 .qc-btn{width:100%;padding:.78rem;background:var(--g1);color:var(--ink);border:none;border-radius:10px;font-family:'Outfit',sans-serif;font-weight:800;font-size:.9rem;cursor:pointer;transition:all .3s}
-.qc-btn:hover{background:#60A5FA}
+.qc-btn:hover{background:#2A4A8C}
 .qc-note{font-size:.62rem;color:rgba(5,14,31,.22);text-align:center;margin-top:.4rem}
 
 /* ── COST OF INACTION ── */
@@ -107,7 +107,7 @@ body{font-family:'Outfit',sans-serif;background:var(--ink);color:#050E1F;overflo
 .ia-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;margin-top:2rem}
 @media(max-width:768px){.ia-grid{grid-template-columns:1fr}}
 .ia-left p{font-size:.92rem;color:rgba(5,14,31,.58);line-height:1.8;margin-bottom:1.5rem;font-weight:300}
-.ia-calc{background:rgba(37,99,235,0.06);border:1px solid rgba(255,82,82,0.25);border-radius:18px;padding:2rem;background:rgba(255,255,255,0.7)}
+.ia-calc{background:rgba(27,46,90,0.06);border:1px solid rgba(255,82,82,0.25);border-radius:18px;padding:2rem;background:rgba(255,255,255,0.7)}
 .ia-calc-title{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(255,100,100,.65);margin-bottom:1.2rem}
 .ia-row{display:flex;justify-content:space-between;align-items:center;padding:.65rem 0;border-bottom:1px solid rgba(5,14,31,.05);font-size:.83rem}
 .ia-row:last-child{border-bottom:none}
@@ -118,16 +118,16 @@ body{font-family:'Outfit',sans-serif;background:var(--ink);color:#050E1F;overflo
 .ia-total-label{font-size:.82rem;color:rgba(5,14,31,.6)}
 .ia-total-val{font-size:1.45rem;font-weight:900;color:rgba(255,110,110,.9);letter-spacing:-.03em}
 .ia-cta{margin-top:1.2rem;width:100%;padding:.9rem;background:var(--g1);color:var(--ink);border:none;border-radius:50px;font-family:'Outfit',sans-serif;font-weight:800;font-size:.9rem;cursor:pointer;transition:all .3s}
-.ia-cta:hover{background:#60A5FA}
+.ia-cta:hover{background:#2A4A8C}
 .ia-disclaimer{font-size:.65rem;color:rgba(5,14,31,.2);margin-top:.6rem;text-align:center}
 
 /* ── PERSONAL CONTACT ── */
 .personal{background:var(--ink)}
 .person-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;margin-top:2rem}
 @media(max-width:768px){.person-grid{grid-template-columns:1fr}}
-.person-card{background:rgba(5,14,31,.03);border:1px solid rgba(37,99,235,0.14);border-radius:22px;padding:2rem;display:flex;gap:1.5rem;align-items:flex-start;transition:border-color .3s}
-.person-card:hover{border-color:rgba(37,99,235,0.3)}
-.person-avatar{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--g4),var(--g5));flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.8rem;border:2px solid rgba(37,99,235,0.28)}
+.person-card{background:rgba(5,14,31,.03);border:1px solid rgba(27,46,90,0.14);border-radius:22px;padding:2rem;display:flex;gap:1.5rem;align-items:flex-start;transition:border-color .3s}
+.person-card:hover{border-color:rgba(27,46,90,0.3)}
+.person-avatar{width:72px;height:72px;border-radius:50%;background:linear-gradient(135deg,var(--g4),var(--g5));flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:1.8rem;border:2px solid rgba(27,46,90,0.28)}
 .person-info h4{font-size:1rem;font-weight:800;letter-spacing:-.02em;margin-bottom:.2rem}
 .person-role{font-size:.72rem;color:var(--g1);font-weight:700;text-transform:uppercase;letter-spacing:.05em;margin-bottom:.6rem}
 .person-quote{font-size:.8rem;color:rgba(5,14,31,.45);line-height:1.65;font-style:italic;font-family:'Lora',serif;margin-bottom:.9rem}
@@ -135,14 +135,14 @@ body{font-family:'Outfit',sans-serif;background:var(--ink);color:#050E1F;overflo
 .pl{display:flex;align-items:center;gap:.5rem;font-size:.78rem;color:rgba(5,14,31,.5);text-decoration:none;transition:color .2s}
 .pl:hover{color:var(--g1)}
 .pl-i{color:var(--g1)}
-.person-avail{display:inline-flex;align-items:center;gap:.4rem;background:rgba(37,99,235,0.09);border:1px solid rgba(37,99,235,0.18);border-radius:50px;padding:.28rem .8rem;font-size:.68rem;font-weight:700;color:var(--g1);margin-top:.7rem}
+.person-avail{display:inline-flex;align-items:center;gap:.4rem;background:rgba(27,46,90,0.09);border:1px solid rgba(27,46,90,0.18);border-radius:50px;padding:.28rem .8rem;font-size:.68rem;font-weight:700;color:var(--g1);margin-top:.7rem}
 .avail-dot{width:6px;height:6px;background:var(--g1);border-radius:50%;animation:blink 2s ease-in-out infinite}
 
 /* ── LEAD MAGNET ── */
 .lead-magnet{background:var(--ink3);border-top:1px solid var(--line)}
-.lm-box{background:linear-gradient(135deg,rgba(37,99,235,0.07),rgba(29,78,216,0.03));border:1.5px solid rgba(37,99,235,0.18);border-radius:22px;padding:2.5rem;display:grid;grid-template-columns:auto 1fr;gap:3rem;align-items:center;margin-top:2rem}
+.lm-box{background:linear-gradient(135deg,rgba(27,46,90,0.07),rgba(21,36,73,0.03));border:1.5px solid rgba(27,46,90,0.18);border-radius:22px;padding:2.5rem;display:grid;grid-template-columns:auto 1fr;gap:3rem;align-items:center;margin-top:2rem}
 @media(max-width:768px){.lm-box{grid-template-columns:1fr}}
-.lm-doc{background:rgba(37,99,235,0.07);border:1px solid rgba(37,99,235,0.18);border-radius:14px;padding:1.8rem 1.5rem;text-align:center;min-width:160px}
+.lm-doc{background:rgba(27,46,90,0.07);border:1px solid rgba(27,46,90,0.18);border-radius:14px;padding:1.8rem 1.5rem;text-align:center;min-width:160px}
 .lm-doc-icon{font-size:2.8rem;margin-bottom:.7rem}
 .lm-doc-title{font-size:.8rem;font-weight:800;margin-bottom:.3rem;line-height:1.3}
 .lm-doc-type{font-size:.62rem;color:var(--g1);font-weight:700;text-transform:uppercase;letter-spacing:.1em}
@@ -152,11 +152,11 @@ body{font-family:'Outfit',sans-serif;background:var(--ink);color:#050E1F;overflo
 .lm-li{font-size:.8rem;color:rgba(5,14,31,.55);display:flex;align-items:center;gap:.5rem}
 .lm-li::before{content:'✓';color:var(--g1);font-weight:700;flex-shrink:0}
 .lm-form{display:flex;gap:.7rem;flex-wrap:wrap}
-.lm-inp{flex:1;min-width:180px;padding:.78rem 1.1rem;background:rgba(37,99,235,0.07);border:1px solid rgba(5,14,31,.12);border-radius:50px;color:#050E1F;font-family:'Outfit',sans-serif;font-size:.86rem;outline:none;transition:border .2s}
+.lm-inp{flex:1;min-width:180px;padding:.78rem 1.1rem;background:rgba(27,46,90,0.07);border:1px solid rgba(5,14,31,.12);border-radius:50px;color:#050E1F;font-family:'Outfit',sans-serif;font-size:.86rem;outline:none;transition:border .2s}
 .lm-inp::placeholder{color:rgba(5,14,31,0.4)}
 .lm-inp:focus{border-color:var(--g1)}
 .lm-btn{background:var(--g1);color:var(--ink);border:none;padding:.78rem 1.8rem;border-radius:50px;font-family:'Outfit',sans-serif;font-weight:800;font-size:.86rem;cursor:pointer;white-space:nowrap;transition:all .3s}
-.lm-btn:hover{background:#60A5FA}
+.lm-btn:hover{background:#2A4A8C}
 
 /* ── URGENCY BANNER ── */
 .urgency{background:linear-gradient(90deg,rgba(255,214,0,0.1),rgba(255,143,0,0.07),rgba(255,214,0,0.1));border-top:1px solid rgba(255,214,0,0.18);border-bottom:1px solid rgba(255,214,0,0.18);padding:1.1rem 4.5rem}
@@ -166,20 +166,20 @@ body{font-family:'Outfit',sans-serif;background:var(--ink);color:#050E1F;overflo
 .urgency-cta:hover{transform:translateY(-1px);box-shadow:0 4px 18px rgba(255,214,0,.4)}
 
 /* ── SCROLL PROGRESS ── */
-#prog{position:fixed;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--g1),var(--sun));transform-origin:left;transform:scaleX(0);z-index:600;transition:transform .08s}
+#prog{position:fixed;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#CC2936,var(--g1));transform-origin:left;transform:scaleX(0);z-index:600;transition:transform .08s}
 
 /* ── COOKIE BANNER ── */
-#cookie{position:fixed;bottom:1.5rem;left:1.5rem;right:1.5rem;max-width:560px;background:var(--ink3);border:1px solid rgba(37,99,235,0.2);border-radius:16px;padding:1.4rem 1.8rem;z-index:800;box-shadow:0 20px 60px rgba(0,0,0,0.5);backdrop-filter:blur(20px)}
+#cookie{position:fixed;bottom:1.5rem;left:1.5rem;right:1.5rem;max-width:560px;background:var(--ink3);border:1px solid rgba(27,46,90,0.2);border-radius:16px;padding:1.4rem 1.8rem;z-index:800;box-shadow:0 20px 60px rgba(0,0,0,0.5);backdrop-filter:blur(20px)}
 #cookie p{font-size:0.8rem;color:rgba(5,14,31,0.55);line-height:1.6;margin-bottom:1rem}
 #cookie a{color:var(--g1);text-decoration:none}
 .cookie-btns{display:flex;gap:.7rem;flex-wrap:wrap}
 #cookie-btn{background:var(--g1);color:var(--ink);border:none;padding:0.55rem 1.3rem;border-radius:50px;font-family:'Outfit',sans-serif;font-size:0.82rem;font-weight:700;cursor:pointer;white-space:nowrap}
-#cookie-reject{background:transparent;color:rgba(5,14,31,0.5);border:1px solid rgba(37,99,235,0.25);padding:0.55rem 1.3rem;border-radius:50px;font-family:'Outfit',sans-serif;font-size:0.82rem;font-weight:500;cursor:pointer;white-space:nowrap;transition:border-color .2s}
+#cookie-reject{background:transparent;color:rgba(5,14,31,0.5);border:1px solid rgba(27,46,90,0.25);padding:0.55rem 1.3rem;border-radius:50px;font-family:'Outfit',sans-serif;font-size:0.82rem;font-weight:500;cursor:pointer;white-space:nowrap;transition:border-color .2s}
 #cookie-reject:hover{border-color:rgba(5,14,31,0.35);color:rgba(5,14,31,0.75)}
 
 /* ── MOBILE CTA ── */
 #mob-cta{position:fixed;bottom:0;left:0;right:0;z-index:400;padding:1rem 1.5rem;background:linear-gradient(0deg,#F0F4FF 60%,transparent);display:none}
-#mob-cta a{display:block;background:var(--g1);color:var(--ink);text-align:center;padding:1rem;border-radius:50px;font-weight:800;font-size:1rem;text-decoration:none;box-shadow:0 4px 30px rgba(37,99,235,0.4)}
+#mob-cta a{display:block;background:var(--g1);color:var(--ink);text-align:center;padding:1rem;border-radius:50px;font-weight:800;font-size:1rem;text-decoration:none;box-shadow:0 4px 30px rgba(27,46,90,0.4)}
 @media(max-width:768px){#mob-cta{display:block}}
 
 /* ── NAV ── */
@@ -190,18 +190,18 @@ nav{position:fixed;top:0;left:0;right:0;z-index:500;display:flex;justify-content
 .nav-links{display:flex;gap:2rem;align-items:center}
 .nav-links a{color:rgba(5,14,31,0.65);text-decoration:none;font-size:0.85rem;font-weight:500;transition:color .2s}
 .nav-links a:hover{color:var(--g1)}
-.nav-cta{background:var(--g1)!important;color:var(--ink)!important;padding:.55rem 1.3rem;border-radius:50px;font-weight:700!important;font-size:0.83rem!important;box-shadow:0 4px 20px rgba(37,99,235,0.35);transition:box-shadow .2s,transform .2s!important}
-.nav-cta:hover{box-shadow:0 8px 30px rgba(37,99,235,0.55)!important;transform:translateY(-1px)!important}
+.nav-cta{background:var(--g1)!important;color:var(--ink)!important;padding:.55rem 1.3rem;border-radius:50px;font-weight:700!important;font-size:0.83rem!important;box-shadow:0 4px 20px rgba(27,46,90,0.35);transition:box-shadow .2s,transform .2s!important}
+.nav-cta:hover{box-shadow:0 8px 30px rgba(27,46,90,0.55)!important;transform:translateY(-1px)!important}
 @media(max-width:900px){.nav-links{display:none}nav{padding:1rem 1.5rem}}
 
 /* ── HERO ── */
 .hero{display:flex;flex-direction:column;justify-content:center;padding:7rem 4.5rem 4rem;position:relative;overflow:hidden;background:var(--ink)}
-.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 65% 55% at 68% 28%,rgba(37,99,235,0.10) 0%,transparent 65%),radial-gradient(ellipse 45% 65% at 10% 75%,rgba(29,78,216,0.07) 0%,transparent 55%),radial-gradient(ellipse 35% 40% at 90% 80%,rgba(255,214,0,0.08) 0%,transparent 50%);pointer-events:none}
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 65% 55% at 68% 28%,rgba(27,46,90,0.10) 0%,transparent 65%),radial-gradient(ellipse 45% 65% at 10% 75%,rgba(21,36,73,0.07) 0%,transparent 55%),radial-gradient(ellipse 35% 40% at 90% 80%,rgba(255,214,0,0.08) 0%,transparent 50%);pointer-events:none}
 .hero-grid{position:absolute;inset:0;opacity:0.03;background-image:linear-gradient(var(--g1) 1px,transparent 1px),linear-gradient(90deg,var(--g1) 1px,transparent 1px);background-size:70px 70px;pointer-events:none}
 
-.hero-eyebrow{display:inline-flex;align-items:center;gap:.7rem;margin-bottom:1.8rem;background:rgba(37,99,235,0.09);border:1px solid rgba(37,99,235,0.22);padding:.45rem 1rem;border-radius:50px;font-size:0.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g1)}
+.hero-eyebrow{display:inline-flex;align-items:center;gap:.7rem;margin-bottom:1.8rem;background:rgba(27,46,90,0.09);border:1px solid rgba(27,46,90,0.22);padding:.45rem 1rem;border-radius:50px;font-size:0.75rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g1)}
 .hero-dot{width:7px;height:7px;background:var(--g1);border-radius:50%;animation:blink 2s ease-in-out infinite;box-shadow:0 0 8px var(--g1)}
-@keyframes blink{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(37,99,235,0.5)}50%{opacity:.6;box-shadow:0 0 0 5px rgba(37,99,235,0)}}
+@keyframes blink{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(27,46,90,0.5)}50%{opacity:.6;box-shadow:0 0 0 5px rgba(27,46,90,0)}}
 
 h1{font-family:'Outfit',sans-serif;font-size:clamp(2.8rem,6vw,5rem);font-weight:900;line-height:1.04;letter-spacing:-.04em;margin-bottom:1.6rem;color:#050E1F}
 h1 .g{color:var(--g1)}
@@ -216,9 +216,9 @@ h1 .y{color:var(--sun);text-shadow:0 0 40px rgba(255,214,0,0.35)}
 .ticker-ppa{font-weight:700;color:var(--g1)}
 
 .hero-actions{display:flex;gap:1rem;flex-wrap:wrap;align-items:center;margin-bottom:3rem}
-.btn-main{background:var(--g1);color:var(--ink);padding:.95rem 2.2rem;border-radius:50px;font-size:1rem;font-weight:800;text-decoration:none;box-shadow:0 4px 30px rgba(37,99,235,0.45);transition:all .3s;letter-spacing:-.01em;animation:pulse-g 3s ease-in-out infinite}
-@keyframes pulse-g{0%,100%{box-shadow:0 4px 30px rgba(37,99,235,0.45)}50%{box-shadow:0 4px 50px rgba(37,99,235,0.7),0 0 0 8px rgba(37,99,235,0.07)}}
-.btn-main:hover{transform:translateY(-3px);background:#60A5FA}
+.btn-main{background:var(--g1);color:var(--ink);padding:.95rem 2.2rem;border-radius:50px;font-size:1rem;font-weight:800;text-decoration:none;box-shadow:0 4px 30px rgba(27,46,90,0.45);transition:all .3s;letter-spacing:-.01em;animation:pulse-g 3s ease-in-out infinite}
+@keyframes pulse-g{0%,100%{box-shadow:0 4px 30px rgba(27,46,90,0.45)}50%{box-shadow:0 4px 50px rgba(27,46,90,0.7),0 0 0 8px rgba(27,46,90,0.07)}}
+.btn-main:hover{transform:translateY(-3px);background:#2A4A8C}
 .btn-ghost{background:transparent;color:var(--white);padding:.95rem 2.2rem;border-radius:50px;font-size:1rem;font-weight:600;text-decoration:none;border:1.5px solid rgba(5,14,31,0.18);transition:all .3s}
 .btn-ghost:hover{border-color:var(--g1);color:var(--g1)}
 
@@ -233,12 +233,12 @@ h1 .y{color:var(--sun);text-shadow:0 0 40px rgba(255,214,0,0.35)}
 .hero-right{display:flex;flex-direction:column}
 
 /* Unified right CTA card */
-.hero-cta-card{background:rgba(5,14,31,0.04);border:1px solid rgba(37,99,235,0.22);border-radius:22px;padding:2rem 2rem 1.6rem;backdrop-filter:blur(20px);box-shadow:0 24px 64px rgba(0,0,0,.35),inset 0 1px 0 rgba(5,14,31,.06)}
+.hero-cta-card{background:rgba(5,14,31,0.04);border:1px solid rgba(27,46,90,0.22);border-radius:22px;padding:2rem 2rem 1.6rem;backdrop-filter:blur(20px);box-shadow:0 24px 64px rgba(0,0,0,.35),inset 0 1px 0 rgba(5,14,31,.06)}
 .hcc-label{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g1);margin-bottom:1.1rem;display:flex;align-items:center;gap:.5rem}
-.hcc-divider{height:1px;background:rgba(37,99,235,0.12);margin:1.3rem 0 1.1rem}
+.hcc-divider{height:1px;background:rgba(27,46,90,0.12);margin:1.3rem 0 1.1rem}
 
 .hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:.6rem}
-.hsc{background:rgba(37,99,235,0.06);border-radius:10px;padding:.8rem .85rem;text-align:center}
+.hsc{background:rgba(27,46,90,0.06);border-radius:10px;padding:.8rem .85rem;text-align:center}
 .hsc-label{font-size:.52rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g1);opacity:.8;margin-bottom:.25rem}
 .hsc-val{font-size:1.15rem;font-weight:900;letter-spacing:-.03em;color:#050E1F;line-height:1.1}
 .hsc-sub{font-size:.58rem;color:rgba(5,14,31,0.4);margin-top:.15rem}
@@ -252,7 +252,7 @@ h1 .y{color:var(--sun);text-shadow:0 0 40px rgba(255,214,0,0.35)}
 @keyframes marquee{from{transform:translateX(0)}to{transform:translateX(-50%)}}
 
 /* ── KENNZAHLEN ── */
-.kz{background:linear-gradient(135deg,var(--g4) 0%,var(--g5) 100%);border-top:1px solid rgba(37,99,235,0.2);border-bottom:1px solid rgba(37,99,235,0.2);padding:3.5rem 4.5rem}
+.kz{background:linear-gradient(135deg,var(--g4) 0%,var(--g5) 100%);border-top:1px solid rgba(27,46,90,0.2);border-bottom:1px solid rgba(27,46,90,0.2);padding:3.5rem 4.5rem}
 .kz-grid{display:grid;grid-template-columns:repeat(5,1fr)}
 .kz-item{text-align:center;padding:1.8rem 1rem;border-right:1px solid rgba(5,14,31,0.07)}
 .kz-item:last-child{border-right:none}
@@ -272,10 +272,10 @@ h2{font-family:'Outfit',sans-serif;font-size:clamp(1.9rem,3.8vw,3rem);font-weigh
 /* ── WIE ES FUNKTIONIERT ── */
 .how{background:#F0F4FF}
 .how-timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:.5rem;position:relative}
-.how-timeline::before{content:'';position:absolute;top:46px;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,rgba(37,99,235,0.4),transparent);z-index:0}
+.how-timeline::before{content:'';position:absolute;top:46px;left:12%;right:12%;height:1px;background:linear-gradient(90deg,transparent,rgba(27,46,90,0.4),transparent);z-index:0}
 .step{padding:0 1.2rem;text-align:center;position:relative;z-index:1}
-.step-bubble{width:92px;height:92px;border-radius:50%;background:linear-gradient(135deg,rgba(37,99,235,0.12),rgba(29,78,216,0.06));border:1.5px solid rgba(37,99,235,0.28);display:flex;align-items:center;justify-content:center;margin:0 auto 1.3rem;font-size:1.7rem;box-shadow:0 0 28px rgba(37,99,235,0.12);transition:all .4s}
-.step:hover .step-bubble{background:rgba(37,99,235,0.18);box-shadow:var(--glow);transform:scale(1.06)}
+.step-bubble{width:92px;height:92px;border-radius:50%;background:linear-gradient(135deg,rgba(27,46,90,0.12),rgba(21,36,73,0.06));border:1.5px solid rgba(27,46,90,0.28);display:flex;align-items:center;justify-content:center;margin:0 auto 1.3rem;font-size:1.7rem;box-shadow:0 0 28px rgba(27,46,90,0.12);transition:all .4s}
+.step:hover .step-bubble{background:rgba(27,46,90,0.18);box-shadow:var(--glow);transform:scale(1.06)}
 .step-n{font-size:.68rem;font-weight:800;letter-spacing:.15em;color:var(--g1);margin-bottom:.5rem}
 .step h3{font-size:.95rem;font-weight:700;margin-bottom:.5rem;letter-spacing:-.01em}
 .step p{font-size:.82rem;color:rgba(5,14,31,.5);line-height:1.65;font-weight:300}
@@ -284,10 +284,10 @@ h2{font-family:'Outfit',sans-serif;font-size:clamp(1.9rem,3.8vw,3rem);font-weigh
 /* ── VORTEILE ── */
 .vg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem}
 .vc{background:var(--card);border:1px solid rgba(5,14,31,.06);border-radius:18px;padding:1.8rem;position:relative;overflow:hidden;transition:all .4s}
-.vc::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(37,99,235,0.05),transparent);opacity:0;transition:opacity .4s}
-.vc:hover{border-color:rgba(37,99,235,0.28);transform:translateY(-4px);box-shadow:0 18px 55px rgba(0,0,0,0.3)}
+.vc::before{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(27,46,90,0.05),transparent);opacity:0;transition:opacity .4s}
+.vc:hover{border-color:rgba(27,46,90,0.28);transform:translateY(-4px);box-shadow:0 18px 55px rgba(0,0,0,0.3)}
 .vc:hover::before{opacity:1}
-.vc.star{border-color:rgba(37,99,235,0.35);background:linear-gradient(135deg,rgba(37,99,235,0.1),rgba(29,78,216,0.05))}
+.vc.star{border-color:rgba(27,46,90,0.35);background:linear-gradient(135deg,rgba(27,46,90,0.1),rgba(21,36,73,0.05))}
 .vc-icon{font-size:2rem;margin-bottom:1rem}
 .vc h3{font-size:.98rem;font-weight:700;margin-bottom:.5rem;letter-spacing:-.01em}
 .vc p{font-size:.83rem;color:rgba(5,14,31,.5);line-height:1.7;font-weight:300}
@@ -295,7 +295,7 @@ h2{font-family:'Outfit',sans-serif;font-size:clamp(1.9rem,3.8vw,3rem);font-weigh
 @media(max-width:768px){.vg{grid-template-columns:1fr}}
 
 /* ── NETZENTGELT BOX (neu!) ── */
-.netz-box{background:linear-gradient(135deg,rgba(37,99,235,0.1),rgba(29,78,216,0.06));border:1.5px solid rgba(37,99,235,0.3);border-radius:22px;padding:2.5rem;margin-bottom:4rem;position:relative;overflow:hidden}
+.netz-box{background:linear-gradient(135deg,rgba(27,46,90,0.1),rgba(21,36,73,0.06));border:1.5px solid rgba(27,46,90,0.3);border-radius:22px;padding:2.5rem;margin-bottom:4rem;position:relative;overflow:hidden}
 .netz-box::after{content:'⚡';position:absolute;right:2rem;top:50%;transform:translateY(-50%);font-size:8rem;opacity:.06}
 .netz-box h3{font-size:1.3rem;font-weight:800;margin-bottom:1rem;letter-spacing:-.02em}
 .netz-split{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start}
@@ -333,7 +333,7 @@ h2{font-family:'Outfit',sans-serif;font-size:clamp(1.9rem,3.8vw,3rem);font-weigh
 /* ── CSRD / ESG ── */
 .esg{background:#F0F4FF}
 .esg-layout{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
-.esg-visual{background:var(--card);border:1px solid rgba(37,99,235,0.18);border-radius:22px;padding:2rem}
+.esg-visual{background:var(--card);border:1px solid rgba(27,46,90,0.18);border-radius:22px;padding:2rem}
 .esg-timeline{display:flex;flex-direction:column;gap:0}
 .esg-item{display:flex;gap:1.2rem;padding:1.1rem 0;border-bottom:1px solid rgba(5,14,31,.05)}
 .esg-item:last-child{border-bottom:none}
@@ -341,7 +341,7 @@ h2{font-family:'Outfit',sans-serif;font-size:clamp(1.9rem,3.8vw,3rem);font-weigh
 .esg-text h5{font-size:.88rem;font-weight:700;margin-bottom:.2rem}
 .esg-text p{font-size:.78rem;color:rgba(5,14,31,.45);line-height:1.55;font-weight:300}
 .esg-pills{display:flex;flex-wrap:wrap;gap:.6rem;margin-top:1.5rem}
-.esg-pill{padding:.35rem .9rem;border-radius:50px;font-size:.72rem;font-weight:700;background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.25);color:var(--g1)}
+.esg-pill{padding:.35rem .9rem;border-radius:50px;font-size:.72rem;font-weight:700;background:rgba(27,46,90,0.1);border:1px solid rgba(27,46,90,0.25);color:var(--g1)}
 @media(max-width:900px){.esg-layout{grid-template-columns:1fr}}
 
 /* ── BATTERIE ADD-ON ── */
@@ -350,7 +350,7 @@ h2{font-family:'Outfit',sans-serif;font-size:clamp(1.9rem,3.8vw,3rem);font-weigh
 .batt-card{background:linear-gradient(135deg,rgba(255,214,0,0.08),rgba(255,143,0,0.05));border:1.5px solid rgba(255,214,0,0.25);border-radius:22px;padding:2.2rem}
 .batt-card h3{font-size:1.2rem;font-weight:800;margin-bottom:1rem;color:var(--sun)}
 .batt-stats{display:grid;grid-template-columns:1fr 1fr;gap:1rem;margin-bottom:1.5rem}
-.bs{background:rgba(37,99,235,0.06);border-radius:12px;padding:1rem;text-align:center}
+.bs{background:rgba(27,46,90,0.06);border-radius:12px;padding:1rem;text-align:center}
 .bs-num{font-size:1.6rem;font-weight:900;color:var(--sun);letter-spacing:-.03em}
 .bs-label{font-size:.68rem;color:rgba(5,14,31,.4);margin-top:.2rem}
 .batt-list{display:flex;flex-direction:column;gap:.7rem}
@@ -360,8 +360,8 @@ h2{font-family:'Outfit',sans-serif;font-size:clamp(1.9rem,3.8vw,3rem);font-weigh
 
 /* ── RECHNER ── */
 .rechner{background:var(--ink3)}
-.rw{background:rgba(5,14,31,.028);border:1px solid rgba(37,99,235,0.13);border-radius:26px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.5),0 0 80px rgba(37,99,235,0.04)}
-.r-tabs{display:flex;background:rgba(37,99,235,0.06);border-bottom:1px solid var(--line)}
+.rw{background:rgba(5,14,31,.028);border:1px solid rgba(27,46,90,0.13);border-radius:26px;overflow:hidden;box-shadow:0 40px 100px rgba(0,0,0,.5),0 0 80px rgba(27,46,90,0.04)}
+.r-tabs{display:flex;background:rgba(27,46,90,0.06);border-bottom:1px solid var(--line)}
 .rtab{flex:1;padding:1rem;text-align:center;font-size:.8rem;font-weight:700;cursor:pointer;color:rgba(5,14,31,.38);border:none;background:transparent;border-bottom:2px solid transparent;margin-bottom:-1px;transition:all .3s;font-family:'Outfit',sans-serif}
 .rtab.active{color:var(--g1);border-bottom-color:var(--g1)}
 .r-body{display:grid;grid-template-columns:1.15fr 0.85fr}
@@ -373,17 +373,17 @@ h2{font-family:'Outfit',sans-serif;font-size:clamp(1.9rem,3.8vw,3rem);font-weigh
 .ig{margin-bottom:1.7rem}
 .il{display:flex;justify-content:space-between;align-items:center;font-size:.74rem;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:rgba(5,14,31,.48);margin-bottom:.75rem}
 .iv{color:var(--g1);font-size:.95rem;font-weight:800;letter-spacing:-.02em}
-input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:4px;background:rgba(37,99,235,0.15);border-radius:10px;outline:none;cursor:pointer}
-input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--g1);box-shadow:0 0 0 4px rgba(37,99,235,0.18),0 2px 12px rgba(37,99,235,0.5);cursor:pointer;transition:transform .15s,box-shadow .15s}
-input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.25);box-shadow:0 0 0 6px rgba(37,99,235,0.12),0 2px 20px rgba(37,99,235,0.7)}
+input[type=range]{width:100%;-webkit-appearance:none;appearance:none;height:4px;background:rgba(27,46,90,0.15);border-radius:10px;outline:none;cursor:pointer}
+input[type=range]::-webkit-slider-thumb{-webkit-appearance:none;width:20px;height:20px;border-radius:50%;background:var(--g1);box-shadow:0 0 0 4px rgba(27,46,90,0.18),0 2px 12px rgba(27,46,90,0.5);cursor:pointer;transition:transform .15s,box-shadow .15s}
+input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.25);box-shadow:0 0 0 6px rgba(27,46,90,0.12),0 2px 20px rgba(27,46,90,0.7)}
 .im{display:flex;justify-content:space-between;margin-top:.35rem}
 .im span{font-size:.62rem;color:rgba(5,14,31,.22)}
-.isel{width:100%;padding:.8rem 1rem;background:rgba(37,99,235,0.07);border:1px solid rgba(5,14,31,.1);border-radius:10px;color:#050E1F;font-family:'Outfit',sans-serif;font-size:.88rem;outline:none;cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%232563EB' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .9rem center;padding-right:2.2rem;transition:border .2s}
+.isel{width:100%;padding:.8rem 1rem;background:rgba(27,46,90,0.07);border:1px solid rgba(5,14,31,.1);border-radius:10px;color:#050E1F;font-family:'Outfit',sans-serif;font-size:.88rem;outline:none;cursor:pointer;-webkit-appearance:none;appearance:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8' fill='none'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%231B2E5A' stroke-width='1.5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-repeat:no-repeat;background-position:right .9rem center;padding-right:2.2rem;transition:border .2s}
 .isel:focus{border-color:var(--g1)}
 .isel option{background:#F0F4FF}
 
 /* Netzentgelt Toggle */
-.netz-toggle{background:rgba(37,99,235,0.06);border:1px solid rgba(37,99,235,0.2);border-radius:12px;padding:1rem;margin-bottom:1.7rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
+.netz-toggle{background:rgba(27,46,90,0.06);border:1px solid rgba(27,46,90,0.2);border-radius:12px;padding:1rem;margin-bottom:1.7rem;display:flex;align-items:center;justify-content:space-between;gap:1rem}
 .netz-toggle span{font-size:.8rem;color:rgba(5,14,31,.7);line-height:1.4}
 .toggle-sw{position:relative;width:44px;height:24px;flex-shrink:0}
 .toggle-sw input{opacity:0;width:0;height:0}
@@ -393,14 +393,14 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.25);box-shadow:0
 .toggle-sw input:checked+.toggle-sl::before{transform:translateX(20px);background:var(--ink)}
 
 /* Result panel */
-.r-result{padding:2.5rem;background:linear-gradient(160deg,rgba(37,99,235,0.1) 0%,rgba(15,31,58,0.2) 100%);display:flex;flex-direction:column}
+.r-result{padding:2.5rem;background:linear-gradient(160deg,rgba(27,46,90,0.1) 0%,rgba(10,20,40,0.2) 100%);display:flex;flex-direction:column}
 .rm-label{font-size:.68rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--g1);opacity:.75;margin-bottom:.4rem}
-.rm-num{font-size:3.5rem;font-weight:900;letter-spacing:-.04em;line-height:1;background:linear-gradient(135deg,var(--g1),#93C5FD);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+.rm-num{font-size:3.5rem;font-weight:900;letter-spacing:-.04em;line-height:1;background:linear-gradient(135deg,var(--g1),#7B9ED9);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
 .rm-unit{font-size:.85rem;color:rgba(5,14,31,.4);margin-top:.25rem;margin-bottom:1.5rem}
 
 .rv-toggle{display:flex;gap:.7rem;margin-bottom:1.3rem}
-.rvt{flex:1;padding:.55rem;text-align:center;background:rgba(37,99,235,0.07);border:1px solid rgba(5,14,31,.1);border-radius:8px;font-size:.72rem;font-weight:700;cursor:pointer;color:rgba(5,14,31,.45);font-family:'Outfit',sans-serif;transition:all .3s}
-.rvt.active{background:rgba(37,99,235,0.13);border-color:var(--g1);color:var(--g1)}
+.rvt{flex:1;padding:.55rem;text-align:center;background:rgba(27,46,90,0.07);border:1px solid rgba(5,14,31,.1);border-radius:8px;font-size:.72rem;font-weight:700;cursor:pointer;color:rgba(5,14,31,.45);font-family:'Outfit',sans-serif;transition:all .3s}
+.rvt.active{background:rgba(27,46,90,0.13);border-color:var(--g1);color:var(--g1)}
 
 .rg{display:grid;grid-template-columns:1fr 1fr;gap:.8rem;margin-bottom:1.3rem}
 .rgc{background:rgba(0,0,0,.28);border-radius:12px;padding:1rem;border:1px solid rgba(5,14,31,.05)}
@@ -414,7 +414,7 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.25);box-shadow:0
 .rc-label{font-size:.65rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(5,14,31,0.4);margin-bottom:.8rem}
 .rc-bars{display:flex;gap:4px;align-items:flex-end;height:72px}
 .rcb-w{flex:1;display:flex;flex-direction:column;align-items:center;gap:3px}
-.rcb{width:100%;border-radius:3px 3px 0 0;background:linear-gradient(180deg,var(--g1),#1D4ED8);animation:bgrow .9s ease-out both}
+.rcb{width:100%;border-radius:3px 3px 0 0;background:linear-gradient(180deg,var(--g1),#152449);animation:bgrow .9s ease-out both}
 @keyframes bgrow{from{transform:scaleY(0);transform-origin:bottom}to{transform:scaleY(1);transform-origin:bottom}}
 .rcb-m{font-size:.54rem;color:rgba(5,14,31,.25)}
 
@@ -427,19 +427,19 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.25);box-shadow:0
 .bdt .tot td{font-size:.88rem;padding-top:.9rem;color:#050E1F}
 .bdt .tot td:last-child{color:var(--g1);font-size:1rem}
 .bdt .hl td:last-child{color:var(--sun)}
-.netz-saving-row{background:rgba(37,99,235,0.07);border-radius:8px;padding:.5rem .6rem;margin-bottom:.5rem;display:flex;justify-content:space-between;font-size:.78rem}
+.netz-saving-row{background:rgba(27,46,90,0.07);border-radius:8px;padding:.5rem .6rem;margin-bottom:.5rem;display:flex;justify-content:space-between;font-size:.78rem}
 .netz-saving-row .ns-label{color:rgba(5,14,31,.55)}
 .netz-saving-row .ns-val{font-weight:800;color:var(--g1)}
 
-.rcta{width:100%;padding:1rem;background:var(--g1);border:none;border-radius:50px;font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:800;color:var(--ink);cursor:pointer;letter-spacing:-.01em;box-shadow:0 4px 30px rgba(37,99,235,0.4);transition:all .3s}
-.rcta:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(37,99,235,0.6);background:#60A5FA}
+.rcta{width:100%;padding:1rem;background:var(--g1);border:none;border-radius:50px;font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:800;color:var(--ink);cursor:pointer;letter-spacing:-.01em;box-shadow:0 4px 30px rgba(27,46,90,0.4);transition:all .3s}
+.rcta:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(27,46,90,0.6);background:#2A4A8C}
 .disc{font-size:.64rem;color:rgba(5,14,31,.2);text-align:center;margin-top:.7rem;line-height:1.5}
 
 /* ── VERGLEICH ── */
 .vt-wrap{overflow-x:auto;margin-top:2rem}
 .vt{width:100%;border-collapse:separate;border-spacing:0;background:rgba(5,14,31,.02);border:1px solid var(--line);border-radius:18px;overflow:hidden;min-width:640px}
 .vt th{padding:1.1rem 1.3rem;font-size:.72rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;border-bottom:1px solid var(--line);color:rgba(5,14,31,.38)}
-.vt .col-ppa{background:rgba(37,99,235,0.06);color:var(--g1)!important}
+.vt .col-ppa{background:rgba(27,46,90,0.06);color:var(--g1)!important}
 .vt td{padding:1rem 1.3rem;font-size:.85rem;border-bottom:1px solid rgba(5,14,31,.04)}
 .vt tr:last-child td{border-bottom:none}
 .vt td:first-child{color:rgba(5,14,31,.55);font-weight:300}
@@ -452,7 +452,7 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.25);box-shadow:0
 .zg{display:grid;grid-template-columns:repeat(3,1fr);gap:1.1rem;margin-top:2rem}
 .zc{border-radius:18px;padding:1.8rem;background:rgba(5,14,31,.03);border:1px solid rgba(5,14,31,.06);transition:all .4s;position:relative;overflow:hidden}
 .zc::after{content:attr(data-n);position:absolute;top:.8rem;right:1.2rem;font-size:3.5rem;font-weight:900;opacity:.04;line-height:1;color:var(--g1)}
-.zc:hover{border-color:rgba(37,99,235,0.28);transform:translateY(-4px);box-shadow:0 18px 55px rgba(0,0,0,.3)}
+.zc:hover{border-color:rgba(27,46,90,0.28);transform:translateY(-4px);box-shadow:0 18px 55px rgba(0,0,0,.3)}
 .zc-icon{font-size:2rem;margin-bottom:1rem}
 .zc h3{font-size:.98rem;font-weight:700;margin-bottom:.4rem}
 .zc p{font-size:.82rem;color:rgba(5,14,31,.45);line-height:1.65;font-weight:300}
@@ -469,15 +469,15 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.25);box-shadow:0
 .pz{display:flex;gap:1.8rem;padding:1.8rem 0;border-bottom:1px solid rgba(5,14,31,.05);cursor:pointer;transition:all .3s}
 .pz:last-child{border-bottom:none}
 .pz:hover .pz-num{background:var(--g1);color:var(--ink);box-shadow:var(--glow)}
-.pz-num{width:46px;height:46px;border-radius:11px;border:1.5px solid rgba(37,99,235,0.28);display:flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:800;color:var(--g1);flex-shrink:0;transition:all .3s}
+.pz-num{width:46px;height:46px;border-radius:11px;border:1.5px solid rgba(27,46,90,0.28);display:flex;align-items:center;justify-content:center;font-size:.82rem;font-weight:800;color:var(--g1);flex-shrink:0;transition:all .3s}
 .pz-c h4{font-size:.95rem;font-weight:700;margin-bottom:.35rem}
 .pz-c p{font-size:.82rem;color:rgba(5,14,31,.45);line-height:1.65;font-weight:300}
 .pz-dur{font-size:.68rem;color:var(--g1);font-weight:700;margin-top:.35rem}
-.pz-sidebar{position:sticky;top:110px;background:rgba(5,14,31,.03);border:1px solid rgba(37,99,235,0.14);border-radius:22px;padding:2.2rem}
+.pz-sidebar{position:sticky;top:110px;background:rgba(5,14,31,.03);border:1px solid rgba(27,46,90,0.14);border-radius:22px;padding:2.2rem}
 .pzs-title{font-size:.68rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--g1);margin-bottom:1.3rem;opacity:.8}
 .pzs-tl{display:flex;flex-direction:column;gap:.75rem}
 .pzs-i{display:flex;gap:.9rem;align-items:center}
-.pzs-dot{width:9px;height:9px;border-radius:50%;background:var(--g1);flex-shrink:0;box-shadow:0 0 8px rgba(37,99,235,0.4)}
+.pzs-dot{width:9px;height:9px;border-radius:50%;background:var(--g1);flex-shrink:0;box-shadow:0 0 8px rgba(27,46,90,0.4)}
 .pzs-dot.p{background:rgba(5,14,31,.15);box-shadow:none}
 .pzs-text{font-size:.82rem;color:rgba(5,14,31,.55)}
 .pzs-week{font-size:.7rem;color:rgba(5,14,31,.25);margin-left:auto;white-space:nowrap}
@@ -489,7 +489,7 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.25);box-shadow:0
 .referenzen{background:#F0F4FF}
 .ref-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.3rem;margin-top:2rem}
 .ref-card{background:rgba(5,14,31,.03);border:1px solid rgba(5,14,31,.06);border-radius:18px;padding:1.8rem;transition:all .4s}
-.ref-card:hover{border-color:rgba(37,99,235,0.22);transform:translateY(-4px)}
+.ref-card:hover{border-color:rgba(27,46,90,0.22);transform:translateY(-4px)}
 .ref-logo{font-size:1.3rem;font-weight:900;letter-spacing:-.04em;color:rgba(5,14,31,.28);margin-bottom:1rem}
 .ref-quote{font-family:'Lora',serif;font-style:italic;font-size:.88rem;color:rgba(5,14,31,.6);line-height:1.8;margin-bottom:1.3rem}
 .ref-bottom{display:flex;justify-content:space-between;align-items:flex-end;padding-top:.9rem;border-top:1px solid rgba(5,14,31,.05)}
@@ -505,7 +505,7 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.25);box-shadow:0
 @media(max-width:900px){.faq-layout{grid-template-columns:1fr}}
 .faq-side h3{font-size:1.8rem;font-weight:900;letter-spacing:-.03em;margin-bottom:1rem}
 .faq-side p{font-size:.85rem;color:rgba(5,14,31,.45);line-height:1.75;margin-bottom:1.8rem;font-weight:300}
-.faq-contact{background:rgba(37,99,235,0.07);border:1px solid rgba(37,99,235,0.18);border-radius:18px;padding:1.8rem}
+.faq-contact{background:rgba(27,46,90,0.07);border:1px solid rgba(27,46,90,0.18);border-radius:18px;padding:1.8rem}
 .faq-contact h4{font-size:.95rem;font-weight:700;margin-bottom:.4rem}
 .faq-contact p{font-size:.8rem;color:rgba(5,14,31,.45);margin-bottom:1.3rem}
 .faq-list{display:flex;flex-direction:column}
@@ -513,22 +513,22 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.25);box-shadow:0
 .fq{display:flex;justify-content:space-between;align-items:center;padding:1.3rem 0;cursor:pointer;gap:1rem;transition:color .3s}
 .fq:hover{color:var(--g1)}
 .fq h4{font-size:.9rem;font-weight:600;line-height:1.4;letter-spacing:-.01em}
-.fi-icon{width:28px;height:28px;border-radius:50%;background:rgba(37,99,235,0.07);border:1px solid rgba(5,14,31,.1);display:flex;align-items:center;justify-content:center;font-size:.95rem;color:var(--g1);flex-shrink:0;transition:all .3s}
+.fi-icon{width:28px;height:28px;border-radius:50%;background:rgba(27,46,90,0.07);border:1px solid rgba(5,14,31,.1);display:flex;align-items:center;justify-content:center;font-size:.95rem;color:var(--g1);flex-shrink:0;transition:all .3s}
 .fi.open .fi-icon{background:var(--g1);color:var(--ink);transform:rotate(45deg)}
 .fa{max-height:0;overflow:hidden;transition:max-height .45s ease,opacity .3s;opacity:0}
 .fi.open .fa{max-height:300px;opacity:1}
 .fa p{padding-bottom:1.3rem;font-size:.85rem;color:rgba(5,14,31,.45);line-height:1.8;font-weight:300}
 
 /* ── NEWSLETTER ── */
-.newsletter{background:linear-gradient(135deg,var(--g4) 0%,var(--g5) 100%);border-top:1px solid rgba(37,99,235,0.2);border-bottom:1px solid rgba(37,99,235,0.2);padding:4rem 4.5rem;text-align:center}
+.newsletter{background:linear-gradient(135deg,var(--g4) 0%,var(--g5) 100%);border-top:1px solid rgba(27,46,90,0.2);border-bottom:1px solid rgba(27,46,90,0.2);padding:4rem 4.5rem;text-align:center}
 .newsletter h2{margin-bottom:.8rem}
 .newsletter p{color:rgba(5,14,31,.6);max-width:480px;margin:0 auto 2rem;font-size:.92rem}
 .nl-form{display:flex;gap:.8rem;max-width:440px;margin:0 auto;justify-content:center;flex-wrap:wrap}
-.nl-input{flex:1;padding:.85rem 1.2rem;background:rgba(37,99,235,0.15);border:1px solid rgba(5,14,31,.18);border-radius:50px;color:#050E1F;font-family:'Outfit',sans-serif;font-size:.9rem;outline:none;min-width:220px}
+.nl-input{flex:1;padding:.85rem 1.2rem;background:rgba(27,46,90,0.15);border:1px solid rgba(5,14,31,.18);border-radius:50px;color:#050E1F;font-family:'Outfit',sans-serif;font-size:.9rem;outline:none;min-width:220px}
 .nl-input::placeholder{color:rgba(5,14,31,.4)}
 .nl-input:focus{border-color:var(--g1)}
 .nl-btn{background:var(--g1);color:var(--ink);border:none;padding:.85rem 1.8rem;border-radius:50px;font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:800;cursor:pointer;transition:all .3s;white-space:nowrap}
-.nl-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(37,99,235,0.45)}
+.nl-btn:hover{transform:translateY(-2px);box-shadow:0 8px 28px rgba(27,46,90,0.45)}
 
 /* ── KONTAKT ── */
 .kontakt{background:var(--ink)}
@@ -536,18 +536,18 @@ input[type=range]::-webkit-slider-thumb:hover{transform:scale(1.25);box-shadow:0
 @media(max-width:900px){.kl{grid-template-columns:1fr}}
 .ki-info{display:flex;flex-direction:column;gap:1rem;margin-top:2rem}
 .ki-row{display:flex;align-items:center;gap:.9rem;font-size:.85rem;color:rgba(5,14,31,.55)}
-.ki-icon{width:38px;height:38px;border-radius:10px;background:rgba(37,99,235,0.1);border:1px solid rgba(37,99,235,0.18);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
-.cf{background:rgba(5,14,31,.028);border:1px solid rgba(37,99,235,0.14);border-radius:22px;padding:2.5rem}
+.ki-icon{width:38px;height:38px;border-radius:10px;background:rgba(27,46,90,0.1);border:1px solid rgba(27,46,90,0.18);display:flex;align-items:center;justify-content:center;font-size:1rem;flex-shrink:0}
+.cf{background:rgba(5,14,31,.028);border:1px solid rgba(27,46,90,0.14);border-radius:22px;padding:2.5rem}
 .cf-row{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;margin-bottom:.9rem}
 @media(max-width:768px){.cf-row{grid-template-columns:1fr}}
-.cfi{width:100%;padding:.85rem 1.1rem;background:rgba(37,99,235,0.07);border:1px solid rgba(5,14,31,.1);border-radius:11px;color:#050E1F;font-family:'Outfit',sans-serif;font-size:.88rem;outline:none;transition:border .2s;display:block}
+.cfi{width:100%;padding:.85rem 1.1rem;background:rgba(27,46,90,0.07);border:1px solid rgba(5,14,31,.1);border-radius:11px;color:#050E1F;font-family:'Outfit',sans-serif;font-size:.88rem;outline:none;transition:border .2s;display:block}
 .cfi::placeholder{color:rgba(5,14,31,0.4)}
-.cfi:focus{border-color:var(--g1);box-shadow:0 0 0 3px rgba(37,99,235,0.09)}
+.cfi:focus{border-color:var(--g1);box-shadow:0 0 0 3px rgba(27,46,90,0.09)}
 textarea.cfi{resize:vertical;min-height:100px;margin-bottom:.9rem}
 .cf-check{display:flex;align-items:flex-start;gap:.7rem;margin-bottom:1.3rem;font-size:.76rem;color:rgba(5,14,31,.38)}
 .cf-check input{accent-color:var(--g1);margin-top:2px;flex-shrink:0}
-.btn-send{width:100%;padding:1rem;background:var(--g1);color:var(--ink);border:none;border-radius:50px;font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:800;cursor:pointer;box-shadow:0 4px 30px rgba(37,99,235,0.4);transition:all .3s}
-.btn-send:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(37,99,235,0.6);background:#60A5FA}
+.btn-send{width:100%;padding:1rem;background:var(--g1);color:var(--ink);border:none;border-radius:50px;font-family:'Outfit',sans-serif;font-size:.95rem;font-weight:800;cursor:pointer;box-shadow:0 4px 30px rgba(27,46,90,0.4);transition:all .3s}
+.btn-send:hover{transform:translateY(-2px);box-shadow:0 8px 40px rgba(27,46,90,0.6);background:#2A4A8C}
 
 /* ── FOOTER ── */
 footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.5rem 2rem}
@@ -557,8 +557,8 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 .footer-logo{height:44px;width:auto;filter:brightness(0) invert(1);display:block;margin-bottom:.8rem;opacity:.85}
 .f-tag{font-size:.82rem;color:rgba(5,14,31,0.4);line-height:1.7;margin-bottom:1.3rem;font-weight:300}
 .f-social{display:flex;gap:.7rem}
-.fsb{width:36px;height:36px;border-radius:9px;background:rgba(37,99,235,0.07);border:1px solid rgba(5,14,31,.08);display:flex;align-items:center;justify-content:center;font-size:.82rem;text-decoration:none;color:rgba(5,14,31,.45);transition:all .3s}
-.fsb:hover{border-color:var(--g1);color:var(--g1);background:rgba(37,99,235,0.1)}
+.fsb{width:36px;height:36px;border-radius:9px;background:rgba(27,46,90,0.07);border:1px solid rgba(5,14,31,.08);display:flex;align-items:center;justify-content:center;font-size:.82rem;text-decoration:none;color:rgba(5,14,31,.45);transition:all .3s}
+.fsb:hover{border-color:var(--g1);color:var(--g1);background:rgba(27,46,90,0.1)}
 .fc-col h5{font-size:.72rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:rgba(5,14,31,0.4);margin-bottom:1.1rem}
 .fc-col a{display:block;font-size:.83rem;color:rgba(5,14,31,.45);text-decoration:none;margin-bottom:.6rem;font-weight:300;transition:color .2s}
 .fc-col a:hover{color:var(--g1)}
@@ -669,7 +669,7 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 
 /* ── LANG SWITCH ── */
 .lang-switch{display:flex;align-items:center;gap:.3rem;margin-left:1rem}
-.lang-btn{background:transparent;border:1.5px solid rgba(37,99,235,0.3);color:rgba(5,14,31,0.55);padding:.28rem .65rem;border-radius:6px;font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:700;cursor:pointer;transition:all .2s;line-height:1}
+.lang-btn{background:transparent;border:1.5px solid rgba(27,46,90,0.3);color:rgba(5,14,31,0.55);padding:.28rem .65rem;border-radius:6px;font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:700;cursor:pointer;transition:all .2s;line-height:1}
 .lang-btn.active,.lang-btn:hover{background:var(--g1);border-color:var(--g1);color:#fff}
 </style>
 </head>
@@ -681,7 +681,7 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 
 <!-- COOKIE -->
 <div id="cookie">
-  <p>Wir verwenden Cookies, um unsere Website zu verbessern und Ihnen relevante Inhalte anzuzeigen. Mehr in unserer <a href="#" onclick="openModal('datenschutz');return false;">Datenschutzerklärung</a>. Sie können alle nicht notwendigen Cookies ablehnen.</p>
+  <p>Wir verwenden technisch notwendige Cookies. Mehr Infos in unserer <a href="#" onclick="openModal('datenschutz');return false;">Datenschutzerklärung</a>.</p>
   <div class="cookie-btns">
     <button id="cookie-btn" data-i18n="cookie.accept" onclick="document.getElementById('cookie').style.display='none'">Alle akzeptieren</button>
     <button id="cookie-reject" data-i18n="cookie.reject" onclick="document.getElementById('cookie').style.display='none'">Nur notwendige</button>
@@ -690,15 +690,15 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 
 <!-- WHATSAPP -->
 <a id="wa-btn" href="#kontakt" onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'});return false;">💬</a>
-<div id="wa-tooltip">Direkt zur Anfrage</div>
+<div id="wa-tooltip">Jetzt anfragen</div>
 
 <!-- EXIT INTENT POPUP -->
 <div id="exit-popup">
   <div class="ep-box">
     <button class="ep-close" onclick="closeExit()">×</button>
-    <div class="ep-badge" data-i18n="exit.badge">⚡ Kostenlose Erstanalyse</div>
-    <h3 data-i18n="exit.title">Warten kostet Sie bares Geld.</h3>
-    <p>Jeder Monat ohne PPA ist ein Monat, in dem Sie den vollen Netzstrompreis zahlen. Hinterlassen Sie Ihre E-Mail — wir schicken Ihnen eine kostenlose Ersparnis-Schätzung für Ihr Unternehmen.</p>
+    <div class="ep-badge" data-i18n="exit.badge">☀ Kostenlose Solarberatung</div>
+    <h3 data-i18n="exit.title">Strom-Kosten senken — jetzt!</h3>
+    <p>Jeder Monat ohne Solaranlage ist ein Monat, in dem Sie unnötig hohe Stromkosten zahlen. Hinterlassen Sie Ihre E-Mail — wir schicken Ihnen eine kostenlose Einschätzung für Ihr Objekt.</p>
     <div class="ep-form">
       <input class="ep-input" type="email" placeholder="Ihre E-Mail-Adresse">
       <button class="ep-btn" data-i18n="exit.btn" onclick="closeExit()">Jetzt senden →</button>
@@ -708,11 +708,11 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 </div>
 
 <!-- MOBILE CTA -->
-<div id="mob-cta"><a href="#kontakt" data-i18n="mob.cta">☀ Jetzt kostenlos anfragen</a></div>
+<div id="mob-cta"><a href="#kontakt" data-i18n="mob.cta">☀ Jetzt Beratung anfragen</a></div>
 
 <!-- NAV -->
 <nav>
-  <a href="#" class="logo"><img src="logo.png" alt="Pilsner Vertriebs GmbH" class="nav-logo"></a>
+  <a href="#" class="logo"><img src="logo.png" alt="SOMV Project Consulting GmbH" class="nav-logo"></a>
   <div class="nav-links">
     <a href="#funktioniert" data-i18n="nav.how">So geht's</a>
     <a href="#vorteile" data-i18n="nav.benefits">Vorteile</a>
@@ -732,35 +732,35 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 
     <!-- LINKS: Headline & Aktionen -->
     <div class="hero-left">
-      <div class="hero-eyebrow"><span class="hero-dot"></span><span data-i18n="hero.eyebrow">Power Purchase Agreement — Onsite Solar</span></div>
-      <h1 data-i18n-html="hero.h1">Ihre Solaranlage.<br><span class="g">Kein Investment.</span><br><span class="y">Deutlich günstiger.</span></h1>
+      <div class="hero-eyebrow"><span class="hero-dot"></span><span data-i18n="hero.eyebrow">Photovoltaik & Solaranlagen — Aus der Region, für die Region</span></div>
+      <h1 data-i18n-html="hero.h1">Ihre Solaranlage.<br><span class="g">Von Profis geplant.</span><br><span class="y">Für Ihre Zukunft.</span></h1>
       <div class="live-ticker">
         <span class="ticker-dot"></span>
-        <span data-i18n="ticker.grid">Netzstrom 2025:</span> <span class="ticker-val">22–28 ct/kWh</span>
-        &nbsp;·&nbsp; <span data-i18n="ticker.ppa">Ihr PPA-Preis:</span> <span class="ticker-ppa">ab 12–22 ct/kWh</span>
+        <span data-i18n="ticker.grid">Solarstrom 2025:</span> <span class="ticker-val">ab 8–12 ct/kWh</span>
+        &nbsp;·&nbsp; <span data-i18n="ticker.ppa">Amortisation:</span> <span class="ticker-ppa">ca. 8–12 Jahre</span>
       </div>
       <p class="hero-sub">
-        <span data-i18n-html="hero.sub">Wir finanzieren, bauen und betreiben Ihre PV-Anlage — <strong>vollständig auf unsere Kosten</strong>. Keine Netzentgelte, keine Stromsteuer, kein Investitionsrisiko.</span>
+        <span data-i18n-html="hero.sub">SOMV plant, liefert und installiert Ihre PV-Anlage — <strong>komplett aus einer Hand</strong>. Für Einfamilienhäuser, Gewerbe, Industrie und Freiflächenanlagen.</span>
       </p>
       <div class="hero-actions">
-        <a href="#rechner" class="btn-main" data-i18n="hero.btn_main">☀ Ersparnis berechnen</a>
-        <a href="#funktioniert" class="btn-ghost" data-i18n="hero.btn_ghost">So funktioniert's →</a>
+        <a href="#rechner" class="btn-main" data-i18n="hero.btn_main">☀ Kostenlos beraten lassen</a>
+        <a href="#funktioniert" class="btn-ghost" data-i18n="hero.btn_ghost">Unsere Leistungen →</a>
       </div>
       <div class="hero-trust">
-        <div class="ht-item"><span>✓</span> <span data-i18n="trust.1">0 € Investition</span></div>
+        <div class="ht-item"><span>✓</span> <span data-i18n="trust.1">Planung & Konzeption</span></div>
         <div class="ht-sep"></div>
-        <div class="ht-item"><span>✓</span> <span data-i18n="trust.2">Keine Netzentgelte</span></div>
+        <div class="ht-item"><span>✓</span> <span data-i18n="trust.2">Montage & Installation</span></div>
         <div class="ht-sep"></div>
-        <div class="ht-item"><span>✓</span> <span data-i18n="trust.3">Full-Service</span></div>
+        <div class="ht-item"><span>✓</span> <span data-i18n="trust.3">Wartung & Service</span></div>
         <div class="ht-sep"></div>
-        <div class="ht-item"><span>✓</span> <span data-i18n="trust.4">Bis 20 J. fix</span></div>
+        <div class="ht-item"><span>✓</span> <span data-i18n="trust.4">Q CELLS & Huawei</span></div>
       </div>
     </div>
 
     <!-- RECHTS: Unified CTA-Card -->
     <div class="hero-right">
       <div class="hero-cta-card">
-        <div class="hcc-label" data-i18n="qc.label">⚡ Schnellcheck — Bin ich qualifiziert?</div>
+        <div class="hcc-label" data-i18n="qc.label">☀ Schnellcheck — Wie groß ist meine Anlage?</div>
         <div class="qc-row">
           <input class="qc-field" type="text" data-i18n-placeholder="qc.p_verb" data-i18n-placeholder="kon.p_verb" placeholder="Jahresstromverbrauch (kWh)" id="qc-verb">
           <input class="qc-field" type="text" data-i18n-placeholder="qc.p_dach" data-i18n-placeholder="kon.p_dach" placeholder="Dachfläche (m²)" id="qc-dach">
@@ -769,24 +769,24 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
           <input class="qc-field" type="email" data-i18n-placeholder="qc.p_email" placeholder="Ihre E-Mail-Adresse" id="qc-mail" style="flex:2">
           <input class="qc-field" type="text" data-i18n-placeholder="qc.p_firma" placeholder="Unternehmen" id="qc-firma">
         </div>
-        <button class="qc-btn" data-i18n="qc.btn" onclick="quickCheck()">Sofort prüfen — kostenlos und unverbindlich →</button>
+        <button class="qc-btn" data-i18n="qc.btn" onclick="quickCheck()">Jetzt prüfen — kostenlos und unverbindlich →</button>
         <p class="qc-note" data-i18n="qc.note">Keine Weitergabe Ihrer Daten · Antwort in &lt; 24 Stunden · DSGVO-konform</p>
         <div class="hcc-divider"></div>
         <div class="hero-stats">
           <div class="hsc">
-            <div class="hsc-label" data-i18n="stat.sav_label">Ersparnis Beispiel</div>
-            <div class="hsc-val">38.400 €</div>
-            <div class="hsc-sub" data-i18n="stat.sav_sub">500 tkWh/Jahr</div>
+            <div class="hsc-label" data-i18n="stat.sav_label">Ø Amortisation</div>
+            <div class="hsc-val">10 Jahre</div>
+            <div class="hsc-sub" data-i18n="stat.sav_sub">bei Gewerbe</div></div>
           </div>
           <div class="hsc">
-            <div class="hsc-label" data-i18n="stat.mkt_label">PPA-Markt DE</div>
-            <div class="hsc-val">6,6 GW</div>
-            <div class="hsc-sub" data-i18n="stat.mkt_sub">Volumen 2024</div>
+            <div class="hsc-label" data-i18n="stat.mkt_label">Installierte Anlagen</div>
+            <div class="hsc-val">500+</div>
+            <div class="hsc-sub" data-i18n="stat.mkt_sub">DE & AT</div>
           </div>
           <div class="hsc">
             <div class="hsc-label">Time-to-Power</div>
-            <div class="hsc-val">8–12 Wo</div>
-            <div class="hsc-sub" data-i18n="stat.ttp_sub">Vertrag bis Strom</div>
+            <div class="hsc-val">4–8 Wo</div>
+            <div class="hsc-sub" data-i18n="stat.ttp_sub">Planung bis Strom</div>
           </div>
         </div>
       </div>
@@ -798,23 +798,23 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 <!-- MARQUEE -->
 <div class="marquee-wrap">
   <div class="marquee">
-    <span class="mi">Keine Netzentgelte <span class="ms">✦</span></span>
-    <span class="mi">Keine Stromsteuer <span class="ms">✦</span></span>
-    <span class="mi">0 € Investition <span class="ms">✦</span></span>
-    <span class="mi">100 % Grünstrom <span class="ms">✦</span></span>
-    <span class="mi">Typisch 25–40 % günstiger <span class="ms">✦</span></span>
-    <span class="mi">CSRD-konform <span class="ms">✦</span></span>
-    <span class="mi">Full-Service Betrieb <span class="ms">✦</span></span>
-    <span class="mi">20 Jahre Preissicherheit <span class="ms">✦</span></span>
-    <span class="mi">D · A · CH <span class="ms">✦</span></span>
-    <span class="mi">Keine Netzentgelte <span class="ms">✦</span></span>
-    <span class="mi">Keine Stromsteuer <span class="ms">✦</span></span>
-    <span class="mi">0 € Investition <span class="ms">✦</span></span>
-    <span class="mi">100 % Grünstrom <span class="ms">✦</span></span>
-    <span class="mi">Typisch 25–40 % günstiger <span class="ms">✦</span></span>
-    <span class="mi">CSRD-konform <span class="ms">✦</span></span>
-    <span class="mi">Full-Service Betrieb <span class="ms">✦</span></span>
-    <span class="mi">20 Jahre Preissicherheit <span class="ms">✦</span></span>
+    <span class="mi">Photovoltaik aus Profis <span class="ms">✦</span></span>
+    <span class="mi">Q CELLS Partner <span class="ms">✦</span></span>
+    <span class="mi">Huawei Wechselrichter <span class="ms">✦</span></span>
+    <span class="mi">100 % Solarstrom <span class="ms">✦</span></span>
+    <span class="mi">Einfamilienhaus · Gewerbe · Industrie <span class="ms">✦</span></span>
+    <span class="mi">Freiflächenanlagen <span class="ms">✦</span></span>
+    <span class="mi">Wartung & Kundendienst <span class="ms">✦</span></span>
+    <span class="mi">Bayern & Schleswig-Holstein <span class="ms">✦</span></span>
+    <span class="mi">SOMV-Project.de <span class="ms">✦</span></span>
+    <span class="mi">Photovoltaik aus Profis <span class="ms">✦</span></span>
+    <span class="mi">Q CELLS Partner <span class="ms">✦</span></span>
+    <span class="mi">Huawei Wechselrichter <span class="ms">✦</span></span>
+    <span class="mi">100 % Solarstrom <span class="ms">✦</span></span>
+    <span class="mi">Einfamilienhaus · Gewerbe · Industrie <span class="ms">✦</span></span>
+    <span class="mi">Freiflächenanlagen <span class="ms">✦</span></span>
+    <span class="mi">Wartung & Kundendienst <span class="ms">✦</span></span>
+    <span class="mi">Bayern & Schleswig-Holstein <span class="ms">✦</span></span>
   </div>
 </div>
 
@@ -822,72 +822,72 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 <!-- URGENCY BANNER -->
 <div class="urgency">
   <div class="urgency-inner">
-    <span>⏳ <strong>Kostensteigerung läuft:</strong> Jeder Monat ohne PPA kostet Sie Ihr volles Netzentgelt und Ihre Stromsteuer.</span>
-    <span>Aktuelle Netzstrompreise 2025: <strong>22–28 ct/kWh</strong> — Ihr PPA-Preis: <strong>ab 12–22 ct/kWh</strong></span>
-    <a href="#rechner" class="urgency-cta" data-i18n="urg.cta">Jetzt Ersparnis berechnen →</a>
+    <span>⏳ <strong>Strompreise 2025:</strong> Wer jetzt auf Solar umsteigt, spart über 30 Jahre erheblich.</span>
+    <span>Netzstrom: <strong>22–28 ct/kWh</strong> — Solarstrom vom eigenen Dach: <strong>ab 8–12 ct/kWh</strong></span>
+    <a href="#rechner" class="urgency-cta" data-i18n="urg.cta">Jetzt berechnen →</a>
   </div>
 </div>
 
 <!-- KENNZAHLEN -->
 <div class="kz">
   <div class="kz-grid">
-    <div class="kz-item reveal"><div class="kz-num">0 €</div><div class="kz-label" data-i18n-html="kz.1">Investition für Sie —<br>wir tragen alles</div></div>
-    <div class="kz-item reveal rd1"><div class="kz-num">bis 60 %</div><div class="kz-label" data-i18n-html="kz.2">Max. Kostensenkung inkl.<br>Netzentgelte (je nach Standort)</div></div>
-    <div class="kz-item reveal rd2"><div class="kz-num">20 J.</div><div class="kz-label" data-i18n-html="kz.3">Maximale<br>PPA-Laufzeit</div></div>
-    <div class="kz-item reveal rd3"><div class="kz-num">6,6 GW</div><div class="kz-label" data-i18n-html="kz.4">PPA-Volumen<br>Deutschland 2024</div></div>
-    <div class="kz-item reveal"><div class="kz-num">#2</div><div class="kz-label" data-i18n-html="kz.5">Deutschland: zweitgrößter<br>PPA-Markt Europas</div></div>
+    <div class="kz-item reveal"><div class="kz-num">500+</div><div class="kz-label" data-i18n-html="kz.1">Installierte<br>Solaranlagen</div></div>
+    <div class="kz-item reveal rd1"><div class="kz-num">bis 30 J.</div><div class="kz-label" data-i18n-html="kz.2">Lebensdauer<br>Ihrer PV-Anlage</div></div>
+    <div class="kz-item reveal rd2"><div class="kz-num">100 %</div><div class="kz-label" data-i18n-html="kz.3">Aus einer Hand —<br>Planung bis Wartung</div></div>
+    <div class="kz-item reveal rd3"><div class="kz-num">2</div><div class="kz-label" data-i18n-html="kz.4">Standorte in<br>Bayern & Schleswig-H.</div></div>
+    <div class="kz-item reveal"><div class="kz-num">Q·H</div><div class="kz-label" data-i18n-html="kz.5">Premium-Partner:<br>Q CELLS & Huawei</div></div>
   </div>
 </div>
 
 <!-- WIE ES FUNKTIONIERT -->
 <section id="funktioniert" class="how">
-  <div class="sey" data-i18n="how.sey">So funktioniert's</div>
-  <h2 data-i18n-html="how.h2">Vom Erstgespräch zum<br><span class="tg">laufenden Grünstrom</span></h2>
-  <p class="slead" data-i18n="how.lead">In vier Schritten bringen wir Ihren Eigenstrom zum Laufen — komplett auf unsere Kosten. Sie müssen sich um nichts kümmern.</p>
+  <div class="sey" data-i18n="how.sey">Unser Prozess</div>
+  <h2 data-i18n-html="how.h2">Von der Beratung zur<br><span class="tg">fertigen Solaranlage</span></h2>
+  <p class="slead" data-i18n="how.lead">In vier Schritten realisieren wir Ihre Solaranlage — zuverlässig, termingerecht und aus einer Hand. Von der ersten Analyse bis zum laufenden Betrieb.</p>
   <div class="how-timeline">
-    <div class="step reveal"><div class="step-bubble">📋</div><span data-i18n-html="step.1"><div class="step-n">SCHRITT 01</div><h3>Analyse & Angebot</h3><p>Wir analysieren Verbrauch, Dach und Lastprofil. In 5 Werktagen erhalten Sie ein konkretes Angebot mit PPA-Preis.</p></span></div>
-    <div class="step reveal rd1"><div class="step-bubble">📄</div><span data-i18n-html="step.2"><div class="step-n">SCHRITT 02</div><h3>PPA-Vertrag & Planung</h3><p>Fixpreis-Vertrag für bis zu 20 Jahre. Genehmigungen, Netzanmeldung und Detailplanung übernehmen vollständig wir.</p></span></div>
-    <div class="step reveal rd2"><div class="step-bubble">🔧</div><span data-i18n-html="step.3"><div class="step-n">SCHRITT 03</div><h3>Montage & Inbetrieb</h3><p>Zertifiziertes Montageteam installiert in 1–3 Wochen. Messtechnik, Monitoring-Setup und Inbetriebnahmeprotokoll inklusive.</p></span></div>
-    <div class="step reveal rd3"><div class="step-bubble">⚡</div><span data-i18n-html="step.4"><div class="step-n">SCHRITT 04</div><h3>Sparen & Wachsen</h3><p>Sie zahlen nur für verbrauchte kWh — keine Netzentgelte, keine Stromsteuer. Wartung, Monitoring und Versicherung: wir.</p></span></div>
+    <div class="step reveal"><div class="step-bubble">📋</div><span data-i18n-html="step.1"><div class="step-n">SCHRITT 01</div><h3>Beratung & Analyse</h3><p>Kostenlose Vor-Ort-Begehung — wir analysieren Dach, Ausrichtung, Verbrauch und Netzanschluss. In 5 Werktagen erhalten Sie ein konkretes Angebot.</p></span></div>
+    <div class="step reveal rd1"><div class="step-bubble">📄</div><span data-i18n-html="step.2"><div class="step-n">SCHRITT 02</div><h3>Planung & Genehmigung</h3><p>Individuelles Anlagenkonzept, Statikprüfung, Netzanmeldung und alle behördlichen Genehmigungen — wir übernehmen alles.</p></span></div>
+    <div class="step reveal rd2"><div class="step-bubble">🔧</div><span data-i18n-html="step.3"><div class="step-n">SCHRITT 03</div><h3>Montage & Inbetriebnahme</h3><p>Unser zertifiziertes Team installiert Ihre Anlage professionell in 1–3 Wochen. Wechselrichter, Monitoring und Abnahmeprotokoll inklusive.</p></span></div>
+    <div class="step reveal rd3"><div class="step-bubble">⚡</div><span data-i18n-html="step.4"><div class="step-n">SCHRITT 04</div><h3>Wartung & Support</h3><p>Langfristiger Kundendienst, regelmäßige Wartung und 24/7-Monitoring durch SOMV. Sie produzieren Strom — wir sorgen dafür, dass die Anlage läuft.</p></span></div>
   </div>
 </section>
 
 <!-- VORTEILE -->
 <section id="vorteile" style="background:var(--ink3)">
-  <div class="sey" data-i18n="ben.sey">Ihre Vorteile</div>
-  <h2 data-i18n-html="ben.h2">Warum PPA Onsite <span class="tg">unschlagbar ist</span></h2>
+  <div class="sey" data-i18n="ben.sey">Unsere Leistungen</div>
+  <h2 data-i18n-html="ben.h2">Was SOMV für Sie <span class="tg">leisten kann</span></h2>
 
   <!-- NETZENTGELT BOX -->
   <div class="netz-box reveal">
-    <h3>⚡ Der entscheidende Vorteil: Keine Netzentgelte &amp; Stromsteuer</h3>
+    <h3>☀ Der SOMV-Vorteil: Alles aus einer Hand — von der Planung bis zur Wartung</h3>
     <div class="netz-split">
       <div>
-        <p style="font-size:.88rem;color:rgba(5,14,31,.6);margin-bottom:1.2rem;font-weight:300;line-height:1.7">Beim Onsite-PPA wird der Solarstrom direkt von der Anlage auf Ihrem Dach in Ihr Werksnetz eingespeist — ohne öffentliches Stromnetz. Das bedeutet: Alle netzabhängigen Kosten entfallen vollständig.</p>
+        <p style="font-size:.88rem;color:rgba(5,14,31,.6);margin-bottom:1.2rem;font-weight:300;line-height:1.7">SOMV begleitet Sie von der ersten Beratung bis zum laufenden Betrieb Ihrer Solaranlage. Wir arbeiten mit Premium-Komponenten von Q CELLS und Huawei — für maximale Effizienz und Langlebigkeit.</p>
         <div class="netz-list">
-          <div class="netz-item"><span class="check">✓</span>Netznutzungsentgelte entfallen (ca. 6–9 ct/kWh)</div>
-          <div class="netz-item"><span class="check">✓</span>Stromsteuer entfällt (2,05 ct/kWh, §9 StromStG)</div>
-          <div class="netz-item"><span class="check">✓</span>Konzessionsabgaben entfallen</div>
-          <div class="netz-item"><span class="check">✓</span>Messstellenentgelt für PV-Strom entfällt</div>
-          <div class="netz-item"><span class="check">✓</span>Keine EEG-Umlage (seit Juli 2022 entfallen)</div>
+          <div class="netz-item"><span class="check">✓</span>Kostenlose Vor-Ort-Beratung & Dachanalyse</div>
+          <div class="netz-item"><span class="check">✓</span>Individuelle Anlagenplanung & Statikprüfung</div>
+          <div class="netz-item"><span class="check">✓</span>Professionelle Montage durch zertifiziertes Team</div>
+          <div class="netz-item"><span class="check">✓</span>Netzanmeldung & Inbetriebnahme inklusive</div>
+          <div class="netz-item"><span class="check">✓</span>Langfristige Wartung & 24/7-Monitoring</div>
         </div>
       </div>
       <div class="netz-stat">
-        <div class="netz-stat-num">bis 60%</div>
-        <div class="netz-stat-label">Stromkostensenkung möglich —<br>typisch 25–40 % (je nach Standort<br>und Netzentgelthöhe)</div>
+        <div class="netz-stat-num">30 J.</div>
+        <div class="netz-stat-label">Garantierte Lebensdauer<br>Ihrer SOMV-Solaranlage<br>mit Premium-Komponenten</div>
       </div>
     </div>
   </div>
 
   <div class="vg">
-    <div class="vc star reveal"><div class="vc-icon">💶</div><h3>0 € Investitionskosten</h3><p>Die gesamte Anlage — Module, Wechselrichter, Verkabelung, Montage — wird vollständig durch uns finanziert. Kein Kredit, kein Kapital gebunden, keine Bilanzverlängerung.</p><span class="vc-tag">⭐ Kernvorteil</span></div>
-    <div class="vc reveal rd1"><div class="vc-icon">📉</div><h3>Sofort günstiger</h3><p>Ab dem ersten Betriebstag zahlen Sie weniger. Der PPA-Preis liegt dauerhaft 25–35 % unter dem Netzstrompreis — plus Netzentgelt-Ersparnis von weiteren 6–9 ct/kWh.</p></div>
-    <div class="vc reveal rd2"><div class="vc-icon">🔒</div><h3>Preissicherheit bis 20 Jahre</h3><p>Ihr PPA-Preis ist für die gesamte Laufzeit fix vereinbart oder indexiert. Keine Börsenschwankungen, keine Überraschungen. Volle Planungssicherheit.</p></div>
-    <div class="vc reveal"><div class="vc-icon">🌱</div><h3>ESG & CSRD-konform</h3><p>100 % zertifizierter Eigenstrom. Stärken Sie Ihr Scope-2-Reporting, erfüllen Sie CSRD-Anforderungen und kommunizieren Sie Dekarbonisierung glaubwürdig.</p></div>
-    <div class="vc reveal rd1"><div class="vc-icon">🛠️</div><h3>Full-Service — komplett sorglos</h3><p>Wartung, 24/7-Monitoring, Versicherung und Störungsbehebung: alles SLA-gesichert in unserer Hand. Sie fokussieren sich auf Ihr Kerngeschäft.</p></div>
-    <div class="vc reveal rd2"><div class="vc-icon">⚖️</div><h3>Off-Balance-Sheet</h3><p>Die Anlage steht in unserer Bilanz, nicht in Ihrer. PPA-Zahlungen sind operativer Aufwand — kein Anlagevermögen, keine AfA, keine Finanzierungsverbindlichkeit.</p></div>
-    <div class="vc reveal"><div class="vc-icon">🔌</div><h3>Versorgungssicherheit 100 %</h3><p>Nachts und bei schwachem Sonnenlicht deckt das öffentliche Netz automatisch Ihren Restbedarf. Die PV-Anlage ist Ergänzung, kein Risiko.</p></div>
-    <div class="vc reveal rd1"><div class="vc-icon">📊</div><h3>Live-Monitoring & Reporting</h3><p>Monatliche Reports über Produktion, Verbrauch, Einsparung und CO₂. Persönliches Energie-Dashboard online und per App — jederzeit abrufbar.</p></div>
-    <div class="vc reveal rd2"><div class="vc-icon">🔄</div><h3>Optionen nach Laufzeitende</h3><p>Anlage zum Restwert kaufen, Vertrag verlängern oder Anlage abbauen lassen — die Wahl liegt bei Ihnen. Volle Flexibilität für die Zukunft.</p></div>
+    <div class="vc star reveal"><div class="vc-icon">🏠</div><h3>Privatanlagen (EFH / MFH)</h3><p>Solaranlagen für Einfamilien- und Mehrfamilienhäuser — maßgeschneidert für Ihre Dachfläche, Ihren Verbrauch und Ihr Budget. Inklusive Stromspeicher auf Wunsch.</p><span class="vc-tag">⭐ Kernleistung</span></div>
+    <div class="vc reveal rd1"><div class="vc-icon">🏭</div><h3>Gewerbliche Anlagen</h3><p>PV-Anlagen ab 30 kWp für Gewerbe, Industrie und öffentliche Einrichtungen. Große Dachflächen, hohe Eigenverbrauchsquoten, optimale Wirtschaftlichkeit.</p></div>
+    <div class="vc reveal rd2"><div class="vc-icon">🌾</div><h3>Freiflächenanlagen & Agri-PV</h3><p>Solarparks und Agri-PV-Anlagen auf Freiflächen — SOMV übernimmt Planung, Genehmigung, Bau und Betrieb. Ideal für landwirtschaftliche Betriebe und Investoren.</p></div>
+    <div class="vc reveal"><div class="vc-icon">🔋</div><h3>Batteriespeicher</h3><p>Maximieren Sie Ihren Eigenverbrauch mit modernen Lithium-Speicherlösungen. SOMV integriert Speicher nahtlos in Ihre PV-Anlage — für Autarkie auch nachts.</p></div>
+    <div class="vc reveal rd1"><div class="vc-icon">🛠️</div><h3>Wartung & Kundendienst</h3><p>Professionelle Wartung, Reinigung, Monitoring und Störungsbehebung für Ihre Solaranlage. SOMV steht als langfristiger Partner an Ihrer Seite.</p></div>
+    <div class="vc reveal rd2"><div class="vc-icon">🚗</div><h3>Carport-PV & Sonderanlagen</h3><p>SOMV realisiert auch Carport-Überdachungen mit Solarmodulen sowie Sonderlösungen für Industrie, Logistik und Kommunen — individuell geplant und umgesetzt.</p></div>
+    <div class="vc reveal"><div class="vc-icon">📊</div><h3>Monitoring & Live-Dashboard</h3><p>Echtzeit-Überwachung Ihrer Anlage per App und Web-Dashboard. SOMV analysiert Ihre Ertragsdaten und meldet sich proaktiv bei Auffälligkeiten.</p></div>
+    <div class="vc reveal rd1"><div class="vc-icon">🌱</div><h3>Nachhaltigkeit & CO₂-Einsparung</h3><p>Jede SOMV-Anlage produziert sauberen Strom und reduziert Ihren CO₂-Fußabdruck messbar. Ideal für ESG-Reporting und Scope-2-Ziele.</p></div>
+    <div class="vc reveal rd2"><div class="vc-icon">🤝</div><h3>Langjährige Partnerschaft</h3><p>SOMV denkt langfristig. Mit Garantieleistungen, Wartungsverträgen und persönlichem Ansprechpartner sind Sie über die gesamte Anlagenlebensdauer bestens betreut.</p></div>
   </div>
 </section>
 
@@ -899,7 +899,7 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
   <div class="krise-chart-wrap reveal">
     <div class="krise-legend">
       <div class="kl-item"><div class="kl-dot" style="background:var(--red)"></div>Netzstrom Marktpreis</div>
-      <div class="kl-item"><div class="kl-dot" style="background:var(--g1)"></div>PPA Onsite Preis</div>
+      <div class="kl-item"><div class="kl-dot" style="background:var(--g1)"></div>SOMV Solar Preis</div>
     </div>
     <div class="krise-chart" id="krise-chart"></div>
     <p class="krise-note">⚠ Schematische Darstellung — keine exakten Marktpreise. Netzstrompreise basieren auf Durchschnittswerten für Gewerbekunden (Bundesnetzagentur, BDEW, Fraunhofer ISE). PPA-Preis = exemplarischer Richtwert eines 2020 abgeschlossenen Onsite-PPA; tatsächliche Preise variieren je nach Projekt. Die Darstellung dient der Veranschaulichung des Preisschutzprinzips.</p>
@@ -1182,13 +1182,13 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 <!-- VERGLEICH -->
 <section id="vergleich" style="background:var(--ink2)">
   <div class="sey">Vergleich</div>
-  <h2>PPA Onsite vs. <span class="tg">alle Alternativen</span></h2>
+  <h2>SOMV vs. <span class="tg">alle Alternativen</span></h2>
   <p class="slead">Wie schlägt sich das Onsite-PPA im direkten Vergleich? Ehrlich und vollständig.</p>
   <div class="vt-wrap reveal">
     <table class="vt">
       <thead><tr>
         <th>Kriterium</th>
-        <th class="col-ppa">☀ PPA Onsite</th>
+        <th class="col-ppa">☀ SOMV Solar</th>
         <th>Eigenkauf PV</th>
         <th>Netzstrom</th>
         <th>Offsite PPA</th>
@@ -1270,7 +1270,7 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
   <div class="ref-grid">
     <div class="ref-card reveal">
       <div class="ref-logo">MEISTER FOOD GmbH</div>
-      <div class="ref-quote">„Wir haben seit Jahren über eine PV-Anlage nachgedacht — die Investition hat uns immer abgeschreckt. Mit PPA Onsite sind wir dabei, ohne auch nur einen Euro zu riskieren. Und die Netzentgelt-Ersparnis hatten wir gar nicht auf dem Schirm."</div>
+      <div class="ref-quote">„Wir haben seit Jahren über eine PV-Anlage nachgedacht — die Investition hat uns immer abgeschreckt. Mit SOMV haben wir unsere Solaranlage schnell und professionell realisiert — und sparen seitdem erheblich beim Strom."</div>
       <div class="ref-bottom"><div><div class="ref-name">Stefan Meierhans</div><div class="ref-title">GF, Lebensmittelproduktion</div></div><div style="text-align:right"><div class="ref-stat-num">−41 %</div><div class="ref-stat-label">Stromkosten gesamt</div></div></div>
     </div>
     <div class="ref-card reveal rd1">
@@ -1288,18 +1288,18 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 
 <!-- PERSÖNLICHE ANSPRECHPARTNER -->
 <section class="personal">
-  <div class="sey" data-i18n="per.sey">Ihr direkter Kontakt</div>
-  <h2 data-i18n-html="per.h2">Sie sprechen mit <span class="tg">echten Experten</span></h2>
+  <div class="sey" data-i18n="per.sey">Ihre Ansprechpartner</div>
+  <h2 data-i18n-html="per.h2">Das SOMV-<span class="tg">Geschäftsführerteam</span></h2>
   <p class="slead" data-i18n="per.lead">Kein Callcenter. Kein Bot. Schreiben oder rufen Sie uns direkt an — wir melden uns persönlich, innerhalb von 24 Stunden.</p>
   <div class="person-grid" style="grid-template-columns:1fr 1fr">
     <div class="person-card">
       <div class="person-avatar">☀</div>
       <div class="person-info">
-        <h4>PPA Onsite — Beratung & Vertrieb</h4>
-        <div class="person-role">Pilsner Vertrieb GmbH · PPA-Experten</div>
-        <div class="person-quote">„Wir analysieren Ihren Stromverbrauch, Ihre Dachfläche und erstellen Ihnen ein konkretes PPA-Angebot — kostenlos und unverbindlich, in 5 Werktagen."</div>
+        <h4>Michael Volz</h4>
+        <div class="person-role">SOMV Project Consulting GmbH · Geschäftsführer</div>
+        <div class="person-quote">„Wir analysieren Ihr Dach, Ihren Verbrauch und erstellen Ihnen ein konkretes Angebot für Ihre Solaranlage — kostenlos und unverbindlich, in 5 Werktagen."</div>
         <div class="person-links">
-          <a class="pl" href="mailto:info@pilsner-vertrieb.de"><span class="pl-i">✉️</span>info@pilsner-vertrieb.de</a>
+          <a class="pl" href="mailto:info@somv-project.de"><span class="pl-i">✉️</span>info@somv-project.de</a>
           <a class="pl" href="#kontakt" onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'});return false;"><span class="pl-i">📋</span>Anfrage stellen</a>
         </div>
         <div class="person-avail"><span class="avail-dot"></span>Verfügbar Mo–Fr, 8–18 Uhr</div>
@@ -1308,11 +1308,11 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
     <div class="person-card">
       <div class="person-avatar">🔋</div>
       <div class="person-info">
-        <h4>Technik & ESG-Beratung</h4>
-        <div class="person-role">Ingenieurteam · Planung & CSRD-Reporting</div>
-        <div class="person-quote">„Unser Ingenieurteam begleitet Sie von der Dachbegehung bis zum ersten Kilowattstunde — und liefert alle Nachweise für Ihr ESG-Reporting."</div>
+        <h4>Sait Ögütmen</h4>
+        <div class="person-role">SOMV Project Consulting GmbH · Geschäftsführer</div>
+        <div class="person-quote">„Von der Dachbegehung bis zur ersten erzeugten Kilowattstunde — unser Team begleitet Sie professionell durch jeden Schritt Ihres Solarprojekts."</div>
         <div class="person-links">
-          <a class="pl" href="mailto:info@pilsner-vertrieb.de"><span class="pl-i">✉️</span>info@pilsner-vertrieb.de</a>
+          <a class="pl" href="mailto:info@somv-project.de"><span class="pl-i">✉️</span>info@somv-project.de</a>
           <a class="pl" href="#kontakt" onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'});return false;"><span class="pl-i">📋</span>Technische Anfrage</a>
         </div>
         <div class="person-avail"><span class="avail-dot"></span>Verfügbar Mo–Fr, 9–17 Uhr</div>
@@ -1323,24 +1323,24 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 
 <!-- LEAD MAGNET -->
 <section class="lead-magnet">
-  <div class="sey" data-i18n="lm.sey">Kostenloses Whitepaper</div>
-  <h2 data-i18n-html="lm.h2">Der PPA-Leitfaden für <span class="tg">Entscheider</span></h2>
+  <div class="sey" data-i18n="lm.sey">Kostenlose Broschüre</div>
+  <h2 data-i18n-html="lm.h2">Der SOMV-Leitfaden für <span class="tg">Bauherren & Unternehmen</span></h2>
   <p class="slead">Alles, was CFOs, Energiemanager und Einkäufer vor Vertragsabschluss wissen müssen — kompakt auf 18 Seiten.</p>
   <div class="lm-box">
     <div class="lm-doc">
       <div class="lm-doc-icon">📋</div>
-      <div class="lm-doc-title">PPA Onsite<br>Entscheider-Leitfaden</div>
-      <div class="lm-doc-type">PDF · 18 Seiten · Kostenlos</div>
+      <div class="lm-doc-title">SOMV Solar<br>Planungs-Leitfaden</div>
+      <div class="lm-doc-type">PDF · Kostenlos</div>
     </div>
     <div class="lm-content">
-      <h3>Was Sie im Whitepaper erfahren</h3>
-      <p>Der Leitfaden fasst zusammen, worauf es wirklich ankommt — aus Sicht von Unternehmen, die PPAs bereits umgesetzt haben.</p>
+      <h3>Was Sie im Leitfaden erfahren</h3>
+      <p>Der Leitfaden erklärt alles Wichtige rund um Ihre Solaranlage — von der Planung bis zur Förderung.</p>
       <div class="lm-list">
-        <div class="lm-li">Die 7 wichtigsten Vertragsklauseln, die Sie kennen müssen</div>
-        <div class="lm-li">Checkliste: Ist mein Unternehmen PPA-geeignet?</div>
-        <div class="lm-li">Typische Stolpersteine und wie man sie vermeidet</div>
-        <div class="lm-li">CSRD-Reporting mit PPA-Strom: Schritt für Schritt</div>
-        <div class="lm-li">Kalkulationsbeispiele aus 5 verschiedenen Branchen</div>
+        <div class="lm-li">Welche Anlagengröße ist für mein Objekt sinnvoll?</div>
+        <div class="lm-li">Welche Förderungen & Einspeisevergütungen gibt es?</div>
+        <div class="lm-li">Amortisationsrechnung Schritt für Schritt</div>
+        <div class="lm-li">Qualitätsmerkmale: Worauf beim Anbieter achten?</div>
+        <div class="lm-li">Praxisbeispiele aus Bayern & Schleswig-Holstein</div>
       </div>
       <div class="lm-form">
         <input class="lm-inp" type="email" id="lm-email" placeholder="Ihre E-Mail-Adresse">
@@ -1372,7 +1372,7 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
       <div class="fi"><div class="fq" onclick="toggleFaq(this)"><h4>Ab welcher Größe lohnt sich ein Onsite-PPA?</h4><div class="fi-icon">+</div></div><div class="fa"><p>Faustregel: Ab ca. 100.000 kWh Jahresstromverbrauch und einer geeigneten Dachfläche ab 400–500 m² ist ein Onsite-PPA wirtschaftlich und organisatorisch sinnvoll. Für Unternehmen ab 500.000 kWh/Jahr sind Einsparungen und Umsetzungskomplexität besonders attraktiv.</p></div></div>
       <div class="fi"><div class="fq" onclick="toggleFaq(this)"><h4>Was passiert bei Ausfall oder Schäden?</h4><div class="fi-icon">+</div></div><div class="fa"><p>Wartung, Reparatur, Versicherung und 24/7-Monitoring liegen vollständig bei uns. Ein SLA regelt Reaktionszeiten. Bei Produktionsausfall durch technische Defekte zahlen Sie nur für tatsächlich gelieferte kWh — kein Ausfall-Risiko für Sie.</p></div></div>
       <div class="fi"><div class="fq" onclick="toggleFaq(this)"><h4>Was passiert nach Ablauf der PPA-Laufzeit?</h4><div class="fi-icon">+</div></div><div class="fa"><p>Sie haben drei Optionen: (1) Anlage zum vereinbarten Restwert kaufen, (2) PPA-Vertrag zu neuen Konditionen verlängern, oder (3) Anlage auf unsere Kosten abbauen lassen. Die gewählte Option wird bereits im Ursprungsvertrag festgehalten.</p></div></div>
-      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><h4>Wie ist PPA Onsite für mein ESG-Reporting nutzbar?</h4><div class="fi-icon">+</div></div><div class="fa"><p>Ein Onsite-PPA liefert physischen Grünstrom direkt vom Dach — das ist für Scope-2-Reporting (market-based) die sauberste Methode. Sie erhalten monatliche Produktionsnachweise und können den Strom direkt in Ihrem CSRD-Report, GHG-Protocol-Reporting und für RE100-Ziele ausweisen. Kein HKN-Kauf nötig.</p></div></div>
+      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><h4>Wie hilft mir eine Solaranlage beim ESG-Reporting?</h4><div class="fi-icon">+</div></div><div class="fa"><p>Eine eigene Solaranlage liefert physischen Grünstrom direkt vom Dach — ideal für Scope-2-Reporting (market-based). Sie erhalten monatliche Produktionsnachweise und können den Strom in CSRD- und GHG-Protocol-Berichten sowie für RE100-Ziele ausweisen.</p></div></div>
       <div class="fi"><div class="fq" onclick="toggleFaq(this)"><h4>Ist ein Batteriespeicher kombinierbar?</h4><div class="fi-icon">+</div></div><div class="fa"><p>Ja. Batterie-PPAs ("Power Storage Agreements") sind ein neues, wachsendes Modell. Der Speicher wird ebenfalls von uns finanziert und betrieben. Er erhöht die Eigenverbrauchsquote von typisch 65 % auf bis zu 90 % und maximiert damit Ihre Gesamtersparnis. Anfragen willkommen.</p></div></div>
     </div>
   </div>
@@ -1380,14 +1380,14 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 
 <!-- BLOG -->
 <section id="blog" style="background:var(--ink2)">
-  <div class="sey" data-i18n="blog.sey">Blog & Insights</div>
-  <h2 data-i18n-html="blog.h2">PPA-Wissen für <span class="tg">Entscheider</span></h2>
-  <p class="slead">Aktuelle Beiträge zu Power Purchase Agreements, Energiespeicher und regulatorischen Entwicklungen — täglich neu.</p>
+  <div class="sey" data-i18n="blog.sey">Solar-News & Insights</div>
+  <h2 data-i18n-html="blog.h2">Solar-Wissen für <span class="tg">Bauherren & Unternehmen</span></h2>
+  <p class="slead">Aktuelle Beiträge zu Photovoltaik, Energiespeicher, Förderprogrammen und Solartrends — regelmäßig aktualisiert.</p>
   <div class="blog-grid" id="blog-grid">
     <div style="grid-column:1/-1;text-align:center;padding:3rem;color:rgba(5,14,31,.2);font-size:.85rem">Beiträge werden geladen …</div>
   </div>
   <div style="text-align:center;margin-top:2.2rem">
-    <a href="blog.html" style="display:inline-flex;align-items:center;gap:.55rem;padding:.8rem 2.2rem;background:transparent;border:1.5px solid rgba(37,99,235,0.32);color:var(--g1);border-radius:50px;font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:700;text-decoration:none;transition:all .3s" onmouseover="this.style.background='rgba(37,99,235,0.08)'" onmouseout="this.style.background='transparent'">Alle Beiträge lesen <span style="font-size:1.1rem">→</span></a>
+    <a href="blog.html" style="display:inline-flex;align-items:center;gap:.55rem;padding:.8rem 2.2rem;background:transparent;border:1.5px solid rgba(27,46,90,0.32);color:var(--g1);border-radius:50px;font-family:'Outfit',sans-serif;font-size:.9rem;font-weight:700;text-decoration:none;transition:all .3s" onmouseover="this.style.background='rgba(27,46,90,0.08)'" onmouseout="this.style.background='transparent'">Alle Beiträge lesen <span style="font-size:1.1rem">→</span></a>
   </div>
 </section>
 
@@ -1402,8 +1402,8 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 <!-- NEWSLETTER -->
 <div class="newsletter">
   <div class="sey" style="justify-content:center">Newsletter</div>
-  <h2 data-i18n-html="nl.h2">PPA-Insights &<br><span class="tg">Markt-Updates</span></h2>
-  <p data-i18n="nl.p">Aktuelle Marktpreise, Regulierungsänderungen und Praxistipps zum Thema Onsite-PPA — direkt in Ihr Postfach.</p>
+  <h2 data-i18n-html="nl.h2">Solar-News &<br><span class="tg">Förder-Updates</span></h2>
+  <p data-i18n="nl.p">Aktuelle Förderprogramme, Solar-Trends und Praxistipps rund um Ihre PV-Anlage — direkt in Ihr Postfach.</p>
   <div class="nl-form">
     <input class="nl-input" id="nl-email" type="email" placeholder="Ihre E-Mail-Adresse">
     <button class="nl-btn" data-i18n="nl.btn" onclick="submitNewsletter(this)">Anmelden →</button>
@@ -1416,13 +1416,13 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
   <div class="kl">
     <div>
       <h2 data-i18n-html="kon.h2">Starten Sie jetzt Ihren<br><span class="tg">kostenlosen Check</span></h2>
-      <p class="slead" data-i18n="kon.lead">Unser Ingenieurteam analysiert Ihre Situation und erstellt innerhalb von 5 Werktagen ein indikatives Angebot — völlig kostenlos und ohne Verpflichtung.</p>
+      <p class="slead" data-i18n="kon.lead">Unser Team analysiert Ihr Objekt und erstellt innerhalb von 5 Werktagen ein konkretes Angebot für Ihre Solaranlage — kostenlos und unverbindlich.</p>
       <div class="ki-info">
-        <div class="ki-row"><div class="ki-icon">📞</div>+49 (0) 800 PPA-ONSITE</div>
-        <div class="ki-row"><div class="ki-icon">✉️</div><a href="mailto:info@pilsner-vertrieb.de" style="color:inherit;text-decoration:none">info@pilsner-vertrieb.de</a></div>
-        <div class="ki-row"><div class="ki-icon">📍</div>Deutschland · Österreich · Schweiz</div>
+        <div class="ki-row"><div class="ki-icon">📞</div><a href="tel:+4999138314070" style="color:inherit;text-decoration:none">+49 991 38314070</a></div>
+        <div class="ki-row"><div class="ki-icon">✉️</div><a href="mailto:info@somv-project.de" style="color:inherit;text-decoration:none">info@somv-project.de</a></div>
+        <div class="ki-row"><div class="ki-icon">📍</div>Bayern · Schleswig-Holstein · Deutschland</div>
         <div class="ki-row"><div class="ki-icon">⏱</div>Antwortzeit: &lt; 24 Stunden</div>
-        <div class="ki-row"><div class="ki-icon">🔒</div>DSGVO-konform · keine Datenweitergabe</div>
+        <div class="ki-row"><div class="ki-icon">🔒</div>DSGVO-konform · SSL-verschlüsselt</div>
       </div>
     </div>
     <div class="cf reveal">
@@ -1472,17 +1472,17 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 <footer>
   <div class="ft">
     <div>
-      <img src="logo.png" alt="Pilsner Vertriebs GmbH" class="footer-logo">
-      <div class="f-tag">Grünstrom vom eigenen Dach.<br>Kein Investment. Typisch 25–40 % günstiger.<br>Deutschland · Österreich · Schweiz.</div>
+      <img src="logo.png" alt="SOMV Project Consulting GmbH" class="footer-logo">
+      <div class="f-tag">Solaranlagen von Profis.<br>Planung · Montage · Wartung.<br>Bayern · Schleswig-Holstein · Deutschland.</div>
       <div class="f-social">
-        <a href="mailto:info@pilsner-vertrieb.de" class="fsb" title="E-Mail">✉</a>
+        <a href="mailto:info@somv-project.de" class="fsb" title="E-Mail">✉</a>
       </div>
     </div>
     <div class="fc-col">
       <h5 data-i18n="ft.services">Leistungen</h5>
-      <a href="#vorteile">Onsite-PPA</a><a href="#zielgruppen">Agri-PV PPA</a>
-      <a href="#rechner">Batterie-PPA</a><a href="#rechner">Carport-PV PPA</a>
-      <a href="#kontakt">PPA-Beratung</a>
+      <a href="#vorteile">PV-Anlagen Privat</a><a href="#vorteile">PV-Anlagen Gewerbe</a>
+      <a href="#vorteile">Freiflächenanlagen</a><a href="#vorteile">Batteriespeicher</a>
+      <a href="#kontakt">Beratung</a>
     </div>
     <div class="fc-col">
       <h5 data-i18n="ft.knowledge">Wissen</h5>
@@ -1499,14 +1499,14 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
     </div>
   </div>
   <div class="fb">
-    <span>© 2025 PPA-Onsite.de — Alle Rechte vorbehalten · Angaben gemäß §5 TMG</span>
+    <span>© 2025 SOMV-Project.de — Alle Rechte vorbehalten · Angaben gemäß §5 TMG</span>
     <div class="fb-links">
       <a href="#" data-i18n="ft.imprint" onclick="openModal('impressum');return false;">Impressum</a>
       <a href="#" data-i18n="ft.privacy" onclick="openModal('datenschutz');return false;">Datenschutz</a>
     </div>
   </div>
   <p style="font-size:.68rem;color:rgba(5,14,31,.15);text-align:center;margin-top:1.2rem;line-height:1.6">
-    Alle Angaben auf dieser Website sind unverbindlich und dienen der allgemeinen Information. Preisangaben und Ersparnisprognosen sind Richtwerte und stellen kein verbindliches Angebot dar. Die tatsächlichen Konditionen werden im Rahmen einer individuellen Projektanalyse ermittelt. Irrtümer vorbehalten.
+    Alle Angaben auf dieser Website sind unverbindlich und dienen der allgemeinen Information. Leistungsangaben und Ertragsschätzungen sind Richtwerte und stellen kein verbindliches Angebot dar. Die tatsächlichen Konditionen werden im Rahmen einer individuellen Projektanalyse ermittelt. Irrtümer vorbehalten.
   </p>
 </footer>
 
@@ -1518,37 +1518,37 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 
     <h3>Angaben gemäß § 5 TMG</h3>
     <p>
-      Pilsner Vertriebs GmbH<br>
-      Detterstraße 38<br>
+      SOMV Project Consulting GmbH<br>
+      Land-Au 8<br>
       94469 Deggendorf<br>
       Deutschland
     </p>
 
     <h3>Handelsregister</h3>
     <p>
-      Registergericht: Amtsgericht Deggendorf<br>
-      Handelsregisternummer: HRB 6296
+      Registergericht: Amtsgericht Kiel<br>
+      Handelsregisternummer: HRB 18295
     </p>
 
     <h3>Vertreten durch</h3>
-    <p>Geschäftsführerin: Doris Pilsner-Albrecht</p>
+    <p>Geschäftsführerin: Michael Volz</p>
 
     <h3>Kontakt</h3>
     <p>
-      E-Mail: <a href="mailto:info@pilsner-vertrieb.de">info@pilsner-vertrieb.de</a><br>
-      Web: <a href="https://www.pilsner-vertrieb.de" target="_blank" rel="noopener">www.pilsner-vertrieb.de</a>
+      E-Mail: <a href="mailto:info@somv-project.de">info@somv-project.de</a><br>
+      Web: <a href="https://www.somv-project.de" target="_blank" rel="noopener">www.somv-project.de</a>
     </p>
 
     <h3>Umsatzsteuer-ID</h3>
-    <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: DE456481286</p>
+    <p>Umsatzsteuer-Identifikationsnummer gemäß § 27a UStG: DE 267 441 021</p>
 
     <h3>Inhaltlich verantwortlich gemäß § 55 Abs. 2 MStV</h3>
-    <p>Doris Pilsner-Albrecht, Anschrift wie oben</p>
+    <p>Michael Volz, Anschrift wie oben</p>
 
     <h3>EU-Streitschlichtung</h3>
     <p>Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">ec.europa.eu/consumers/odr</a>. Wir sind nicht verpflichtet, an einem Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen und nehmen daran nicht teil.</p>
 
-    <div class="lm-stamp">Stand: Mai 2026 · ppa-onsite.de — betrieben von Pilsner Vertriebs GmbH</div>
+    <div class="lm-stamp">Stand: Mai 2026 · somv-project.de — betrieben von SOMV Project Consulting GmbH</div>
   </div>
 </div>
 
@@ -1560,9 +1560,9 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 
     <h3>1. Verantwortlicher</h3>
     <p>
-      Pilsner Vertriebs GmbH<br>
-      Detterstraße 38, 94469 Deggendorf<br>
-      E-Mail: <a href="mailto:info@pilsner-vertrieb.de">info@pilsner-vertrieb.de</a>
+      SOMV Project Consulting GmbH<br>
+      Land-Au 8, 94469 Deggendorf<br>
+      E-Mail: <a href="mailto:info@somv-project.de">info@somv-project.de</a>
     </p>
 
     <h3>2. Welche Daten wir erheben und warum</h3>
@@ -1592,12 +1592,12 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
       <li>Widerspruch gegen die Verarbeitung (Art. 21 DSGVO)</li>
       <li>Widerruf einer erteilten Einwilligung mit Wirkung für die Zukunft</li>
     </ul>
-    <p>Zur Geltendmachung Ihrer Rechte wenden Sie sich an: <a href="mailto:info@pilsner-vertrieb.de">info@pilsner-vertrieb.de</a></p>
+    <p>Zur Geltendmachung Ihrer Rechte wenden Sie sich an: <a href="mailto:info@somv-project.de">info@somv-project.de</a></p>
 
     <h3>8. Beschwerderecht</h3>
     <p>Sie haben das Recht, sich bei der zuständigen Datenschutzaufsichtsbehörde zu beschweren: Bayerisches Landesamt für Datenschutzaufsicht (BayLDA), Promenade 18, 91522 Ansbach, <a href="https://www.lda.bayern.de" target="_blank" rel="noopener">www.lda.bayern.de</a></p>
 
-    <div class="lm-stamp">Stand: Mai 2026 · Diese Datenschutzerklärung gilt für ppa-onsite.de, betrieben von Pilsner Vertriebs GmbH.</div>
+    <div class="lm-stamp">Stand: Mai 2026 · Diese Datenschutzerklärung gilt für somv-project.de, betrieben von SOMV Project Consulting GmbH.</div>
   </div>
 </div>
 
@@ -1641,16 +1641,16 @@ function w3fSend(payload, btn, okText) {
   .then(d => {
     if (d.success) {
       btn.textContent = okText;
-      btn.style.background = '#1D4ED8';
+      btn.style.background = '#152449';
       btn.style.color = '#fff';
     } else {
-      btn.textContent = 'Fehler — bitte direkt mailen: info@pilsner-vertrieb.de';
+      btn.textContent = 'Fehler — bitte direkt mailen: info@somv-project.de';
       btn.style.background = 'rgba(255,82,82,0.7)';
       btn.disabled = false;
     }
   })
   .catch(() => {
-    btn.textContent = 'Fehler — bitte direkt mailen: info@pilsner-vertrieb.de';
+    btn.textContent = 'Fehler — bitte direkt mailen: info@somv-project.de';
     btn.style.background = 'rgba(255,82,82,0.7)';
     btn.disabled = false;
   });
@@ -1677,7 +1677,7 @@ function submitForm(e) {
   const dach = (document.getElementById('cf-dach')     || {}).value || '';
   const msg  = (document.getElementById('cf-nachricht')|| {}).value || '';
   w3fSend({
-    subject: `[Kontaktanfrage] ${v} ${n} — ${fi} — PPA-Onsite.de`,
+    subject: `[Kontaktanfrage] ${v} ${n} — ${fi} — SOMV-Project.de`,
     from_name: `${v} ${n}`,
     email: em,
     message: `Firma: ${fi}\nTelefon: ${tel}\nJahresstromverbrauch: ${verb} kWh\nDachfläche: ${dach} m²\n\n${msg}`
@@ -1693,7 +1693,7 @@ function submitNewsletter(btn) {
   }
   document.getElementById('nl-email').style.borderColor = '';
   w3fSend({
-    subject: `[Newsletter] Neue Anmeldung: ${em} — PPA-Onsite.de`,
+    subject: `[Newsletter] Neue Anmeldung: ${em} — SOMV-Project.de`,
     from_name: 'Newsletter-Anmeldung',
     email: em,
     message: `Neue Newsletter-Anmeldung: ${em}`
@@ -1725,7 +1725,7 @@ function buildKriseChart(){
     nB.title=`Netz ${d.year}: ${d.netz} ct/kWh`;
     const pB=document.createElement('div');
     pB.className='kc-bar';
-    pB.style.cssText=`position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:40%;height:${pH}px;background:linear-gradient(180deg,var(--g1),#1D4ED8);animation-delay:${i*0.08+0.04}s`;
+    pB.style.cssText=`position:absolute;bottom:0;left:50%;transform:translateX(-50%);width:40%;height:${pH}px;background:linear-gradient(180deg,var(--g1),#152449);animation-delay:${i*0.08+0.04}s`;
     pB.title=`PPA ${d.year}: ${d.ppa} ct/kWh`;
     const yr=document.createElement('div');
     yr.className='kc-year';yr.textContent=d.year;
@@ -1870,7 +1870,7 @@ function rechne(){
       const w=document.createElement('div');
       w.style.cssText='flex:1;display:flex;flex-direction:column;align-items:center;gap:3px';
       const b=document.createElement('div');
-      b.style.cssText=`width:100%;height:${j/lz*100}%;background:linear-gradient(180deg,var(--g1),#1D4ED8);border-radius:3px 3px 0 0;animation:bgrow .8s ease-out ${j*.05}s both`;
+      b.style.cssText=`width:100%;height:${j/lz*100}%;background:linear-gradient(180deg,var(--g1),#152449);border-radius:3px 3px 0 0;animation:bgrow .8s ease-out ${j*.05}s both`;
       const l=document.createElement('div');
       l.style.cssText='font-size:.54rem;color:rgba(5,14,31,.25)';l.textContent='J'+j;
       w.appendChild(b);w.appendChild(l);cc.appendChild(w);
@@ -1890,7 +1890,7 @@ function submitLeadMagnet(btn) {
   }
   document.getElementById('lm-email').style.borderColor = '';
   w3fSend({
-    subject: `[PPA-Leitfaden] Download-Anfrage: ${firm||em} — PPA-Onsite.de`,
+    subject: `[PPA-Leitfaden] Download-Anfrage: ${firm||em} — SOMV-Project.de`,
     from_name: firm || 'Leitfaden-Anfrage',
     email: em,
     message: `Anfrage PPA-Leitfaden PDF\nE-Mail: ${em}\nUnternehmen: ${firm}`
@@ -2008,8 +2008,8 @@ function quickCheck(){
   if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(mail)){alert('Bitte eine gültige E-Mail-Adresse eingeben.');return;}
   const vn=parseFloat(verb.replace(/[.,\s]/g,''));
   let okMsg,col;
-  if(vn>=100000){okMsg='✅ Sehr gut! Mit '+verb+' kWh/Jahr sind Sie ideal geeignet. Wir melden uns in <24h.';col='#1D4ED8';}
-  else if(vn>=50000){okMsg='✅ Grundsätzlich geeignet. Wir prüfen das kostenlos für Sie.';col='#1D4ED8';}
+  if(vn>=100000){okMsg='✅ Sehr gut! Mit '+verb+' kWh/Jahr sind Sie ideal geeignet. Wir melden uns in <24h.';col='#152449';}
+  else if(vn>=50000){okMsg='✅ Grundsätzlich geeignet. Wir prüfen das kostenlos für Sie.';col='#152449';}
   else{okMsg='ℹ️ Grenzwertig — wir beraten Sie zu passenden Lösungen. Wir melden uns.';col='rgba(200,160,0,.9)';}
   const btn=document.querySelector('.qc-btn');
   btn.textContent='Wird gesendet …';btn.disabled=true;
@@ -2018,7 +2018,7 @@ function quickCheck(){
     headers:{'Content-Type':'application/json',Accept:'application/json'},
     body:JSON.stringify({
       access_key:W3F_KEY,
-      subject:`[Schnellcheck] ${firma||mail} — ${verb} kWh — PPA-Onsite.de`,
+      subject:`[Schnellcheck] ${firma||mail} — ${verb} kWh — SOMV-Project.de`,
       from_name:firma||'Schnellcheck',
       email:mail,
       message:`Jahresstromverbrauch: ${verb} kWh\nDachfläche: ${dach} m²\nFirma: ${firma}`
@@ -2046,18 +2046,18 @@ de: {
   "nav.esg":"ESG","nav.faq":"FAQ","nav.blog":"Blog",
   "nav.cta":"Kostenlos anfragen →",
   "cookie.accept":"Alle akzeptieren","cookie.reject":"Nur notwendige",
-  "exit.badge":"⚡ Kostenlose Erstanalyse",
+  "exit.badge":"☀ Kostenlose Solarberatung",
   "exit.title":"Warten kostet Sie bares Geld.",
   "exit.btn":"Jetzt senden →",
   "exit.note":"Kein Spam. Einmalige Kontaktaufnahme. DSGVO-konform.",
-  "mob.cta":"☀ Jetzt kostenlos anfragen",
-  "hero.eyebrow":"Power Purchase Agreement — Onsite Solar",
+  "mob.cta":"☀ Jetzt Beratung anfragen",
+  "hero.eyebrow":"Photovoltaics & Solar Systems — Regional Expertise",
   "hero.h1":'Ihre Solaranlage.<br><span class="g">Kein Investment.</span><br><span class="y">Deutlich günstiger.</span>',
   "ticker.grid":"Netzstrom 2025:","ticker.ppa":"Ihr PPA-Preis:",
   "hero.sub":'Wir finanzieren, bauen und betreiben Ihre PV-Anlage — <strong>vollständig auf unsere Kosten</strong>. Keine Netzentgelte, keine Stromsteuer, kein Investitionsrisiko.',
   "hero.btn_main":"☀ Ersparnis berechnen","hero.btn_ghost":"So funktioniert's →",
   "trust.1":"0 € Investition","trust.2":"Keine Netzentgelte",
-  "trust.3":"Full-Service","trust.4":"Bis 20 J. fix",
+  "trust.3":"Maintenance & Service","trust.4":"Bis 20 J. fix",
   "qc.label":"⚡ Schnellcheck — Bin ich qualifiziert?",
   "qc.p_verb":"Jahresstromverbrauch (kWh)","qc.p_dach":"Dachfläche (m²)",
   "qc.p_email":"Ihre E-Mail-Adresse","qc.p_firma":"Unternehmen",
@@ -2067,11 +2067,11 @@ de: {
   "stat.mkt_label":"PPA-Markt DE","stat.mkt_sub":"Volumen 2024",
   "stat.ttp_sub":"Vertrag bis Strom",
   "urg.cta":"Jetzt Ersparnis berechnen →",
-  "kz.1":"Investition für Sie —<br>wir tragen alles",
-  "kz.2":"Max. Kostensenkung inkl.<br>Netzentgelte (je nach Standort)",
-  "kz.3":"Maximale<br>PPA-Laufzeit",
-  "kz.4":"PPA-Volumen<br>Deutschland 2024",
-  "kz.5":"Deutschland: zweitgrößter<br>PPA-Markt Europas",
+  "kz.1":"Installierte<br>Solaranlagen",
+  "kz.2":"Lebensdauer<br>Ihrer PV-Anlage",
+  "kz.3":"Aus einer Hand —<br>Planung bis Wartung",
+  "kz.4":"Standorte in<br>Bayern & Schleswig-H.",
+  "kz.5":"Premium-Partner:<br>Q CELLS & Huawei",
   "how.sey":"So funktioniert's",
   "how.h2":'Vom Erstgespräch zum<br><span class="tg">laufenden Grünstrom</span>',
   "how.lead":"In vier Schritten bringen wir Ihren Eigenstrom zum Laufen — komplett auf unsere Kosten. Sie müssen sich um nichts kümmern.",
@@ -2080,8 +2080,8 @@ de: {
   "step.3":'<div class="step-n">SCHRITT 03</div><h3>Montage & Inbetrieb</h3><p>Zertifiziertes Montageteam installiert in 1–3 Wochen. Messtechnik, Monitoring-Setup und Inbetriebnahmeprotokoll inklusive.</p>',
   "step.4":'<div class="step-n">SCHRITT 04</div><h3>Sparen & Wachsen</h3><p>Sie zahlen nur für verbrauchte kWh — keine Netzentgelte, keine Stromsteuer. Wartung, Monitoring und Versicherung: wir.</p>',
   "ben.sey":"Ihre Vorteile",
-  "ben.h2":'Warum PPA Onsite <span class="tg">unschlagbar ist</span>',
-  "blog.sey":"Blog & Insights",
+  "ben.h2":'Was SOMV für Sie <span class="tg">leisten kann</span>',
+  "blog.sey":"Solar News & Insights",
   "blog.h2":'PPA-Wissen für <span class="tg">Entscheider</span>',
   "nl.h2":'PPA-Insights &<br><span class="tg">Markt-Updates</span>',
   "nl.p":"Aktuelle Marktpreise, Regulierungsänderungen und Praxistipps zum Thema Onsite-PPA — direkt in Ihr Postfach.",
@@ -2109,19 +2109,19 @@ en: {
   "nav.esg":"ESG","nav.faq":"FAQ","nav.blog":"Blog",
   "nav.cta":"Free Quote →",
   "cookie.accept":"Accept all","cookie.reject":"Necessary only",
-  "exit.badge":"⚡ Free Initial Analysis",
-  "exit.title":"Waiting costs you real money.",
+  "exit.badge":"☀ Free Solar Consultation",
+  "exit.title":"Start saving on electricity costs!",
   "exit.btn":"Send now →",
   "exit.note":"No spam. One-time contact. GDPR-compliant.",
-  "mob.cta":"☀ Get free quote now",
+  "mob.cta":"☀ Get free solar quote",
   "hero.eyebrow":"Power Purchase Agreement — Onsite Solar",
-  "hero.h1":'Your Solar Plant.<br><span class="g">Zero Investment.</span><br><span class="y">Significantly Cheaper.</span>',
+  "hero.h1":'Your Solar System.<br><span class="g">Planned by Experts.</span><br><span class="y">For Your Future.</span>',
   "ticker.grid":"Grid power 2025:","ticker.ppa":"Your PPA price:",
-  "hero.sub":'We finance, build and operate your PV system — <strong>entirely at our expense</strong>. No grid fees, no electricity tax, no investment risk.',
-  "hero.btn_main":"☀ Calculate Savings","hero.btn_ghost":"How it works →",
-  "trust.1":"€0 Investment","trust.2":"No Grid Fees",
-  "trust.3":"Full-Service","trust.4":"Up to 20 Yrs Fixed",
-  "qc.label":"⚡ Quick Check — Am I eligible?",
+  "hero.sub":'SOMV plans, supplies and installs your PV system — <strong>all from one source</strong>. For residential, commercial, industrial and open-space installations.',
+  "hero.btn_main":"☀ Get Free Advice","hero.btn_ghost":"Our Services →",
+  "trust.1":"Planning & Design","trust.2":"Mounting & Installation",
+  "trust.3":"Maintenance & Service","trust.4":"Q CELLS & Huawei",
+  "qc.label":"☀ Quick Check — What system size do I need?",
   "qc.p_verb":"Annual electricity (kWh)","qc.p_dach":"Roof area (m²)",
   "qc.p_email":"Your email address","qc.p_firma":"Company",
   "qc.btn":"Check instantly — free & non-binding →",
@@ -2135,35 +2135,35 @@ en: {
   "kz.3":"Maximum<br>PPA term",
   "kz.4":"PPA volume<br>Germany 2024",
   "kz.5":"Germany: 2nd largest<br>PPA market in Europe",
-  "how.sey":"How It Works",
-  "how.h2":'From first call to<br><span class="tg">running green power</span>',
+  "how.sey":"Our Process",
+  "how.h2":'From consultation to<br><span class="tg">your finished solar system</span>',
   "how.lead":"In four steps we get your own electricity running — entirely at our expense. You don't have to worry about a thing.",
   "step.1":'<div class="step-n">STEP 01</div><h3>Analysis & Offer</h3><p>We analyse consumption, roof and load profile. Within 5 working days you receive a concrete offer with PPA price.</p>',
   "step.2":'<div class="step-n">STEP 02</div><h3>PPA Contract & Planning</h3><p>Fixed-price contract for up to 20 years. We handle permits, grid registration and detailed planning entirely.</p>',
   "step.3":'<div class="step-n">STEP 03</div><h3>Installation & Commissioning</h3><p>Certified installation team installs in 1–3 weeks. Metering, monitoring setup and commissioning report included.</p>',
   "step.4":'<div class="step-n">STEP 04</div><h3>Save & Grow</h3><p>You only pay for consumed kWh — no grid fees, no electricity tax. Maintenance, monitoring and insurance: us.</p>',
-  "ben.sey":"Your Benefits",
-  "ben.h2":'Why PPA Onsite <span class="tg">is unbeatable</span>',
+  "ben.sey":"Our Services",
+  "ben.h2":'What SOMV can <span class="tg">do for you</span>',
   "blog.sey":"Blog & Insights",
-  "blog.h2":'PPA knowledge for <span class="tg">decision-makers</span>',
+  "blog.h2":'Solar knowledge for <span class="tg">homeowners & businesses</span>',
   "nl.h2":'PPA Insights &<br><span class="tg">Market Updates</span>',
   "nl.p":"Current market prices, regulatory changes and practical tips on Onsite-PPA — straight to your inbox.",
   "nl.btn":"Subscribe →",
-  "lm.sey":"Free Whitepaper",
-  "lm.h2":'The PPA Guide for <span class="tg">Decision-Makers</span>',
+  "lm.sey":"Free Brochure",
+  "lm.h2":'The SOMV Guide for <span class="tg">Homeowners & Businesses</span>',
   "lm.btn":"Download free now →",
-  "per.sey":"Your Direct Contact",
-  "per.h2":'You speak with <span class="tg">real experts</span>',
+  "per.sey":"Your Contact Persons",
+  "per.h2":'The SOMV <span class="tg">Management Team</span>',
   "per.lead":"No call centre. No bot. Write or call us directly — we respond personally within 24 hours.",
   "faq.title":"Frequently Asked Questions",
   "kon.sey":"Contact & Enquiry",
-  "kon.h2":'Start your<br><span class="tg">free check now</span>',
+  "kon.h2":'Start your<br><span class="tg">solar project</span>',
   "kon.lead":"Our engineering team analyses your situation and provides an indicative offer within 5 working days — completely free and without obligation.",
   "kon.p_vname":"First name *","kon.p_nname":"Last name *",
   "kon.p_email":"Email *","kon.p_tel":"Phone",
   "kon.p_firma":"Company *","kon.p_verb":"Annual consumption (kWh)",
   "kon.p_dach":"Roof area (m²)","kon.p_msg":"Message / open questions (optional)",
-  "kon.btn":"Request free analysis ☀",
+  "kon.btn":"Request free consultation ☀",
   "ft.services":"Services","ft.knowledge":"Knowledge","ft.company":"Company",
   "ft.imprint":"Legal notice","ft.privacy":"Privacy policy"
 },
@@ -2172,18 +2172,18 @@ tr: {
   "nav.esg":"ESG","nav.faq":"SSS","nav.blog":"Blog",
   "nav.cta":"Ücretsiz Teklif →",
   "cookie.accept":"Tümünü kabul et","cookie.reject":"Yalnızca gerekli",
-  "exit.badge":"⚡ Ücretsiz Ön Analiz",
-  "exit.title":"Beklemek size para kaybettirir.",
+  "exit.badge":"☀ Ücretsiz Solar Danışmanlığı",
+  "exit.title":"Elektrik maliyetlerinizi düşürün!",
   "exit.btn":"Şimdi gönder →",
   "exit.note":"Spam yok. Tek seferlik iletişim. GDPR uyumlu.",
-  "mob.cta":"☀ Ücretsiz teklif al",
-  "hero.eyebrow":"Güç Satın Alma Anlaşması — Çatı Güneş Enerjisi",
-  "hero.h1":'Güneş Santraliniz.<br><span class="g">Sıfır Yatırım.</span><br><span class="y">Belirgin Tasarruf.</span>',
+  "mob.cta":"☀ Ücretsiz solar teklifi al",
+  "hero.eyebrow":"Fotovoltaik & Güneş Enerjisi Sistemleri — Bölgesel Uzmanlık",
+  "hero.h1":'Güneş Sisteminiz.<br><span class="g">Uzmanlar Tarafından Planlandı.</span><br><span class="y">Geleceğiniz İçin.</span>',
   "ticker.grid":"Şebeke fiyatı 2025:","ticker.ppa":"PPA fiyatınız:",
-  "hero.sub":'PV sisteminizi tamamen <strong>kendi maliyetimizle</strong> finanse eder, inşa eder ve işletiriz. Şebeke ücreti yok, elektrik vergisi yok, yatırım riski yok.',
-  "hero.btn_main":"☀ Tasarrufu Hesapla","hero.btn_ghost":"Nasıl çalışır →",
-  "trust.1":"0 € Yatırım","trust.2":"Şebeke Ücreti Yok",
-  "trust.3":"Tam Hizmet","trust.4":"20 Yıla Kadar Sabit",
+  "hero.sub":'SOMV güneş sisteminizi <strong>baştan sona</strong> planlar, tedarik eder ve kurar. Konut, ticari ve endüstriyel tesisler için güvenilir çözümler.',
+  "hero.btn_main":"☀ Ücretsiz Danışmanlık Al","hero.btn_ghost":"Hizmetlerimiz →",
+  "trust.1":"Planlama & Tasarım","trust.2":"Montaj & Kurulum",
+  "trust.3":"Bakım & Servis","trust.4":"Q CELLS & Huawei",
   "qc.label":"⚡ Hızlı Kontrol — Uygun muyum?",
   "qc.p_verb":"Yıllık elektrik tüketimi (kWh)","qc.p_dach":"Çatı alanı (m²)",
   "qc.p_email":"E-posta adresiniz","qc.p_firma":"Şirket",
@@ -2198,15 +2198,15 @@ tr: {
   "kz.3":"Maksimum<br>PPA süresi",
   "kz.4":"PPA hacmi<br>Almanya 2024",
   "kz.5":"Almanya: Avrupa'nın<br>2. büyük PPA pazarı",
-  "how.sey":"Nasıl Çalışır",
+  "how.sey":"Sürecimiz",
   "how.h2":'İlk görüşmeden<br><span class="tg">yeşil elektriğe</span>',
   "how.lead":"Dört adımda kendi elektriğinizi devreye alıyoruz — tamamen bizim maliyetimizle. Siz hiçbir şeyle uğraşmak zorunda değilsiniz.",
   "step.1":'<div class="step-n">ADIM 01</div><h3>Analiz & Teklif</h3><p>Tüketimi, çatıyı ve yük profilini analiz ediyoruz. 5 iş günü içinde PPA fiyatını içeren somut bir teklif alıyorsunuz.</p>',
   "step.2":'<div class="step-n">ADIM 02</div><h3>PPA Sözleşmesi & Planlama</h3><p>20 yıla kadar sabit fiyatlı sözleşme. İzinleri, şebeke kaydını ve detaylı planlamayı tamamen biz üstleniyoruz.</p>',
   "step.3":'<div class="step-n">ADIM 03</div><h3>Montaj & Devreye Alma</h3><p>Sertifikalı ekibimiz 1–3 haftada kurar. Ölçüm, izleme kurulumu ve devreye alma raporu dahildir.</p>',
   "step.4":'<div class="step-n">ADIM 04</div><h3>Tasarruf Et & Büyü</h3><p>Yalnızca tüketilen kWh için ödeme yaparsınız — şebeke ücreti yok, elektrik vergisi yok. Bakım, izleme ve sigorta: bizde.</p>',
-  "ben.sey":"Avantajlarınız",
-  "ben.h2":'Neden PPA Onsite <span class="tg">rakipsizdir</span>',
+  "ben.sey":"Hizmetlerimiz",
+  "ben.h2":'SOMV sizin için <span class="tg">neler yapabilir</span>',
   "blog.sey":"Blog & İçgörüler",
   "blog.h2":'Karar vericiler için <span class="tg">PPA bilgisi</span>',
   "nl.h2":'PPA İçgörüleri &<br><span class="tg">Piyasa Güncellemeleri</span>',
@@ -2220,13 +2220,13 @@ tr: {
   "per.lead":"Çağrı merkezi yok. Bot yok. Bize doğrudan yazın veya arayın — 24 saat içinde kişisel olarak yanıt veriyoruz.",
   "faq.title":"Sık Sorulan Sorular",
   "kon.sey":"İletişim & Talep",
-  "kon.h2":'<span class="tg">Ücretsiz kontrolünüzü</span><br>şimdi başlatın',
+  "kon.h2":'<span class="tg">Solar projenizi</span><br>şimdi başlatın',
   "kon.lead":"Mühendis ekibimiz durumunuzu analiz eder ve 5 iş günü içinde tamamen ücretsiz ve bağlayıcı olmayan bir gösterge teklif sunar.",
   "kon.p_vname":"Ad *","kon.p_nname":"Soyad *",
   "kon.p_email":"E-posta *","kon.p_tel":"Telefon",
   "kon.p_firma":"Şirket *","kon.p_verb":"Yıllık tüketim (kWh)",
   "kon.p_dach":"Çatı alanı (m²)","kon.p_msg":"Mesaj / açık sorular (isteğe bağlı)",
-  "kon.btn":"Ücretsiz analiz talep et ☀",
+  "kon.btn":"Ücretsiz danışmanlık talep et ☀",
   "ft.services":"Hizmetler","ft.knowledge":"Bilgi","ft.company":"Şirket",
   "ft.imprint":"Künye","ft.privacy":"Gizlilik politikası"
 }
@@ -2257,9 +2257,9 @@ function setLang(lang) {
     if (T[lang][k] !== undefined) el.placeholder = T[lang][k];
   });
   // page title
-  if (lang === 'en') document.title = 'PPA Onsite – Solar from your roof. €0 Investment.';
-  else if (lang === 'tr') document.title = 'PPA Onsite – Çatıdan güneş enerjisi. 0 € Yatırım.';
-  else document.title = 'PPA Onsite – Grünstrom vom eigenen Dach. 0 € Investment.';
+  if (lang === 'en') document.title = 'SOMV-Project.de – Solar Systems by Professionals. Planning, Installation, Maintenance.';
+  else if (lang === 'tr') document.title = 'SOMV-Project.de – Profesyonellerden Güneş Enerjisi Sistemleri.';
+  else document.title = 'SOMV-Project.de – Solaranlagen von Profis. Planung, Installation, Wartung.';
 }
 
 // init on load
