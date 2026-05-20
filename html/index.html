@@ -656,6 +656,37 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 
   /* Urgency CTA link */
   .urgency-cta{width:100%;justify-content:center}
+
+  /* Krise chart — prevent horizontal overflow */
+  .krise-chart-wrap{padding:1.2rem;overflow-x:hidden}
+  .krise-chart{gap:3px;padding-bottom:22px}
+
+  /* Marktdaten cards */
+  .markt-num{font-size:2rem}
+
+  /* Inaction calc box */
+  .ia-calc{padding:1.5rem 1.2rem}
+  .ia-total{flex-direction:column;gap:.5rem;text-align:center}
+
+  /* Battery stats */
+  .batt-stats{grid-template-columns:repeat(2,1fr)}
+  .batt-card{padding:1.5rem 1.2rem}
+
+  /* Vergleich table scroll hint */
+  .vt-wrap{margin-left:-1.5rem;margin-right:-1.5rem;border-radius:0}
+
+  /* Zielgruppen kpi */
+  .zc-kpi{flex-direction:column;gap:.5rem}
+
+  /* FAQ */
+  .faq-layout{padding:0}
+  .fq h4{font-size:.88rem;padding-right:2rem}
+
+  /* Kontakt form */
+  .ki-info{gap:.6rem}
+
+  /* Blog section in index */
+  .blog-grid{padding:0}
 }
 
 @media(max-width:400px){
@@ -669,8 +700,12 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 
 /* ── LANG SWITCH ── */
 .lang-switch{display:flex;align-items:center;gap:.3rem;margin-left:1rem}
-.lang-btn{background:transparent;border:1.5px solid rgba(27,46,90,0.3);color:rgba(5,14,31,0.55);padding:.28rem .65rem;border-radius:6px;font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:700;cursor:pointer;transition:all .2s;line-height:1}
+.lang-btn{background:transparent;border:1.5px solid rgba(27,46,90,0.3);color:rgba(5,14,31,0.55);padding:.28rem .65rem;border-radius:6px;font-family:'Outfit',sans-serif;font-size:.72rem;font-weight:700;cursor:pointer;transition:all .2s;line-height:1;min-height:32px;touch-action:manipulation}
 .lang-btn.active,.lang-btn:hover{background:var(--g1);border-color:var(--g1);color:#fff}
+@media(max-width:900px){
+  .lang-btn{padding:.4rem .75rem;font-size:.75rem;min-height:36px}
+  .lang-switch{gap:.35rem}
+}
 </style>
 </head>
 <body>
@@ -683,8 +718,8 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 <div id="cookie">
   <p data-i18n-html="cookie.text">Wir verwenden technisch notwendige Cookies. Mehr Infos in unserer <a href="#" onclick="openModal('datenschutz');return false;">Datenschutzerklärung</a>.</p>
   <div class="cookie-btns">
-    <button id="cookie-btn" data-i18n="cookie.accept" onclick="document.getElementById('cookie').style.display='none'">Alle akzeptieren</button>
-    <button id="cookie-reject" data-i18n="cookie.reject" onclick="document.getElementById('cookie').style.display='none'">Nur notwendige</button>
+    <button id="cookie-btn" data-i18n="cookie.accept" onclick="localStorage.setItem('ppa_cookie','1');document.getElementById('cookie').style.display='none'">Alle akzeptieren</button>
+    <button id="cookie-reject" data-i18n="cookie.reject" onclick="localStorage.setItem('ppa_cookie','1');document.getElementById('cookie').style.display='none'">Nur notwendige</button>
   </div>
 </div>
 
@@ -2235,12 +2270,12 @@ en: {
   "markt.sey":"Market Data 2025",
   "markt.h2":'The solar market in <span class="tg">Germany is booming</span>',
   "markt.slead":"Germany is one of Europe's most important solar markets. More and more residential and commercial customers are recognising the economic value of their own solar systems.",
-  "markt.1":'<h4>Solar growth Germany 2023→2024</h4><p>Germany was once again among Europe's most significant solar markets in 2024. The PV segment is growing strongly, driven by rising energy prices and attractive subsidies. (Source: BSW Solar, Fraunhofer ISE 2024)</p><div class="markt-trend">▲ Strong growth in PV installations</div>',
+  "markt.1":'<h4>Solar growth Germany 2023\u21922024</h4><p>Germany was once again among Europe\'s most significant solar markets in 2024. The PV segment is growing strongly, driven by rising energy prices and attractive subsidies. (Source: BSW Solar, Fraunhofer ISE 2024)</p><div class="markt-trend">▲ Strong growth in PV installations</div>',
   "markt.2":'<h4>Typical payback period 2025</h4><p>Compared to grid electricity prices of 22–28 ct/kWh, own PV systems offer significant cost advantages. Combining self-consumption and feed-in tariffs, systems typically pay back in 8–12 years. (Source: Bundesnetzagentur, Q1 2025)</p><div class="markt-trend">▼ Attractive economics in 2025</div>',
   "markt.3":'<h4>Global PV installation volume 2023</h4><p>According to the IEA, solar systems totalling a record 425 GW were installed worldwide in 2023 — an increase of 70% on the previous year. Drivers include falling module prices and decarbonisation targets.</p><div class="markt-trend">▲ Record worldwide (IEA 2024)</div>',
   "markt.4":'<h4>ESG goals driving demand</h4><p>Companies with ESG commitments are increasingly turning to their own PV systems for verifiable green electricity. CSRD reporting obligations and Scope-2 targets make self-generation a strategic advantage.</p><div class="markt-trend">► Large corporations leading the way</div>',
   "ia.sey":"What does waiting cost?",
-  "ia.h2":'Every month without solar is<br><span style="color:rgba(255,110,110,.85)">money you're losing</span>',
+  "ia.h2":'Every month without solar is<br><span style="color:rgba(255,110,110,.85)">money you\'re losing</span>',
   "ia.slead":"Most households and businesses wait too long — and continue paying the full grid electricity price in the meantime. This sample calculation shows what that means in concrete terms.",
   "ia.left":'<p>A business with <strong style="color:#050E1F">300,000 kWh annual consumption</strong> and a grid price of 28 ct/kWh pays around €7,000 per month for electricity. With its own PV system and self-consumption, that drops to around €4,500. The difference of €2,500 per month is money irretrievably lost without solar.</p><p>Additionally, grid fees are avoided on self-consumed energy. Businesses that act today will have €150,000 more in their accounts after five years.</p><p style="color:rgba(5,14,31,.4);font-size:.8rem">* Sample calculation for orientation. Actual values depend on individual consumption profile, location and grid fees.</p>',
   "ia.calc_title":"📉 What you lose without solar",
@@ -2407,16 +2442,16 @@ tr: {
   "krise.legend1":"Şebeke elektriği fiyatı","krise.legend2":"SOMV güneş fiyatı",
   "krise.note":"⚠ Şematik gösterim — kesin piyasa fiyatları değildir. Şebeke fiyatları ticari müşteriler için ortalama değerlere dayanmaktadır. Yalnızca fiyat koruma ilkesini açıklamak amacıyla.",
   "markt.sey":"Pazar Verileri 2025",
-  "markt.h2":'Almanya'da güneş enerjisi pazarı <span class="tg">büyüyor</span>',
+  "markt.h2":'Almanya\'da güneş enerjisi pazarı <span class="tg">büyüyor</span>',
   "markt.slead":"Almanya, Avrupa'nın en önemli güneş enerjisi pazarlarından biridir. Giderek daha fazla konut ve ticari müşteri, kendi güneş sistemlerinin ekonomik değerini fark ediyor.",
-  "markt.1":'<h4>Almanya güneş büyümesi 2023→2024</h4><p>Almanya, 2024'te de Avrupa'nın en önemli güneş enerjisi pazarları arasında yer aldı. PV segmenti, artan enerji fiyatları ve cazip teşviklerle güçlü büyüme sergiledi. (Kaynak: BSW Solar, Fraunhofer ISE 2024)</p><div class="markt-trend">▲ PV kurulumlarında güçlü büyüme</div>',
-  "markt.2":'<h4>Tipik geri ödeme süresi 2025</h4><p>22–28 ct/kWh'lik şebeke elektriği fiyatlarına kıyasla, kendi PV sistemleri önemli maliyet avantajları sunar. Öz tüketim ve şebekeye verme kombinasyonu ile sistemler genellikle 8–12 yılda kendini geri öder. (Kaynak: Bundesnetzagentur, Q1 2025)</p><div class="markt-trend">▼ 2025'te cazip ekonomi</div>',
-  "markt.3":'<h4>Küresel PV kurulum hacmi 2023</h4><p>IEA'ya göre 2023'te dünya genelinde 425 GW rekor kapasitede güneş sistemi kuruldu — önceki yıla göre %70 artış. Düşen modül fiyatları ve karbonsuzlaşma hedefleri itici güç.</p><div class="markt-trend">▲ Dünya rekoru (IEA 2024)</div>',
+  "markt.1":'<h4>Almanya güneş büyümesi 2023-2024</h4><p>Almanya, 2024 yilinda da Avrupa\'nin en önemli güneş enerjisi pazarları arasında yer aldı. PV segmenti, artan enerji fiyatları ve cazip teşviklerle güçlü büyüme sergiledi. (Kaynak: BSW Solar, Fraunhofer ISE 2024)</p><div class="markt-trend">\u25b2 PV kurulumlarında güçlü büyüme</div>',
+  "markt.2":'<h4>Tipik geri ödeme süresi 2025</h4><p>22-28 ct/kWh şebeke elektriği fiyatlarına kıyasla, kendi PV sistemleri önemli maliyet avantajları sunar. Öz tüketim ve şebekeye verme kombinasyonu ile sistemler genellikle 8-12 yılda kendini geri öder. (Kaynak: Bundesnetzagentur, Q1 2025)</p><div class="markt-trend">\u25bc 2025 cazip ekonomi</div>',
+  "markt.3":'<h4>Küresel PV kurulum hacmi 2023</h4><p>IEA verilerine göre 2023 yılında dünya genelinde 425 GW rekor kapasitede güneş sistemi kuruldu — önceki yıla göre %70 artış. Düşen modül fiyatları ve karbonsuzlaşma hedefleri itici güç.</p><div class="markt-trend">\u25b2 Dünya rekoru (IEA 2024)</div>',
   "markt.4":'<h4>ESG hedefleri talebi artırıyor</h4><p>ESG taahhütlü şirketler, doğrulanabilir yeşil elektrik için giderek daha fazla kendi PV sistemlerine yöneliyor. CSRD raporlama yükümlülükleri ve Kapsam 2 hedefleri, öz üretimi stratejik avantaja dönüştürüyor.</p><div class="markt-trend">► Büyük şirketler öncü</div>',
   "ia.sey":"Beklemek ne kadara mal olur?",
   "ia.h2":'Solarsız her ay<br><span style="color:rgba(255,110,110,.85)">kaybedilen paradır</span>',
   "ia.slead":"Çoğu konut ve işletme çok uzun bekliyor — ve bu sürede tam şebeke fiyatı ödemeye devam ediyor. Bu örnek hesaplama somut anlamını gösteriyor.",
-  "ia.left":'<p><strong style="color:#050E1F">Yıllık 300.000 kWh tüketimi</strong> ve 28 ct/kWh şebeke fiyatı olan bir işletme, aylık yaklaşık 7.000 € elektrik öder. Kendi PV sistemi ve öz tüketimle bu yaklaşık 4.500 €'ya düşer. Aylık 2.500 €'luk fark, solar olmadan geri alınamaz şekilde kaybedilir.</p><p>Ayrıca öz tüketime aktarılan elektrik için şebeke ücretlerinden tasarruf edilir. Bugün harekete geçen işletmeler beş yıl sonra 150.000 € daha fazla birikime sahip olacak.</p><p style="color:rgba(5,14,31,.4);font-size:.8rem">* Yönlendirme amaçlı örnek hesaplama. Gerçek değerler bireysel tüketim profiline, konuma ve şebeke ücretlerine bağlıdır.</p>',
+  "ia.left":'<p><strong style="color:#050E1F">Yıllık 300.000 kWh tüketimi</strong> ve 28 ct/kWh şebeke fiyatı olan bir işletme, aylık yaklaşık 7.000 Euro elektrik öder. Kendi PV sistemi ve öz tüketimle bu yaklaşık 4.500 Euro\'ya düşer. Aylık 2.500 Euro\'luk fark, solar olmadan geri alınamaz şekilde kaybedilir.</p><p>Ayrıca öz tüketime aktarılan elektrik için şebeke ücretlerinden tasarruf edilir. Bugün harekete geçen işletmeler beş yıl sonra 150.000 Euro daha fazla birikime sahip olacak.</p><p style="color:rgba(5,14,31,.4);font-size:.8rem">* Yönlendirme amaçlı örnek hesaplama. Gerçek değerler bireysel tüketim profiline, konuma ve şebeke ücretlerine bağlıdır.</p>',
   "ia.calc_title":"📉 Solarsız kaybettiğiniz",
   "ia.calc_base":"Baz: 300.000 kWh/yıl, 28 ct/kWh şebeke, güneş ~19 ct/kWh öz tüketim",
   "ia.row1":"Kaybedilen tasarruf / ay",
@@ -2532,6 +2567,12 @@ function setLang(lang) {
 (function(){
   const saved = localStorage.getItem('ppa_lang') || 'de';
   setLang(saved);
+
+  // Cookie banner persistence
+  if (localStorage.getItem('ppa_cookie')) {
+    const cb = document.getElementById('cookie');
+    if (cb) cb.style.display = 'none';
+  }
 })();
 </script>
 
