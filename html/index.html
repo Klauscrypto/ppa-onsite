@@ -1703,7 +1703,9 @@ function switchRTab(i,btn){
   rTab=i;
   document.querySelectorAll('.rtab').forEach(t=>t.classList.remove('active'));
   btn.classList.add('active');
-  rechne();
+  const views=['basis','wirt','co2'];
+  const rvtBtns=document.querySelectorAll('.rvt');
+  switchView(views[i],rvtBtns[i]||null);
 }
 
 // ── VIEW SWITCH ──
