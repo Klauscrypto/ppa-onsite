@@ -1058,25 +1058,25 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
         </div>
 
         <div class="ig">
-          <div class="il">Verfügbare Dachfläche<span class="iv" id="v-dach">1.500 m²</span></div>
+          <div class="il"><span data-i18n="rec.lbl_dach">Verfügbare Dachfläche</span><span class="iv" id="v-dach">1.500 m²</span></div>
           <input type="range" id="r-dach" min="200" max="20000" step="100" value="1500" oninput="rechne()">
           <div class="im"><span>200 m²</span><span>10.000 m²</span><span>20.000 m²</span></div>
         </div>
 
         <div class="ig">
-          <div class="il">PPA-Laufzeit<span class="iv" id="v-lz">20 Jahre</span></div>
+          <div class="il"><span data-i18n="rec.lbl_lz">PPA-Laufzeit</span><span class="iv" id="v-lz">20 Jahre</span></div>
           <input type="range" id="r-lz" min="10" max="20" step="1" value="20" oninput="rechne()">
           <div class="im"><span>10 J.</span><span>15 J.</span><span>20 J.</span></div>
         </div>
 
         <div class="ig">
-          <div class="il">Jährl. Strompreissteigerung (Netz)<span class="iv" id="v-stg">3,0 %</span></div>
+          <div class="il"><span data-i18n="rec.lbl_stg">Jährl. Strompreissteigerung (Netz)</span><span class="iv" id="v-stg">3,0 %</span></div>
           <input type="range" id="r-stg" min="1" max="8" step="0.5" value="3" oninput="rechne()">
           <div class="im"><span>1 %</span><span>4,5 %</span><span>8 %</span></div>
         </div>
 
         <div class="ig">
-          <div class="il">Unternehmenstyp</div>
+          <div class="il" data-i18n="rec.lbl_typ">Unternehmenstyp</div>
           <select class="isel" id="r-typ" onchange="rechne()">
             <option value="1.05">Industrie / Produktion</option>
             <option value="0.9" selected>Gewerbe / Handel</option>
@@ -1089,7 +1089,7 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
         </div>
 
         <div class="ig">
-          <div class="il">Dachausrichtung</div>
+          <div class="il" data-i18n="rec.lbl_ori">Dachausrichtung</div>
           <select class="isel" id="r-ori" onchange="rechne()">
             <option value="1.0">Süd (optimal)</option>
             <option value="0.92">Südost / Südwest</option>
@@ -1099,7 +1099,7 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
         </div>
 
         <div class="ig">
-          <div class="il">Standort</div>
+          <div class="il" data-i18n="rec.lbl_std">Standort</div>
           <select class="isel" id="r-std" onchange="rechne()">
             <option value="1050">Bayern / Baden-Württemberg</option>
             <option value="980">Hessen / Rheinland-Pfalz</option>
@@ -1112,7 +1112,7 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
         </div>
 
         <div class="ig">
-          <div class="il">Speicher-Option</div>
+          <div class="il" data-i18n="rec.lbl_sp">Speicher-Option</div>
           <select class="isel" id="r-sp" onchange="spChange()">
             <option value="0">Ohne Batteriespeicher</option>
             <option value="1">Mit Batteriespeicher</option>
@@ -1120,7 +1120,7 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
         </div>
 
         <div class="ig">
-          <div class="il">Eigenverbrauchsquote<span class="iv" id="v-ev">40 %</span></div>
+          <div class="il"><span data-i18n="rec.lbl_ev">Eigenverbrauchsquote</span><span class="iv" id="v-ev">40 %</span></div>
           <input type="range" id="r-ev" min="20" max="80" step="1" value="40" oninput="rechne()">
           <div class="im"><span id="ev-min">20 %</span><span>50 %</span><span id="ev-max">80 %</span></div>
         </div>
@@ -1128,31 +1128,31 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
 
       <!-- RESULT -->
       <div class="r-result">
-        <div class="rm-label" id="rm-label">Gesamtersparnis Jahr 1</div>
+        <div class="rm-label" id="rm-label" data-i18n="rec.rm_label">Gesamtersparnis Jahr 1</div>
         <div class="rm-num" id="rm-num">–</div>
-        <div class="rm-unit" id="rm-unit">Euro pro Jahr</div>
+        <div class="rm-unit" id="rm-unit" data-i18n="rec.rm_unit">Euro pro Jahr</div>
 
         <div class="rv-toggle">
-          <button class="rvt active" onclick="switchView('basis',this)">Basis</button>
-          <button class="rvt" onclick="switchView('wirt',this)">Wirtschaft.</button>
+          <button class="rvt active" onclick="switchView('basis',this)" data-i18n="rec.vb_basis">Basis</button>
+          <button class="rvt" onclick="switchView('wirt',this)" data-i18n="rec.vb_wirt">Wirtschaft.</button>
           <button class="rvt" onclick="switchView('co2',this)">CO₂</button>
         </div>
 
         <!-- BASIS VIEW -->
         <div id="vw-basis">
           <div class="rg">
-            <div class="rgc"><div class="rgc-l">PPA-Preis</div><div class="rgc-v g" id="r-ppa">–</div></div>
-            <div class="rgc"><div class="rgc-l">Anlagengröße</div><div class="rgc-v" id="r-kwp">–</div></div>
-            <div class="rgc"><div class="rgc-l">Jahresertrag PV</div><div class="rgc-v" id="r-ert">–</div></div>
-            <div class="rgc"><div class="rgc-l">Eigenverbrauch</div><div class="rgc-v g" id="r-eq">–</div></div>
+            <div class="rgc"><div class="rgc-l" data-i18n="rec.lbl_ppa">PPA-Preis</div><div class="rgc-v g" id="r-ppa">–</div></div>
+            <div class="rgc"><div class="rgc-l" data-i18n="rec.lbl_kwp">Anlagengröße</div><div class="rgc-v" id="r-kwp">–</div></div>
+            <div class="rgc"><div class="rgc-l" data-i18n="rec.lbl_ert">Jahresertrag PV</div><div class="rgc-v" id="r-ert">–</div></div>
+            <div class="rgc"><div class="rgc-l" data-i18n="rec.lbl_eq">Eigenverbrauch</div><div class="rgc-v g" id="r-eq">–</div></div>
           </div>
           <!-- Netz-Saving Breakdown -->
           <div id="netz-breakdown" style="margin-bottom:1rem">
-            <div class="netz-saving-row"><span class="ns-label">Ersparnis PPA vs. Netzpreis</span><span class="ns-val" id="r-ppa-sav">–</span></div>
-            <div class="netz-saving-row"><span class="ns-label">+ Stromsteuer-Ersparnis</span><span class="ns-val" id="r-st-sav">–</span></div>
+            <div class="netz-saving-row"><span class="ns-label" data-i18n="rec.ns1">Ersparnis PPA vs. Netzpreis</span><span class="ns-val" id="r-ppa-sav">–</span></div>
+            <div class="netz-saving-row"><span class="ns-label" data-i18n="rec.ns2">+ Stromsteuer-Ersparnis</span><span class="ns-val" id="r-st-sav">–</span></div>
           </div>
           <div class="rchart">
-            <div class="rc-label">Monatlicher Solarertrag</div>
+            <div class="rc-label" data-i18n="rec.rc_lbl">Monatlicher Solarertrag</div>
             <div class="rc-bars" id="rc-bars"></div>
           </div>
         </div>
@@ -1160,37 +1160,37 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
         <!-- WIRTSCHAFT VIEW -->
         <div id="vw-wirt" style="display:none">
           <table class="bdt">
-            <tr><td>Ihre heutigen Jahresstromkosten (Netz)</td><td id="b-netz">–</td></tr>
-            <tr><td style="font-size:.75rem;color:rgba(5,14,31,.4);padding-left:.5rem">davon ca. Netzentgelte &amp; Stromsteuer</td><td id="b-netze" style="color:rgba(5,14,31,0.45);font-size:.78rem">–</td></tr>
-            <tr><td>PPA-Kosten Eigenstrom (Jahr 1)</td><td id="b-ppa">–</td></tr>
-            <tr><td>Verbleibender Netzbezug (Backup)</td><td id="b-rest">–</td></tr>
-            <tr class="hl"><td>Netto-Ersparnis Jahr 1</td><td id="b-j1">–</td></tr>
-            <tr><td>Ersparnis kumuliert 5 Jahre</td><td id="b-j5" style="color:var(--g1)">–</td></tr>
-            <tr><td>Ersparnis kumuliert 10 Jahre</td><td id="b-j10" style="color:var(--g1)">–</td></tr>
-            <tr class="tot"><td>Gesamtersparnis über Laufzeit</td><td id="b-ges">–</td></tr>
+            <tr><td data-i18n="rec.b1">Ihre heutigen Jahresstromkosten (Netz)</td><td id="b-netz">–</td></tr>
+            <tr><td style="font-size:.75rem;color:rgba(5,14,31,.4);padding-left:.5rem" data-i18n="rec.b1s">davon ca. Netzentgelte &amp; Stromsteuer</td><td id="b-netze" style="color:rgba(5,14,31,0.45);font-size:.78rem">–</td></tr>
+            <tr><td data-i18n="rec.b2">PPA-Kosten Eigenstrom (Jahr 1)</td><td id="b-ppa">–</td></tr>
+            <tr><td data-i18n="rec.b3">Verbleibender Netzbezug (Backup)</td><td id="b-rest">–</td></tr>
+            <tr class="hl"><td data-i18n="rec.b4">Netto-Ersparnis Jahr 1</td><td id="b-j1">–</td></tr>
+            <tr><td data-i18n="rec.b5">Ersparnis kumuliert 5 Jahre</td><td id="b-j5" style="color:var(--g1)">–</td></tr>
+            <tr><td data-i18n="rec.b6">Ersparnis kumuliert 10 Jahre</td><td id="b-j10" style="color:var(--g1)">–</td></tr>
+            <tr class="tot"><td data-i18n="rec.b7">Gesamtersparnis über Laufzeit</td><td id="b-ges">–</td></tr>
           </table>
           <div class="rg">
-            <div class="rgc"><div class="rgc-l">Ihr Invest</div><div class="rgc-v g">0 €</div></div>
-            <div class="rgc"><div class="rgc-l">Investor Break-even</div><div class="rgc-v y" id="b-be">–</div></div>
+            <div class="rgc"><div class="rgc-l" data-i18n="rec.b8">Ihr Invest</div><div class="rgc-v g">0 €</div></div>
+            <div class="rgc"><div class="rgc-l" data-i18n="rec.b9">Investor Break-even</div><div class="rgc-v y" id="b-be">–</div></div>
           </div>
         </div>
 
         <!-- CO2 VIEW -->
         <div id="vw-co2" style="display:none">
           <div class="rg">
-            <div class="rgc"><div class="rgc-l">CO₂-Einsparung p.a.</div><div class="rgc-v g" id="c-pa">–</div></div>
-            <div class="rgc"><div class="rgc-l">Über Laufzeit gesamt</div><div class="rgc-v g" id="c-ges">–</div></div>
-            <div class="rgc"><div class="rgc-l">Entspricht Bäumen</div><div class="rgc-v" id="c-b">–</div></div>
-            <div class="rgc"><div class="rgc-l">Entspr. Autokilometer</div><div class="rgc-v" id="c-km">–</div></div>
+            <div class="rgc"><div class="rgc-l" data-i18n="rec.c1">CO₂-Einsparung p.a.</div><div class="rgc-v g" id="c-pa">–</div></div>
+            <div class="rgc"><div class="rgc-l" data-i18n="rec.c2">Über Laufzeit gesamt</div><div class="rgc-v g" id="c-ges">–</div></div>
+            <div class="rgc"><div class="rgc-l" data-i18n="rec.c3">Entspricht Bäumen</div><div class="rgc-v" id="c-b">–</div></div>
+            <div class="rgc"><div class="rgc-l" data-i18n="rec.c4">Entspr. Autokilometer</div><div class="rgc-v" id="c-km">–</div></div>
           </div>
           <div class="rchart" style="margin-top:.5rem">
-            <div class="rc-label">CO₂-Vermeidung kumuliert über Laufzeit</div>
+            <div class="rc-label" data-i18n="rec.co2_lbl">CO₂-Vermeidung kumuliert über Laufzeit</div>
             <div class="rc-bars" id="co2-chart" style="height:65px"></div>
           </div>
         </div>
 
         <button class="rcta" onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'})" data-i18n="rec.cta">Kostenloses Beratungsgespräch →</button>
-        <p class="disc">⚠ Indikative Schätzwerte — kein verbindliches Angebot. Tatsächliche Einsparungen hängen ab von: Standort, Netzentgelten (regional sehr unterschiedlich), Verbrauchsprofil, Dachbeschaffenheit und Marktlage. Exakte Konditionen nach kostenfreier Vor-Ort-Analyse durch unser Ingenieurteam. Der Rechner dient ausschließlich der Orientierung.</p>
+        <p class="disc" data-i18n="rec.disc">⚠ Indikative Schätzwerte — kein verbindliches Angebot. Tatsächliche Einsparungen hängen ab von: Standort, Netzentgelten (regional sehr unterschiedlich), Verbrauchsprofil, Dachbeschaffenheit und Marktlage. Exakte Konditionen nach kostenfreier Vor-Ort-Analyse durch unser Ingenieurteam. Der Rechner dient ausschließlich der Orientierung.</p>
       </div>
     </div>
   </div>
@@ -1204,23 +1204,23 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
   <div class="vt-wrap reveal">
     <table class="vt">
       <thead><tr>
-        <th>Kriterium</th>
+        <th data-i18n="vgl.th0">Kriterium</th>
         <th class="col-ppa">☀ SOMV Solar</th>
-        <th>Eigenkauf PV</th>
-        <th>Netzstrom</th>
+        <th data-i18n="vgl.th2">Eigenkauf PV</th>
+        <th data-i18n="vgl.th3">Netzstrom</th>
         <th>Offsite PPA</th>
       </tr></thead>
       <tbody>
-        <tr><td>Investitionskosten</td><td class="col-ppa"><span class="ck">✓</span> 0 €</td><td>150–400 €/kWp</td><td><span class="ck">✓</span> 0 €</td><td><span class="ck">✓</span> 0 €</td></tr>
-        <tr><td>Keine Netzentgelte</td><td class="col-ppa"><span class="ck">✓ Ja</span></td><td><span class="ck">✓ Ja</span></td><td><span class="cx">✗ Nein</span></td><td><span class="cx">✗ Nein</span></td></tr>
-        <tr><td>Keine Stromsteuer</td><td class="col-ppa"><span class="ck">✓ Ja (§9 StromStG)</span></td><td><span class="ck">✓ Ja</span></td><td><span class="cx">✗ Nein</span></td><td><span class="cx">✗ Nein</span></td></tr>
-        <tr><td>Preisersparnis</td><td class="col-ppa"><span class="ck">✓</span> bis 60 %</td><td>Nach Amortis. günstig</td><td><span class="cx">✗</span> Marktpreis</td><td>−10–20 %</td></tr>
-        <tr><td>Preissicherheit</td><td class="col-ppa"><span class="ck">✓</span> Fix / Index</td><td><span class="ck">✓</span> Eigenkosten fix</td><td><span class="cx">✗</span> Marktrisiko</td><td><span class="ck">✓</span> Fix</td></tr>
-        <tr><td>Off-Balance-Sheet</td><td class="col-ppa"><span class="ck">✓</span></td><td><span class="cx">✗</span> Aktivierung</td><td><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
+        <tr><td data-i18n="vgl.r1">Investitionskosten</td><td class="col-ppa"><span class="ck">✓</span> 0 €</td><td>150–400 €/kWp</td><td><span class="ck">✓</span> 0 €</td><td><span class="ck">✓</span> 0 €</td></tr>
+        <tr><td data-i18n="vgl.r2">Keine Netzentgelte</td><td class="col-ppa"><span class="ck">✓ Ja</span></td><td><span class="ck">✓ Ja</span></td><td><span class="cx">✗ Nein</span></td><td><span class="cx">✗ Nein</span></td></tr>
+        <tr><td data-i18n="vgl.r3">Keine Stromsteuer</td><td class="col-ppa"><span class="ck">✓ Ja (§9 StromStG)</span></td><td><span class="ck">✓ Ja</span></td><td><span class="cx">✗ Nein</span></td><td><span class="cx">✗ Nein</span></td></tr>
+        <tr><td data-i18n="vgl.r4">Preisersparnis</td><td class="col-ppa"><span class="ck">✓</span> bis 60 %</td><td>Nach Amortis. günstig</td><td><span class="cx">✗</span> Marktpreis</td><td>−10–20 %</td></tr>
+        <tr><td data-i18n="vgl.r5">Preissicherheit</td><td class="col-ppa"><span class="ck">✓</span> Fix / Index</td><td><span class="ck">✓</span> Eigenkosten fix</td><td><span class="cx">✗</span> Marktrisiko</td><td><span class="ck">✓</span> Fix</td></tr>
+        <tr><td data-i18n="vgl.r6">Off-Balance-Sheet</td><td class="col-ppa"><span class="ck">✓</span></td><td><span class="cx">✗</span> Aktivierung</td><td><span class="ck">✓</span></td><td><span class="ck">✓</span></td></tr>
         <tr><td>Wartung & Betrieb</td><td class="col-ppa"><span class="ck">✓</span> Full-Service</td><td><span class="cx">✗</span> Eigenverantwortung</td><td><span class="ck">✓</span> Keine Anlage</td><td><span class="ck">✓</span> Full-Service</td></tr>
-        <tr><td>ESG / Scope 2 Qualität</td><td class="col-ppa"><span class="ck">✓</span> Physisch, direkt</td><td><span class="ck">✓</span> Physisch</td><td><span class="cn">~</span> HKN nötig</td><td><span class="cn">~</span> Zertifikate</td></tr>
-        <tr><td>Umsetzungszeit</td><td class="col-ppa"><span class="ck">✓</span> 8–12 Wochen</td><td><span class="cx">✗</span> 6–18 Monate</td><td><span class="ck">✓</span> Sofort</td><td>3–6 Monate</td></tr>
-        <tr><td>Komplexität für Unternehmen</td><td class="col-ppa"><span class="ck">✓</span> Sehr gering</td><td><span class="cx">✗</span> Hoch</td><td><span class="ck">✓</span> Gering</td><td><span class="cn">~</span> Mittel</td></tr>
+        <tr><td data-i18n="vgl.r8">ESG / Scope 2 Qualität</td><td class="col-ppa"><span class="ck">✓</span> Physisch, direkt</td><td><span class="ck">✓</span> Physisch</td><td><span class="cn">~</span> HKN nötig</td><td><span class="cn">~</span> Zertifikate</td></tr>
+        <tr><td data-i18n="vgl.r9">Umsetzungszeit</td><td class="col-ppa"><span class="ck">✓</span> 8–12 Wochen</td><td><span class="cx">✗</span> 6–18 Monate</td><td><span class="ck">✓</span> Sofort</td><td>3–6 Monate</td></tr>
+        <tr><td data-i18n="vgl.r10">Komplexität für Unternehmen</td><td class="col-ppa"><span class="ck">✓</span> Sehr gering</td><td><span class="cx">✗</span> Hoch</td><td><span class="ck">✓</span> Gering</td><td><span class="cn">~</span> Mittel</td></tr>
       </tbody>
     </table>
   </div>
@@ -1323,19 +1323,19 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
       <div class="faq-contact">
         <h4 data-i18n="faq.cta_h4">Ihre Frage nicht dabei?</h4>
         <p data-i18n="faq.cta_p">Unser Expertenteam antwortet persönlich — kostenlos, ohne Verkaufsdruck.</p>
-        <a href="#kontakt" class="btn-main" style="font-size:.85rem;padding:.7rem 1.5rem;display:inline-block">Jetzt anfragen →</a>
+        <a href="#kontakt" class="btn-main" style="font-size:.85rem;padding:.7rem 1.5rem;display:inline-block" data-i18n="faq.cta_btn">Jetzt anfragen →</a>
       </div>
     </div>
     <div class="faq-list">
-      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><h4>Was ist ein Onsite-PPA genau — und was unterscheidet es vom Offsite-PPA?</h4><div class="fi-icon">+</div></div><div class="fa"><p>Beim Onsite-PPA steht die PV-Anlage direkt auf Ihrem Dach oder Ihrem Gelände. Der erzeugte Strom fließt direkt in Ihr Werksnetz — ohne öffentliches Stromnetz. Das bedeutet: keine Netzentgelte, keine Stromsteuer (§9 StromStG), kein Umweg. Beim Offsite-PPA steht die Anlage woanders; Sie beziehen "virtuell" Grünstrom über das Netz — günstiger als Standardtarif, aber ohne die Netzentgelt-Ersparnis des Onsite-Modells.</p></div></div>
-      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><h4>Warum fallen beim Onsite-PPA keine Netzentgelte an?</h4><div class="fi-icon">+</div></div><div class="fa"><p>Der Strom fließt direkt von der PV-Anlage in Ihr Betriebsnetz — er nutzt das öffentliche Stromnetz nicht. Netzentgelte sind eine Gebühr für die Nutzung des Netzes. Da beim Onsite-PPA kein Netz genutzt wird, entfallen diese Kosten vollständig. Hinzu kommt die Stromsteuerbefreiung nach §9 Abs. 1 StromStG für Strom aus erneuerbaren Energien, der vor Ort verbraucht wird. Die Erlaubnis beim Hauptzollamt wird von uns beantragt.</p></div></div>
-      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><h4>Wer finanziert die Anlage, und wem gehört sie?</h4><div class="fi-icon">+</div></div><div class="fa"><p>Wir finanzieren die Anlage vollständig und sie bleibt während der Vertragslaufzeit in unserem Eigentum. Sie stellen die Dachfläche (Dachpachtvertrag) und beziehen den Strom zum vereinbarten Preis. Kein Investitionsrisiko, keine Wartungspflichten, keine Bilanzbelastung für Sie.</p></div></div>
-      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><h4>Wie wird der PPA-Preis kalkuliert?</h4><div class="fi-icon">+</div></div><div class="fa"><p>Der PPA-Preis ergibt sich aus Anlagengröße, Standort (Sonneneinstrahlung), Dachausrichtung, Laufzeit und Kapitalkosten des Investors. Typisch liegt er 20–35 % unter dem Netzstrompreis (ct/kWh). Zuzüglich der eingesparten Netzentgelte (6–9 ct/kWh) und Stromsteuer (2,05 ct/kWh) ergibt sich eine Gesamtersparnis von häufig 40–60 % gegenüber dem bisherigen Strombezug.</p></div></div>
-      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><h4>Ab welcher Größe lohnt sich ein Onsite-PPA?</h4><div class="fi-icon">+</div></div><div class="fa"><p>Faustregel: Ab ca. 100.000 kWh Jahresstromverbrauch und einer geeigneten Dachfläche ab 400–500 m² ist ein Onsite-PPA wirtschaftlich und organisatorisch sinnvoll. Für Unternehmen ab 500.000 kWh/Jahr sind Einsparungen und Umsetzungskomplexität besonders attraktiv.</p></div></div>
-      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><h4>Was passiert bei Ausfall oder Schäden?</h4><div class="fi-icon">+</div></div><div class="fa"><p>Wartung, Reparatur, Versicherung und 24/7-Monitoring liegen vollständig bei uns. Ein SLA regelt Reaktionszeiten. Bei Produktionsausfall durch technische Defekte zahlen Sie nur für tatsächlich gelieferte kWh — kein Ausfall-Risiko für Sie.</p></div></div>
-      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><h4>Was passiert nach Ablauf der PPA-Laufzeit?</h4><div class="fi-icon">+</div></div><div class="fa"><p>Sie haben drei Optionen: (1) Anlage zum vereinbarten Restwert kaufen, (2) PPA-Vertrag zu neuen Konditionen verlängern, oder (3) Anlage auf unsere Kosten abbauen lassen. Die gewählte Option wird bereits im Ursprungsvertrag festgehalten.</p></div></div>
-      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><h4>Wie hilft mir eine Solaranlage beim ESG-Reporting?</h4><div class="fi-icon">+</div></div><div class="fa"><p>Eine eigene Solaranlage liefert physischen Grünstrom direkt vom Dach — ideal für Scope-2-Reporting (market-based). Sie erhalten monatliche Produktionsnachweise und können den Strom in CSRD- und GHG-Protocol-Berichten sowie für RE100-Ziele ausweisen.</p></div></div>
-      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><h4>Ist ein Batteriespeicher kombinierbar?</h4><div class="fi-icon">+</div></div><div class="fa"><p>Ja. Batterie-PPAs ("Power Storage Agreements") sind ein neues, wachsendes Modell. Der Speicher wird ebenfalls von uns finanziert und betrieben. Er erhöht die Eigenverbrauchsquote von typisch 65 % auf bis zu 90 % und maximiert damit Ihre Gesamtersparnis. Anfragen willkommen.</p></div></div>
+      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><h4 data-i18n="faq.q1">Was ist ein Onsite-PPA genau — und was unterscheidet es vom Offsite-PPA?</h4><div class="fi-icon">+</div></div><div class="fa"><p data-i18n="faq.a1">Beim Onsite-PPA steht die PV-Anlage direkt auf Ihrem Dach oder Ihrem Gelände. Der erzeugte Strom fließt direkt in Ihr Werksnetz — ohne öffentliches Stromnetz.</p></div></div>
+      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><h4 data-i18n="faq.q2">Warum fallen beim Onsite-PPA keine Netzentgelte an?</h4><div class="fi-icon">+</div></div><div class="fa"><p data-i18n="faq.a2">Der Strom fließt direkt von der PV-Anlage in Ihr Betriebsnetz — er nutzt das öffentliche Stromnetz nicht.</p></div></div>
+      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><h4 data-i18n="faq.q3">Wer finanziert die Anlage, und wem gehört sie?</h4><div class="fi-icon">+</div></div><div class="fa"><p data-i18n="faq.a3">Wir finanzieren die Anlage vollständig und sie bleibt während der Vertragslaufzeit in unserem Eigentum.</p></div></div>
+      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><h4 data-i18n="faq.q4">Wie wird der PPA-Preis kalkuliert?</h4><div class="fi-icon">+</div></div><div class="fa"><p data-i18n="faq.a4">Der PPA-Preis ergibt sich aus Anlagengröße, Standort, Dachausrichtung, Laufzeit und Kapitalkosten.</p></div></div>
+      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><h4 data-i18n="faq.q5">Ab welcher Größe lohnt sich ein Onsite-PPA?</h4><div class="fi-icon">+</div></div><div class="fa"><p data-i18n="faq.a5">Faustregel: Ab ca. 100.000 kWh Jahresstromverbrauch und geeigneter Dachfläche ab 400–500 m².</p></div></div>
+      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><h4 data-i18n="faq.q6">Was passiert bei Ausfall oder Schäden?</h4><div class="fi-icon">+</div></div><div class="fa"><p data-i18n="faq.a6">Wartung, Reparatur, Versicherung und 24/7-Monitoring liegen vollständig bei uns.</p></div></div>
+      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><h4 data-i18n="faq.q7">Was passiert nach Ablauf der PPA-Laufzeit?</h4><div class="fi-icon">+</div></div><div class="fa"><p data-i18n="faq.a7">Sie haben drei Optionen: Kauf, Verlängerung oder Abbau auf unsere Kosten.</p></div></div>
+      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><h4 data-i18n="faq.q8">Wie hilft mir eine Solaranlage beim ESG-Reporting?</h4><div class="fi-icon">+</div></div><div class="fa"><p data-i18n="faq.a8">Eine eigene Solaranlage liefert physischen Grünstrom direkt vom Dach — ideal für Scope-2-Reporting.</p></div></div>
+      <div class="fi"><div class="fq" onclick="toggleFaq(this)"><h4 data-i18n="faq.q9">Ist ein Batteriespeicher kombinierbar?</h4><div class="fi-icon">+</div></div><div class="fa"><p data-i18n="faq.a9">Ja. Batterie-PPAs sind ein neues, wachsendes Modell — von uns finanziert und betrieben.</p></div></div>
     </div>
   </div>
 </section>
@@ -1367,7 +1367,7 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
   <h2 data-i18n-html="nl.h2">Solar-News &<br><span class="tg">Förder-Updates</span></h2>
   <p data-i18n="nl.p">Aktuelle Förderprogramme, Solar-Trends und Praxistipps rund um Ihre PV-Anlage — direkt in Ihr Postfach.</p>
   <div class="nl-form">
-    <input class="nl-input" id="nl-email" type="email" placeholder="Ihre E-Mail-Adresse">
+    <input class="nl-input" id="nl-email" type="email" placeholder="Ihre E-Mail-Adresse" data-i18n-placeholder="nl.placeholder">
     <button class="nl-btn" data-i18n="nl.btn" onclick="submitNewsletter(this)">Anmelden →</button>
   </div>
 </div>
@@ -1383,12 +1383,12 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
         <div class="ki-row"><div class="ki-icon">📞</div><a href="tel:+4917779526080" style="color:inherit;text-decoration:none">+49 177 7952608</a></div>
         <div class="ki-row"><div class="ki-icon">✉️</div><a href="mailto:kp@somv-project.de" style="color:inherit;text-decoration:none">kp@somv-project.de</a></div>
         <div class="ki-row"><div class="ki-icon">📍</div>Deggendorf · Bayern · Deutschland</div>
-        <div class="ki-row"><div class="ki-icon">⏱</div>Antwortzeit: &lt; 24 Stunden</div>
-        <div class="ki-row"><div class="ki-icon">🔒</div>DSGVO-konform · SSL-verschlüsselt</div>
+        <div class="ki-row"><div class="ki-icon">⏱</div><span data-i18n="kon.resp">Antwortzeit: &lt; 24 Stunden</span></div>
+        <div class="ki-row"><div class="ki-icon">🔒</div><span data-i18n="kon.sec">DSGVO-konform · SSL-verschlüsselt</span></div>
       </div>
     </div>
     <div class="cf reveal">
-      <p style="font-size:.78rem;color:rgba(5,14,31,0.45);margin-bottom:1.2rem">* Pflichtfelder. Ihre Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet.</p>
+      <p style="font-size:.78rem;color:rgba(5,14,31,0.45);margin-bottom:1.2rem" data-i18n="kon.req">* Pflichtfelder. Ihre Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet.</p>
       <div class="cf-row">
         <input class="cfi" type="text" id="cf-vorname" data-i18n-placeholder="kon.p_vname" placeholder="Vorname *" required>
         <input class="cfi" type="text" id="cf-nachname" data-i18n-placeholder="kon.p_nname" placeholder="Nachname *" required>
@@ -1403,15 +1403,15 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
         <input class="cfi" type="text" id="cf-dach" data-i18n-placeholder="kon.p_dach" placeholder="Dachfläche (m²)">
       </div>
       <div class="cf-row" style="margin-bottom:.9rem">
-        <select class="cfi isel" style="border-radius:11px;padding:.85rem 1rem">
-          <option value="">Branche wählen</option>
+        <select class="cfi isel" id="cf-branch" style="border-radius:11px;padding:.85rem 1rem">
+          <option value="" data-i18n="kon.branch_lbl">Branche wählen</option>
           <option>Industrie / Produktion</option><option>Handel / Einzelhandel</option>
           <option>Logistik / Lager</option><option>Landwirtschaft</option>
           <option>Hotellerie / Gastronomie</option><option>Gesundheit / Soziales</option>
           <option>Büro / Verwaltung</option><option>Sonstiges</option>
         </select>
-        <select class="cfi isel" style="border-radius:11px;padding:.85rem 1rem">
-          <option value="">Wie gefunden?</option>
+        <select class="cfi isel" id="cf-found" style="border-radius:11px;padding:.85rem 1rem">
+          <option value="" data-i18n="kon.found_lbl">Wie gefunden?</option>
           <option>Google / Suche</option><option>Empfehlung</option>
           <option>LinkedIn</option><option>Messe / Event</option><option>Sonstiges</option>
         </select>
@@ -1419,13 +1419,13 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
       <textarea class="cfi" id="cf-nachricht" data-i18n-placeholder="kon.p_msg" placeholder="Nachricht / offene Fragen (optional)"></textarea>
       <div class="cf-check">
         <input type="checkbox" id="dsgvo" required>
-        <label for="dsgvo">Ich stimme zu, dass meine Daten zur Bearbeitung dieser Anfrage gespeichert und genutzt werden. Ich habe die <a href="#" onclick="openModal('datenschutz');return false;" style="color:var(--g1)">Datenschutzerklärung</a> gelesen und akzeptiert. *</label>
+        <label for="dsgvo" id="cf-privacy-label" data-i18n-html="kon.privacy">Ich stimme zu, dass meine Daten zur Bearbeitung dieser Anfrage gespeichert und genutzt werden. Ich habe die <a href="#" onclick="openModal('datenschutz');return false;" style="color:var(--g1)">Datenschutzerklärung</a> gelesen und akzeptiert. *</label>
       </div>
       <div id="cf-error" style="display:none;background:rgba(255,82,82,0.12);border:1px solid rgba(255,82,82,0.3);border-radius:10px;padding:.8rem 1rem;font-size:.8rem;color:rgba(255,120,120,0.9);margin-bottom:1rem">
-        Bitte füllen Sie alle Pflichtfelder aus und bestätigen Sie die Datenschutzerklärung.
+        <span data-i18n="kon.error">Bitte füllen Sie alle Pflichtfelder aus und bestätigen Sie die Datenschutzerklärung.</span>
       </div>
       <button class="btn-send" data-i18n="kon.btn" onclick="submitForm(event)">Kostenlose Analyse anfordern ☀</button>
-      <p style="font-size:.7rem;color:rgba(5,14,31,.25);text-align:center;margin-top:.8rem">🔒 SSL-verschlüsselt · DSGVO-konform · Keine Weitergabe an Dritte</p>
+      <p style="font-size:.7rem;color:rgba(5,14,31,.25);text-align:center;margin-top:.8rem" data-i18n="kon.legal">🔒 SSL-verschlüsselt · DSGVO-konform · Keine Weitergabe an Dritte</p>
     </div>
   </div>
 </section>
@@ -1468,7 +1468,7 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
     </div>
   </div>
   <p style="font-size:.68rem;color:rgba(5,14,31,.15);text-align:center;margin-top:1.2rem;line-height:1.6">
-    Alle Angaben auf dieser Website sind unverbindlich und dienen der allgemeinen Information. Leistungsangaben und Ertragsschätzungen sind Richtwerte und stellen kein verbindliches Angebot dar. Die tatsächlichen Konditionen werden im Rahmen einer individuellen Projektanalyse ermittelt. Irrtümer vorbehalten.
+    <span data-i18n="ft.disclaimer">Alle Angaben auf dieser Website sind unverbindlich und dienen der allgemeinen Information. Leistungsangaben und Ertragsschätzungen sind Richtwerte und stellen kein verbindliches Angebot dar. Die tatsächlichen Konditionen werden im Rahmen einer individuellen Projektanalyse ermittelt. Irrtümer vorbehalten.</span>
   </p>
 </footer>
 
@@ -2175,6 +2175,84 @@ de: {
   "ft.grid_fees":"Netzentgelte & Steuern",
   "ft.ppa_vs":"PV vs. Eigenkauf","ft.blog":"Blog & Insights","ft.contact":"Kontakt",
   "ft.copy":"© 2025 SOMV-Project.de — Alle Rechte vorbehalten · Angaben gemäß §5 TMG",
+  "faq.q1":"Was ist ein Onsite-PPA genau — und was unterscheidet es vom Offsite-PPA?",
+  "faq.a1":'Beim Onsite-PPA steht die PV-Anlage direkt auf Ihrem Dach oder Ihrem Gelände. Der erzeugte Strom fließt direkt in Ihr Werksnetz — ohne öffentliches Stromnetz. Das bedeutet: keine Netzentgelte, keine Stromsteuer (§9 StromStG), kein Umweg. Beim Offsite-PPA steht die Anlage woanders; Sie beziehen "virtuell" Grünstrom über das Netz — günstiger als Standardtarif, aber ohne die Netzentgelt-Ersparnis des Onsite-Modells.',
+  "faq.q2":"Warum fallen beim Onsite-PPA keine Netzentgelte an?",
+  "faq.a2":"Der Strom fließt direkt von der PV-Anlage in Ihr Betriebsnetz — er nutzt das öffentliche Stromnetz nicht. Netzentgelte sind eine Gebühr für die Nutzung des Netzes. Da beim Onsite-PPA kein Netz genutzt wird, entfallen diese Kosten vollständig. Hinzu kommt die Stromsteuerbefreiung nach §9 Abs. 1 StromStG für Strom aus erneuerbaren Energien, der vor Ort verbraucht wird. Die Erlaubnis beim Hauptzollamt wird von uns beantragt.",
+  "faq.q3":"Wer finanziert die Anlage, und wem gehört sie?",
+  "faq.a3":"Wir finanzieren die Anlage vollständig und sie bleibt während der Vertragslaufzeit in unserem Eigentum. Sie stellen die Dachfläche (Dachpachtvertrag) und beziehen den Strom zum vereinbarten Preis. Kein Investitionsrisiko, keine Wartungspflichten, keine Bilanzbelastung für Sie.",
+  "faq.q4":"Wie wird der PPA-Preis kalkuliert?",
+  "faq.a4":"Der PPA-Preis ergibt sich aus Anlagengröße, Standort (Sonneneinstrahlung), Dachausrichtung, Laufzeit und Kapitalkosten des Investors. Typisch liegt er 20–35 % unter dem Netzstrompreis (ct/kWh). Zuzüglich der eingesparten Netzentgelte (6–9 ct/kWh) und Stromsteuer (2,05 ct/kWh) ergibt sich eine Gesamtersparnis von häufig 40–60 % gegenüber dem bisherigen Strombezug.",
+  "faq.q5":"Ab welcher Größe lohnt sich ein Onsite-PPA?",
+  "faq.a5":"Faustregel: Ab ca. 100.000 kWh Jahresstromverbrauch und einer geeigneten Dachfläche ab 400–500 m² ist ein Onsite-PPA wirtschaftlich und organisatorisch sinnvoll. Für Unternehmen ab 500.000 kWh/Jahr sind Einsparungen und Umsetzungskomplexität besonders attraktiv.",
+  "faq.q6":"Was passiert bei Ausfall oder Schäden?",
+  "faq.a6":"Wartung, Reparatur, Versicherung und 24/7-Monitoring liegen vollständig bei uns. Ein SLA regelt Reaktionszeiten. Bei Produktionsausfall durch technische Defekte zahlen Sie nur für tatsächlich gelieferte kWh — kein Ausfall-Risiko für Sie.",
+  "faq.q7":"Was passiert nach Ablauf der PPA-Laufzeit?",
+  "faq.a7":"Sie haben drei Optionen: (1) Anlage zum vereinbarten Restwert kaufen, (2) PPA-Vertrag zu neuen Konditionen verlängern, oder (3) Anlage auf unsere Kosten abbauen lassen. Die gewählte Option wird bereits im Ursprungsvertrag festgehalten.",
+  "faq.q8":"Wie hilft mir eine Solaranlage beim ESG-Reporting?",
+  "faq.a8":"Eine eigene Solaranlage liefert physischen Grünstrom direkt vom Dach — ideal für Scope-2-Reporting (market-based). Sie erhalten monatliche Produktionsnachweise und können den Strom in CSRD- und GHG-Protocol-Berichten sowie für RE100-Ziele ausweisen.",
+  "faq.q9":"Ist ein Batteriespeicher kombinierbar?",
+  "faq.a9":'Ja. Batterie-PPAs ("Power Storage Agreements") sind ein neues, wachsendes Modell. Der Speicher wird ebenfalls von uns finanziert und betrieben. Er erhöht die Eigenverbrauchsquote von typisch 65 % auf bis zu 90 % und maximiert damit Ihre Gesamtersparnis. Anfragen willkommen.',
+  "faq.cta_btn":"Jetzt anfragen →",
+  "rec.lbl_dach":"Verfügbare Dachfläche",
+  "rec.lbl_lz":"PPA-Laufzeit",
+  "rec.lbl_stg":"Jährl. Strompreissteigerung (Netz)",
+  "rec.lbl_typ":"Unternehmenstyp",
+  "rec.lbl_ori":"Dachausrichtung",
+  "rec.lbl_std":"Standort",
+  "rec.lbl_sp":"Speicher-Option",
+  "rec.lbl_ev":"Eigenverbrauchsquote",
+  "rec.rm_label":"Gesamtersparnis Jahr 1",
+  "rec.rm_unit":"Euro pro Jahr",
+  "rec.vb_basis":"Basis",
+  "rec.vb_wirt":"Wirtschaft.",
+  "rec.lbl_ppa":"PPA-Preis",
+  "rec.lbl_kwp":"Anlagengröße",
+  "rec.lbl_ert":"Jahresertrag PV",
+  "rec.lbl_eq":"Eigenverbrauch",
+  "rec.ns1":"Ersparnis PPA vs. Netzpreis",
+  "rec.ns2":"+ Stromsteuer-Ersparnis",
+  "rec.rc_lbl":"Monatlicher Solarertrag",
+  "rec.co2_lbl":"CO₂-Vermeidung kumuliert über Laufzeit",
+  "rec.b1":"Ihre heutigen Jahresstromkosten (Netz)",
+  "rec.b1s":"davon ca. Netzentgelte & Stromsteuer",
+  "rec.b2":"PPA-Kosten Eigenstrom (Jahr 1)",
+  "rec.b3":"Verbleibender Netzbezug (Backup)",
+  "rec.b4":"Netto-Ersparnis Jahr 1",
+  "rec.b5":"Ersparnis kumuliert 5 Jahre",
+  "rec.b6":"Ersparnis kumuliert 10 Jahre",
+  "rec.b7":"Gesamtersparnis über Laufzeit",
+  "rec.b8":"Ihr Invest",
+  "rec.b9":"Investor Break-even",
+  "rec.c1":"CO₂-Einsparung p.a.",
+  "rec.c2":"Über Laufzeit gesamt",
+  "rec.c3":"Entspricht Bäumen",
+  "rec.c4":"Entspr. Autokilometer",
+  "rec.disc":"⚠ Indikative Schätzwerte — kein verbindliches Angebot. Tatsächliche Einsparungen hängen ab von: Standort, Netzentgelten (regional sehr unterschiedlich), Verbrauchsprofil, Dachbeschaffenheit und Marktlage. Exakte Konditionen nach kostenfreier Vor-Ort-Analyse durch unser Ingenieurteam. Der Rechner dient ausschließlich der Orientierung.",
+  "vgl.th0":"Kriterium",
+  "vgl.th2":"Eigenkauf PV",
+  "vgl.th3":"Netzstrom",
+  "vgl.r1":"Investitionskosten",
+  "vgl.r2":"Keine Netzentgelte",
+  "vgl.r3":"Keine Stromsteuer",
+  "vgl.r4":"Preisersparnis",
+  "vgl.r5":"Preissicherheit",
+  "vgl.r6":"Off-Balance-Sheet",
+  "vgl.r7":"Wartung & Betrieb",
+  "vgl.r8":"ESG / Scope 2 Qualität",
+  "vgl.r9":"Umsetzungszeit",
+  "vgl.r10":"Komplexität für Unternehmen",
+  "kon.branch_lbl":"Branche wählen",
+  "kon.found_lbl":"Wie gefunden?",
+  "kon.privacy":'Ich stimme zu, dass meine Daten zur Bearbeitung dieser Anfrage gespeichert und genutzt werden. Ich habe die <a href="#" onclick="openModal(\'datenschutz\');return false;" style="color:var(--g1)">Datenschutzerklärung</a> gelesen und akzeptiert. *',
+  "kon.error":"Bitte füllen Sie alle Pflichtfelder aus und bestätigen Sie die Datenschutzerklärung.",
+  "kon.legal":"🔒 SSL-verschlüsselt · DSGVO-konform · Keine Weitergabe an Dritte",
+  "kon.req":"* Pflichtfelder. Ihre Daten werden ausschließlich zur Bearbeitung Ihrer Anfrage verwendet.",
+  "kon.avail":"Mo–Fr, 9–17 Uhr",
+  "kon.resp":"Antwortzeit: < 24 Stunden",
+  "kon.sec":"DSGVO-konform · SSL-verschlüsselt",
+  "nl.placeholder":"Ihre E-Mail-Adresse",
+  "ft.disclaimer":"Alle Angaben auf dieser Website sind unverbindlich und dienen der allgemeinen Information. Leistungsangaben und Ertragsschätzungen sind Richtwerte und stellen kein verbindliches Angebot dar. Die tatsächlichen Konditionen werden im Rahmen einer individuellen Projektanalyse ermittelt. Irrtümer vorbehalten.",
   "marquee":"Photovoltaik von Profis|Q CELLS Partner|Huawei Wechselrichter|100 % Solarstrom|Einfamilienhaus · Gewerbe · Industrie|Freiflächenanlagen|Wartung & Kundendienst|Bayern & Schleswig-Holstein|SOMV-Project.de"
 },
 en: {
@@ -2349,6 +2427,84 @@ en: {
   "ft.grid_fees":"Grid fees & taxes",
   "ft.ppa_vs":"PV vs. own purchase","ft.blog":"Blog & Insights","ft.contact":"Contact",
   "ft.copy":"© 2025 SOMV-Project.de — All rights reserved",
+  "faq.q1":"What exactly is an Onsite PPA — and how does it differ from an Offsite PPA?",
+  "faq.a1":'With an Onsite PPA, the PV system is installed directly on your roof or premises. The electricity flows directly into your facility network — without the public grid. This means: no grid fees, no electricity tax (§9 StromStG), no detours. With an Offsite PPA, the system is located elsewhere; you receive "virtual" green power via the grid — cheaper than standard tariffs, but without the grid fee savings of the Onsite model.',
+  "faq.q2":"Why are there no grid fees with an Onsite PPA?",
+  "faq.a2":"The electricity flows directly from the PV system into your operational network — it does not use the public electricity grid. Grid fees are charges for using the grid. Since no grid is used with an Onsite PPA, these costs are eliminated entirely. Additionally, there is an electricity tax exemption under §9 Para. 1 StromStG for electricity from renewable energies consumed on-site. We handle the application with the customs authority.",
+  "faq.q3":"Who finances the system, and who owns it?",
+  "faq.a3":"We finance the system entirely and it remains our property throughout the contract term. You provide the roof space (roof lease agreement) and purchase the electricity at the agreed price. No investment risk, no maintenance obligations, no balance sheet burden for you.",
+  "faq.q4":"How is the PPA price calculated?",
+  "faq.a4":"The PPA price is determined by system size, location (solar irradiation), roof orientation, contract term, and investor capital costs. Typically, it is 20–35% below the grid electricity price (ct/kWh). Including savings on grid fees (6–9 ct/kWh) and electricity tax (2.05 ct/kWh), total savings often amount to 40–60% compared to previous electricity costs.",
+  "faq.q5":"What is the minimum size for an Onsite PPA to be worthwhile?",
+  "faq.a5":"Rule of thumb: From around 100,000 kWh annual electricity consumption and a suitable roof area of 400–500 m², an Onsite PPA is economically and organisationally viable. For companies with 500,000+ kWh/year, the savings and implementation simplicity are particularly attractive.",
+  "faq.q6":"What happens in the event of a breakdown or damage?",
+  "faq.a6":"Maintenance, repair, insurance, and 24/7 monitoring are entirely our responsibility. An SLA governs response times. In the event of production failure due to technical defects, you only pay for actually delivered kWh — no downtime risk for you.",
+  "faq.q7":"What happens when the PPA contract term expires?",
+  "faq.a7":"You have three options: (1) purchase the system at the agreed residual value, (2) extend the PPA contract on new terms, or (3) have the system dismantled at our expense. The chosen option is documented in the original contract.",
+  "faq.q8":"How does a solar system help me with ESG reporting?",
+  "faq.a8":"Your own solar system delivers physical green electricity directly from the roof — ideal for Scope 2 reporting (market-based). You receive monthly production certificates and can report the electricity in CSRD and GHG Protocol reports as well as for RE100 targets.",
+  "faq.q9":"Can a battery storage system be combined?",
+  "faq.a9":'Yes. Battery PPAs ("Power Storage Agreements") are a new and growing model. The storage is also financed and operated by us. It increases the self-consumption rate from the typical 65% to up to 90%, maximising your total savings. Enquiries welcome.',
+  "faq.cta_btn":"Get in touch →",
+  "rec.lbl_dach":"Available roof area",
+  "rec.lbl_lz":"PPA term",
+  "rec.lbl_stg":"Annual grid price increase",
+  "rec.lbl_typ":"Company type",
+  "rec.lbl_ori":"Roof orientation",
+  "rec.lbl_std":"Location",
+  "rec.lbl_sp":"Storage option",
+  "rec.lbl_ev":"Self-consumption rate",
+  "rec.rm_label":"Total savings Year 1",
+  "rec.rm_unit":"Euros per year",
+  "rec.vb_basis":"Basic",
+  "rec.vb_wirt":"Economy",
+  "rec.lbl_ppa":"PPA price",
+  "rec.lbl_kwp":"System size",
+  "rec.lbl_ert":"Annual PV yield",
+  "rec.lbl_eq":"Self-consumption",
+  "rec.ns1":"Savings PPA vs. grid price",
+  "rec.ns2":"+ Electricity tax savings",
+  "rec.rc_lbl":"Monthly solar yield",
+  "rec.co2_lbl":"Cumulative CO₂ avoidance over term",
+  "rec.b1":"Your current annual electricity costs (grid)",
+  "rec.b1s":"thereof approx. grid fees & electricity tax",
+  "rec.b2":"PPA costs self-supply (Year 1)",
+  "rec.b3":"Remaining grid supply (backup)",
+  "rec.b4":"Net savings Year 1",
+  "rec.b5":"Savings cumul. 5 years",
+  "rec.b6":"Savings cumul. 10 years",
+  "rec.b7":"Total savings over term",
+  "rec.b8":"Your investment",
+  "rec.b9":"Investor break-even",
+  "rec.c1":"CO₂ savings p.a.",
+  "rec.c2":"Total over term",
+  "rec.c3":"Equivalent trees",
+  "rec.c4":"Equiv. car km",
+  "rec.disc":"⚠ Indicative estimates — not a binding offer. Actual savings depend on: location, grid fees (vary greatly by region), consumption profile, roof condition and market conditions. Exact terms after a free on-site analysis by our engineering team. The calculator is for guidance purposes only.",
+  "vgl.th0":"Criterion",
+  "vgl.th2":"Own PV purchase",
+  "vgl.th3":"Grid power",
+  "vgl.r1":"Investment costs",
+  "vgl.r2":"No grid fees",
+  "vgl.r3":"No electricity tax",
+  "vgl.r4":"Price savings",
+  "vgl.r5":"Price security",
+  "vgl.r6":"Off-Balance-Sheet",
+  "vgl.r7":"Maintenance & operations",
+  "vgl.r8":"ESG / Scope 2 quality",
+  "vgl.r9":"Implementation time",
+  "vgl.r10":"Complexity for companies",
+  "kon.branch_lbl":"Select industry",
+  "kon.found_lbl":"How did you find us?",
+  "kon.privacy":'I agree that my data will be stored and used to process this enquiry. I have read and accepted the <a href="#" onclick="openModal(\'datenschutz\');return false;" style="color:var(--g1)">Privacy Policy</a>. *',
+  "kon.error":"Please fill in all required fields and confirm the privacy policy.",
+  "kon.legal":"🔒 SSL-encrypted · GDPR-compliant · No data sharing with third parties",
+  "kon.req":"* Required fields. Your data is used exclusively to process your enquiry.",
+  "kon.avail":"Mon–Fri, 9 am–5 pm",
+  "kon.resp":"Response time: < 24 hours",
+  "kon.sec":"GDPR-compliant · SSL-encrypted",
+  "nl.placeholder":"Your e-mail address",
+  "ft.disclaimer":"All information on this website is non-binding and for general information purposes only. Performance data and yield estimates are indicative values and do not constitute a binding offer. Actual conditions are determined in an individual project analysis. Subject to errors.",
   "marquee":"Professional PV Solar|Q CELLS Partner|Huawei Inverter|100 % Solar Power|Residential · Commercial · Industrial|Open Space Solar|Service & Support|Bavaria & Schleswig-Holstein|SOMV-Project.de"
 },
 tr: {
@@ -2523,6 +2679,84 @@ tr: {
   "ft.grid_fees":"Şebeke ücretleri & vergiler",
   "ft.ppa_vs":"PV vs. Öz satın alma","ft.blog":"Blog & İçgörüler","ft.contact":"İletişim",
   "ft.copy":"© 2025 SOMV-Project.de — Tüm hakları saklıdır",
+  "faq.q1":"Onsite PPA tam olarak nedir — ve Offsite PPA'dan nasıl ayrılır?",
+  "faq.a1":'Onsite PPA\'da PV sistemi doğrudan çatınıza veya tesisatınıza kurulur. Üretilen elektrik, kamuya açık şebeke kullanılmadan doğrudan fabrika şebekenize akar. Bu şu anlama gelir: şebeke ücreti yok, elektrik vergisi yok (§9 StromStG), gereksiz yönlendirme yok. Offsite PPA\'da ise sistem başka bir yerde kurulur; şebeke üzerinden "sanal" yeşil elektrik alırsınız — standart tarifeden ucuz ama Onsite modelin şebeke ücreti tasarrufu olmadan.',
+  "faq.q2":"Onsite PPA'da neden şebeke ücreti ödenmez?",
+  "faq.a2":"Elektrik, PV sisteminden doğrudan işletme şebekenize akar — kamuya açık elektrik şebekesini kullanmaz. Şebeke ücretleri, şebekenin kullanımı için alınan bir bedeldir. Onsite PPA'da şebeke kullanılmadığından bu maliyetler tamamen ortadan kalkar. Buna ek olarak, yerinde tüketilen yenilenebilir enerji kaynaklı elektrik için §9 Par. 1 StromStG kapsamında elektrik vergisi muafiyeti uygulanır. Gümrük idaresine başvuruyu biz gerçekleştiririz.",
+  "faq.q3":"Sistemi kim finanse eder ve sahibi kim olur?",
+  "faq.a3":"Sistemi tamamen biz finanse ederiz ve sözleşme süresi boyunca mülkiyeti bizde kalır. Siz çatı alanını sağlarsınız (çatı kiralama sözleşmesi) ve elektriği belirlenen fiyattan satın alırsınız. Sizin için yatırım riski yok, bakım yükümlülüğü yok, bilanço yükü yok.",
+  "faq.q4":"PPA fiyatı nasıl hesaplanır?",
+  "faq.a4":"PPA fiyatı; sistem büyüklüğü, konum (güneş ışınımı), çatı yönelimi, sözleşme süresi ve yatırımcı sermaye maliyetlerine göre belirlenir. Tipik olarak şebeke elektriği fiyatının (ct/kWh) %20–35 altındadır. Şebeke ücreti tasarrufları (6–9 ct/kWh) ve elektrik vergisi (2,05 ct/kWh) dahil toplam tasarruf çoğunlukla %40–60 oranında gerçekleşir.",
+  "faq.q5":"Onsite PPA hangi büyüklükten itibaren avantajlı olur?",
+  "faq.a5":"Genel kural: Yaklaşık 100.000 kWh yıllık elektrik tüketimi ve 400–500 m² uygun çatı alanından itibaren Onsite PPA ekonomik ve organizasyonel açıdan mantıklıdır. Yılda 500.000 kWh ve üzeri tüketen şirketler için tasarruflar ve uygulama kolaylığı özellikle çekicidir.",
+  "faq.q6":"Arıza veya hasar durumunda ne olur?",
+  "faq.a6":"Bakım, onarım, sigorta ve 7/24 izleme tamamen bizim sorumluluğumuzdadır. Bir SLA yanıt sürelerini düzenler. Teknik arızalardan kaynaklanan üretim kesintilerinde yalnızca fiilen teslim edilen kWh için ödeme yaparsınız — sizin için kesinti riski yok.",
+  "faq.q7":"PPA sözleşme süresi sona erdiğinde ne olur?",
+  "faq.a7":"Üç seçeneğiniz vardır: (1) Sistemi belirlenen artık değerden satın alın, (2) PPA sözleşmesini yeni koşullarla uzatın veya (3) Sistemi bizim masrafımıza söktürün. Seçilen seçenek başlangıç sözleşmesinde kayıt altına alınır.",
+  "faq.q8":"Güneş sistemi ESG raporlamasında nasıl yardımcı olur?",
+  "faq.a8":"Kendi güneş sisteminiz çatıdan doğrudan fiziksel yeşil elektrik sağlar — Kapsam 2 raporlaması (pazar bazlı) için idealdir. Aylık üretim belgeleri alırsınız ve elektriği CSRD ile GHG Protokolü raporlarında ve RE100 hedefleri için kullanabilirsiniz.",
+  "faq.q9":"Batarya depolama sistemi ile birleştirilebilir mi?",
+  "faq.a9":'Evet. Batarya PPA\'ları ("Güç Depolama Anlaşmaları") yeni ve büyüyen bir modeldir. Depolama da tarafımızdan finanse edilir ve işletilir. Öz tüketim oranını tipik %65\'ten %90\'a kadar artırır ve böylece toplam tasarrufunuzu en üst düzeye çıkarır. Sorularınız için bize ulaşın.',
+  "faq.cta_btn":"Hemen iletişime geçin →",
+  "rec.lbl_dach":"Mevcut çatı alanı",
+  "rec.lbl_lz":"PPA süresi",
+  "rec.lbl_stg":"Yıllık şebeke fiyat artışı",
+  "rec.lbl_typ":"Şirket türü",
+  "rec.lbl_ori":"Çatı yönelimi",
+  "rec.lbl_std":"Konum",
+  "rec.lbl_sp":"Depolama seçeneği",
+  "rec.lbl_ev":"Öz tüketim oranı",
+  "rec.rm_label":"1. Yıl toplam tasarruf",
+  "rec.rm_unit":"Euro / yıl",
+  "rec.vb_basis":"Temel",
+  "rec.vb_wirt":"Ekonomi",
+  "rec.lbl_ppa":"PPA fiyatı",
+  "rec.lbl_kwp":"Sistem büyüklüğü",
+  "rec.lbl_ert":"Yıllık PV verimi",
+  "rec.lbl_eq":"Öz tüketim",
+  "rec.ns1":"PPA vs. şebeke tasarrufu",
+  "rec.ns2":"+ Elektrik vergisi tasarrufu",
+  "rec.rc_lbl":"Aylık güneş enerjisi verimi",
+  "rec.co2_lbl":"Süre boyunca kümülatif CO₂ önleme",
+  "rec.b1":"Mevcut yıllık şebeke elektriği maliyetleri",
+  "rec.b1s":"bunun yakl. şebeke ücretleri & elektrik vergisi",
+  "rec.b2":"PPA maliyetleri öz üretim (Yıl 1)",
+  "rec.b3":"Kalan şebeke alımı (yedek)",
+  "rec.b4":"Net tasarruf Yıl 1",
+  "rec.b5":"Kümülatif tasarruf 5 yıl",
+  "rec.b6":"Kümülatif tasarruf 10 yıl",
+  "rec.b7":"Süre boyunca toplam tasarruf",
+  "rec.b8":"Yatırımınız",
+  "rec.b9":"Yatırımcı kâr eşiği",
+  "rec.c1":"CO₂ tasarrufu yıllık",
+  "rec.c2":"Süre boyunca toplam",
+  "rec.c3":"Eşdeğer ağaçlar",
+  "rec.c4":"Eşd. araç km",
+  "rec.disc":"⚠ Gösterge niteliğinde tahmin değerleri — bağlayıcı bir teklif değildir. Gerçek tasarruflar şunlara bağlıdır: konum, şebeke ücretleri (bölgeye göre büyük farklılıklar), tüketim profili, çatı durumu ve piyasa koşulları. Mühendis ekibimizin ücretsiz yerinde analizi sonrasında kesin koşullar belirlenir. Hesap makinesi yalnızca yönlendirme amaçlıdır.",
+  "vgl.th0":"Kriter",
+  "vgl.th2":"Kendi PV alımı",
+  "vgl.th3":"Şebeke elektrikleri",
+  "vgl.r1":"Yatırım maliyetleri",
+  "vgl.r2":"Şebeke ücreti yok",
+  "vgl.r3":"Elektrik vergisi yok",
+  "vgl.r4":"Fiyat tasarrufu",
+  "vgl.r5":"Fiyat güvencesi",
+  "vgl.r6":"Off-Balance-Sheet",
+  "vgl.r7":"Bakım & işletme",
+  "vgl.r8":"ESG / Kapsam 2 kalitesi",
+  "vgl.r9":"Uygulama süresi",
+  "vgl.r10":"Şirketler için karmaşıklık",
+  "kon.branch_lbl":"Sektör seçin",
+  "kon.found_lbl":"Bizi nasıl buldunuz?",
+  "kon.privacy":'Verilerimin bu başvuruyu işlemek amacıyla saklanmasına ve kullanılmasına izin veriyorum. <a href="#" onclick="openModal(\'datenschutz\');return false;" style="color:var(--g1)">Gizlilik Politikasını</a> okudum ve kabul ettim. *',
+  "kon.error":"Lütfen tüm zorunlu alanları doldurun ve gizlilik politikasını onaylayın.",
+  "kon.legal":"🔒 SSL şifreli · GDPR uyumlu · Üçüncü şahıslarla veri paylaşımı yok",
+  "kon.req":"* Zorunlu alanlar. Verileriniz yalnızca başvurunuzu işlemek amacıyla kullanılır.",
+  "kon.avail":"Pzt–Cum, 09–17",
+  "kon.resp":"Yanıt süresi: < 24 saat",
+  "kon.sec":"GDPR uyumlu · SSL şifreli",
+  "nl.placeholder":"E-posta adresiniz",
+  "ft.disclaimer":"Bu web sitesindeki tüm bilgiler bağlayıcı nitelikte değildir ve yalnızca genel bilgi amaçlıdır. Performans verileri ve verim tahminleri gösterge niteliğindedir ve bağlayıcı bir teklif oluşturmaz. Gerçek koşullar bireysel proje analizi çerçevesinde belirlenir. Hatalar saklıdır.",
   "marquee":"Profesyonel PV Solar|Q CELLS Partner|Huawei İnvertör|100 % Güneş Enerjisi|Konut · Ticari · Endüstriyel|Açık Alan Güneş|Servis & Destek|Bavyera & Schleswig-Holstein|SOMV-Project.de"
 }
 };
@@ -2554,6 +2788,48 @@ function setLang(lang) {
     if (mq && L['marquee']) {
       mq.innerHTML = L['marquee'].split('|').map(function(t){ return '<span class="mi">' + t + ' <span class="ms">✦</span></span>'; }).join('').repeat(2);
     }
+    // update select options
+    var selData = {
+      'r-typ': {
+        de:['Industrie / Produktion','Gewerbe / Handel','Logistik / Lager','Büro / Verwaltung','Landwirtschaft / Agri-PV','Hotellerie / Gastronomie','Gesundheit / Soziales'],
+        en:['Industry / Production','Commerce / Trade','Logistics / Warehouse','Office / Administration','Agriculture / Agri-PV','Hotel & Gastronomy','Healthcare / Social'],
+        tr:['Sanayi / Üretim','Ticaret / Perakende','Lojistik / Depo','Ofis / İdare','Tarım / Agri-PV','Otelcilik / Gastronomi','Sağlık / Sosyal']
+      },
+      'r-ori': {
+        de:['Süd (optimal)','Südost / Südwest','Ost / West','Flachdach (alle Seiten)'],
+        en:['South (optimal)','Southeast / Southwest','East / West','Flat roof (all sides)'],
+        tr:['Güney (optimal)','Güneydoğu / Güneybatı','Doğu / Batı','Düz çatı (tüm yönler)']
+      },
+      'r-std': {
+        de:['Bayern / Baden-Württemberg','Hessen / Rheinland-Pfalz','NRW / Niedersachsen','Brandenburg / Sachsen','Norddeutschland / Küste','Österreich (Alpenraum)','Schweiz (Mittelland)'],
+        en:['Bavaria / Baden-Württemberg','Hesse / Rhineland-Palatinate','NRW / Lower Saxony','Brandenburg / Saxony','Northern Germany / Coast','Austria (Alpine region)','Switzerland (Mittelland)'],
+        tr:['Bavyera / Baden-Württemberg','Hessen / Rheinland-Pfalz','NRW / Aşağı Saksonya','Brandenburg / Saksonya','Kuzey Almanya / Kıyı','Avusturya (Alp bölgesi)','İsviçre (Mittelland)']
+      },
+      'r-sp': {
+        de:['Ohne Batteriespeicher','Mit Batteriespeicher'],
+        en:['Without battery storage','With battery storage'],
+        tr:['Batarya depolama olmadan','Batarya depolama ile']
+      },
+      'cf-branch': {
+        de:['Branche wählen','Industrie / Produktion','Handel / Einzelhandel','Logistik / Lager','Landwirtschaft','Hotellerie / Gastronomie','Gesundheit / Soziales','Büro / Verwaltung','Sonstiges'],
+        en:['Select industry','Industry / Production','Trade / Retail','Logistics / Warehouse','Agriculture','Hotel & Gastronomy','Healthcare / Social','Office / Administration','Other'],
+        tr:['Sektör seçin','Sanayi / Üretim','Ticaret / Perakende','Lojistik / Depo','Tarım','Otelcilik / Gastronomi','Sağlık / Sosyal','Ofis / İdare','Diğer']
+      },
+      'cf-found': {
+        de:['Wie gefunden?','Google / Suche','Empfehlung','LinkedIn','Messe / Event','Sonstiges'],
+        en:['How did you find us?','Google / Search','Recommendation','LinkedIn','Trade fair / Event','Other'],
+        tr:['Bizi nasıl buldunuz?','Google / Arama','Tavsiye','LinkedIn','Fuar / Etkinlik','Diğer']
+      }
+    };
+    Object.keys(selData).forEach(function(id) {
+      var sel = document.getElementById(id);
+      if (!sel) return;
+      var texts = selData[id][lang] || selData[id]['de'];
+      var opts = sel.options;
+      for (var i = 0; i < Math.min(opts.length, texts.length); i++) {
+        opts[i].text = texts[i];
+      }
+    });
     if (lang === 'en') document.title = 'SOMV-Project.de – Solar Systems by Professionals. Planning, Installation, Maintenance.';
     else if (lang === 'tr') document.title = 'SOMV-Project.de – Profesyonellerden Güneş Enerjisi Sistemleri.';
     else document.title = 'SOMV-Project.de – Solaranlagen von Profis. Planung, Installation, Wartung.';
