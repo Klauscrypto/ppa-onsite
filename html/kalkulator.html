@@ -358,6 +358,7 @@ select.mi option{background:var(--white)}
 .toast{position:fixed;bottom:1.5rem;right:1.5rem;z-index:1000;background:var(--white);border:1.5px solid var(--leaf-bdr);color:var(--leaf);border-radius:10px;padding:.8rem 1.2rem;font-size:.8rem;font-weight:700;display:flex;align-items:center;gap:.4rem;box-shadow:var(--sh-md);transform:translateY(80px);opacity:0;transition:all .3s cubic-bezier(.34,1.56,.64,1)}
 .toast.show{transform:translateY(0);opacity:1}
 
+.type-row{display:none!important}
 /* RESPONSIVE */
 .pdf-highlight-grid{grid-template-columns:repeat(3,1fr)}
 @media(max-width:800px){
@@ -446,7 +447,7 @@ footer{position:relative;z-index:1}
 .print-header{display:none}
 </style>
 </head>
-<body>
+<body class="is-gew">
 <div class="bg-blobs"><div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div></div>
 
 <!-- NAV -->
@@ -471,8 +472,8 @@ footer{position:relative;z-index:1}
 </div>
 <div id="view-calc" class="view active">
   <div class="hero">
-    <div class="h-tag">☀ PPA Power Purchase Agreement</div>
-    <h1 class="h-title">Wie viel sparen Sie<br>mit <span class="acc">Solar-PPA?</span></h1>
+    <div class="h-tag" style="background:var(--sun-bg);border-color:var(--sun-bdr);color:var(--sun)">🏢 Gewerbekunden-PPA</div>
+    <h1 class="h-title">Wie viel spart Ihr<br><span class="acc">Unternehmen?</span></h1>
     <p class="h-sub" id="hero-sub">Verbrauch eingeben — sofort sehen was Sie gegenüber Netzstrom sparen.</p>
     <div class="type-row">
       <button class="tb active" id="btn-p" onclick="setType('p')"><span>🏠</span> Privatkunde</button>
@@ -535,7 +536,7 @@ footer{position:relative;z-index:1}
             <div class="sl-mm"><span>0,15 €</span><span>0,60 €</span></div>
           </div>
           <input class="inp" type="number" id="netz-n" value="0.32" step="0.01" oninput="ns(this,'netz-sl','netz-d',v=>(+v).toFixed(2)+' €/kWh');upd()">
-          <div class="price-hint" id="netz-hint-txt">☑ Ø Deutschland 2025: 29–34 ct/kWh</div>
+          <div class="price-hint" id="netz-hint-txt">☑ Ø Gewerbe Deutschland 2025: 22–32 ct/kWh</div>
         </div>
         <div class="fld">
           <div class="flbl">PPA-Preis</div>
@@ -801,7 +802,7 @@ footer{position:relative;z-index:1}
 
         <div class="fld">
           <div class="flbl">Anlagengröße <span class="fhint">kWp</span></div>
-          <input class="inp" type="number" id="roi-kwp" value="10" step="1" oninput="roiCalc()">
+          <input class="inp" type="number" id="roi-kwp" value="120" step="1" oninput="roiCalc()">
         </div>
 
         <div class="fld">
@@ -917,21 +918,11 @@ footer{position:relative;z-index:1}
 <div id="view-args" class="view">
   <div class="hero" style="padding-bottom:1.25rem">
     <div class="h-tag">💼 Verkaufsargumente</div>
-    <h1 class="h-title" style="font-size:clamp(1.45rem,5vw,2.3rem)">Das <span class="acc">überzeugt</span> Ihre Kunden</h1>
+    <h1 class="h-title" style="font-size:clamp(1.45rem,5vw,2.3rem)">Das <span class="acc">überzeugt</span> Ihre Gewerbekunden</h1>
     <p class="h-sub">Stärkste Argumente für Privat- & Gewerbekunden — inkl. Einwandbehandlung.</p>
   </div>
   <div class="args-wrap">
-    <div class="ast" style="color:var(--sun)">🏠 Privatkunden</div>
-    <div class="args-grid">
-      <div class="arg-card"><div class="a-icon s">💰</div><div><div class="a-tit">Sofort sparen</div><div class="a-desc">Bereits im ersten Monat weniger zahlen — ohne Investition.</div></div></div>
-      <div class="arg-card"><div class="a-icon s">🔒</div><div><div class="a-tit">Preissicherheit</div><div class="a-desc">Stabiler PPA-Preis während Netzstrom jährlich steigt.</div></div></div>
-      <div class="arg-card"><div class="a-icon g">🌱</div><div><div class="a-tit">Grünes Gewissen</div><div class="a-desc">100 % Solarstrom — CO₂-Fußabdruck senken ohne Aufwand.</div></div></div>
-      <div class="arg-card"><div class="a-icon g">🔧</div><div><div class="a-tit">Null Aufwand</div><div class="a-desc">Anlage, Wartung, Versicherung inklusive.</div></div></div>
-      <div class="arg-card"><div class="a-icon s">📈</div><div><div class="a-tit">Immobilienwert</div><div class="a-desc">Solaranlage steigert nachweislich den Immobilienwert.</div></div></div>
-      <div class="arg-card"><div class="a-icon g">⚡</div><div><div class="a-tit">Unabhängigkeit</div><div class="a-desc">Weniger abhängig von Energieversorgern und Preisentwicklungen.</div></div></div>
-    </div>
-    <div style="height:1px;background:var(--border);margin:1rem 0"></div>
-    <div class="ast" style="color:var(--leaf)">🏢 Gewerbekunden</div>
+    <div class="ast" style="color:var(--sun)">🏢 Gewerbekunden</div>
     <div class="args-grid">
       <div class="arg-card"><div class="a-icon g">📊</div><div><div class="a-tit">ROI ab Tag 1</div><div class="a-desc">Kein Invest — sofortige Kostensenkung verbessert die GuV.</div></div></div>
       <div class="arg-card"><div class="a-icon g">📉</div><div><div class="a-tit">Kosten senken</div><div class="a-desc">30–70 % günstiger als Netzbezug — direkter Wettbewerbsvorteil.</div></div></div>
@@ -944,8 +935,9 @@ footer{position:relative;z-index:1}
       <div class="obj-tit">💡 Einwandbehandlung</div>
       <div class="obj-it"><div class="obj-q">„Ich muss erst nachdenken…"</div><div class="obj-a">Jeden Monat ohne PPA kostet bares Geld. Schauen wir kurz auf Ihre aktuelle Stromrechnung.</div></div>
       <div class="obj-it"><div class="obj-q">„Was wenn die Anlage nicht funktioniert?"</div><div class="obj-a">Das ist unser Risiko — Sie zahlen nur für tatsächlich gelieferten Solarstrom.</div></div>
-      <div class="obj-it"><div class="obj-q">„20 Jahre sind zu lang."</div><div class="obj-a">Kürzere Laufzeiten möglich. Ihr Netzstromvertrag läuft auch — nur ohne Preisgarantie.</div></div>
-      <div class="obj-it" style="margin-bottom:0"><div class="obj-q">„Ich bin Mieter."</div><div class="obj-a">Wir holen das Okay des Vermieters — oft profitiert auch dieser von der Anlage.</div></div>
+      <div class="obj-it"><div class="obj-q">„20 Jahre sind zu lang."</div><div class="obj-a">Kürzere Laufzeiten möglich. Ihr Netzstromvertrag läuft auch — nur ohne Preisgarantie und ohne ESG-Benefit.</div></div>
+      <div class="obj-it"><div class="obj-q">„Wir haben keinen geeigneten Dachraum."</div><div class="obj-a">Auch Parkplatzüberdachungen, Carports und Freiflächen kommen in Frage. Wir prüfen alle Optionen.</div></div>
+
     </div>
   </div>
 </div>
@@ -1767,12 +1759,11 @@ document.getElementById('netz-n').addEventListener('input', updPreisHint);
 // Punkt 5: Automatische Angebotsnummer
 document.getElementById('pdf-nr').value = getNextOfferNr();
 document.querySelectorAll('input[type=range]').forEach(ub);
-renderChips('p');
 // Punkt 7: Einstellungen laden
 loadSettings();
 // Punkt 2: Letzten Stand laden
 loadState();
-upd();roiCalc();
+setType('g');upd();roiCalc();
 updPreisHint();
 updPrintHeader();
 </script>
