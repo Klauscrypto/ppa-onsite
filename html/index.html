@@ -1258,22 +1258,22 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
     <div class="pz-sidebar">
       <div class="pzs-title" data-i18n="pz.sidebar_title">Typischer Projektzeitplan</div>
       <div class="pzs-tl">
-        <div class="pzs-i"><div class="pzs-dot"></div><div class="pzs-text">Erstgespräch</div><div class="pzs-week">Woche 1</div></div>
-        <div class="pzs-i"><div class="pzs-dot"></div><div class="pzs-text">Analyse & Angebot</div><div class="pzs-week">Woche 2–3</div></div>
-        <div class="pzs-i"><div class="pzs-dot"></div><div class="pzs-text">Technische Planung</div><div class="pzs-week">Woche 3–5</div></div>
-        <div class="pzs-i"><div class="pzs-dot"></div><div class="pzs-text">Vertragsabschluss</div><div class="pzs-week">Woche 5–8</div></div>
-        <div class="pzs-i"><div class="pzs-dot"></div><div class="pzs-text">Genehmigungen</div><div class="pzs-week">Woche 6–10</div></div>
-        <div class="pzs-i"><div class="pzs-dot p"></div><div class="pzs-text">Montage</div><div class="pzs-week">Woche 9–12</div></div>
-        <div class="pzs-i"><div class="pzs-dot p"></div><div class="pzs-text">⚡ Strom fließt</div><div class="pzs-week">Woche 12</div></div>
+        <div class="pzs-i"><div class="pzs-dot"></div><div class="pzs-text" data-i18n="pzs.t1">Erstgespräch</div><div class="pzs-week" data-i18n="pzs.w1">Woche 1</div></div>
+        <div class="pzs-i"><div class="pzs-dot"></div><div class="pzs-text" data-i18n="pzs.t2">Analyse & Angebot</div><div class="pzs-week" data-i18n="pzs.w2">Woche 2–3</div></div>
+        <div class="pzs-i"><div class="pzs-dot"></div><div class="pzs-text" data-i18n="pzs.t3">Technische Planung</div><div class="pzs-week" data-i18n="pzs.w3">Woche 3–5</div></div>
+        <div class="pzs-i"><div class="pzs-dot"></div><div class="pzs-text" data-i18n="pzs.t4">Vertragsabschluss</div><div class="pzs-week" data-i18n="pzs.w4">Woche 5–8</div></div>
+        <div class="pzs-i"><div class="pzs-dot"></div><div class="pzs-text" data-i18n="pzs.t5">Genehmigungen</div><div class="pzs-week" data-i18n="pzs.w5">Woche 6–10</div></div>
+        <div class="pzs-i"><div class="pzs-dot p"></div><div class="pzs-text" data-i18n="pzs.t6">Montage</div><div class="pzs-week" data-i18n="pzs.w6">Woche 9–12</div></div>
+        <div class="pzs-i"><div class="pzs-dot p"></div><div class="pzs-text" data-i18n="pzs.t7">⚡ Strom fließt</div><div class="pzs-week" data-i18n="pzs.w7">Woche 12</div></div>
       </div>
       <div class="pzs-list">
-        <div class="pzs-item">Finanzierung & Investition</div>
-        <div class="pzs-item">Planung & Genehmigung</div>
-        <div class="pzs-item">Stromsteuererlaubnis (Zollamt)</div>
-        <div class="pzs-item">Montage & Inbetriebnahme</div>
-        <div class="pzs-item">Versicherung & Gewährleistung</div>
-        <div class="pzs-item">Wartung & 24/7-Monitoring</div>
-        <div class="pzs-item">Abrechnung & ESG-Reporting</div>
+        <div class="pzs-item" data-i18n="pzs.li1">Finanzierung & Investition</div>
+        <div class="pzs-item" data-i18n="pzs.li2">Planung & Genehmigung</div>
+        <div class="pzs-item" data-i18n="pzs.li3">Stromsteuererlaubnis (Zollamt)</div>
+        <div class="pzs-item" data-i18n="pzs.li4">Montage & Inbetriebnahme</div>
+        <div class="pzs-item" data-i18n="pzs.li5">Versicherung & Gewährleistung</div>
+        <div class="pzs-item" data-i18n="pzs.li6">Wartung & 24/7-Monitoring</div>
+        <div class="pzs-item" data-i18n="pzs.li7">Abrechnung & ESG-Reporting</div>
       </div>
     </div>
   </div>
@@ -1880,6 +1880,7 @@ function spChange() {
 // ── BLOG ──
 let allPosts = [];
 let shownPosts = 3;
+window.currentLang = 'de';
 
 function mdToHtml(text) {
   return text
@@ -1891,23 +1892,32 @@ function mdToHtml(text) {
     .join('');
 }
 
+var blogReadTime = {de:'Lesezeit', en:'read', tr:'okuma süresi'};
+var blogLocale   = {de:'de-DE',   en:'en-US', tr:'tr-TR'};
+
 function renderPosts(posts, count) {
-  const grid = document.getElementById('blog-grid');
-  const btn  = document.getElementById('blog-more-btn');
+  var grid = document.getElementById('blog-grid');
+  var btn  = document.getElementById('blog-more-btn');
   if (!grid) return;
-  const slice = posts.slice(0, count);
-  grid.innerHTML = slice.map((p, i) => `
-    <div class="blog-card reveal" onclick="openPost(${i})">
-      <div class="blog-cat">${p.category}</div>
-      <div class="blog-title">${p.title}</div>
-      <div class="blog-summary">${p.summary}</div>
-      <div class="blog-meta">
-        <span>${new Date(p.date).toLocaleDateString('de-DE')}</span>
-        <span>· ${p.readTime} Lesezeit</span>
-      </div>
-    </div>`).join('');
-  // Re-observe new cards for reveal animation
-  grid.querySelectorAll('.reveal').forEach(el => ro.observe(el));
+  var lang   = window.currentLang || 'de';
+  var rtLbl  = blogReadTime[lang] || 'Lesezeit';
+  var locale = blogLocale[lang]   || 'de-DE';
+  var suffix = lang !== 'de' ? '_' + lang : '';
+  var slice  = posts.slice(0, count);
+  grid.innerHTML = slice.map(function(p, i) {
+    var cat  = p['category' + suffix] || p.category;
+    var ttl  = p['title'    + suffix] || p.title;
+    var sum  = p['summary'  + suffix] || p.summary;
+    var dt   = new Date(p.date).toLocaleDateString(locale);
+    return '<div class="blog-card reveal" onclick="openPost(' + i + ')">' +
+      '<div class="blog-cat">' + cat + '</div>' +
+      '<div class="blog-title">' + ttl + '</div>' +
+      '<div class="blog-summary">' + sum + '</div>' +
+      '<div class="blog-meta"><span>' + dt + '</span>' +
+      '<span>· ' + p.readTime + ' ' + rtLbl + '</span></div>' +
+      '</div>';
+  }).join('');
+  grid.querySelectorAll('.reveal').forEach(function(el) { ro.observe(el); });
   if (btn) btn.style.display = 'none';
 }
 
@@ -1917,16 +1927,21 @@ function loadMorePosts() {
 }
 
 function openPost(idx) {
-  const p = allPosts[idx];
+  var p = allPosts[idx];
   if (!p) return;
-  document.getElementById('post-content').innerHTML = `
-    <div class="post-category">${p.category}</div>
-    <h2 style="font-size:1.55rem;font-weight:900;letter-spacing:-.03em;margin-bottom:.5rem;line-height:1.15">${p.title}</h2>
-    <div class="post-meta">
-      <span>${new Date(p.date).toLocaleDateString('de-DE', {day:'numeric',month:'long',year:'numeric'})}</span>
-      <span>· ${p.readTime} Lesezeit</span>
-    </div>
-    <div class="post-body">${mdToHtml(p.content)}</div>`;
+  var lang   = window.currentLang || 'de';
+  var rtLbl  = blogReadTime[lang] || 'Lesezeit';
+  var locale = blogLocale[lang]   || 'de-DE';
+  var suffix = lang !== 'de' ? '_' + lang : '';
+  var cat     = p['category' + suffix] || p.category;
+  var ttl     = p['title'    + suffix] || p.title;
+  var content = p['content'  + suffix] || p.content;
+  var dt = new Date(p.date).toLocaleDateString(locale, {day:'numeric',month:'long',year:'numeric'});
+  document.getElementById('post-content').innerHTML =
+    '<div class="post-category">' + cat + '</div>' +
+    '<h2 style="font-size:1.55rem;font-weight:900;letter-spacing:-.03em;margin-bottom:.5rem;line-height:1.15">' + ttl + '</h2>' +
+    '<div class="post-meta"><span>' + dt + '</span><span>· ' + p.readTime + ' ' + rtLbl + '</span></div>' +
+    '<div class="post-body">' + mdToHtml(content) + '</div>';
   openModal('post');
 }
 
@@ -2278,6 +2293,20 @@ de: {
   "vgl.c10_own":'<span class="cx">✗</span> Hoch',
   "vgl.c10_grid":'<span class="ck">✓</span> Gering',
   "vgl.c10_off":'<span class="cn">~</span> Mittel',
+  "pzs.t1":"Erstgespräch","pzs.w1":"Woche 1",
+  "pzs.t2":"Analyse & Angebot","pzs.w2":"Woche 2–3",
+  "pzs.t3":"Technische Planung","pzs.w3":"Woche 3–5",
+  "pzs.t4":"Vertragsabschluss","pzs.w4":"Woche 5–8",
+  "pzs.t5":"Genehmigungen","pzs.w5":"Woche 6–10",
+  "pzs.t6":"Montage","pzs.w6":"Woche 9–12",
+  "pzs.t7":"⚡ Strom fließt","pzs.w7":"Woche 12",
+  "pzs.li1":"Finanzierung & Investition",
+  "pzs.li2":"Planung & Genehmigung",
+  "pzs.li3":"Stromsteuererlaubnis (Zollamt)",
+  "pzs.li4":"Montage & Inbetriebnahme",
+  "pzs.li5":"Versicherung & Gewährleistung",
+  "pzs.li6":"Wartung & 24/7-Monitoring",
+  "pzs.li7":"Abrechnung & ESG-Reporting",
   "marquee":"Photovoltaik von Profis|Q CELLS Partner|Huawei Wechselrichter|100 % Solarstrom|Einfamilienhaus · Gewerbe · Industrie|Freiflächenanlagen|Wartung & Kundendienst|Bayern & Schleswig-Holstein|SOMV-Project.de"
 },
 en: {
@@ -2555,6 +2584,20 @@ en: {
   "vgl.c10_own":'<span class="cx">✗</span> High',
   "vgl.c10_grid":'<span class="ck">✓</span> Low',
   "vgl.c10_off":'<span class="cn">~</span> Medium',
+  "pzs.t1":"Initial Meeting","pzs.w1":"Week 1",
+  "pzs.t2":"Analysis & Offer","pzs.w2":"Week 2–3",
+  "pzs.t3":"Technical Planning","pzs.w3":"Week 3–5",
+  "pzs.t4":"Contract","pzs.w4":"Week 5–8",
+  "pzs.t5":"Permits","pzs.w5":"Week 6–10",
+  "pzs.t6":"Installation","pzs.w6":"Week 9–12",
+  "pzs.t7":"⚡ Power flows","pzs.w7":"Week 12",
+  "pzs.li1":"Financing & Investment",
+  "pzs.li2":"Planning & Permits",
+  "pzs.li3":"Electricity Tax Permit (Customs)",
+  "pzs.li4":"Installation & Commissioning",
+  "pzs.li5":"Insurance & Warranty",
+  "pzs.li6":"Maintenance & 24/7 Monitoring",
+  "pzs.li7":"Billing & ESG Reporting",
   "marquee":"Professional PV Solar|Q CELLS Partner|Huawei Inverter|100 % Solar Power|Residential · Commercial · Industrial|Open Space Solar|Service & Support|Bavaria & Schleswig-Holstein|SOMV-Project.de"
 },
 tr: {
@@ -2832,6 +2875,20 @@ tr: {
   "vgl.c10_own":'<span class="cx">✗</span> Yüksek',
   "vgl.c10_grid":'<span class="ck">✓</span> Düşük',
   "vgl.c10_off":'<span class="cn">~</span> Orta',
+  "pzs.t1":"İlk Görüşme","pzs.w1":"Hafta 1",
+  "pzs.t2":"Analiz & Teklif","pzs.w2":"Hafta 2–3",
+  "pzs.t3":"Teknik Planlama","pzs.w3":"Hafta 3–5",
+  "pzs.t4":"Sözleşme","pzs.w4":"Hafta 5–8",
+  "pzs.t5":"İzinler","pzs.w5":"Hafta 6–10",
+  "pzs.t6":"Kurulum","pzs.w6":"Hafta 9–12",
+  "pzs.t7":"⚡ Akım başlıyor","pzs.w7":"Hafta 12",
+  "pzs.li1":"Finansman & Yatırım",
+  "pzs.li2":"Planlama & İzin",
+  "pzs.li3":"Elektrik Vergisi İzni (Gümrük)",
+  "pzs.li4":"Kurulum & Devreye Alma",
+  "pzs.li5":"Sigorta & Garanti",
+  "pzs.li6":"Bakım & 7/24 İzleme",
+  "pzs.li7":"Faturalama & ESG Raporlama",
   "marquee":"Profesyonel PV Solar|Q CELLS Partner|Huawei İnvertör|100 % Güneş Enerjisi|Konut · Ticari · Endüstriyel|Açık Alan Güneş|Servis & Destek|Bavyera & Schleswig-Holstein|SOMV-Project.de"
 }
 };
@@ -2908,6 +2965,8 @@ function setLang(lang) {
     if (lang === 'en') document.title = 'SOMV-Project.de – Solar Systems by Professionals. Planning, Installation, Maintenance.';
     else if (lang === 'tr') document.title = 'SOMV-Project.de – Profesyonellerden Güneş Enerjisi Sistemleri.';
     else document.title = 'SOMV-Project.de – Solaranlagen von Profis. Planung, Installation, Wartung.';
+    window.currentLang = lang;
+    if (allPosts && allPosts.length) renderPosts(allPosts, shownPosts);
   } catch(e) {
     console.error('[setLang] error:', e.message, e.stack);
   }
