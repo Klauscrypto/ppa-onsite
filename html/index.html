@@ -2002,7 +2002,7 @@ function quickCheck(){
 /* ═══════════════════════════════════════════════════════
    i18n — DE / EN / TR
    ═══════════════════════════════════════════════════════ */
-const T = {
+window.T = {
 de: {
   "nav.how":"So geht's","nav.benefits":"Vorteile","nav.calc":"Rechner",
   "nav.esg":"ESG","nav.faq":"FAQ","nav.blog":"Blog",
@@ -2529,38 +2529,37 @@ tr: {
 
 /* ═══ ENGINE ═══ */
 function setLang(lang) {
-  if (!T[lang]) return;
-  document.documentElement.lang = lang;
-  localStorage.setItem('ppa_lang', lang);
-  ['de','en','tr'].forEach(l => {
-    const b = document.getElementById('lb-' + l);
-    if (b) b.classList.toggle('active', l === lang);
-  });
-  // text content
-  document.querySelectorAll('[data-i18n]').forEach(el => {
-    const k = el.getAttribute('data-i18n');
-    if (T[lang][k] !== undefined) el.textContent = T[lang][k];
-  });
-  // innerHTML
-  document.querySelectorAll('[data-i18n-html]').forEach(el => {
-    const k = el.getAttribute('data-i18n-html');
-    if (T[lang][k] !== undefined) el.innerHTML = T[lang][k];
-  });
-  // placeholders
-  document.querySelectorAll('[data-i18n-placeholder]').forEach(el => {
-    const k = el.getAttribute('data-i18n-placeholder');
-    if (T[lang][k] !== undefined) el.placeholder = T[lang][k];
-  });
-  // marquee
-  const mq = document.getElementById('marquee-inner');
-  if (mq && T[lang]['marquee']) {
-    const items = T[lang]['marquee'].split('|').map(t => `<span class="mi">${t} <span class="ms">✦</span></span>`).join('');
-    mq.innerHTML = items + items;
+  try {
+    if (!window.T || !window.T[lang]) { console.warn('[setLang] T missing for lang:', lang); return; }
+    var L = window.T[lang];
+    document.documentElement.lang = lang;
+    localStorage.setItem('ppa_lang', lang);
+    ['de','en','tr'].forEach(function(l) {
+      var b = document.getElementById('lb-' + l);
+      if (b) b.classList.toggle('active', l === lang);
+    });
+    document.querySelectorAll('[data-i18n]').forEach(function(el) {
+      var k = el.getAttribute('data-i18n');
+      if (L[k] !== undefined) el.textContent = L[k];
+    });
+    document.querySelectorAll('[data-i18n-html]').forEach(function(el) {
+      var k = el.getAttribute('data-i18n-html');
+      if (L[k] !== undefined) el.innerHTML = L[k];
+    });
+    document.querySelectorAll('[data-i18n-placeholder]').forEach(function(el) {
+      var k = el.getAttribute('data-i18n-placeholder');
+      if (L[k] !== undefined) el.placeholder = L[k];
+    });
+    var mq = document.getElementById('marquee-inner');
+    if (mq && L['marquee']) {
+      mq.innerHTML = L['marquee'].split('|').map(function(t){ return '<span class="mi">' + t + ' <span class="ms">✦</span></span>'; }).join('').repeat(2);
+    }
+    if (lang === 'en') document.title = 'SOMV-Project.de – Solar Systems by Professionals. Planning, Installation, Maintenance.';
+    else if (lang === 'tr') document.title = 'SOMV-Project.de – Profesyonellerden Güneş Enerjisi Sistemleri.';
+    else document.title = 'SOMV-Project.de – Solaranlagen von Profis. Planung, Installation, Wartung.';
+  } catch(e) {
+    console.error('[setLang] error:', e.message, e.stack);
   }
-  // page title
-  if (lang === 'en') document.title = 'SOMV-Project.de – Solar Systems by Professionals. Planning, Installation, Maintenance.';
-  else if (lang === 'tr') document.title = 'SOMV-Project.de – Profesyonellerden Güneş Enerjisi Sistemleri.';
-  else document.title = 'SOMV-Project.de – Solaranlagen von Profis. Planung, Installation, Wartung.';
 }
 
 // init on load
