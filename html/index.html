@@ -1040,19 +1040,19 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
         <p class="sub" data-i18n="rec.sub">Alle Werte aktualisieren das Ergebnis in Echtzeit</p>
 
         <div class="ig">
-          <div class="il">Jahresstromverbrauch<span class="iv" id="v-verb">200.000 kWh</span></div>
+          <div class="il"><span data-i18n="rec.lbl_verb">Jahresstromverbrauch</span><span class="iv" id="v-verb">200.000 kWh</span></div>
           <input type="range" id="r-verb" min="50000" max="5000000" step="25000" value="200000" oninput="rechne()">
           <div class="im"><span>50.000</span><span>2,5 Mio.</span><span>5 Mio. kWh</span></div>
         </div>
 
         <div class="ig">
-          <div class="il">Aktueller Netzstrompreis<span class="iv" id="v-preis">28,0 ct/kWh</span></div>
+          <div class="il"><span data-i18n="rec.lbl_preis">Aktueller Netzstrompreis</span><span class="iv" id="v-preis">28,0 ct/kWh</span></div>
           <input type="range" id="r-preis" min="16" max="50" step="0.5" value="28" oninput="rechne()">
           <div class="im"><span>16 ct</span><span>33 ct</span><span>50 ct</span></div>
         </div>
 
         <div class="ig">
-          <div class="il">Ihr PPA-Preis<span class="iv" id="v-ppa-ct">18,0 ct/kWh</span></div>
+          <div class="il"><span data-i18n="rec.lbl_ppact">Ihr PPA-Preis</span><span class="iv" id="v-ppa-ct">18,0 ct/kWh</span></div>
           <input type="range" id="r-ppa-ct" min="12" max="28" step="0.5" value="18" oninput="rechne()">
           <div class="im"><span>12 ct</span><span>20 ct</span><span>28 ct</span></div>
         </div>
@@ -1289,25 +1289,25 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
       <div class="person-avatar">🔋</div>
       <div class="person-info">
         <h4>Ugur Ögütmen</h4>
-        <div class="person-role">SOMV Project Consulting GmbH · Geschäftsführer</div>
-        <div class="person-quote">„Von der Dachbegehung bis zur ersten erzeugten Kilowattstunde — unser Team begleitet Sie professionell durch jeden Schritt Ihres Solarprojekts."</div>
+        <div class="person-role" data-i18n="per.role1">SOMV Project Consulting GmbH · Geschäftsführer</div>
+        <div class="person-quote" data-i18n="per.quote1">„Von der Dachbegehung bis zur ersten erzeugten Kilowattstunde — unser Team begleitet Sie professionell durch jeden Schritt Ihres Solarprojekts."</div>
         <div class="person-links">
           <a class="pl" href="mailto:info@somv-project.de"><span class="pl-i">✉️</span>info@somv-project.de</a>
         </div>
-        <div class="person-avail"><span class="avail-dot"></span>Verfügbar Mo–Fr, 9–17 Uhr</div>
+        <div class="person-avail"><span class="avail-dot"></span><span data-i18n="per.avail1">Verfügbar Mo–Fr, 9–17 Uhr</span></div>
       </div>
     </div>
     <div class="person-card">
       <div class="person-avatar">☀</div>
       <div class="person-info">
         <h4>PPA Onsite — Beratung &amp; Vertrieb</h4>
-        <div class="person-role">SOMV PROJECT CONSULTING GMBH · PPA-Experten</div>
-        <div class="person-quote">„Wir analysieren Ihr Dach, Ihren Verbrauch und erstellen Ihnen ein konkretes Angebot für Ihre Solaranlage — kostenlos und unverbindlich, in 5 Werktagen."</div>
+        <div class="person-role" data-i18n="per.role2">SOMV PROJECT CONSULTING GMBH · PPA-Experten</div>
+        <div class="person-quote" data-i18n="per.quote2">„Wir analysieren Ihr Dach, Ihren Verbrauch und erstellen Ihnen ein konkretes Angebot für Ihre Solaranlage — kostenlos und unverbindlich, in 5 Werktagen."</div>
         <div class="person-links">
           <a class="pl" href="mailto:kp@somv-project.de"><span class="pl-i">✉️</span>kp@somv-project.de</a>
-          <a class="pl" href="#kontakt" onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'});return false;"><span class="pl-i">📋</span>Anfrage stellen</a>
+          <a class="pl" href="#kontakt" onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'});return false;"><span class="pl-i">📋</span><span data-i18n="per.anfrage">Anfrage stellen</span></a>
         </div>
-        <div class="person-avail"><span class="avail-dot"></span>Verfügbar Mo–Fr, 8–18 Uhr</div>
+        <div class="person-avail"><span class="avail-dot"></span><span data-i18n="per.avail2">Verfügbar Mo–Fr, 8–18 Uhr</span></div>
       </div>
     </div>
   </div>
@@ -1743,7 +1743,7 @@ function rechne(){
   document.getElementById('v-preis').textContent=preis.toFixed(1).replace('.',',')+' ct/kWh';
   document.getElementById('v-ppa-ct').textContent=ppaCt.toFixed(1).replace('.',',')+' ct/kWh';
   document.getElementById('v-dach').textContent=fmt(dach)+' m²';
-  document.getElementById('v-lz').textContent=lz+' Jahre';
+  document.getElementById('v-lz').textContent=lz+' '+({'de':'Jahre','en':'years','tr':'yıl'}[window.currentLang||'de']||'Jahre');
   document.getElementById('v-stg').textContent=(+document.getElementById('r-stg').value).toFixed(1).replace('.',',')+' %';
   document.getElementById('v-ev').textContent=Math.round(evPct*100)+' %';
 
@@ -1793,8 +1793,8 @@ function rechne(){
   sn('r-kwp').textContent=fmt(Math.round(kwp*10)/10)+' kWp';
   sn('r-ert').textContent=fmt(Math.round(jahresertrag))+' kWh';
   sn('r-eq').textContent=evQ+' %';
-  sn('r-ppa-sav').textContent=fE(ppaSav)+'/Jahr';
-  if(sn('r-st-sav'))sn('r-st-sav').textContent=fE(stSav)+'/Jahr';
+  sn('r-ppa-sav').textContent=fE(ppaSav)+({'de':'/Jahr','en':'/year','tr':'/yıl'}[window.currentLang||'de']||'/Jahr');
+  if(sn('r-st-sav'))sn('r-st-sav').textContent=fE(stSav)+({'de':'/Jahr','en':'/year','tr':'/yıl'}[window.currentLang||'de']||'/Jahr');
 
   // Wirtschaft
   sn('b-netz').textContent=fE(kostenNetz);
@@ -1805,7 +1805,7 @@ function rechne(){
   sn('b-j5').textContent=fE(e5);
   sn('b-j10').textContent=fE(e10);
   sn('b-ges').textContent=fE(ges);
-  sn('b-be').textContent=(Math.round(be*10)/10)+' Jahre';
+  sn('b-be').textContent=(Math.round(be*10)/10)+' '+({'de':'Jahre','en':'years','tr':'yıl'}[window.currentLang||'de']||'Jahre');
 
   // CO2
   sn('c-pa').textContent=fmt(Math.round(co2pa))+' t CO₂';
@@ -2307,6 +2307,16 @@ de: {
   "pzs.li5":"Versicherung & Gewährleistung",
   "pzs.li6":"Wartung & 24/7-Monitoring",
   "pzs.li7":"Abrechnung & ESG-Reporting",
+  "rec.lbl_verb":"Jahresstromverbrauch",
+  "rec.lbl_preis":"Aktueller Netzstrompreis",
+  "rec.lbl_ppact":"Ihr PPA-Preis",
+  "per.role1":"SOMV Project Consulting GmbH · Geschäftsführer",
+  "per.role2":"SOMV PROJECT CONSULTING GMBH · PPA-Experten",
+  "per.quote1":"\u201eVon der Dachbegehung bis zur ersten erzeugten Kilowattstunde \u2014 unser Team begleitet Sie professionell durch jeden Schritt Ihres Solarprojekts.\u201c",
+  "per.quote2":"\u201eWir analysieren Ihr Dach, Ihren Verbrauch und erstellen Ihnen ein konkretes Angebot f\u00fcr Ihre Solaranlage \u2014 kostenlos und unverbindlich, in 5 Werktagen.\u201c",
+  "per.avail1":"Verf\u00fcgbar Mo\u2013Fr, 9\u201317 Uhr",
+  "per.avail2":"Verf\u00fcgbar Mo\u2013Fr, 8\u201318 Uhr",
+  "per.anfrage":"Anfrage stellen",
   "marquee":"Photovoltaik von Profis|RCT Power Partner|Huawei Wechselrichter|100 % Solarstrom|Einfamilienhaus · Gewerbe · Industrie|Freiflächenanlagen|Wartung & Kundendienst|Bayern & Schleswig-Holstein|SOMV-Project.de"
 },
 en: {
@@ -2598,6 +2608,16 @@ en: {
   "pzs.li5":"Insurance & Warranty",
   "pzs.li6":"Maintenance & 24/7 Monitoring",
   "pzs.li7":"Billing & ESG Reporting",
+  "rec.lbl_verb":"Annual electricity consumption",
+  "rec.lbl_preis":"Current grid electricity price",
+  "rec.lbl_ppact":"Your PPA price",
+  "per.role1":"SOMV Project Consulting GmbH · Managing Director",
+  "per.role2":"SOMV PROJECT CONSULTING GMBH · PPA Experts",
+  "per.quote1":"\u201cFrom roof inspection to the first kilowatt-hour generated \u2014 our team guides you professionally through every step of your solar project.\u201d",
+  "per.quote2":"\u201cWe analyse your roof and consumption and provide you with a concrete offer for your solar system \u2014 free of charge and non-binding, within 5 working days.\u201d",
+  "per.avail1":"Available Mon\u2013Fri, 9am\u20135pm",
+  "per.avail2":"Available Mon\u2013Fri, 8am\u20136pm",
+  "per.anfrage":"Submit enquiry",
   "marquee":"Professional PV Solar|RCT Power Partner|Huawei Inverter|100 % Solar Power|Residential · Commercial · Industrial|Open Space Solar|Service & Support|Bavaria & Schleswig-Holstein|SOMV-Project.de"
 },
 tr: {
@@ -2649,7 +2669,7 @@ tr: {
   "lm.h2":'SOMV Solar Rehberi — <span class="tg">Yapı Sahipleri & İşletmeler</span>',
   "lm.btn":"Şimdi ücretsiz indir →",
   "per.sey":"Muhataplarınız",
-  "per.h2":'Das SOMV-<span class="tg">TEAM</span>',
+  "per.h2":'SOMV <span class="tg">EKİBİ</span>',
   "per.lead":"Çağrı merkezi yok. Bot yok. Bize doğrudan yazın veya arayın — 24 saat içinde kişisel olarak yanıt veriyoruz.",
   "faq.title":"Sık Sorulan Sorular",
   "kon.sey":"İletişim & Talep",
@@ -2889,6 +2909,16 @@ tr: {
   "pzs.li5":"Sigorta & Garanti",
   "pzs.li6":"Bakım & 7/24 İzleme",
   "pzs.li7":"Faturalama & ESG Raporlama",
+  "rec.lbl_verb":"Y\u0131ll\u0131k elektrik t\u00fcketimi",
+  "rec.lbl_preis":"Mevcut \u015febeke fiyat\u0131",
+  "rec.lbl_ppact":"PPA fiyat\u0131n\u0131z",
+  "per.role1":"SOMV Project Consulting GmbH · Genel M\u00fcd\u00fcr",
+  "per.role2":"SOMV PROJECT CONSULTING GMBH · PPA Uzmanlar\u0131",
+  "per.quote1":"\u201cAt\u00f6lye denetiminden ilk \u00fcretilen kilowatt saatine kadar \u2014 ekibimiz g\u00fcne\u015f projenizin her ad\u0131m\u0131nda sizi profesyonel olarak y\u00f6nlendirir.\u201d",
+  "per.quote2":"\u201cAt\u0131n\u0131z\u0131 ve t\u00fcketiminizi analiz ederek g\u00fcne\u015f sisteminiz i\u00e7in somut bir teklif haz\u0131rl\u0131yoruz \u2014 \u00fccretsiz ve ba\u011flay\u0131c\u0131 olmaks\u0131z\u0131n, 5 i\u015f g\u00fcn\u00fc i\u00e7inde.\u201d",
+  "per.avail1":"Pazartesi\u2013Cuma, 09:00\u201317:00",
+  "per.avail2":"Pazartesi\u2013Cuma, 08:00\u201318:00",
+  "per.anfrage":"Talep g\u00f6nder",
   "marquee":"Profesyonel PV Solar|RCT Power Partner|Huawei İnvertör|100 % Güneş Enerjisi|Konut · Ticari · Endüstriyel|Açık Alan Güneş|Servis & Destek|Bavyera & Schleswig-Holstein|SOMV-Project.de"
 }
 };
