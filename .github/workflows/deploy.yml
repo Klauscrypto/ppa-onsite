@@ -13,9 +13,9 @@ jobs:
       - name: Deploy to server
         uses: appleboy/ssh-action@v1.0.3
         with:
-          host: 116.203.91.44
+          host: 94.130.191.178
           username: root
           key: ${{ secrets.DEPLOY_SSH_KEY }}
           script: |
-            cd /opt/ppa-onsite
+            cd /opt/ppa-onsite/html
             GIT_SSH_COMMAND="ssh -i /root/.ssh/git_deploy_ppa -o StrictHostKeyChecking=no" git pull origin main
