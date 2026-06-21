@@ -10,12 +10,17 @@ jobs:
     timeout-minutes: 10
 
     steps:
-      - name: Deploy to server
-        uses: appleboy/ssh-action@v1.0.3
-        with:
-          host: 94.130.191.178
-          username: root
-          key: ${{ secrets.DEPLOY_SSH_KEY }}
-          script: |
-            cd /opt/ppa-onsite/html
-            GIT_SSH_COMMAND="ssh -i /root/.ssh/git_deploy_ppa -o StrictHostKeyChecking=no" git pull origin main
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Deploy to All-Inkl via rsync/SSH
+        env:
+          SSH_KEY: ${{ secrets.ALLINKL_SSH_KEY }}
+        run: |
+          mkdir -p ~/.ssh
+          echo "$SSH_KEY" > ~/.ssh/allinkl_deploy
+          chmod 600 ~/.ssh/allinkl_deploy
+          ssh-keyscan -H w014eac6.kasserver.com >> ~/.ssh/known_hosts
+          rsync -avz --delete \
+            -e "ssh -i ~/.ssh/allinkl_deploy" \
+            html/ ssh-w014eac6@w014eac6.kasserver.com:/www/htdocs/w014eac6/ppa-onsite.de/
