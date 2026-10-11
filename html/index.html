@@ -707,21 +707,13 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
   .lang-switch{gap:.35rem}
 }
 </style>
+<script src="/analytics.js" defer data-ga="G-XXXXXXXXXX" data-umami="00000000-0000-0000-0000-000000000000" data-umami-src="https://stats.pilsner-vertrieb.de/script.js" data-privacy="/#datenschutz" data-accent="#1B2E5A"></script>
 </head>
 <body>
 
 <div id="cur"></div>
 <div id="cur-r"></div>
 <div id="prog"></div>
-
-<!-- COOKIE -->
-<div id="cookie">
-  <p data-i18n-html="cookie.text">Wir verwenden technisch notwendige Cookies. Mehr Infos in unserer <a href="#" onclick="openModal('datenschutz');return false;">Datenschutzerklärung</a>.</p>
-  <div class="cookie-btns">
-    <button id="cookie-btn" data-i18n="cookie.accept" onclick="localStorage.setItem('ppa_cookie','1');document.getElementById('cookie').style.display='none'">Alle akzeptieren</button>
-    <button id="cookie-reject" data-i18n="cookie.reject" onclick="localStorage.setItem('ppa_cookie','1');document.getElementById('cookie').style.display='none'">Nur notwendige</button>
-  </div>
-</div>
 
 <!-- WHATSAPP -->
 <a id="wa-btn" href="#kontakt" onclick="document.getElementById('kontakt').scrollIntoView({behavior:'smooth'});return false;">💬</a>
@@ -1464,7 +1456,7 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
     <span data-i18n="ft.copy">© 2025 SOMV-Project.de — Alle Rechte vorbehalten · Angaben gemäß §5 DDG</span>
     <div class="fb-links">
       <a href="#" data-i18n="ft.imprint" onclick="openModal('impressum');return false;">Impressum</a>
-      <a href="#" data-i18n="ft.privacy" onclick="openModal('datenschutz');return false;">Datenschutz</a>
+      <a href="#" data-i18n="ft.privacy" onclick="openModal('datenschutz');return false;">Datenschutz</a> <a href="#" data-consent-open>Cookie-Einstellungen</a>
     </div>
   </div>
   <p style="font-size:.68rem;color:rgba(5,14,31,.15);text-align:center;margin-top:1.2rem;line-height:1.6">
@@ -1550,8 +1542,13 @@ footer{background:var(--ink2);border-top:1px solid var(--line);padding:3.5rem 4.
     <h3>3. Externe Dienste — Web3Forms</h3>
     <p>Zur sicheren Übermittlung Ihrer Formulardaten nutzen wir den Dienst <strong style="color:#050E1F">Web3Forms</strong> (web3forms.com, Auftragsverarbeiter gemäß Art. 28 DSGVO). Die Daten werden verschlüsselt übertragen und nach Bearbeitung Ihrer Anfrage gelöscht, sofern keine gesetzlichen Aufbewahrungspflichten bestehen. Ein Auftragsverarbeitungsvertrag (AVV) ist abgeschlossen. Weitere Informationen: <a href="https://web3forms.com/privacy" target="_blank" rel="noopener">web3forms.com/privacy</a>.</p>
 
-    <h3>4. Cookies</h3>
-    <p>Diese Website verwendet ausschließlich <strong style="color:#050E1F">technisch notwendige Cookies</strong> (Cookie-Consent-Speicherung). Es werden keine Analyse-, Tracking- oder Marketing-Cookies eingesetzt. Eine Einwilligung ist für technisch notwendige Cookies nach § 25 Abs. 2 TDDDG nicht erforderlich.</p>
+    <h3>4. Cookies, Reichweitenmessung und Analyse</h3>
+  <h4>Speicherung Ihrer Cookie-Auswahl</h4>
+  <p>Ihre Auswahl im Cookie-Banner speichern wir im lokalen Speicher Ihres Browsers (localStorage, Eintrag „pv_consent_v1“). Das ist technisch erforderlich, damit wir Ihre Entscheidung respektieren können (§ 25 Abs. 2 Nr. 2 TDDDG). Weitere technisch notwendige Daten (z. B. Spracheinstellung) können ebenfalls lokal gespeichert werden.</p>
+  <h4>Umami – cookielose Reichweitenmessung</h4>
+  <p>Wir nutzen die Open-Source-Software Umami, die auf unserem eigenen Server bei der Hetzner Online GmbH in Deutschland betrieben wird. Umami setzt keine Cookies und speichert nichts auf Ihrem Endgerät. Erfasst werden aufgerufene Seite, verweisende Seite, Browser, Betriebssystem, Gerätetyp sowie Land/Region. IP-Adressen werden nicht gespeichert, sondern nur kurzzeitig verarbeitet, um einen täglich wechselnden, anonymen Kennwert zu bilden. Eine Weitergabe an Dritte findet nicht statt. Rechtsgrundlage ist unser berechtigtes Interesse an einer bedarfsgerechten Gestaltung unseres Angebots (Art. 6 Abs. 1 lit. f DSGVO). Ist in Ihrem Browser „Do Not Track“ aktiviert, findet keine Messung statt. Sie können der Verarbeitung jederzeit widersprechen.</p>
+  <h4>Google Analytics 4 – nur mit Ihrer Einwilligung</h4>
+  <p>Nur wenn Sie im Cookie-Banner auf „Akzeptieren“ klicken, nutzen wir Google Analytics 4 der Google Ireland Limited, Gordon House, Barrow Street, Dublin 4, Irland. Google Analytics setzt Cookies (z. B. „_ga“, Speicherdauer bis zu 2 Jahre) und verarbeitet Nutzungsdaten wie aufgerufene Seiten, Verweildauer, Geräte- und Browserinformationen sowie Ihre IP-Adresse, die in der EU gekürzt wird. Werbe- und Personalisierungsfunktionen sind deaktiviert. Dabei können Daten an die Google LLC in den USA übermittelt werden; Google LLC ist nach dem EU-US Data Privacy Framework zertifiziert. Mit Google besteht ein Vertrag zur Auftragsverarbeitung. Die Daten werden nach 14 Monaten gelöscht. Rechtsgrundlage ist Ihre Einwilligung (Art. 6 Abs. 1 lit. a DSGVO, § 25 Abs. 1 TDDDG). Sie können sie jederzeit mit Wirkung für die Zukunft widerrufen, über den Link „Cookie-Einstellungen“ bzw. „Cookies“ im Fußbereich jeder Seite. Weitere Informationen: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener">policies.google.com/privacy</a>.</p>
 
     <h3>5. Server-Logfiles</h3>
     <p>Unser Hosting-Anbieter speichert beim Aufruf der Website automatisch technische Verbindungsdaten (IP-Adresse, Datum/Uhrzeit, aufgerufene Seite, Browsertyp). Diese Daten dienen ausschließlich der Betriebssicherheit, werden nicht mit anderen Daten verknüpft und nach spätestens 14 Tagen gelöscht. Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse).</p>
@@ -3028,11 +3025,9 @@ function setLang(lang) {
   const saved = localStorage.getItem('ppa_lang') || 'de';
   setLang(saved);
 
-  // Cookie banner persistence
-  if (localStorage.getItem('ppa_cookie')) {
-    const cb = document.getElementById('cookie');
-    if (cb) cb.style.display = 'none';
-  }
+  // Datenschutz direkt per Link öffnen (z.B. aus dem Cookie-Banner)
+  if (location.hash === '#datenschutz' && typeof openModal === 'function') openModal('datenschutz');
+
 })();
 </script>
 
