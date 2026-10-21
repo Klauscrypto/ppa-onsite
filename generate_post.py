@@ -2,7 +2,6 @@
 """Daily blog post generator for somv-project.de — generates DE/EN/TR in one call."""
 import json
 import os
-import re
 import sys
 from datetime import datetime
 
@@ -38,22 +37,35 @@ Choose one of these topic areas (pick the most current/useful, avoid repeating r
 Already published titles (DO NOT repeat these topics):
 {recent_titles}
 
-Respond ONLY with a valid JSON object — absolutely no text before or after:
-{{
-  "title": "German title (max 80 chars, compelling, precise)",
-  "title_en": "English title (max 80 chars)",
-  "title_tr": "Turkish title (max 80 chars)",
-  "category": "German category (one of: Grundlagen / Batteriespeicher / Förderung / Markt / ESG & Regulierung / Wirtschaftlichkeit / Technologie / Privat / Gewerbe)",
-  "category_en": "English category (one of: Basics / Battery Storage / Subsidies / Market / ESG & Regulation / Economics / Technology / Residential / Commercial)",
-  "category_tr": "Turkish category (one of: Temeller / Batarya Depolama / Teşvikler / Pazar / ESG & Düzenleme / Ekonomi / Teknoloji / Konut / Ticari)",
-  "summary": "German: 1-2 sentence summary of what the reader will learn",
-  "summary_en": "English: 1-2 sentence summary",
-  "summary_tr": "Turkish: 1-2 sentence summary",
-  "content": "German: Full article 550-750 words. Use ## for section headings. Separate paragraphs with blank lines (\\n\\n). Bold key terms with **...**. Factual, sourced where possible.",
-  "content_en": "English: Full article 550-750 words. Same structure as German content.",
-  "content_tr": "Turkish: Full article 550-750 words. Same structure.",
-  "readTime": "X min"
-}}"""
+Submit the finished post by calling the tool "publish_post". Fill every field:
+- title / title_en / title_tr: max 80 chars, compelling, precise
+- category: one of Grundlagen / Batteriespeicher / Förderung / Markt / ESG & Regulierung / Wirtschaftlichkeit / Technologie / Privat / Gewerbe
+- category_en: one of Basics / Battery Storage / Subsidies / Market / ESG & Regulation / Economics / Technology / Residential / Commercial
+- category_tr: one of Temeller / Batarya Depolama / Teşvikler / Pazar / ESG & Düzenleme / Ekonomi / Teknoloji / Konut / Ticari
+- summary / summary_en / summary_tr: 1-2 sentences on what the reader will learn
+- content / content_en / content_tr: full article, 550-750 words each. Use ## for section headings, blank lines between paragraphs, **bold** for key terms. Factual, sourced where possible.
+- readTime: e.g. 5 min
+"""
+
+FIELDS = [
+    "title", "title_en", "title_tr",
+    "category", "category_en", "category_tr",
+    "summary", "summary_en", "summary_tr",
+    "content", "content_en", "content_tr",
+    "readTime",
+]
+
+POST_TOOL = {
+    "name": "publish_post",
+    "description": "Submit the finished trilingual blog post.",
+    "input_schema": {
+        "type": "object",
+        "properties": {f: {"type": "string"} for f in FIELDS},
+        "required": FIELDS,
+    },
+}
+
+MAX_ATTEMPTS = 3
 
 
 def load_posts():
@@ -68,31 +80,35 @@ def save_posts(posts):
         json.dump(posts, f, ensure_ascii=False, indent=2)
 
 
-def extract_json(text):
-    """Extract JSON object from model response, tolerating markdown fences."""
-    text = text.strip()
-    text = re.sub(r"^```(?:json)?\s*", "", text)
-    text = re.sub(r"\s*```$", "", text)
-    match = re.search(r"\{.*\}", text, re.DOTALL)
-    if match:
-        return match.group()
-    return text
-
-
 def generate_post(client, recent_titles):
     recent = "\n".join(f"- {t}" for t in recent_titles[:15]) if recent_titles else "None"
     prompt = USER_TEMPLATE.format(recent_titles=recent)
 
-    response = client.messages.create(
-        model="claude-haiku-4-5-20251001",
-        max_tokens=6000,
-        system=SYSTEM_PROMPT,
-        messages=[{"role": "user", "content": prompt}],
-    )
-
-    raw = response.content[0].text
-    cleaned = extract_json(raw)
-    return json.loads(cleaned)
+    last_error = None
+    for attempt in range(1, MAX_ATTEMPTS + 1):
+        try:
+            response = client.messages.create(
+                model="claude-haiku-4-5-20251001",
+                max_tokens=16000,
+                system=SYSTEM_PROMPT,
+                tools=[POST_TOOL],
+                tool_choice={"type": "tool", "name": "publish_post"},
+                messages=[{"role": "user", "content": prompt}],
+            )
+            if response.stop_reason == "max_tokens":
+                raise ValueError("response was cut off (max_tokens reached)")
+            block = next((b for b in response.content if b.type == "tool_use"), None)
+            if block is None:
+                raise ValueError("model did not call publish_post")
+            data = block.input
+            missing = [f for f in FIELDS if not str(data.get(f, "")).strip()]
+            if missing:
+                raise ValueError(f"missing fields: {', '.join(missing)}")
+            return {f: data[f] for f in FIELDS}
+        except Exception as e:  # noqa: BLE001
+            last_error = e
+            print(f"Attempt {attempt}/{MAX_ATTEMPTS} failed: {e}")
+    raise RuntimeError(f"Could not generate post after {MAX_ATTEMPTS} attempts: {last_error}")
 
 
 def main():
