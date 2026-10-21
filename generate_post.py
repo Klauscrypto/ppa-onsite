@@ -34,6 +34,8 @@ Choose one of these topic areas (pick the most current/useful, avoid repeating r
 - Residential Solar (Einfamilienhaus, Mehrfamilienhaus, balcony power stations)
 - Commercial Solar (factories, logistics, retail, healthcare, agriculture)
 
+Today's date is {today}. The current year is {year}. Write from today's perspective: refer to {year} as the current year, never to past years as if they were current, and do not put a year in the title unless it is {year} or later.
+
 Already published titles (DO NOT repeat these topics):
 {recent_titles}
 
@@ -82,7 +84,12 @@ def save_posts(posts):
 
 def generate_post(client, recent_titles):
     recent = "\n".join(f"- {t}" for t in recent_titles[:15]) if recent_titles else "None"
-    prompt = USER_TEMPLATE.format(recent_titles=recent)
+    now = datetime.now()
+    prompt = USER_TEMPLATE.format(
+        recent_titles=recent,
+        today=now.strftime("%Y-%m-%d"),
+        year=now.year,
+    )
 
     last_error = None
     for attempt in range(1, MAX_ATTEMPTS + 1):
