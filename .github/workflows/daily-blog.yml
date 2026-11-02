@@ -7,12 +7,13 @@ on:
 
 permissions:
   contents: write           # needed to push posts.json back to repo
-  actions: write            # needed to trigger the deploy workflow
 
 jobs:
   generate:
     runs-on: ubuntu-latest
     timeout-minutes: 10
+    outputs:
+      pushed: ${{ steps.commit.outputs.pushed }}
 
     steps:
       - name: Checkout
@@ -48,8 +49,11 @@ jobs:
             echo "pushed=true" >> "$GITHUB_OUTPUT"
           fi
 
-      - name: Trigger deploy
-        if: steps.commit.outputs.pushed == 'true'
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: gh workflow run deploy.yml --ref main
+  # Deploy direkt als aufgerufener Workflow (zuverlässiger als „gh workflow run“, das am 2.11. fehlschlug)
+  deploy:
+    needs: generate
+    if: needs.generate.outputs.pushed == 'true'
+    uses: ./.github/workflows/deploy.yml
+    with:
+      ref: main
+    secrets: inherit
