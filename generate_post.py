@@ -127,8 +127,8 @@ def faktencheck(client, data):
         max_tokens=16000,
         system=PRUEF_SYSTEM,
         tools=[PRUEF_TOOL],
-        tool_choice={"type": "tool", "name": "pruefung"},
-        messages=[{"role": "user", "content": text}],
+        tool_choice={"type": "auto"},  # Opus 5.5: kein erzwungenes Tool möglich
+        messages=[{"role": "user", "content": text + "\n\nSubmit the result only via the tool \"pruefung\"."}],
     )
     if response.stop_reason == "max_tokens":
         raise ValueError("fact check was cut off (max_tokens reached)")
@@ -190,8 +190,8 @@ def generate_post(client, recent_titles):
                 max_tokens=16000,
                 system=SYSTEM_PROMPT,
                 tools=[POST_TOOL],
-                tool_choice={"type": "tool", "name": "publish_post"},
-                messages=[{"role": "user", "content": prompt}],
+                tool_choice={"type": "auto"},  # Opus 5.5: kein erzwungenes Tool möglich
+                messages=[{"role": "user", "content": prompt + "\n\nSubmit the post only via the tool \"publish_post\", no other text."}],
             )
             if response.stop_reason == "max_tokens":
                 raise ValueError("response was cut off (max_tokens reached)")
