@@ -1,7 +1,15 @@
 #!/usr/bin/env python3
-"""Daily blog post generator for somv-project.de — generates DE/EN/TR in one call."""
+"""Daily blog post generator for somv-project.de — generates DE/EN/TR in one call.
+
+Gleiches Verfahren wie alle Jarvis-Blogs („aus einer Feder“):
+  1. Beitrag schreiben (Claude, DE/EN/TR)
+  2. Unabhängiger Faktencheck (Fachlektor PV/Energie, korrigiert alle drei Sprachen)
+  3. Prüfung im Code (Länge, KI-Meta-Sätze, Vollständigkeit)
+  4. Nur wenn alles bestanden ist, kommt der Beitrag in posts.json – sonst neuer Versuch, notfalls kein Beitrag.
+"""
 import json
 import os
+import re
 import sys
 from datetime import datetime
 
@@ -45,7 +53,14 @@ Submit the finished post by calling the tool "publish_post". Fill every field:
 - category_en: one of Basics / Battery Storage / Subsidies / Market / ESG & Regulation / Economics / Technology / Residential / Commercial
 - category_tr: one of Temeller / Batarya Depolama / Teşvikler / Pazar / ESG & Düzenleme / Ekonomi / Teknoloji / Konut / Ticari
 - summary / summary_en / summary_tr: 1-2 sentences on what the reader will learn
-- content / content_en / content_tr: full article, 550-750 words each. Use ## for section headings, blank lines between paragraphs, **bold** for key terms. Factual, sourced where possible.
+- content / content_en / content_tr: full article, 550-750 words each. Use ## for section headings, blank lines between paragraphs, **bold** for key terms.
+
+Facts (strict – a specialist editor checks the post afterwards):
+- Only well-established facts. Do not invent statistics, studies, sources, quotes, prices or subsidy rates.
+- Subsidy programmes, tariffs and legal thresholds change often: describe them generally and recommend checking
+  the current conditions, unless you are certain of the figure for {year}.
+- Costs and savings only as clearly marked example ranges ("for example", "roughly", "depending on the site").
+- Nothing about SOMV beyond: German solar installation and consulting company for private and business clients.
 - readTime: e.g. 5 min
 """
 
@@ -68,6 +83,82 @@ POST_TOOL = {
 }
 
 MAX_ATTEMPTS = 3
+MODEL = os.environ.get("CLAUDE_MODEL", "claude-opus-5-5")
+MIN_WOERTER = 400
+META_MUSTER = re.compile(
+    r"Entschuldigung|ich meine natürlich|Als (?:KI|Sprachmodell)|As an AI|I apologi[sz]e|Here is the (?:article|post)|"
+    r"Hier ist (?:der|ein) (?:Artikel|Beitrag)|```|\bLorem\b|\[(?:TODO|Platzhalter|placeholder)[^\]]*\]", re.I)
+
+PRUEF_SYSTEM = """You are a strict specialist editor for photovoltaics, battery storage, energy law and subsidies in
+Germany/EU. You check a trilingual blog post (DE/EN/TR) for somv-project.de before publication.
+
+Check for:
+1. Technical errors or outdated statements (technology, EEG, feed-in tariffs, KfW/BAFA, taxes, CSRD/ESG rules).
+2. Invented statistics, studies, sources, quotes, prices, subsidy rates or deadlines.
+3. Exaggerations and promises ("guaranteed", "always", "saves X").
+4. Self-corrections, AI meta sentences, broken or truncated sentences, the three languages saying different things.
+5. Claims about SOMV beyond: German solar installation and consulting company.
+
+Correct the post so all problems are fixed (remove doubtful statements or phrase them carefully), in all three
+languages consistently. Keep the Markdown structure. Do not shorten unnecessarily.
+Submit with the tool "pruefung". freigabe = true ONLY if the corrected post can be published without concern."""
+
+PRUEF_FELDER = ["content", "content_en", "content_tr", "summary", "summary_en", "summary_tr"]
+PRUEF_TOOL = {
+    "name": "pruefung",
+    "description": "Result of the fact check with the corrected texts.",
+    "input_schema": {
+        "type": "object",
+        "properties": {
+            "freigabe": {"type": "boolean"},
+            "probleme": {"type": "array", "items": {"type": "string"}},
+            **{f: {"type": "string"} for f in PRUEF_FELDER},
+        },
+        "required": ["freigabe", "probleme", *PRUEF_FELDER],
+    },
+}
+
+
+def faktencheck(client, data):
+    """Zweiter, unabhängiger Durchgang. Gibt die korrigierten Daten zurück oder wirft einen Fehler."""
+    text = "\n\n".join(f"### {f}\n{data[f]}" for f in ["title", "title_en", "title_tr", *PRUEF_FELDER])
+    response = client.messages.create(
+        model=MODEL,
+        max_tokens=16000,
+        system=PRUEF_SYSTEM,
+        tools=[PRUEF_TOOL],
+        tool_choice={"type": "tool", "name": "pruefung"},
+        messages=[{"role": "user", "content": text}],
+    )
+    if response.stop_reason == "max_tokens":
+        raise ValueError("fact check was cut off (max_tokens reached)")
+    block = next((b for b in response.content if b.type == "tool_use"), None)
+    if block is None:
+        raise ValueError("fact check returned no result")
+    r = block.input
+    for p in r.get("probleme", []):
+        print(f"  Faktencheck: {p}")
+    if not r.get("freigabe"):
+        raise ValueError("fact check not passed: " + "; ".join(r.get("probleme", []))[:300])
+    out = dict(data)
+    for f in PRUEF_FELDER:
+        if str(r.get(f, "")).strip():
+            out[f] = r[f]
+    return out
+
+
+def qualitaet(data):
+    gruende = []
+    for f in ["content", "content_en", "content_tr"]:
+        t = data[f]
+        if len(t.split()) < MIN_WOERTER:
+            gruende.append(f"{f} too short ({len(t.split())} words)")
+        if not re.search(r"[.!?…:)\"“”»]\s*$", t.strip()):
+            gruende.append(f"{f} ends mid-sentence (truncated?)")
+        m = META_MUSTER.search(t)
+        if m:
+            gruende.append(f"{f}: AI meta phrase '{m.group(0)}'")
+    return gruende
 
 
 def load_posts():
@@ -95,7 +186,7 @@ def generate_post(client, recent_titles):
     for attempt in range(1, MAX_ATTEMPTS + 1):
         try:
             response = client.messages.create(
-                model="claude-haiku-4-5-20251001",
+                model=MODEL,
                 max_tokens=16000,
                 system=SYSTEM_PROMPT,
                 tools=[POST_TOOL],
@@ -111,7 +202,11 @@ def generate_post(client, recent_titles):
             missing = [f for f in FIELDS if not str(data.get(f, "")).strip()]
             if missing:
                 raise ValueError(f"missing fields: {', '.join(missing)}")
-            return {f: data[f] for f in FIELDS}
+            data = faktencheck(client, {f: data[f] for f in FIELDS})
+            gruende = qualitaet(data)
+            if gruende:
+                raise ValueError("quality check failed: " + "; ".join(gruende))
+            return data
         except Exception as e:  # noqa: BLE001
             last_error = e
             print(f"Attempt {attempt}/{MAX_ATTEMPTS} failed: {e}")
