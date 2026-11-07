@@ -2,7 +2,7 @@ name: Daily Blog Post
 
 on:
   schedule:
-    - cron: '0 7 * * *'   # 08:00 CET / 09:00 CEST
+    - cron: '41 5 * * *'   # 05:41 UTC – krumme Minute: zur vollen Stunde startet GitHub Läufe oft Stunden zu spät
   workflow_dispatch:        # manual trigger via GitHub UI
 
 permissions:
