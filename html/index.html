@@ -5,9 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>SOMV-Project.de – Solaranlagen von Profis. Planung, Installation, Wartung.</title>
 <meta name="description" content="SOMV Project Consulting GmbH: Photovoltaik-Anlagen für Privat, Gewerbe & Industrie. Kostenlose Beratung, Planung, Montage und Wartung aus einer Hand. Bayern & Schleswig-Holstein.">
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;800;900&family=Lora:ital,wght@0,400;1,400&display=swap" rel="stylesheet">
+<link href="/fonts/fonts-site.css" rel="stylesheet">
 <style>
 :root {
   --g1:#1B2E5A; --g2:#152449; --g3:#7B9ED9; --g4:#E8EEF8; --g5:#D0DCF0;
@@ -3028,6 +3026,7 @@ function setLang(lang) {
 
   // Datenschutz direkt per Link öffnen (z.B. aus dem Cookie-Banner)
   if (location.hash === '#datenschutz' && typeof openModal === 'function') openModal('datenschutz');
+  if (location.hash === '#impressum' && typeof openModal === 'function') openModal('impressum');
 
 })();
 </script>

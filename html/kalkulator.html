@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<meta name="robots" content="noindex, nofollow">
 <title>SOMV-Project.de — PPA Kalkulator</title>
 <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>☀</text></svg>">
-<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Poppins:wght@600;700;800&display=swap&display=swap" rel="stylesheet" media="print" onload="this.media='all'">
-<noscript><link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Poppins:wght@600;700;800&display=swap" rel="stylesheet"></noscript>
+<link href="/fonts/fonts-kalkulator.css" rel="stylesheet">
 <style>
 :root{
   --sun:#FF9500;--sun-l:#FFB340;--sun-bg:#FFF3E0;--sun-bdr:#FFD699;
@@ -989,9 +989,10 @@ footer{position:relative;z-index:1}
     </div>
     <div style="font-size:.82rem;color:var(--muted);line-height:1.7" id="impressum-content">
       <p style="margin-bottom:.5rem"><strong style="color:var(--ink)" id="imp-company">SOMV Project Consulting GmbH</strong></p>
-      <p id="imp-tel">Kontakt nicht konfiguriert</p>
-      <p style="margin-top:.75rem;font-size:.75rem">Dieses Tool dient ausschließlich zur internen Vertriebsunterstützung. Alle Berechnungen sind unverbindliche Schätzungen. Bitte konfigurieren Sie Ihre Kontaktdaten über ⚙ Tool konfigurieren.</p>
-      <p style="margin-top:.5rem;font-size:.75rem">Datenschutz: Alle eingegebenen Daten werden ausschließlich lokal im Browser gespeichert und nicht übertragen.</p>
+      <p id="imp-tel">info@somv-project.de</p>
+      <p style="margin-top:.5rem"><a href="/#impressum" style="color:var(--blue)">Impressum</a> · <a href="/#datenschutz" style="color:var(--blue)">Datenschutzerklärung</a></p>
+      <p style="margin-top:.75rem;font-size:.75rem">Dieses Tool dient zur Vertriebsunterstützung. Alle Berechnungen sind unverbindliche Schätzungen.</p>
+      <p style="margin-top:.5rem;font-size:.75rem">Datenschutz: Ihre Eingaben und Einstellungen werden lokal in Ihrem Browser gespeichert (localStorage). Wenn Sie die Standortsuche nutzen, wird der eingegebene Standort an den Geocoding-Dienst Nominatim (OpenStreetMap Foundation) und die ermittelten Koordinaten an Open-Meteo übermittelt, um Sonnenstunden abzurufen. Dabei erhalten diese Dienste auch Ihre IP-Adresse. Schriften und Diagramm-Bibliothek werden vom Webserver dieser Website geladen, nicht von Google oder einem CDN. Weitere Informationen in der <a href="/#datenschutz" style="color:var(--blue)">Datenschutzerklärung</a>.</p>
       <p id="imp-url" style="margin-top:.5rem;font-size:.75rem"></p>
     </div>
     <div class="modal-btns">
@@ -999,7 +1000,7 @@ footer{position:relative;z-index:1}
     </div>
   </div>
 </div>
-<script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+<script src="/vendor/chart.umd.min.js"></script>
 <script>
 Chart.defaults.font.family="'Nunito',sans-serif";
 let chSav=null,chCmp=null,chSchere=null;
