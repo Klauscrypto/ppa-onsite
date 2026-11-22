@@ -83,7 +83,7 @@ POST_TOOL = {
 }
 
 MAX_ATTEMPTS = 3
-MODEL = os.environ.get("CLAUDE_MODEL", "claude-opus-5-5")
+MODEL = os.environ.get("CLAUDE_MODEL", "claude-sonnet-5-5")  # 22.11.2026: Sonnet statt Opus (Kosten)
 MIN_WOERTER = 400
 META_MUSTER = re.compile(
     r"Entschuldigung|ich meine natürlich|Als (?:KI|Sprachmodell)|As an AI|I apologi[sz]e|Here is the (?:article|post)|"
